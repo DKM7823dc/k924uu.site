@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Recursos Confiables de Orientación en el Mercado de Valores</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+        
+        .breathe {
+            animation: breathe 2s ease-in-out infinite;
+        }
+        
+        .pulse-slow {
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .floating-bottom-btn {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px;
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(217, 119, 6, 0.4);
+            background: linear-gradient(135deg, #b45309 0%, #d97706 100%);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, #374151 0%, #4b5563 100%);
+        }
+        
+        .feature-card {
+            background: linear-gradient(135deg, #1e40af 0%, #2563eb 100%);
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+        }
+        
+        .accent-card {
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+        }
+        
+        .neutral-card {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .dark .neutral-card {
+            background: #374151;
+            border: 1px solid #4b5563;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900">
+    <!-- Dark mode detection -->
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-white py-20">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-2xl md:text-6xl font-bold mb-6">Recursos Confiables de Orientación en el Mercado de Valores</h1>
+                <p class="text-xl md:text-2xl mb-8 leading-relaxed">
+                    Muchas personas no saben cómo seleccionar acciones y simplemente siguen las tendencias. Pero invertir no es apostar. El trading de acciones es fácil, pero encontrar el punto de entrada adecuado puede ser muy difícil sin estrategias probadas. ¡Únete a nuestra comunidad del foro de acciones para obtener más recomendaciones de acciones de calidad!
+                </p>
+                
+                <div class="flex justify-center mb-12">
+                    <img src="img/1.jpg" alt="Análisis del Mercado" class="rounded-lg shadow-2xl max-w-md w-full">
+                </div>
+              <a href="https://www.qq.com" onclick="gtag_report_conversion('https://www.qq.com');" class="btn-primary text-white px-8 py-4 rounded-full text-xl font-semibold inline-flex items-center space-x-3 breathe" aria-label="Contáctenos">
+    <i class="fab fa-whatsapp"></i>
+    <span>Contáctenos</span>
+</a>  
+              
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 gradient-text">
+                Análisis del Mercado de Valores
+            </h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="feature-card text-white p-8 rounded-xl card-hover">
+                    <div class="text-4xl mb-4">📈</div>
+                    <h3 class="text-2xl font-bold mb-4">Mejora tus Probabilidades</h3>
+                    <p>A través de mejorar su percepción del flujo direccional del mercado y el momento oportuno.</p>
+                </div>
+                
+                <div class="testimonial-card text-white p-8 rounded-xl card-hover">
+                    <div class="text-4xl mb-4">🛡️</div>
+                    <h3 class="text-2xl font-bold mb-4">Reduce el Riesgo</h3>
+                    <p>A través de niveles de soporte de precios designados para indicar si mantener o agregar posiciones.</p>
+                </div>
+                
+                <div class="accent-card text-white p-8 rounded-xl card-hover">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-2xl font-bold mb-4">Señales de Trading----No Emociones</h3>
+                    <p>Cuando se elimina la confusión, el miedo y la codicia pasan a segundo plano.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+
+    <!-- Why Choose Us -->
+    <section class="py-20 bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl md:text-4xl font-bold mb-8 gradient-text">
+                    ¿Por qué elegirnos para recomendarte acciones "populares"?
+                </h2>
+                <p class="text-xl mb-12">
+                    Tenemos diez años de experiencia en análisis técnico de acciones e investigación profunda,<br>
+                    ¡podemos enviarte gráficos de movimientos de acciones en tiempo real!
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <div class="bg-gradient-to-br from-slate-700 to-slate-800 text-white p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold mb-4">Mejora tus Probabilidades</h3>
+                        <p>Utiliza nuestros conocimientos de mercado proporcionados por analistas (maestros de técnicas de gráficos clásicos) para maximizar el éxito de tus operaciones e inversiones.</p>
+                    </div>
+                    
+                    <div class="accent-card text-white p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold mb-4">Reduce el Riesgo</h3>
+                        <p>Utiliza nuestro sistema profesional enfocado en señales direccionales de precisión láser para obtener ventaja en operaciones tempranas y reducir pérdidas potenciales.</p>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-slate-700 to-slate-800 text-white p-8 rounded-xl">
+                        <h3 class="text-2xl font-bold mb-4">Señales de Trading----No Emociones</h3>
+                        <p>Utilizando nuestras señales claras del mercado, puedes eliminar emociones y conjeturas, inculcando una psicología de trading más equilibrada.</p>
+                    </div>
+                </div>
+                 
+            </div>
+        </div>
+    </section>
+
+    <!-- Reputation Section -->
+    <section class="py-20 bg-gray-100 dark:bg-gray-700">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <blockquote class="text-2xl italic mb-8 text-gray-600 dark:text-gray-400">
+                    "Construir una reputación toma 20 años, destruirla solo toma 5 minutos. Si puedes pensar en esto, tu forma de hacer las cosas será diferente."
+                </blockquote>
+                
+                <h2 class="text-3xl font-bold mb-6 gradient-text">Nuestro historial es nuestra reputación.</h2>
+                <p class="text-xl mb-8">Puedes estar seguro de que nunca la tomaremos a la ligera.</p>
+                <p class="text-lg mb-12">
+                    Por eso estamos comprometidos a convertirnos en la mejor comunidad de inversión en acciones. Estamos felices de trabajar contigo para ayudarte a realizar tus sueños. Únete a nuestro WhatsApp y hagámonos ricos juntos.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Disclaimer -->
+    <section class="py-12 bg-yellow-50 dark:bg-yellow-900 border-t border-yellow-200">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-lg">
+                    <h3 class="text-2xl font-bold mb-6 text-red-600 flex items-center">
+                        <i class="fas fa-exclamation-triangle mr-3"></i>
+                        Descargo de Responsabilidad
+                    </h3>
+                    
+                    <div class="text-gray-700 dark:text-gray-300 space-y-4 text-sm">
+                        <p>La información proporcionada en este sitio web es solo para fines educativos y de referencia, y no debe ser considerada como asesoramiento financiero, asesoramiento de inversión, u oferta o invitación para comprar o vender cualquier valor.</p>
+                        
+                        <p>El trading e inversión en el mercado de valores involucra riesgo significativo de pérdida y no es adecuado para todos los inversores. El valor de las inversiones puede fluctuar, y los inversores pueden perder parte o todo su capital invertido.</p>
+                        
+                        <p>El rendimiento pasado no representa el rendimiento futuro. Cualquier retorno histórico, retorno esperado o proyecciones de probabilidad pueden no reflejar el rendimiento real futuro. Todos los usuarios deben consultar con asesores financieros calificados y/o profesionales de impuestos antes de tomar cualquier decisión de inversión.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <div class="flex justify-center space-x-6 text-sm">
+                    <a href="privacy.html" target="_blank" class="text-gray-300 hover:text-white transition-colors">
+                        Política de Privacidad
+                    </a>
+                    <span class="text-gray-500">|</span>
+                    <a href="terms.html" target="_blank" class="text-gray-300 hover:text-white transition-colors">
+                        Términos de Uso
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+ 
+	
+	<div class="floating-bottom-btn">
+    <a href="https://www.qq.com" onclick="gtag_report_conversion('https://www.qq.com');" class="w-full py-4 text-white text-xl font-bold rounded-full breathe flex items-center justify-center space-x-3" aria-label="Contáctanos vía WhatsApp">
+        <i class="fab fa-whatsapp text-2xl"></i>
+        <span>Contáctanos vía WhatsApp</span>
+    </a>
+</div>
+
+
+    <script>
+        function d2() {
+          //  window.open('https://wa.me/message', '_blank');
+        }
+        
+        // Add some extra spacing to body to account for floating button
+        document.body.style.paddingBottom = '80px';
+    </script>
+</body>
+</html>
