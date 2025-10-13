@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣遠程工作機會  </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1e3a8a',
+                        secondary: '#f59e0b',
+                        accent: '#0f172a',
+                        gold: '#fbbf24'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .typing-animation {
+            border-right: 2px solid #f59e0b;
+            animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #f59e0b }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="gradient-bg text-white fixed w-full z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold text-gold">遠程工作台灣</div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#home" class="hover:text-gold transition-colors">首頁</a>
+                    <a href="#positions" class="hover:text-gold transition-colors">職位</a>
+                    <a href="#about" class="hover:text-gold transition-colors">關於我們</a>
+                    <a href="#testimonials" class="hover:text-gold transition-colors">客戶評價</a>
+                    <a href="#apply" class="hover:text-gold transition-colors">立即申請</a>
+                </div>
+                <button class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="gradient-bg text-white pt-20 pb-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="text-lg text-gold mb-4">資格：申請人必須是台灣公民、合法居民或工作許可證持有人</div>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                        <span class="typing-animation">體驗遠程工作的靈活性</span>
+                    </h1>
+                    
+                    <p class="text-lg mb-8 opacity-90">
+                        數據錄入專家、在線遠程助手<br>
+                        通過全職或兼職遠程職位在家發展您的職業生涯——既穩定又靈活。
+                    </p>
+                    <button onclick="h2()" class="bg-gold text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-colors shadow-lg">
+                        立即申請
+                    </button>
+                </div>
+                <div class="text-center">
+                    <img src="img/1.jpg" alt="遠程工作專家" class="rounded-lg shadow-2xl w-full max-w-md mx-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">隨時隨地工作，按您的意願生活</h2>
+                <p class="text-xl text-gray-600">可用職位</p>
+                <p class="text-2xl font-bold text-gold">1000+ 個在線遠程工作機會</p>
+                <p class="text-gray-700 mt-4">尋找符合您技能的最新遠程職位。快速申請，享受靈活安排時間、隨時隨地辦公的自由。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Job Positions -->
+    <section id="positions" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8 card-hover">
+                    <div class="mb-4">
+                        <span class="bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">現在很熱門！</span>
+                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm ml-2">台灣，遠程工作</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">數據錄入專家</h3>
+                    <p class="text-gray-600 mb-4">兼職/全職</p>
+                    <p class="text-gray-700 mb-4">任務包括數據輸入、數據研究和分析。</p>
+                    <p class="text-gold font-semibold mb-6">每天工作1至5小時</p>
+                    <button onclick="h2()" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors">
+                        立即申請
+                    </button>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-lg p-8 card-hover">
+                    <div class="mb-4">
+                        <span class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold">可用的</span>
+                        <span class="bg-primary text-white px-3 py-1 rounded-full text-sm ml-2">台灣，遠程工作</span>
+                    </div>
+                    <h3 class="text-2xl font-bold text-primary mb-2">在線遠程助手</h3>
+                    <p class="text-gray-600 mb-4">兼職/全職</p>
+                    <p class="text-gray-700 mb-4">任務包括客戶協助和市場研究等。</p>
+                    <p class="text-gold font-semibold mb-6">每天工作1至5小時</p>
+                    <button onclick="h2()" class="w-full bg-primary text-white py-3 rounded-lg font-semibold hover:bg-blue-800 transition-colors">
+                        立即申請
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Section -->
+    <section id="apply" class="py-16 bg-primary text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">立即提交您的工作申請</h2>
+                    <p class="text-lg mb-6 opacity-90">
+                        請確保您擁有Line號碼以便聯繫我們。我們將在15分鐘內通過Line回復您，因此請您查看消息並及時回復。
+                    </p>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-gold mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>1. 僅適用於台灣公民</span>
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 text-gold mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span>2. 需要有效的Line號碼</span>
+                        </div>
+                    </div>
+                    <button onclick="h2()" class="bg-gold text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-colors shadow-lg">
+                        立即申請
+                    </button>
+                </div>
+                <div class="text-center">
+                    <img src="img/2.jpg" alt="立即申請" class="rounded-lg shadow-2xl w-full max-w-md mx-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">關於我們</h2>
+                    <h3 class="text-2xl font-semibold text-gold mb-4">人人皆有良機</h3>
+                    <p class="text-gray-700 text-lg mb-8">
+                        我們為您提供靈活的遠程辦公時間，無需通勤。探索各種適合各種技能水平的遠程工作機會，立即開啟您的職業發展之旅。
+                    </p>
+                    
+                    <div class="grid grid-cols-3 gap-6 mb-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary">2500+</div>
+                            <div class="text-gray-600">任務完成</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary">99%</div>
+                            <div class="text-gray-600">滿意度</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-primary">10</div>
+                            <div class="text-gray-600">多年經驗</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <img src="img/5.jpg" alt="關於我們" class="rounded-lg shadow-2xl w-full max-w-md mx-auto">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="text-center">
+                    <img src="img/6.jpg" alt="員工支持" class="rounded-lg shadow-2xl w-full max-w-md mx-auto">
+                </div>
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold text-primary mb-6">以員工為中心的支持</h2>
+                    <p class="text-gray-700 text-lg mb-8">
+                        您的需求是第一位的——我們提供個性化的職業建議。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-primary mb-4">我們的特色</h2>
+                <h3 class="text-2xl font-semibold text-gold mb-6">為什麼選擇我們？</h3>
+                <p class="text-gray-700 text-lg max-w-3xl mx-auto mb-8">
+                    與一家重視您個人成長的招聘機構合作。我們會根據您的技能和職業目標，為您匹配合適的職位——因為您的成功是我們一切工作的動力。
+                </p>
+                <button onclick="h2()" class="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-800 transition-colors shadow-lg">
+                    立即申請
+                </button>
+            </div>
+            
+            <div class="bg-gold text-primary rounded-lg p-8 text-center shadow-lg">
+                <h3 class="text-2xl font-bold mb-4">高薪和最大靈活性</h3>
+                <p class="text-lg">工作時間更少，非常適合在線家庭辦公工作。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section id="testimonials" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-primary mb-4">客戶對我們的評價</h2>
+            <p class="text-center text-gray-700 text-lg mb-12 max-w-4xl mx-auto">
+                加入我們的團隊，享受靈活的全職或兼職職位，享受有競爭力的薪酬和豐厚的獎金。完美平衡工作與生活，同時解鎖額外福利。立即申請！
+            </p>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mr-4">
+                            A
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-primary">數據錄入專家</h4>
+                            <div class="text-gold">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "這個網站幫我找到了一份非常符合我日常生活的兼職工作。在家賺錢從未如此輕鬆！"
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-8">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold mr-4">
+                            B
+                        </div>
+                        <div>
+                            <h4 class="font-semibold text-primary">客戶支持專家</h4>
+                            <div class="text-gold">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 italic">
+                        "我通過這個平台在一週內找到了一份靈活的遠程工作。申請過程很簡單，現在我終於可以按照自己的意願工作了！"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-16 gradient-bg text-white text-center">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">
+                加入我們，享受靈活的兼職職位，賺取豐厚獎金！
+            </h2>
+            <p class="text-xl mb-8 opacity-90">
+                這是平衡工作與生活的理想選擇，還能獲得額外獎勵。立即申請！
+            </p>
+            <button onclick="h2()" class="bg-gold text-primary px-12 py-4 rounded-lg text-xl font-semibold hover:bg-yellow-400 transition-colors shadow-lg">
+                立即申請
+            </button>
+        </div>
+    </section>
+
+    <!-- Floating CTA Button -->
+    <div class="fixed bottom-4 left-0 right-0 z-50 px-4">
+        <div class="max-w-sm mx-auto">
+            <button onclick="h2()" class="w-full bg-gold text-primary py-3 px-6 rounded-lg text-lg font-semibold hover:bg-yellow-400 transition-colors shadow-lg whitespace-nowrap text-center">
+                立即申請 
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-accent text-white py-12 pb-20">
+        <div class="container mx-auto px-4">
+            <div class="border-t border-gray-700 pt-8">
+                <div class="bg-red-600 text-white p-4 rounded-lg mb-6">
+                    <h3 class="font-bold mb-2">⚠️ 重要聲明</h3>
+                    <div class="text-sm space-y-2">
+                        <p>• 本網站提供的收入數據僅為示例，不代表保證收入或典型收益。</p>
+                        <p>• 實際收入取決於個人技能、投入時間、市場條件等多種因素。</p>
+                        <p>• 工作機會的可用性會有所變化，我們不保證任何特定的工作安排。</p>
+                        <p>• 請在申請前仔細考慮自己的時間安排和工作能力。</p>
+                        <p>• 如有疑問，建議諮詢相關專業人士的意見。</p>
+                        <p>• 申請者需自行核實所有信息的準確性和適用性。</p>
+                    </div>
+                </div>
+                
+                <div class="text-center text-gray-400">
+                    <p>&copy; 2024 遠程工作台灣. 保留所有權利。</p>
+                    <p class="mt-2 text-sm">本網站僅供參考用途，不構成就業保證或收入承諾。</p>
+                    <div class="mt-4 space-x-4">
+                        <a href="Privacy.html" class="text-gold hover:text-yellow-400 transition-colors underline">隱私政策</a>
+                        <span class="text-gray-600">|</span>
+                        <a href="terms.html" class="text-gold hover:text-yellow-400 transition-colors underline">用戶條款</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // h2() function for button clicks
+        function h2() {
+            // This function will handle the LINE redirect
+            // User should replace this with their actual LINE link
+            window.open('https://line.me/', '_blank');
+        }
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.md\\:hidden button');
+        if (mobileMenuButton) {
+            mobileMenuButton.addEventListener('click', function() {
+                // Add mobile menu functionality here if needed
+            });
+        }
+    </script>
+</body>
+</html>
