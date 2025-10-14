@@ -1,0 +1,390 @@
+<html lang="de"><head></head><body>﻿
+ 
+    <script>
+function addCartEvent(){
+   window.location.href="https://www.qq.com";
+}
+</script>   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <script type="text/javascript" src="js/jquery.min.js"></script>
+
+
+    <title>Bis zu 500 % Wachstumspotenzial</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #f4f4f4;
+        }
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: #ffd700;
+            border-radius: 50%;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            margin-top: 20px;
+            padding: 20px;
+            background: rgba(44, 44, 44, 0.3);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 1s ease-in-out;
+            position: relative;
+            z-index: 1;
+        }
+        .header {
+            background-image: url('images/bg.jpeg');
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-content {
+            text-align: center;
+            width: 90%;
+        }
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            animation: slideInDown 0.5s ease-in-out;
+        }
+        h2 {
+            color: #ffd700;
+        }
+        .teacher-profile {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            margin: 20px 10%;
+            border-radius: 10px; 
+            padding: 20px; 
+        }
+        .profile {
+            text-align: center;
+            transition: transform 0.3s;
+            margin: 10px;
+        }
+        .profile img {
+            border-radius: 10px;
+            width: 100px; 
+            height: 100px; 
+            transition: transform 0.3s;
+        }
+        .cta {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .cta button {
+            padding: 10px 20px;
+            background: #ffd700;
+            border: none;
+            color: black;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .cta button:hover {
+            background: #ffc107;
+            transform: scale(1.1);
+        }
+        .promotion {
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+            margin: 20px 10%;
+        }
+        .info-boxes {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+            flex-wrap: wrap; 
+        }
+        .info-box {
+            background: #3d3d3d;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            width: 25%;
+            transition: transform 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin: 0 15px;
+        }
+        .info-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+        .info-box h3 {
+            color: #ffd700;
+        }
+        .teacher-profile img {
+            width: 300px; 
+            margin-left: 20px;
+        }
+        .profile h3{
+            text-align: left;
+        }
+        @media (max-width: 768px) {
+            .header {
+                height: 35vh; 
+            }
+
+            .header-content strong {
+                color: white;
+                font-size: 24px; 
+            }
+            strong {
+                font-size: 24px;
+            }
+
+            .header h1 {
+                display: block; 
+                font-size: 30px; 
+                color: #fff; 
+                margin-top: 10px; 
+            }
+
+            .content-section {
+                flex-direction: column;
+                align-items: center;
+                margin: 0;
+            }
+
+            .text-right {
+                width: 100%;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .image-right {
+                width: 100%;
+                max-width: 80%;
+            }
+
+            .info-box {
+                width: 100%; 
+                margin: 10px 0; 
+            }
+
+            .teacher-profile {
+                flex-direction: column;
+                align-items: center; 
+            }
+
+            .profile {
+                width: 100%;
+                text-align: center; 
+            }
+            .promotion {
+            padding: 15px;
+            border-radius: 10px;
+            text-align: left;
+            margin: 20px 0;
+        }
+
+            .profile img {
+                margin-top: 10px; 
+            }
+
+            .teacher-profile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+    border-radius: 10px;
+}
+
+        }
+
+        .container3 {
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 12px;
+            padding: 60px 40px;
+        }
+
+        .cta-box {
+            padding: 24px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 30px;
+            min-width: 100%;
+        }
+
+        .cta-btn {
+            background-color:#7b98e1;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .cta-btn:hover {
+            background-color: #2c4a9e;
+        }
+        
+        .floating-button {
+            position: fixed;
+            bottom: 10px;  
+            left: 50%;    
+            transform: translateX(-50%);
+            z-index: 1000; 
+        }
+         .whatsapp-section p{
+              font-size: 22px;
+    width: 1200px;
+    margin: auto;
+    font-weight: 600;
+    text-align: left;
+
+        }
+         .gradient-text {
+    background: linear-gradient(30deg, #ff0000, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInDown {
+            from { transform: translateY(-20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        @keyframes bounceIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+
+
+    <div class="background"></div>
+     <div class="header">
+        <div class="header-content">
+            <h1 class="gradient-text">Bis zu 500 % Wachstumspotenzial.</h1>
+    <strong class="gradient-text" style="font-size:24px">Ich werde Informationen zu drei Aktien mit der besten Performance in meiner WhatsApp-Aktien-Gruppe teilen!</strong>
+        </div>
+    </div>
+    <div class="container"> 
+        <div class="info-boxes">
+            <div class="info-box">
+                <h2>65K+</h2>
+                <p>Leser des Reports</p>
+                <p>Werde Teil meiner Community und profitiere wöchentlich von meinen Finanz-Tipps.</p>
+            </div>
+            <div class="info-box">
+                <h2>786K+</h2>
+                <p>Abonnenten auf YouTube</p>
+                <p>Mein Youtube-Kanal ist mittlerweile einer der größten Finanzkanäle Deutschlands.</p>
+            </div>
+            <div class="info-box">
+                <h2>375K+</h2>
+                <p>Podcast Hörer</p>
+                <p>In meinem Podcast spreche ich zweimal wöchentlich ganz konkret über Aktien, ETFs, Gold und Silber.</p>
+            </div>
+        </div>
+        <div class="teacher-profile">
+            <div class="profile">
+                <h1 style="color: #ffd700;">Philip Hopf</h1>
+                <h3>
+                Haftungsausschluss: Diese Community teilt ausschließlich Inhalte zum Aktienmarkt! Bei Nichtinteresse bitte nicht teilnehmen.<br><br>
+Ich werde die neuesten Leitfäden und Tipps anbieten!<br>
+✔️ Erhalten Sie Marktinformationen in Echtzeit, um Risiken zu minimieren.<br>
+✔️ Analysieren Sie Trends mit der 6S-Methode.<br>
+✔️ Analysieren Sie jeden Ihrer Schritte gründlich anhand von sechs Schlüsseldimensionen.<br>
+✔️ Entdecken Sie die Geheimnisse hinter jeder Aktion.<br>
+✔️ Expertenanalyseberichte helfen Ihnen, Ihr Portfolio zu optimieren und die Sicherheit zu erhöhen.<br>
+👉 Treten Sie jetzt meiner Community bei und erhalten Sie Zugriff auf detaillierte Strategien und kostenlose Tipps!<br>
+✔️ Teilen Sie wertvolle Checklisten und Marktanalysetechniken, um intelligentere Entscheidungen zu treffen.
+
+            </h3>
+            </div>
+            <img src="images/1.webp" alt="">
+        </div>
+      
+        <div class="promotion">
+            <h3>
+                 Noch einmal: Der Beitritt zu meiner Börsengruppe ist kostenlos, und die hochwertigen Aktieninformationen, die ich weitergebe, 
+                 sowie die technischen Taktiken, die ich lehre, sind praktisch! Ich bin auf Popularität und Mundpropaganda aus, nicht auf sogenannte ‚Mitgliedsbeiträge".<br><br>
+                Jeder Anleger sollte diese Aktie auf seine Beobachtungsliste diese Aktie in meiner WhatsApp-Gruppe 
+                bekannt geben! setzen! <span style="color:red"> (Potenzial von mehr als dem 13-Fachen)</span> Ich werde Der Grund, warum niemand unsere 
+                Community verlässt, ist, dass wir keine Gebühren verlangen!<br><br> Jeden Tag um 9 Uhr stellen wir drei Aktien vor, 
+                die auf jeden Fall steigen werden, mit einer Gewinnquote von über 93% und keinem einzigen Verlust in der letzten Woche. 
+                Treten Sie meiner Aktiengruppe bei, reine Aktiendiskussion, kein Ärger.</h3>
+        </div>
+    </div>
+
+     <div class="container3">
+        <div class="cta-box floating-button">
+            <a   onclick="addCartEvent()" class="cta-btn">
+        <span>Fügen Sie WhatsApp hinzu, um <br>kostenlose Empfehlungen zu erhalten. → </span></a>
+        </div>
+    </div>
+
+
+    <script>
+        const background = document.querySelector('.background');
+        const particlesCount = 100; 
+
+        for (let i = 0; i < particlesCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            const size = Math.random() * 10 + 5; 
+            particle.style.width = `${size}px`;
+            particle.style.height = `${size}px`;
+            particle.style.left = `${Math.random() * 100}vw`;
+            particle.style.top = `${Math.random() * 100}vh`;
+            particle.style.opacity = Math.random();
+            particle.style.animationDuration = `${Math.random() * 2 + 3}s`; 
+            background.appendChild(particle);
+
+
+            particle.animate([
+                { transform: 'translateY(0)' },
+                { transform: `translateY(-100vh)` }
+            ], {
+                duration: (Math.random() * 2000 + 3000), 
+                iterations: Infinity,
+                easing: 'linear'
+            });
+        }
+    </script>
+
+
+  </body></html>
