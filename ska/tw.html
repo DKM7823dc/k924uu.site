@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>加入線上俱樂部✨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',
+                        secondary: '#A855F7',
+                        accent: '#C084FC',
+                        dark: '#181818'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'progress': 'progress 3s ease-in-out forwards',
+                        'radar': 'radar 3s ease-in-out infinite',
+                        'pulse-ring': 'pulseRing 2s ease-out infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'breathe': 'breathe 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(100%)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        progress: {
+                            '0%': { width: '0%' },
+                            '100%': { width: '100%' }
+                        },
+                        radar: {
+                            '0%': { transform: 'scale(1)', opacity: '1' },
+                            '50%': { transform: 'scale(1.05)', opacity: '0.9' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        pulseRing: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0.8' },
+                            '100%': { transform: 'scale(2)', opacity: '0' }
+                        },
+                        breathe: {
+                            '0%': { transform: 'scale(1)', boxShadow: '0 0 20px rgba(139, 92, 246, 0.3)' },
+                            '50%': { transform: 'scale(1.05)', boxShadow: '0 0 30px rgba(139, 92, 246, 0.6)' },
+                            '100%': { transform: 'scale(1)', boxShadow: '0 0 20px rgba(139, 92, 246, 0.3)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-hero {
+            background-image: url('img/2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .user-card {
+            transition: all 0.3s ease;
+        }
+        
+        .user-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.2);
+        }
+
+        .radar-button {
+            position: relative;
+            overflow: visible;
+        }
+
+        .radar-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(139, 92, 246, 0.4);
+            border-radius: 12px;
+            transform: translate(-50%, -50%);
+            animation: pulseRing 2s ease-out infinite;
+        }
+
+        .radar-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 110%;
+            height: 110%;
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            border-radius: 12px;
+            transform: translate(-50%, -50%);
+            animation: pulseRing 2s ease-out infinite 0.5s;
+        }
+
+        .hot-indicator {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            animation: bounce 1s infinite;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .dark .bg-white { background-color: #181818; }
+            .dark .text-gray-900 { color: #f3f4f6; }
+            .dark .text-gray-600 { color: #9ca3af; }
+            .dark .text-gray-800 { color: #e5e7eb; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-900 via-purple-600 to-pink-500">
+    <!-- Background Hero Image -->
+    <div class="fixed inset-0 bg-hero opacity-60"></div>
+    <div class="fixed inset-0 bg-gradient-to-br from-purple-900/40 via-purple-600/30 to-pink-500/40"></div>
+
+    <!-- Welcome Modal -->
+    <div id="welcomeModal" class="fixed inset-0 z-50 flex items-center justify-center animate-fade-in">
+        <div class="bg-white dark:bg-dark rounded-3xl p-8 mx-4 w-full max-w-md glass-effect shadow-2xl animate-slide-up">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">最頂級的炮友匹配團體</h2>
+                <div class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed text-sm sm:text-base space-y-3">
+                    <div class="text-center">
+                        <p class="font-semibold text-purple-600 dark:text-purple-400 mb-2">會員製團體玩法</p>
+                    </div>
+                    
+                    <p class="text-left">
+                        成為會員和美女約會無需任何消費，所有男女會員都是自願加入並發生性關係，滿足性需求或是尋找刺激，一次入會在全台各地區都可永久免費配對同地區美女
+                    </p>
+                    
+                    <div class="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 p-3 rounded-lg">
+                        <p class="text-center font-medium text-purple-700 dark:text-purple-300">
+                            藝人、空姐、女學生、教師、制服、SM、模特
+                        </p>
+                    </div>
+                    
+                    <div class="space-y-2 text-sm">
+                        <p class="flex items-center">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span class="font-medium">我們的承諾：</span>無保證金、無欺騙、無額外費用
+                        </p>
+                        <p class="flex items-center">
+                            <span class="text-blue-500 mr-2">⚡</span>
+                            <span class="font-medium">我們的保證：</span>30分鐘内完成完美炮友匹配
+                        </p>
+                        <p class="flex items-start">
+                            <span class="text-purple-500 mr-2 mt-0.5">🛡️</span>
+                            <span>
+                                <span class="font-medium">我們的保障：</span>台灣全地區20萬+約炮資源共享，不滿意全額退款
+                            </span>
+                        </p>
+                    </div>
+                    
+                    <p class="text-center italic text-gray-500 dark:text-gray-400 border-t pt-3 mt-4">
+                        若您信任我們，我們將以最優質的服務回報您
+                    </p>
+                </div>
+                <button onclick="startMatching()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-4 rounded-2xl font-semibold text-lg hover:shadow-lg transition-all duration-300 animate-breathe">
+                    點擊進入
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="fixed inset-0 z-40 hidden flex-col items-center justify-center p-4">
+        <div class="text-center">
+            <div class="w-20 h-20 border-4 border-purple-200 border-t-purple-500 rounded-full animate-spin mb-6"></div>
+            <h3 class="text-2xl font-bold text-white mb-4">為您配對中...</h3>
+            <div class="w-64 h-3 bg-purple-200 rounded-full overflow-hidden">
+                <div id="progressBar" class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="hidden relative z-10">
+        <div class="container mx-auto px-4 py-6">
+            <!-- Header -->
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-bold text-white mb-2">通過專業經紀人服務幫助您實現一夜情，我們不會干涉彼此的私生活。</h1>
+                <div class="flex items-center justify-center text-green-400 mb-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></div>
+                    <span class="text-sm">即時線上</span>
+                </div>
+            </div>
+
+            <!-- User List -->
+            <div class="space-y-4 mb-8">
+                <!-- User Card 1 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/1.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">4分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：老師</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：26歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：2公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 2 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/2.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">3分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：護士</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：21歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：1公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 3 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/3.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">2分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：醫生</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：22歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：1.5公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 4 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/4.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">5分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：老師</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：25歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：2.8公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 5 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/5.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">1分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：學生</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：21歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：1.5公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 6 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/6.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">6分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：學生</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：22歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：1.2公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 7 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/7.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">7分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：學生</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：26歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：2.8公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 8 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/8.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">8分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：航空公司空姐</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：27歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：1.8公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 9 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/9.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">9分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：航空公司空姐</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：24歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：2公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 10 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/10.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">10分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：航空公司空姐</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：22歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：3.2公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 11 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/11.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">11分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：護士</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：21歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：1.2公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 12 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/12.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">12分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：護士</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：23歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：2公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 13 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/13.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">13分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：護士</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：21歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：2.9公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 14 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/14.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">14分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：老師</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：23歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：1.2公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 15 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/15.jpg" alt="使用者圖片" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">15分鐘前上線</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">目前可預約。</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">類型：老師</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">年齡：25歲</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">距離：3公里</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 6h2v2h-2V8zm0 4h2v6h-2v-6z"/>
+                            </svg>
+                            LINE
+                        </button>
+                    </div>
+                </div>
+
+            <!-- User Reviews -->
+            <div class="bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect mb-6">
+                <div class="flex items-center mb-4">
+                    <svg class="w-5 h-5 text-yellow-400 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                    </svg>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-white">用戶真實評價</h3>
+                    <div class="ml-auto flex text-yellow-400">
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                    </div>
+                </div>
+
+                <div class="space-y-4 max-h-96 overflow-y-auto">
+                    <!-- Review 1 -->
+                    <div class="border-l-4 border-purple-400 pl-4 bg-purple-50 dark:bg-purple-900/20 rounded-r-lg p-3">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-semibold text-purple-600 dark:text-purple-400">偉*杰</span>
+                            <span class="text-xs text-gray-500">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <strong>希嵐｜162/46/C/21歲</strong><br>
+                            清純學生妹 皮膚白到發光<br>
+                            身體超敏感 一舔就濕<br>
+                            叫聲小聲卻超浪 喜歡被含著親全身
+                        </p>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="border-l-4 border-pink-400 pl-4 bg-pink-50 dark:bg-pink-900/20 rounded-r-lg p-3">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-semibold text-pink-600 dark:text-pink-400">文*彬</span>
+                            <span class="text-xs text-gray-500">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <strong>語嫻｜165/49/D+/27歲</strong><br>
+                            氣質女主管 私下卻超會玩<br>
+                            高挑翹臀 一夾就濕<br>
+                            懂得用身體取悅男人<br>
+                            整場配合滿分 淫蕩到讓人失控
+                        </p>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="border-l-4 border-blue-400 pl-4 bg-blue-50 dark:bg-blue-900/20 rounded-r-lg p-3">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-semibold text-blue-600 dark:text-blue-400">俊*銘</span>
+                            <span class="text-xs text-gray-500">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <strong>小晴｜155/45/C/22歲</strong><br>
+                            氣質清新的小隻女孩，臉蛋甜美帶點靦腆<br>
+                            笑起來會讓人心動，是那種鄰家型的自然可愛<br>
+                            舉手投足都帶著年輕的純真氣息
+                        </p>
+                    </div>
+
+                    <!-- Review 4 -->
+                    <div class="border-l-4 border-red-400 pl-4 bg-red-50 dark:bg-red-900/20 rounded-r-lg p-3">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-semibold text-red-600 dark:text-red-400">昊*天</span>
+                            <span class="text-xs text-gray-500">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <strong>琬琬｜164/48/D/36歲</strong><br>
+                            性慾旺盛人妻 服務主動<br>
+                            喜歡舔 喜歡被幹 喜歡被拍屁股
+                        </p>
+                    </div>
+
+                    <!-- Review 5 -->
+                    <div class="border-l-4 border-green-400 pl-4 bg-green-50 dark:bg-green-900/20 rounded-r-lg p-3">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-semibold text-green-600 dark:text-green-400">明*杰</span>
+                            <span class="text-xs text-gray-500">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <strong>彤彤｜164/46/C/22歲</strong><br>
+                            性感學生妹 腿長腰細<br>
+                            看似乖乖牌 其實超會搖<br>
+                            叫聲淫蕩 床上一直求你插
+                        </p>
+                    </div>
+
+                    <!-- Review 6 -->
+                    <div class="border-l-4 border-indigo-400 pl-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-r-lg p-3">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="font-semibold text-indigo-600 dark:text-indigo-400">昱*廷</span>
+                            <span class="text-xs text-gray-500">⭐⭐⭐⭐⭐</span>
+                        </div>
+                        <p class="text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
+                            <strong>芊芊｜164/48/D+/23歲</strong><br>
+                            一臉無害清純臉 卻超會搖床<br>
+                            看似乖乖女 私底下騷得讓人欲罷不能<br>
+                            服務認真 願意迎合 喜歡被哥哥主導<br>
+                            大奶彈性佳 白皙皮膚滑順好舔
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-4 text-center">
+                    <span class="text-xs text-gray-500 dark:text-gray-400">📝 以上評價來自真實用戶體驗</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        function startMatching() {
+            const welcomeModal = document.getElementById('welcomeModal');
+            const loadingScreen = document.getElementById('loadingScreen');
+            const mainContent = document.getElementById('mainContent');
+
+            // Hide welcome modal
+            welcomeModal.classList.add('opacity-0', 'transform', 'scale-95');
+            setTimeout(() => {
+                welcomeModal.classList.add('hidden');
+                loadingScreen.classList.remove('hidden');
+                loadingScreen.classList.add('flex');
+            }, 300);
+
+            // Show main content after 3 seconds
+            setTimeout(() => {
+                loadingScreen.classList.add('opacity-0');
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                    loadingScreen.classList.remove('flex');
+                    mainContent.classList.remove('hidden');
+                    mainContent.classList.add('animate-fade-in');
+                }, 300);
+            }, 2000);
+        }
+
+        function k2() {
+            window.open('https://www.focabooks.com/VC6468', '_blank');
+        }
+
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const userCards = document.querySelectorAll('.user-card');
+            userCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('animate-slide-up');
+            });
+        });
+    </script>
+</body>
+</html>
