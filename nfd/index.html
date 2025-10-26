@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+ <meta charset="UTF-8">
+ 
+
+
+<script>
+ function openChat() {
+         
+      window.location.href="https://www.qq.com";
+        }
+</script>
+   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Akıllı Hisse Senedi Yatırım Sinyalleri</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0B1426 0%, #1E3A5F 50%, #0B1426 100%);
+            color: #fff;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .main-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top section styles */
+        .banner-area {
+            padding: 60px 0;
+            text-align: center;
+            background: linear-gradient(45deg, #0B1426, #1E3A5F);
+        }
+
+        .main-heading {
+            font-size: 3em;
+            font-weight: bold;
+            color: #FFD700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .sub-heading {
+            font-size: 1.3em;
+            margin-bottom: 30px;
+            color: #E8F4F8;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .author-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid #FFD700;
+            object-fit: cover;
+        }
+
+        .author-details h3 {
+            color: #FFD700;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        /* Content sections */
+        .content-block {
+            padding: 80px 0;
+            margin: 40px 0;
+        }
+
+        @media (max-width: 768px) {
+            .content-block {
+                padding: 16px 0;
+                margin: 16px 0;
+            }
+        }
+
+        .block-title {
+            font-size: 2.5em;
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        @media (max-width: 768px) {
+            .block-title {
+                font-size: 1.8em;
+                line-height: 1.2;
+            }
+        }
+
+        .block-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .text-content {
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .image-content {
+            text-align: center;
+        }
+
+        .image-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Issue highlights */
+        .issue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .issue-item {
+            background: linear-gradient(135deg, #1E3A5F, #0B1426);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #FFD700;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .issue-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .issue-item h4 {
+            color: #FFD700;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+        }
+
+        /* Feature boxes */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .feature-box {
+            background: linear-gradient(135deg, #2A4A73, #1E3A5F);
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px solid #FFD700;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.4);
+        }
+
+        /* Review section */
+        .review-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .review-box {
+            background: linear-gradient(135deg, #1E3A5F, #0B1426);
+            padding: 30px;
+            border-radius: 15px;
+            border-left: 5px solid #FFD700;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .reviewer-name {
+            color: #FFD700;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Action buttons */
+        .action-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.4);
+            margin: 20px 10px;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(255, 215, 0, 0.6);
+            background: linear-gradient(45deg, #FFA500, #FF8C00);
+        }
+
+        .action-btn:active {
+            transform: translateY(0);
+        }
+
+        /* Chat widget */
+        .chat-widget {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            z-index: 1000;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            animation: pulse-effect 2s ease-in-out infinite;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+        }
+
+        .chat-widget::before {
+            content: "1";
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #FF4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .chat-icon {
+            width: 30px;
+            height: 30px;
+            fill: white;
+        }
+
+        /* Bottom floating element */
+        .bottom-float {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .bottom-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            border: none;
+            padding: 20px 60px;
+            font-size: 1.3em;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            animation: pulse-effect 3s ease-in-out infinite;
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Bottom section */
+        .page-footer {
+            background: #000;
+            padding: 40px 0;
+            margin-top: 80px;
+            margin-bottom: 100px;
+        }
+
+        .disclaimer-box {
+            background: #1A1A1A;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 2px solid #FFD700;
+        }
+
+        .disclaimer-box h4 {
+            color: #FFD700;
+            margin-bottom: 15px;
+        }
+
+        .disclaimer-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .disclaimer-box li {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .disclaimer-box li::before {
+            content: "*";
+            color: #FFD700;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .footer-nav {
+            text-align: center;
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-nav a {
+            color: #FFD700;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid #FFD700;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            background: #FFD700;
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            .footer-nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .footer-nav a {
+                width: 200px;
+                text-align: center;
+            }
+        }
+
+        /* Animations */
+        @keyframes pulse-effect {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes fade-pulse {
+            0% { opacity: 0.6; }
+            50% { opacity: 1; }
+            100% { opacity: 0.6; }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .main-heading {
+                font-size: 2em;
+            }
+            
+            .block-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .author-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .chat-widget {
+                right: 15px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .bottom-btn {
+                padding: 15px 40px;
+                font-size: 1.1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Chat -->
+    <div class="chat-widget" onclick="openChat()">
+        <svg class="chat-icon" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.89 3.215"/>
+        </svg>
+    </div>
+
+    <!-- Header Banner -->
+    <div class="banner-area">
+        <div class="main-wrapper">
+            <h1 class="main-heading">İdeal Mali Geleceğinize Hoş Geldiniz</h1>
+            <p class="sub-heading">10 yılı aşkın özel servet yönetimi ve risk sermayesi hisse senedi analizi deneyimi ile hisse senedi yatırım topluluğuma katılın.</p>
+            
+            <div class="author-info">
+                <img src="img/1.webp" alt="İslam Memiş" class="author-photo">
+                <div class="author-details">
+                    <h3>İslam Memiş</h3>
+                    <p>Kıdemli Yatırım Analisti</p>
+                    <p>Servet Yönetiminde 10+ Yıl Deneyim</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Smart Signals Section -->
+    <div class="content-block">
+        <div class="main-wrapper">
+            <h2 class="block-title">Hisse Senedi Yatırımı Yeni Çağ: Akıllı Sinyal Göstergeleri</h2>
+            <div class="block-content">
+                <div class="text-content">
+                    <h3 style="color: #FFD700; margin-bottom: 20px;">Hisse senedi piyasasında kaybolmuş hissediyor musunuz?</h3>
+                    <p>Hızla değişen bir piyasada, birçok kişi bilgi eksikliği nedeniyle fırsatları kaçırıyor. Şimdi yatırım yaklaşımınızı değiştirin ve akıllı sinyallerin yeni çağını benimseyin!</p>
+                    <p>Gelişmiş analiz sistemimiz gerçek zamanlı piyasa içgörüleri sağlayarak, güvenle bilinçli kararlar vermenize yardımcı olur.</p>
+                    <button class="action-btn" onclick="openChat()">Akıllı Yatırım Yolculuğunuzu Başlatın</button>
+                </div>
+                <div class="image-content">
+                    <img src="img/2.jpg" alt="Akıllı Yatırım Sinyalleri">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Problems Section -->
+    <div class="content-block">
+        <div class="main-wrapper">
+            <h2 class="block-title">Yaygın Yatırım Zorlukları</h2>
+            <div class="issue-grid">
+                <div class="issue-item">
+                    <h4>1. Fırsatları Kaçırma</h4>
+                    <p>Her gün sayısız ticaret fırsatı var, ancak ne zaman giriş yapacağınızı veya çıkış yapacağınızı bilmiyorsunuz. Birçok kişi tereddüt nedeniyle en iyi zamanlamayı kaçırıyor, bu da kayıplara veya yarıya inen kârlara yol açıyor.</p>
+                </div>
+                <div class="issue-item">
+                    <h4>2. Bilgi Yoğunluğu</h4>
+                    <p>Haberler, sosyal medya ve analiz raporları bunaltıcı, gerçekten değerli yatırım sinyallerini çıkarmayı imkansız hale getiriyor. Büyük bilgi karşısında, birçok yatırımcı bunalmış hissediyor.</p>
+                </div>
+                <div class="issue-item">
+                    <h4>3. Deneyim Eksikliği</h4>
+                    <p>Hisse senedi yatırımının eşiği yüksek görünüyor. Birçok başlangıç seviyesindeki kişi, kâr etmek için zengin deneyim ve profesyonel bilgiye sahip olması gerektiğini düşünüyor, bu da psikolojik engeller yaratıyor.</p>
+                </div>
+                <div class="issue-item">
+                    <h4>4. Güven Eksikliği</h4>
+                    <p>Kritik anlarda, güvenilir karar desteği eksikliği alım satımda kararsızlığa yol açıyor, sonunda bekle ve gör seçeneğini tercih ediyorlar, bu da genellikle yanlış seçim oluyor.</p>
+                </div>
+            </div>
+            <div class="image-content" style="text-align: center; margin: 40px 0;">
+                <img src="img/3.jpg" alt="Piyasa Zorlukları">
+                <br><br>
+                <button class="action-btn" onclick="openChat()">Piyasa Dinamiklerinde Uzmanlaşın</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Solutions Section -->
+    <div class="content-block">
+        <div class="main-wrapper">
+            <h2 class="block-title">Çözümlerimiz</h2>
+            <div class="feature-grid">
+                <div class="feature-box">
+                    <h4 style="color: #FFD700; margin-bottom: 15px;">1. Gerçek Zamanlı Alım/Satım Uyarıları</h4>
+                    <p>Sistem piyasa dinamiklerine dayanarak otomatik olarak optimal alım ve satım sinyalleri sağlar, sizi en iyi karar noktalarında tutar. Piyasa nasıl dalgalanırsa dalgalansın, hızlıca tepki verebilirsiniz.</p>
+                </div>
+                <div class="feature-box">
+                    <h4 style="color: #FFD700; margin-bottom: 15px;">2. Veri Odaklı Analiz</h4>
+                    <p>Büyük veri ve yapay zeka teknolojisini kullanarak, sistem büyük veriyi gerçek zamanlı olarak analiz eder, potansiyel yatırım fırsatlarını tanımlar ve doğru piyasa tahminleri sağlar.</p>
+                </div>
+                <div class="feature-box">
+                    <h4 style="color: #FFD700; margin-bottom: 15px;">3. Geçmiş Veri Geriye Dönük Testi</h4>
+                    <p>Sinyal etkinliğini doğrulamanıza yardımcı olmak, yatırım güveninizi artırmak ve her kararın sağlam temellere dayandığından emin olmak için geçmiş veri geriye dönük test işlevselliği sağlar.</p>
+                </div>
+                <div class="feature-box">
+                    <h4 style="color: #FFD700; margin-bottom: 15px;">4. Çok Boyutlu Sinyal Analizi</h4>
+                    <p>Teknik göstergeler, piyasa duyarlılığı ve trend analizini birleştirerek çok boyutlu sinyal yorumu sağlar, piyasa dinamiklerini tam olarak anlamanıza yardımcı olur.</p>
+                </div>
+            </div>
+            <div class="image-content" style="text-align: center; margin: 40px 0;">
+                <img src="img/5.jpg" alt="Yatırım Çözümleri">
+                <br><br>
+                <button class="action-btn" onclick="openChat()">Her Yatırım Fırsatını Yakalayın - Şimdi Deneyimleyin</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Community Section -->
+    <div class="content-block">
+        <div class="main-wrapper">
+            <h2 class="block-title">Özel Topluluğumuz</h2>
+            <div class="block-content">
+                <div class="text-content">
+                    <h3 style="color: #FFD700; margin-bottom: 20px;">Başarı Odaklı Topluluk</h3>
+                    <p style="font-size: 1.2em; margin-bottom: 25px;">Özel bir topluluk inşa ediyoruz. Burada her gün sizler için yoğun bilgi, özenle planlanmış fırsatlar, mükemmel teknikler ve gerçek zamanlı sohbet sunuyoruz. Kâr potansiyelinizi artırmaya odaklanıyorsanız, katılımınızı bekliyoruz.</p>
+                    
+                    <div style="background: linear-gradient(135deg, #FFD700, #FFA500); color: #000; padding: 25px; border-radius: 15px; margin: 30px 0; text-align: center;">
+                        <h4 style="font-size: 1.5em; margin-bottom: 15px; font-weight: bold;">Kanıtlanmış Sonuçlar</h4>
+                        <p style="font-size: 1.3em; font-weight: bold;">Geçen ay, üyelerimizin ortalama haftalık getirisi %128'i aştı.</p>
+                    </div>
+                    
+                    <p style="font-size: 1.1em; margin-bottom: 20px;">Bu topluluk tamamen başarı odaklı bir atmosfere sahip. Bu atmosferin gücünü paylaşmak istemiyor musunuz?</p>
+                    
+                    <button class="action-btn" onclick="openChat()">Topluluğa Katılın</button>
+                </div>
+                <div class="image-content">
+                    <img src="img/5.jpg" alt="Topluluk Başarısı">
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #1E3A5F, #0B1426); padding: 40px; border-radius: 20px; border: 2px solid #FFD700; margin: 50px 0; text-align: center;">
+                <h3 style="color: #FFD700; margin-bottom: 25px; font-size: 1.8em;">Güven ve Sorumluluk Taahhüdümüz</h3>
+                <p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 20px;">Unutmayın, burada ortaya çıkabilecek herhangi bir potansiyel sorundan ben sorumlu olacağım.</p>
+                <p style="font-size: 1.1em; line-height: 1.8; color: #E8F4F8;">İnsanlar sık sık <strong style="color: #FFD700;">"aylık 10 kat ve üzeri getiri mümkün"</strong> der - evet, bu söyleme inanıyoruz ve gizlice paylaşacağız.</p>
+                <div style="margin-top: 30px;">
+                    <button class="action-btn" onclick="openChat()">Gizli Stratejileri Öğrenin</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="content-block">
+        <div class="main-wrapper">
+            <h2 class="block-title">Müşteri Görüşleri</h2>
+            <div class="review-grid">
+                <div class="review-box">
+                    <p>"Akıllı sinyaller ticaret yaklaşımımı tamamen dönüştürdü. Artık daha bilinçli kararlar veriyorum ve tutarlı kârlar görüyorum."</p>
+                    <div class="reviewer-name">- Sarah M., Portföy Yöneticisi</div>
+                </div>
+                <div class="review-box">
+                    <p>"Yeni başlayan biri olarak, hisse senedi piyasasından korkuyordum. Bu sistem bana yatırım yapmaya başlama güveni verdi ve harika sonuçlar gördüm."</p>
+                    <div class="reviewer-name">- Mike R., Yeni Yatırımcı</div>
+                </div>
+                <div class="review-box">
+                    <p>"Gerçek zamanlı uyarılar inanılmaz derecede doğru. Artık piyasa fırsatlarını kaçırmaktan endişelenmiyorum."</p>
+                    <div class="reviewer-name">- Jennifer L., Günlük Tüccar</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Final CTA Section -->
+    <div class="content-block">
+        <div class="main-wrapper" style="text-align: center;">
+            <h2 class="block-title">Artık Tereddüt Etmeyin!</h2>
+            <p style="font-size: 1.3em; margin-bottom: 30px;">Şimdi ücretsiz deneme deneyimi almak için kayıt olun ve akıllı sinyal göstergelerinin yatırım yolculuğunuzu nasıl değiştirebileceğini bizzat hissedin.</p>
+            <button class="action-btn" onclick="openChat()" style="font-size: 1.4em; padding: 25px 50px;">Şimdi Ücretsiz Denemeyi Başlatın!</button>
+            
+            <div style="margin: 50px 0;">
+                <h3 style="color: #FFD700; margin-bottom: 20px;">Geleceğe Yatırım Yapın, Şimdi Başlayın!</h3>
+                <p style="font-size: 1.2em;">Bize katılın, yatırım potansiyelinizi açığa çıkarın, akıllı yatırım yolculuğunuzu başlatın ve her servet fırsatını yakalayın!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="page-footer">
+        <div class="main-wrapper">
+            <div class="disclaimer-box">
+                <h4>⚠️ Önemli Risk Açıklaması</h4>
+                <ul>
+                    <li>Bu hizmet yalnızca referans amaçlıdır ve herhangi bir yatırım danışmanlığı hizmeti veya finansal ürün ticaret hizmeti sağlamaz.</li>
+                    <li>Sağlanan bilgiler yalnızca referans amaçlıdır ve yatırım kararları için temel olarak kullanılmamalıdır.</li>
+                    <li>Nihai yatırım karar riskleri size aittir.</li>
+                    <li>Veri doğruluğu garanti edilmez.</li>
+                </ul>
+            </div>
+            
+             
+        </div>
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="bottom-float">
+        <button class="bottom-btn" onclick="openChat()">En son yükselen hisse senetlerini almak için 3 gönderin</button>
+    </div>
+
+    <script>
+        // WhatsApp integration
+       
+
+        // Theme detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(event) {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Mobile gesture prevention
+        document.addEventListener('gesturestart', function(event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener('touchstart', function(event) {
+            if (event.touches.length > 1) {
+                event.preventDefault();
+            }
+        });
+
+        // Smooth navigation
+        var anchors = document.querySelectorAll('a[href^="#"]');
+        for (var i = 0; i < anchors.length; i++) {
+            anchors[i].addEventListener('click', function(event) {
+                event.preventDefault();
+                var target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
