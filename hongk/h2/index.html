@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>限時領取！精選10只潛力牛股名單</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        // 60分钟倒计时
+        let totalSeconds = 60 * 60; // 60分钟
+
+        function updateCountdown() {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            const hoursStr = String(hours).padStart(2, '0');
+            const minutesStr = String(minutes).padStart(2, '0');
+            const secondsStr = String(seconds).padStart(2, '0');
+
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            if (hoursEl) hoursEl.textContent = hoursStr;
+            if (minutesEl) minutesEl.textContent = minutesStr;
+            if (secondsEl) secondsEl.textContent = secondsStr;
+
+            if (totalSeconds > 0) {
+                totalSeconds--;
+            } else {
+                totalSeconds = 60 * 60; // 重置倒计时
+            }
+        }
+
+        // 页面加载后启动倒计时
+        window.addEventListener('load', function() {
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // 模拟已领取人数增长
+            updateClaimCount();
+            setInterval(updateClaimCount, 8000);
+        });
+
+        // 模拟已领取人数
+        let claimedCount = 2847;
+        function updateClaimCount() {
+            claimedCount += Math.floor(Math.random() * 4) + 1;
+            const element = document.getElementById('claim-count');
+            if (element) {
+                element.textContent = claimedCount.toLocaleString();
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary-blue: #0066FF;
+            --blue-light: #4D94FF;
+            --blue-dark: #0052CC;
+            --blue-darker: #003D99;
+            --accent-blue: #00B8FF;
+            --bg-white: #FFFFFF;
+            --bg-light: #F5F8FF;
+            --bg-gradient: linear-gradient(135deg, #E8F1FF 0%, #FFFFFF 100%);
+            --text-dark: #1A1A1A;
+            --text-gray: #666666;
+            --border-light: #E0EAFF;
+            --shadow-sm: 0 2px 8px rgba(0, 102, 255, 0.08);
+            --shadow-md: 0 4px 16px rgba(0, 102, 255, 0.12);
+            --shadow-lg: 0 8px 32px rgba(0, 102, 255, 0.16);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: var(--bg-white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section - Full Width Blue Background */
+        .hero-wrapper {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-dark) 100%);
+            padding: 60px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-wrapper::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Urgency Banner */
+        .urgency-banner {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 12px 24px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            animation: slideInDown 0.6s ease-out;
+        }
+
+        .urgency-icon {
+            font-size: 1.2em;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .urgency-text {
+            color: white;
+            font-size: clamp(0.9rem, 2vw, 1rem);
+            font-weight: 600;
+        }
+
+        .urgency-highlight {
+            color: #FFD700;
+            font-weight: 800;
+        }
+
+        .hero-title {
+            font-family: 'Poppins', 'Noto Sans TC', sans-serif;
+            font-size: clamp(2.2rem, 6vw, 4rem);
+            font-weight: 900;
+            color: white;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 40px;
+            font-weight: 400;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        /* Countdown Timer */
+        .countdown-wrapper {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: var(--shadow-lg);
+            margin: 40px auto;
+            max-width: 600px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .countdown-label {
+            text-align: center;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-dark);
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .time-unit {
+            text-align: center;
+            background: var(--bg-light);
+            border-radius: 12px;
+            padding: 20px 15px;
+            min-width: 90px;
+            border: 2px solid var(--border-light);
+        }
+
+        .time-value {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: var(--primary-blue);
+            line-height: 1;
+            font-family: 'Poppins', monospace;
+        }
+
+        .time-label {
+            font-size: clamp(0.8rem, 1.5vw, 0.95rem);
+            color: var(--text-gray);
+            margin-top: 8px;
+            font-weight: 600;
+        }
+
+        .time-separator {
+            font-size: clamp(2rem, 4vw, 3rem);
+            color: var(--primary-blue);
+            font-weight: 700;
+            align-self: center;
+        }
+
+        /* Stats Badges */
+        .stats-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .stat-badge {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 12px 24px;
+            color: white;
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .stat-badge:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .stat-icon {
+            font-size: 1.2em;
+        }
+
+        .stat-highlight {
+            color: #FFD700;
+            font-weight: 800;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: var(--primary-blue);
+            padding: 20px 50px;
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            margin-top: 30px;
+            border: 3px solid transparent;
+            animation: fadeInUp 0.8s ease-out 1s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            font-family: 'Poppins', 'Noto Sans TC', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            color: var(--text-dark);
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--text-gray);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Problem Cards - Horizontal Layout */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .problem-card {
+            background: white;
+            border: 2px solid var(--border-light);
+            border-radius: 16px;
+            padding: 30px 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .problem-card::before {
+            content: '❌';
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            font-size: 24px;
+        }
+
+        .problem-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+
+        .problem-text {
+            padding-left: 35px;
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Image Section */
+        .image-showcase {
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .showcase-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            border: 3px solid var(--border-light);
+        }
+
+        /* Trust Indicators - Card Style */
+        .trust-wrapper {
+            background: white;
+            border-radius: 24px;
+            padding: 50px 30px;
+            box-shadow: var(--shadow-md);
+            margin: 60px 0;
+        }
+
+        .trust-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .trust-item {
+            text-align: center;
+        }
+
+        .trust-number {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            color: var(--primary-blue);
+            line-height: 1;
+            margin-bottom: 15px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .trust-label {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--text-gray);
+            font-weight: 600;
+        }
+
+        /* Benefits - Two Column Layout */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        /* Mobile: 3 items in first row, 2 in second row */
+        @media (max-width: 768px) {
+            .benefits-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .benefit-item {
+                flex: 0 0 calc(33.333% - 10px);
+                min-width: 0;
+            }
+
+            .benefit-item:nth-child(4),
+            .benefit-item:nth-child(5) {
+                flex: 0 0 calc(50% - 7.5px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .benefits-grid {
+                gap: 10px;
+            }
+
+            .benefit-item {
+                flex: 0 0 calc(33.333% - 7px);
+                padding: 20px 10px;
+            }
+
+            .benefit-item:nth-child(4),
+            .benefit-item:nth-child(5) {
+                flex: 0 0 calc(50% - 5px);
+            }
+
+            .benefit-icon {
+                font-size: 2rem;
+                margin-bottom: 10px;
+            }
+
+            .benefit-title {
+                font-size: 0.95rem;
+                margin-bottom: 8px;
+            }
+
+            .benefit-description {
+                font-size: 0.85rem;
+            }
+        }
+
+        .benefit-item {
+            background: white;
+            border: 2px solid var(--border-light);
+            border-radius: 16px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .benefit-title {
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+        }
+
+        .benefit-description {
+            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+            color: var(--text-gray);
+            line-height: 1.6;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-dark) 100%);
+            color: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            margin: 60px 0;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .highlight-box .strikethrough {
+            text-decoration: line-through;
+            opacity: 0.7;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .highlight-box .main-text {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 800;
+            line-height: 1.4;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            background: var(--bg-light);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .final-cta-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: var(--primary-blue);
+            margin-bottom: 30px;
+        }
+
+        .final-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .final-badge {
+            background: white;
+            border: 2px solid var(--primary-blue);
+            border-radius: 50px;
+            padding: 12px 24px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Floating Bottom CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px 20px;
+            z-index: 999;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100%); }
+            to { transform: translateY(0); }
+        }
+
+        .floating-cta-button {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--primary-blue);
+            color: white;
+            padding: 18px 30px;
+            font-size: clamp(1rem, 2.5vw, 1.3rem);
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: breathe 2.5s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 102, 255, 0.4);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(0, 102, 255, 0.7);
+                transform: scale(1.02);
+            }
+        }
+
+        .floating-cta-button:hover {
+            background: var(--blue-dark);
+            animation: none;
+            transform: scale(1.03);
+        }
+
+        @media (max-width: 768px) {
+            .floating-cta {
+                padding: 12px 15px;
+            }
+
+            .floating-cta-button {
+                max-width: 100%;
+                padding: 16px 20px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .floating-cta {
+                padding: 10px 12px;
+            }
+
+            .floating-cta-button {
+                padding: 14px 16px;
+                font-size: 0.95rem;
+            }
+        }
+
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            right: 30px;
+            bottom: 100px;
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: fadeIn 1s ease-out 1.5s both;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .whatsapp-icon {
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4);
+            position: relative;
+        }
+
+        .whatsapp-icon i {
+            font-size: 35px;
+            color: white;
+        }
+
+        .whatsapp-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #FF3B30;
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 800;
+            border: 3px solid white;
+            animation: bounce 1s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--text-dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        body {
+            padding-bottom: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-wrapper {
+                padding: 40px 0 60px;
+            }
+
+            .countdown-wrapper {
+                padding: 25px 20px;
+            }
+
+            .time-unit {
+                min-width: 75px;
+                padding: 15px 10px;
+            }
+
+            .section {
+                padding: 60px 0;
+            }
+
+            .trust-wrapper {
+                padding: 40px 20px;
+            }
+
+            .whatsapp-float {
+                right: 20px;
+                top: 50%;
+                bottom: auto;
+                transform: translateY(-50%);
+            }
+
+            .whatsapp-icon {
+                width: 55px;
+                height: 55px;
+            }
+
+            .whatsapp-icon i {
+                font-size: 28px;
+            }
+
+            .whatsapp-badge {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .countdown-timer {
+                gap: 10px;
+            }
+
+            .time-unit {
+                min-width: 65px;
+                padding: 12px 8px;
+            }
+
+            .stats-badges {
+                gap: 10px;
+            }
+
+            .stat-badge {
+                padding: 10px 18px;
+            }
+
+            .problem-grid {
+                gap: 20px;
+            }
+        }
+
+        /* Testimonials Section */
+        .testimonials-wrapper {
+            background: white;
+            border-radius: 24px;
+            padding: 50px 30px;
+            box-shadow: var(--shadow-md);
+            margin: 60px 0;
+        }
+
+        .testimonials-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-light);
+            border: 2px solid var(--border-light);
+            border-radius: 16px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--primary-blue);
+            box-shadow: var(--shadow-md);
+            transform: translateY(-5px);
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .testimonial-info {
+            flex: 1;
+        }
+
+        .testimonial-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 3px;
+        }
+
+        .testimonial-meta {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .testimonial-rating {
+            color: #FFD700;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-content {
+            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .testimonial-tag {
+            background: white;
+            border: 1px solid var(--primary-blue);
+            color: var(--primary-blue);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-wrapper {
+                padding: 40px 20px;
+            }
+
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <div class="hero-wrapper">
+        <div class="container">
+            <div class="hero">
+                <div style="text-align: center;">
+                    <div class="urgency-banner">
+                        <span class="urgency-icon">🔥</span>
+                        <span class="urgency-text">限時開放中！名額僅限 <span class="urgency-highlight">500人</span></span>
+                    </div>
+                </div>
+
+                <h1 class="hero-title" style="text-align: center;">
+                    限時領取！<br>精選10只潛力牛股名單
+                </h1>
+                <p class="hero-subtitle" style="text-align: center;">
+                    資深分析師團隊精心篩選，助你抓住2025年投資機會
+                </p>
+
+                <!-- Countdown Timer -->
+                <div class="countdown-wrapper">
+                    <div class="countdown-label">
+                        <span>⏰</span>
+                        <span>限時優惠倒計時</span>
+                    </div>
+                    <div class="countdown-timer">
+                        <div class="time-unit">
+                            <div class="time-value" id="hours">01</div>
+                            <div class="time-label">小時</div>
+                        </div>
+                        <div class="time-separator">:</div>
+                        <div class="time-unit">
+                            <div class="time-value" id="minutes">00</div>
+                            <div class="time-label">分鐘</div>
+                        </div>
+                        <div class="time-separator">:</div>
+                        <div class="time-unit">
+                            <div class="time-value" id="seconds">00</div>
+                            <div class="time-label">秒</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats Badges -->
+                <div class="stats-badges">
+                    <div class="stat-badge">
+                        <span class="stat-icon">✓</span>
+                        <span>已有 <span class="stat-highlight" id="claim-count">2,847</span> 人領取</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-icon">🎁</span>
+                        <span>100% 免費領取</span>
+                    </div>
+                    <div class="stat-badge">
+                        <span class="stat-icon">🔒</span>
+                        <span>僅限本次開放</span>
+                    </div>
+                </div>
+
+                <div style="text-align: center;">
+                    <a href="javascript:void(0)" class="cta-button" onclick="k2()">馬上領取潛力牛股名單</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Section -->
+    <div class="container">
+        <div class="image-showcase">
+            <img src="img/3.jpg" alt="股票市場數據" class="showcase-image">
+        </div>
+    </div>
+
+    <!-- Problem Section -->
+    <section class="section section-alt">
+        <div class="container">
+            <h2 class="section-title">你是否也遇到這些投資難題？</h2>
+            <p class="section-subtitle">如果你的答案是"是"，那麼這份名單正是為你準備的！</p>
+
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <p class="problem-text">股市漲了，但是自己的股票卻在跌</p>
+                </div>
+                <div class="problem-card">
+                    <p class="problem-text">看了無數資訊，但是不知道應該如何入手</p>
+                </div>
+                <div class="problem-card">
+                    <p class="problem-text">錯過一個又一個的入市機會，後悔莫及</p>
+                </div>
+                <div class="problem-card">
+                    <p class="problem-text">辛苦賺來的錢，卻在股市裡越虧越多</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="javascript:void(0)" class="cta-button" onclick="k2()" style="background: var(--primary-blue); color: white;">馬上領取潛力牛股名單</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Section 2 -->
+    <div class="container">
+        <div class="image-showcase">
+            <img src="img/4.jpg" alt="機構分析" class="showcase-image">
+        </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <section class="section">
+        <div class="container">
+            <div class="testimonials-wrapper">
+                <h3 class="testimonials-title">📣 用戶真實評價</h3>
+                <div class="testimonials-grid">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">張</div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">張志明</div>
+                                <div class="testimonial-meta">
+                                    <span class="testimonial-rating">⭐⭐⭐⭐⭐</span>
+                                    <span>3天前</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            之前總是看著別人的股票漲，自己的卻在跌，真的很沮喪。領取這份名單後，按照推薦的股票建倉，終於體會到什麼叫跟對方向！其中2只股票已經有不錯的收益，感謝專業團隊的篩選！
+                        </div>
+                        <div class="testimonial-tags">
+                            <span class="testimonial-tag">基本面扎實</span>
+                            <span class="testimonial-tag">已獲利</span>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">李</div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">李雅婷</div>
+                                <div class="testimonial-meta">
+                                    <span class="testimonial-rating">⭐⭐⭐⭐⭐</span>
+                                    <span>5天前</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            作為投資新手，看了無數資訊還是不知道如何選股。這份清單給了我很大的幫助，每只股票都有清晰的邏輯說明，讓我明白為什麼要選它。現在投資變得有方向了，不再盲目跟風！
+                        </div>
+                        <div class="testimonial-tags">
+                            <span class="testimonial-tag">邏輯清晰</span>
+                            <span class="testimonial-tag">新手友好</span>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">王</div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">王建國</div>
+                                <div class="testimonial-meta">
+                                    <span class="testimonial-rating">⭐⭐⭐⭐⭐</span>
+                                    <span>1週前</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            之前總是錯過入市時機，看著機會從眼前溜走。這次及時領取了名單，發現裡面的股票確實都是經過嚴格篩選的優質標的，技術面和基本面都很不錯。已經分批建倉，期待後續表現！
+                        </div>
+                        <div class="testimonial-tags">
+                            <span class="testimonial-tag">及時把握</span>
+                            <span class="testimonial-tag">專業篩選</span>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="testimonial-card">
+                        <div class="testimonial-header">
+                            <div class="testimonial-avatar">陳</div>
+                            <div class="testimonial-info">
+                                <div class="testimonial-name">陳美玲</div>
+                                <div class="testimonial-meta">
+                                    <span class="testimonial-rating">⭐⭐⭐⭐⭐</span>
+                                    <span>1週前</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-content">
+                            辛苦賺來的錢之前在股市裡虧了不少，心灰意冷。看到這份免費名單抱著試試看的心態領取了，沒想到質量這麼高！名單裡的股票都符合5重篩選標準，讓我重拾信心。現在跟著專業的走，心裡踏實多了！
+                        </div>
+                        <div class="testimonial-tags">
+                            <span class="testimonial-tag">重拾信心</span>
+                            <span class="testimonial-tag">值得信賴</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">我們為你準備了什麼？</h2>
+            <p class="section-subtitle">
+                📊 <strong style="color: var(--primary-blue);">專業篩選標準</strong><br>
+                這10只潛力股經過5重嚴格篩選
+            </p>
+
+            <!-- Trust Indicators -->
+            <div class="trust-wrapper">
+                <h3 class="trust-title">為什麼選擇我們？</h3>
+                <div class="trust-grid">
+                    <div class="trust-item">
+                        <div class="trust-number">15年</div>
+                        <div class="trust-label">專業投研經驗<br>深耕A股市場</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-number">10萬+</div>
+                        <div class="trust-label">服務投資者<br>值得信賴</div>
+                    </div>
+                    <div class="trust-item">
+                        <div class="trust-number">23%</div>
+                        <div class="trust-label">跑贏大盤<br>歷史推薦平均漲幅*</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--primary-blue); margin: 60px 0 40px; font-weight: 800;">5重嚴格篩選標準</h3>
+
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-icon">✅</div>
+                    <h4 class="benefit-title">基本面優質</h4>
+                    <p class="benefit-description">業績穩定增長，財務健康</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✅</div>
+                    <h4 class="benefit-title">技術面突破</h4>
+                    <p class="benefit-description">關鍵位置蓄勢待發</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✅</div>
+                    <h4 class="benefit-title">機構認可</h4>
+                    <p class="benefit-description">獲得主力資金關注</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✅</div>
+                    <h4 class="benefit-title">行業前景</h4>
+                    <p class="benefit-description">處於政策支持的高成長賽道</p>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-icon">✅</div>
+                    <h4 class="benefit-title">估值合理</h4>
+                    <p class="benefit-description">具備中長期投資價值</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <span class="strikethrough">完全免費</span>
+                <div class="main-text">本次活動限時免費，絕無任何隱藏費用！</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <div class="urgency-banner" style="background: linear-gradient(135deg, var(--primary-blue) 0%, var(--blue-dark) 100%); margin: 0 auto 30px;">
+                <span class="urgency-icon" style="color: white;">⚡</span>
+                <span class="urgency-text" style="color: white;"><strong>剩餘名額有限！</strong>錯過本次需等待下一期開放</span>
+            </div>
+
+            <h2 class="final-cta-title">馬上加入我們</h2>
+
+            <div class="final-badges">
+                <div class="final-badge">
+                    <span>🎁</span>
+                    <span>限時免費</span>
+                </div>
+                <div class="final-badge">
+                    <span>📈</span>
+                    <span>精選10只潛力牛股</span>
+                </div>
+                <div class="final-badge">
+                    <span>💼</span>
+                    <span>資深團隊篩選</span>
+                </div>
+            </div>
+
+            <a href="javascript:void(0)" class="cta-button" onclick="k2()" style="background: var(--primary-blue); color: white; margin-top: 40px;">馬上領取潛力牛股名單</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 機構投資分析 | 專業投資信息服務</p>
+    </footer>
+
+    <!-- Floating Bottom CTA -->
+    <div class="floating-cta">
+        <a href="javascript:void(0)" class="floating-cta-button" onclick="k2()">馬上領取潛力牛股名單</a>
+    </div>
+
+    <!-- WhatsApp Floating Button -->
+    <div class="whatsapp-float" onclick="k2()">
+        <div class="whatsapp-icon">
+            <i class="fab fa-whatsapp"></i>
+            <div class="whatsapp-badge">1</div>
+        </div>
+    </div>
+</body>
+</html>
