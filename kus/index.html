@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AI-Powered Stock Selection System</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -74,7 +74,8 @@
         }
 
         .hero h1 {
-            font-size: clamp(1.8rem, 6vw, 4.5rem);
+            font-size: clamp(1.5rem, 5vw, 3.5rem);
+            margin-top: 200px;
             margin-bottom: 2rem;
             color: #ffffff;
             text-shadow:
@@ -123,6 +124,8 @@
             box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
             animation: pulse 2s infinite;
             white-space: nowrap;
+            cursor: pointer;
+            border: none;
         }
 
         @keyframes pulse {
@@ -447,6 +450,11 @@
         }
 
         @media (max-width: 768px) {
+            .hero-content {
+                padding: 2rem 1rem;
+                padding-top: calc(2rem + 100px);
+            }
+
             .analysis-section {
                 grid-template-columns: 1fr;
                 gap: 2rem;
@@ -454,10 +462,6 @@
 
             .section {
                 padding: 3rem 1rem;
-            }
-
-            .hero-content {
-                padding: 2rem 1rem;
             }
 
             .cta-button {
@@ -548,10 +552,10 @@
     </style>
 </head>
 <body>
-    <!-- 
+    <!--
     <div class="floating-cta">
-        <a href="https://www.qq.com" target="_blank" class="cta-button">Get Recommendations</a>
-    </div>   
+        <button class="cta-button" onclick="k2()">Get Recommendations</button>
+    </div>
 	-->
 
     <!-- Hero Section -->
@@ -560,7 +564,7 @@
             <h1>Looking for Stocks with Real Growth Potential in a Volatile Market?</h1>
             <p>Our AI-powered stock selection system combines data-driven strategies to help you discover real trading opportunities amid market volatility.</p>
             <p class="subtitle">We focus on short-term trades of 3-10 days, keeping your capital flexible and risk better controlled.</p>
-            <a href="https://www.qq.com" target="_blank" class="cta-button">Get This Week's Stock Recommendations</a>
+            <button class="cta-button" onclick="k2()">Get This Week's Stock Recommendations</button>
         </div>
     </section>
 
@@ -575,7 +579,7 @@
                 <li>Models You Can Explain</li>
                 <li>An Investment Strategy That Stands the Test of Time</li>
             </ul>
-            <a href="https://www.qq.com" target="_blank" class="cta-button">Get This Week's Stock Recommendations</a>
+            <button class="cta-button" onclick="k2()">Get This Week's Stock Recommendations</button>
         </div>
     </section>
 
@@ -684,11 +688,16 @@
             <h2>This Free Offer is Limited to 100 Spots</h2>
             <p>First come, first served, while supplies last.</p>
             <p>Click the button below to get this week's quality stock investment recommendations and engage in deeper exchanges with me.</p>
-            <a href="https://www.qq.com" target="_blank" class="cta-button">Get This Week's Stock Recommendations</a>
+            <button class="cta-button" onclick="k2()">Get This Week's Stock Recommendations</button>
         </div>
     </section>
 
     <script>
+        // k2 function to navigate to www.qq.com
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
         // Dark mode support (always active for this design)
         document.documentElement.classList.add('dark');
 
@@ -727,5 +736,6 @@
 
         // Parallax effect disabled for better mobile experience
     </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"373c7c119a7443a7a1cad01dc8e023ab","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
