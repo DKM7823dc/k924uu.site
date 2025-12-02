@@ -27,12 +27,20 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
         body {
             font-family: 'Crimson Pro', serif;
             background: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.7;
             overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
         }
 
         h1, h2, h3 {
@@ -52,6 +60,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            width: 100%;
         }
 
         .hero::before {
@@ -71,6 +80,7 @@
             padding: 3rem 2rem;
             text-align: center;
             animation: fadeInUp 1.2s ease-out;
+            width: 100%;
         }
 
         .hero h1 {
@@ -144,6 +154,7 @@
             max-width: 1400px;
             margin: 0 auto;
             animation: fadeIn 1s ease-out;
+            width: 100%;
         }
 
         .section-alt {
@@ -171,6 +182,7 @@
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
+            width: 100%;
         }
 
         .intro-content h2 {
@@ -311,6 +323,7 @@
             max-width: 900px;
             margin: 0 auto;
             text-align: center;
+            width: 100%;
         }
 
         .ai-image {
@@ -397,6 +410,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            width: 100%;
         }
 
         .final-cta::before {
@@ -415,6 +429,7 @@
             max-width: 900px;
             padding: 2rem;
             text-align: center;
+            width: 100%;
         }
 
         .final-cta h2 {
@@ -449,54 +464,6 @@
             }
         }
 
-        @media (max-width: 768px) {
-            .hero-content {
-                padding: 2rem 1rem;
-                padding-top: calc(2rem + 100px);
-            }
-
-            .analysis-section {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .section {
-                padding: 3rem 1rem;
-            }
-
-            .cta-button {
-                font-size: 1rem;
-                padding: 1rem 1.5rem;
-            }
-
-            .intro-content {
-                padding: 0 1rem;
-            }
-
-            .final-cta-content {
-                padding: 2rem 1rem;
-            }
-
-            .feature-card,
-            .testimonial-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .features-grid,
-            .testimonials-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .hero {
-                background-attachment: scroll;
-            }
-
-            .final-cta {
-                background-attachment: scroll;
-            }
-        }
-
         /* Scrollbar styling */
         ::-webkit-scrollbar {
             width: 12px;
@@ -515,7 +482,7 @@
             background: var(--accent-bright);
         }
 
-        /* Floating CTA Button */
+        /* Floating CTA Button - 桌面版在右下角 */
         .floating-cta {
             position: fixed;
             bottom: 20px;
@@ -536,27 +503,94 @@
             padding: 1rem 2rem;
         }
 
+        /* 移动端样式 */
         @media (max-width: 768px) {
+            .hero-content {
+                padding: 2rem 1.5rem;
+                padding-top: calc(2rem + 100px);
+            }
+
+            .hero h1 {
+                margin-top: 100px;
+            }
+
+            .analysis-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .section {
+                padding: 3rem 1.5rem;
+            }
+
+            .cta-button {
+                font-size: 1rem;
+                padding: 1rem 2rem;
+                white-space: normal;
+            }
+
+            .intro-content {
+                padding: 0 1.5rem;
+            }
+
+            .final-cta-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .feature-card,
+            .testimonial-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .features-grid,
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .hero {
+                background-attachment: scroll;
+            }
+
+            .final-cta {
+                background-attachment: scroll;
+            }
+
+            /* 移动端悬浮按钮居中 */
             .floating-cta {
                 left: 50%;
-                right: auto;
-                transform: translateX(-50%);
+                right: unset;
                 bottom: 20px;
+                transform: translateX(-50%);
+                animation: floatButtonMobile 3s ease-in-out infinite;
+            }
+
+            @keyframes floatButtonMobile {
+                0%, 100% { transform: translateX(-50%) translateY(0); }
+                50% { transform: translateX(-50%) translateY(-10px); }
             }
 
             .floating-cta .cta-button {
                 font-size: 0.9rem;
                 padding: 0.9rem 1.5rem;
             }
+
+            .belief-list li {
+                padding-left: 1.5rem;
+            }
+
+            .process-list li:hover {
+                transform: translateX(5px);
+            }
         }
     </style>
 </head>
 <body>
-    <!--
+
     <div class="floating-cta">
-        <button class="cta-button" onclick="k2()">Get Recommendations</button>
+        <button class="cta-button" onclick="k2()">Claim rising stocks</button>
     </div>
-	-->
+
 
     <!-- Hero Section -->
     <section class="hero">
