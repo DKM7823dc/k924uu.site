@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=1">
+    <meta name="format-detection" content="telephone=no">
+    <title>常勝!!株LINE 短期急騰銘柄</title>
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --accent-color: #06c755;
+            --border-color: #e0e0e0;
+            --modal-bg: #ffffff;
+            --modal-overlay: rgba(0, 0, 0, 0.7);
+        }
+
+        .dark {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --accent-color: #06c755;
+            --border-color: #404040;
+            --modal-bg: #2d2d2d;
+            --modal-overlay: rgba(0, 0, 0, 0.85);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-box: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .l-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .l-header h1 {
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 1.5;
+        }
+
+        .c-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .l-fv__inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .l-cv {
+            padding: 60px 0;
+            background-color: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .l-cv h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .p-scroll {
+            margin: 30px 0;
+        }
+
+        .p-scroll__down {
+            display: inline-block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid var(--text-primary);
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .p-scroll__down::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 6px;
+            background-color: var(--text-primary);
+            border-radius: 50%;
+            animation: scroll 2s infinite;
+        }
+
+        @keyframes scroll {
+            0% { top: 10px; opacity: 1; }
+            100% { top: 30px; opacity: 0; }
+        }
+
+        .p-btn {
+            margin: 40px 0;
+        }
+
+        .p-btn a {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #05a045 100%);
+            color: white;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
+        }
+
+        .p-btn a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(6, 199, 85, 0.4);
+        }
+
+        .l-cv ul {
+            list-style: none;
+            margin-top: 30px;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .l-cv ul li {
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .p-title {
+            text-align: center;
+            padding: 60px 20px 40px;
+        }
+
+        .p-title p {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+
+        .p-title h2 {
+            font-size: 26px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .p-title em {
+            color: #e74c3c;
+            font-style: normal;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .l-line__shot {
+            display: flex;
+            gap: 20px;
+            margin: 40px 0;
+            list-style: none;
+            flex-wrap: wrap;
+        }
+
+        .l-line__shot > li {
+            flex: 1;
+            min-width: 280px;
+            position: relative;
+        }
+
+        .l-line__shot > li ul {
+            list-style: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .l-line__shot > li ul li {
+            position: absolute;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .c-fade {
+            opacity: 0;
+            transition: opacity 0.6s ease-in;
+        }
+
+        .c-fade.is-visible {
+            opacity: 1;
+        }
+
+        .LpgSecInner {
+            padding: 40px 20px;
+        }
+
+        .LpgComp3CardCont {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .LpgComp3CardCard {
+            background: var(--bg-primary);
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .LpgComp3CardCard:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .LpgComp3CardBody {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .LpgComp3CardTxt h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+
+        .LpgComp3CardTxt p {
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .LpgComp3CardBtn {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .LpgComp3CardBtn:hover {
+            background: #05a045;
+        }
+
+        .l-result dl {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            background: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 12px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .l-result dt {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .l-result dt p {
+            font-size: 16px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .l-result dt a {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .l-result dt a:hover {
+            background: #05a045;
+        }
+
+        .l-result dd {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--modal-overlay);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--modal-bg);
+            border-radius: 16px;
+            max-width: 500px;
+            width: 90%;
+            padding: 40px 30px;
+            position: relative;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            transform: scale(0.9);
+            transition: transform 0.3s;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: transparent;
+            border: none;
+            font-size: 28px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .modal-close:hover {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .modal-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .modal-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 16px;
+            margin-bottom: 15px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .modal-title {
+            font-size: 22px;
+            font-weight: bold;
+            line-height: 1.6;
+            color: var(--text-primary);
+            margin-bottom: 15px;
+        }
+
+        .modal-text {
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .modal-highlight {
+            background: linear-gradient(135deg, #e7f8f8 0%, #d4f1f4 100%);
+            color: #222222;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .dark .modal-highlight {
+            background: linear-gradient(135deg, #2d4a4a 0%, #1e3a3a 100%);
+            color: #ffffff;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 16px 24px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .modal-btn-primary {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #05a045 100%);
+            color: white;
+            box-shadow: 0 4px 15px rgba(6, 199, 85, 0.3);
+        }
+
+        .modal-btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(6, 199, 85, 0.4);
+        }
+
+        .modal-btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .modal-btn-secondary:hover {
+            background: var(--border-color);
+        }
+
+        @media (max-width: 768px) {
+            .l-header h1 {
+                font-size: 18px;
+            }
+
+            .l-cv h2 {
+                font-size: 20px;
+            }
+
+            .p-btn a {
+                font-size: 16px;
+                padding: 16px 32px;
+            }
+
+            .p-title h2 {
+                font-size: 22px;
+            }
+
+            .l-line__shot {
+                flex-direction: column;
+            }
+
+            .LpgComp3CardCont {
+                grid-template-columns: 1fr;
+            }
+
+            .l-result dl {
+                flex-direction: column;
+                padding: 30px 20px;
+            }
+
+            .modal-content {
+                padding: 30px 20px;
+            }
+
+            .modal-title {
+                font-size: 18px;
+            }
+
+            .modal-text {
+                font-size: 14px;
+            }
+
+            .modal-actions {
+                flex-direction: column;
+            }
+        }
+
+        .u-display--sp {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .u-display--sp {
+                display: inline;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Modal -->
+    <div id="welcomeModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()" aria-label="閉じる">×</button>
+            <div class="modal-header">
+                <div class="modal-badge">🔥 緊急告知 🔥</div>
+                <h2 class="modal-title">残り432名様限定！！！<br>今すぐLINEで友だち追加しよう！</h2>
+            </div>
+            <div class="modal-text">
+                <span class="modal-highlight">「優良株情報」</span>と返信！<br>
+                急騰銘柄の情報を完全無料で入手！
+            </div>
+            <div class="modal-actions">
+                <button class="modal-btn modal-btn-secondary" onclick="closeModal()">閉じる</button>
+                <button class="modal-btn modal-btn-primary" onclick="confirmModal()">今すぐ追加</button>
+            </div>
+        </div>
+    </div>
+
+    <header class="l-header">
+        <h1>「常勝!!株LINE」は完全無料<br class="u-display--sp">LINEの株式投資オンラインサロンです！</h1>
+    </header>
+
+    <main>
+        <article>
+            <div class="l-fv">
+                <div class="l-fv__inner">
+                    <picture>
+                        <img src="images/11.jpg" alt="">
+                    </picture>
+                </div>
+            </div>
+
+            <section class="l-cv">
+                <div class="c-wrapper">
+                    <h2>
+                        <span>LINE友だち追加で</span><br>
+                        <span>大本命の急騰銘柄を今すぐ入手可能</span>
+                    </h2>
+                    <div class="p-scroll">
+                        <span class="p-scroll__down"></span>
+                    </div>
+                    <div class="p-btn p-motion">
+                        <a href="javascript:showline();">完全無料<br class="u-display--sp">LINE友だち追加する</a>
+                    </div>
+                    <ul>
+                        <li>※ボタンをクリックするとLINE友だち追加画面に進みます。</li>
+                        <li>※完全無料0円のLINEサービスのためご料金の発生は一切ありません。</li>
+                        <li>※株式投資で遭遇した問題を先生と共有しよう。先着30名様は無料でVIPになれます！！！</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="l-line">
+                <div class="p-title">
+                    <p>01</p>
+                    <h2>今すぐあなたのLINEに<br>急騰銘柄情報が<br class="u-display--sp"><span>完全無料</span>で届きます！</h2>
+                </div>
+                <div class="c-wrapper">
+                    <ul class="l-line__shot">
+                        <li class="l-line__shot__left">
+                            <img src="images/line_talk_bg01.jpg" alt="">
+                            <ul>
+                                <li class="c-fade"><img src="images/line_talk01.png" alt=""></li>
+                                <li class="c-fade"><img src="images/line_talk02.png" alt=""></li>
+                                <li class="c-fade"><img src="images/line_talk03.png" alt=""></li>
+                                <li class="c-fade"><img src="images/line_talk04.png" alt=""></li>
+                                <li class="c-fade"><img src="images/line_talk05.png" alt=""></li>
+                            </ul>
+                        </li>
+                        <li class="l-line__shot__right">
+                            <img src="images/line_talk_bg01.jpg" alt="">
+                            <ul>
+                                <li class="c-fade"><img src="images/line_talk06.png" alt=""></li>
+                                <li class="c-fade"><img src="images/line_talk07.png" alt=""></li>
+                                <li class="c-fade"><img src="images/line_talk08.png" alt=""></li>
+                                <li class="c-fade"><img src="images/line_talk09.png" alt=""></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="l-result">
+                <div class="p-title">
+                    <p>02</p>
+                    <h2>LINE配信される<br class="u-display--sp">株式投資情報をご活用頂くことで<br><em>1000万円</em>を<em>超える利益</em>を<br>手にされる方も続出しています！</h2>
+
+                    <div class="c-wrapper" style="margin-top:50px;">
+                        <ul class="l-line__shot" style="margin-bottom:50px;">
+                            <li class="l-line__shot__left">
+                                <img src="images/222.png" alt="">
+                            </li>
+                            <li class="l-line__shot__right">
+                                <img src="images/333.png" alt="">
+                            </li>
+                        </ul>
+                        <ul>
+                            <li class="l-line__shot__right">
+                                <img src="images/st.png" alt="">
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="LpgSecInner">
+                    <div class="LpgComp3CardCont">
+                        <div class="LpgComp3CardCard">
+                            <div class="LpgComp3CardBody">
+                                <div class="LpgComp3CardTxt">
+                                    <h3><b>アナリスト評価が高い銘柄！</b></h3>
+                                    <p>アナリストレーティングが高い、直近のPV数が多い、目標株価との乖離幅が大きい銘柄をランキング<br><strong>買い予想・ PVランキング</strong>はこちら▼</p>
+                                </div>
+                                <a class="LpgComp3CardBtn" href="javascript:showline();"><b>買い予想・PVﾗﾝｷﾝｸﾞ</b></a>
+                            </div>
+                        </div>
+                        <div class="LpgComp3CardCard">
+                            <div class="LpgComp3CardBody">
+                                <div class="LpgComp3CardTxt">
+                                    <h3><b>将来性あり！</b></h3>
+                                    <p>直近の業績が好調で、将来性があり、株価上昇にも期待ができる銘柄を抽出<br><strong>成長期待株はこちら▼</strong></p>
+                                </div>
+                                <a class="LpgComp3CardBtn" href="javascript:showline();"><b>成長期待株 &gt;</b></a>
+                            </div>
+                        </div>
+                        <div class="LpgComp3CardCard">
+                            <div class="LpgComp3CardBody">
+                                <div class="LpgComp3CardTxt">
+                                    <h3><b>出来高の多い上位100銘柄！</b></h3>
+                                    <p>LINE証券で取扱う銘柄のうち、出来高の多い上位100銘柄を表示<br><strong>出来高ランキング</strong>はこちら▼</p>
+                                </div>
+                                <a class="LpgComp3CardBtn" href="javascript:showline();"><b>出来高ランキング &gt;</b></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="c-wrapper">
+                    <dl>
+                        <dt>
+                            <p>株式投資に関するご相談・当LINEサービスへのご質問など、ご不明点がございましたらお気軽にLINEでご連絡ください！</p>
+                            <a href="javascript:showline();">お問い合わせはコチラ<br></a>
+                        </dt>
+                        <dd>
+                            <picture>
+                                <img src="images/contact.jpg" alt="">
+                            </picture>
+                        </dd>
+                    </dl>
+                </div>
+            </section>
+
+            <div class="l-fv">
+                <div class="l-fv__inner">
+                    <picture style="margin:0 auto;">
+                        <img src="images/11.jpg" alt="">
+                    </picture>
+                </div>
+            </div>
+
+            <section class="l-cv">
+                <div class="c-wrapper">
+                    <h2>
+                        <span>LINE友だち追加で</span><br>
+                        <span>大本命の急騰銘柄を今すぐ入手可能</span>
+                    </h2>
+                    <div class="p-scroll">
+                        <span class="p-scroll__down"></span>
+                    </div>
+                    <div class="p-btn p-motion">
+                        <a href="javascript:showline();">完全無料<br class="u-display--sp">LINE友だち追加する</a>
+                    </div>
+                    <ul>
+                        <li>※ボタンをクリックするとLINE友だち追加画面に進みます。</li>
+                        <li>※完全無料0円のLINEサービスのためご料金の発生は一切ありません。</li>
+                        <li>※株式投資で遭遇した問題を先生と共有しよう。先着30名様は無料でVIPになれます！！！</li>
+                    </ul>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Original showline function
+        function showline() {
+            window.location.href = "https://www.qq.com";
+        }
+
+        // Modal functions
+        function showModal() {
+            const modal = document.getElementById('welcomeModal');
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('welcomeModal');
+            modal.classList.remove('active');
+        }
+
+        function confirmModal() {
+            closeModal();
+            showline();
+        }
+
+        // Show modal on page load
+        window.addEventListener('load', function() {
+            setTimeout(showModal, 500);
+        });
+
+        // Close modal when clicking outside
+        document.getElementById('welcomeModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Fade-in animation observer
+        const fadeElements = document.querySelectorAll('.c-fade');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
