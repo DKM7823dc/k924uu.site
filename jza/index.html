@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Watch Videos & Earn Money - Remote Work From Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563EB',
+                        secondary: '#DC2626',
+                        accent: '#10B981',
+                        dark: '#0F172A',
+                        light: '#F1F5F9'
+                    },
+                    animation: {
+                        'pulse-strong': 'pulse-strong 2s infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'bounce-slow': 'bounce-slow 2s infinite'
+                    },
+                    keyframes: {
+                        'pulse-strong': {
+                            '0%, 100%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.05)' },
+                        },
+                        'float': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        'bounce-slow': {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px) scale(1.05)' },
+                        }
+                    }
+                }
+            }
+        }
+
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
+        body {
+            font-family: 'Outfit', sans-serif;
+        }
+
+        .shadow-custom {
+            box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.2), 0 8px 10px -6px rgba(37, 99, 235, 0.1);
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #2563EB 0%, #7C3AED 100%);
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #2563EB, #DC2626);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .pulse-animation {
+            animation: pulse-strong 2s infinite;
+        }
+
+        @keyframes pulse-strong {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.7);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px 10px rgba(220, 38, 38, 0.4);
+            }
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .testimonial {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+        }
+
+        .testimonial::before {
+            content: '"';
+            position: absolute;
+            top: -25px;
+            left: 10px;
+            font-size: 4rem;
+            font-family: serif;
+            color: rgba(37, 99, 235, 0.15);
+        }
+
+        .dark .testimonial::before {
+            color: rgba(255, 255, 255, 0.08);
+        }
+
+        .whatsapp-notification {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: #DC2626;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px solid white;
+            animation: bounce-slow 2s infinite;
+        }
+
+        @keyframes bounce-slow {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .dark .whatsapp-notification {
+            border-color: #0F172A;
+        }
+
+        .section-divider {
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #2563EB, transparent);
+            margin: 2rem auto;
+            width: 80%;
+            opacity: 0.5;
+        }
+
+        .dark body {
+            background-color: #0F172A;
+            color: #F1F5F9;
+        }
+
+        .video-icon-bg {
+            background: linear-gradient(135deg, #DC2626 0%, #EF4444 100%);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-white dark:bg-dark text-gray-800 dark:text-gray-100">
+    <div class="w-[95%] md:w-[80%] mx-auto">
+        <!-- Hero Section -->
+        <section class="py-12 relative overflow-hidden">
+            <div class="absolute inset-0 bg-gradient-to-r from-blue-50 to-red-50 dark:from-blue-900/10 dark:to-red-900/10 -z-10 opacity-60 rounded-3xl"></div>
+
+            <!-- Mobile Layout: Stackable -->
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <!-- Image Container (left) -->
+                <div class="relative w-full md:w-1/2">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                        <img src="img/1.jpg" alt="Work From Home - Watch Videos" class="w-full h-auto">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <p class="text-white font-medium flex items-center"><i class="fas fa-play-circle mr-2"></i>Start earning £200-£500 daily by watching videos</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Container (right) -->
+                <div class="space-y-6 w-full md:w-1/2">
+                    <div class="inline-block bg-secondary text-white px-4 py-1 rounded-full text-sm font-semibold mb-2 shadow-lg">📣 Remote Work Opportunity</div>
+                    <h1 class="text-3xl md:text-4xl font-bold">
+                        <span class="gradient-text">Watch Videos & Earn Money</span>
+                        <span class="block mt-2 text-dark dark:text-light">Work From Home with Just Your Phone</span>
+                    </h1>
+                    <p class="text-lg text-gray-700 dark:text-gray-300">We're recruiting long-term remote partners to watch videos, complete simple tasks, and earn daily income. Just use your mobile phone at home - no office, no commute, complete freedom!</p>
+
+                    <ul class="space-y-3">
+                        <li class="flex items-center">
+                            <span class="text-accent mr-2"><i class="fas fa-check-circle"></i></span>
+                            <span>Only need a mobile phone to get started</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-accent mr-2"><i class="fas fa-check-circle"></i></span>
+                            <span>No experience required - quick and easy to learn</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-accent mr-2"><i class="fas fa-check-circle"></i></span>
+                            <span>Flexible schedule - work anytime you want</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-accent mr-2"><i class="fas fa-check-circle"></i></span>
+                            <span>Earn £200-£500 daily based on task volume</span>
+                        </li>
+                        <li class="flex items-center">
+                            <span class="text-accent mr-2"><i class="fas fa-check-circle"></i></span>
+                            <span>£50 daily training allowance during onboarding</span>
+                        </li>
+                    </ul>
+
+                    <button onclick="opensite()" class="w-full bg-secondary hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition-all hover:scale-105 pulse-animation">
+                        💷 Contact Us - Start Earning Today
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Advantages Section -->
+        <section class="py-12">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold gradient-text">Why Join Our Programme?</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Discover the benefits of working with us</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <!-- Image Container (left) -->
+                <div class="relative w-full md:w-1/2 order-2 md:order-1">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-accent to-primary rounded-xl blur opacity-20 group-hover:opacity-100 transition duration-1000 group-hover:duration-200"></div>
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl">
+                        <img src="img/4.jpg" alt="Remote Work Benefits" class="w-full h-auto">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <p class="text-white font-medium">Flexible work hours & high earnings</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Text Container (right) -->
+                <div class="space-y-6 w-full md:w-1/2 order-1 md:order-2">
+                    <h2 class="text-2xl md:text-3xl font-bold text-dark dark:text-light">The Advantages of Joining Us</h2>
+
+                    <div class="grid gap-4">
+                        <div class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-custom">
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                    <i class="fas fa-home"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary dark:text-primary">Work From Home</h3>
+                                    <p>Complete tasks at home - no need to travel or commute</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-custom">
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                    <i class="fas fa-mobile-alt"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary dark:text-primary">Just One Mobile Phone</h3>
+                                    <p>All you need is a smartphone - no computer or special equipment</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-custom">
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary dark:text-primary">No Experience Required</h3>
+                                    <p>Quick to learn and easy to master - anyone can do it</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-custom">
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary dark:text-primary">Flexible Time</h3>
+                                    <p>Arrange tasks at your convenience - work when you want</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow-custom">
+                            <div class="flex items-start">
+                                <div class="bg-primary text-white p-2 rounded-full mr-4">
+                                    <i class="fas fa-pound-sign"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-bold text-primary dark:text-primary">High Earnings</h3>
+                                    <p>Task-based payment - the more you do, the more you earn (£200-£500/day)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button onclick="opensite()" class="w-full bg-secondary hover:bg-opacity-90 text-white font-bold py-3 px-6 rounded-lg shadow-lg transform transition-all hover:scale-105">
+                        💷 Contact Us - Get Paid
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- How It Works Section -->
+        <section class="py-12">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold gradient-text">How It Works</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Simple steps to start earning</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-custom text-center">
+                    <div class="video-icon-bg text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">1. Sign Up</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Contact us via WhatsApp to register and receive your training materials</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-custom text-center">
+                    <div class="video-icon-bg text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">2. Watch Videos</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Simply watch videos on your phone and complete simple engagement tasks</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-custom text-center">
+                    <div class="video-icon-bg text-white w-16 h-16 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">3. Get Paid</h3>
+                    <p class="text-gray-600 dark:text-gray-400">Earn money for each completed task - payment based on volume</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-8 items-center">
+                <!-- Text Container (left) -->
+                <div class="space-y-6 w-full md:w-1/2">
+                    <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-custom">
+                        <h3 class="text-xl font-bold text-dark dark:text-light mb-6">What You'll Be Doing</h3>
+
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <div class="text-accent text-xl mr-3"><i class="fas fa-video"></i></div>
+                                <div>
+                                    <h4 class="font-bold">Watch Videos</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">View short videos and content on various platforms</p>
+                                </div>
+                            </li>
+
+                            <li class="flex items-start">
+                                <div class="text-accent text-xl mr-3"><i class="fas fa-thumbs-up"></i></div>
+                                <div>
+                                    <h4 class="font-bold">Engage with Content</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">Like, comment, and interact with the content naturally</p>
+                                </div>
+                            </li>
+
+                            <li class="flex items-start">
+                                <div class="text-accent text-xl mr-3"><i class="fas fa-clipboard-check"></i></div>
+                                <div>
+                                    <h4 class="font-bold">Complete Simple Tasks</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">Follow easy instructions for each assignment</p>
+                                </div>
+                            </li>
+
+                            <li class="flex items-start">
+                                <div class="text-accent text-xl mr-3"><i class="fas fa-chart-line"></i></div>
+                                <div>
+                                    <h4 class="font-bold">Track Your Earnings</h4>
+                                    <p class="text-gray-600 dark:text-gray-400">Monitor your progress and daily income in real-time</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Image Container (right) -->
+                <div class="relative w-full md:w-1/2">
+                    <div class="absolute -inset-0.5 bg-gradient-to-r from-primary to-secondary rounded-xl blur opacity-30 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+                    <div class="relative rounded-xl overflow-hidden shadow-2xl float-animation">
+                        <img src="img/2.jpg" alt="Earning Money Watching Videos" class="w-full h-auto">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                            <p class="text-white font-medium">Easy tasks, great rewards</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- Earnings Section -->
+        <section class="py-12 bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/10 dark:to-purple-900/10 rounded-3xl">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold gradient-text">💷 Earning Potential</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Task-based payment - more work means more income</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto px-4">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-custom">
+                    <div class="text-center">
+                        <div class="text-primary text-4xl mb-4"><i class="fas fa-user-clock"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Training Period</h3>
+                        <div class="text-4xl font-bold text-accent mb-2">£50</div>
+                        <p class="text-gray-600 dark:text-gray-400">Daily allowance while learning</p>
+                    </div>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-custom border-2 border-secondary">
+                    <div class="text-center">
+                        <div class="text-secondary text-4xl mb-4"><i class="fas fa-star"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Full Partner</h3>
+                        <div class="text-4xl font-bold text-secondary mb-2">£200-£500</div>
+                        <p class="text-gray-600 dark:text-gray-400">Daily income based on task volume</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <p class="text-lg font-medium text-gray-700 dark:text-gray-300 mb-6">The more tasks you complete, the more you earn. No limits on your income potential!</p>
+                <button onclick="opensite()" class="bg-secondary hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-lg shadow-lg transform transition-all hover:scale-105 inline-block">
+                    Start Earning Now - Contact Us
+                </button>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+ 
+
+        <div class="section-divider"></div>
+
+        <!-- Testimonials Section -->
+        <section class="py-12">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold gradient-text">What Our Partners Say</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Real stories from people earning with us</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="testimonial bg-white dark:bg-gray-800 p-6 rounded-xl shadow-custom">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/40 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-primary"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">Sarah M.</h4>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"I started three months ago and I'm now earning £300-£400 daily. It's perfect for me as a stay-at-home mum. I can work while the kids are at school and still have time for everything else!"</p>
+                </div>
+
+                <div class="testimonial bg-white dark:bg-gray-800 p-6 rounded-xl shadow-custom">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/40 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-primary"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">James T.</h4>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"I was skeptical at first, but the training was straightforward and I started earning on day one. It's genuinely easy - just watching videos and doing simple tasks. Highly recommend!"</p>
+                </div>
+
+                <div class="testimonial bg-white dark:bg-gray-800 p-6 rounded-xl shadow-custom">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900/40 rounded-full flex items-center justify-center">
+                            <i class="fas fa-user text-primary"></i>
+                        </div>
+                        <div class="ml-4">
+                            <h4 class="font-bold">Emily R.</h4>
+                            <div class="flex">
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star text-yellow-400"></i>
+                                <i class="fas fa-star-half-alt text-yellow-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p>"The flexibility is brilliant! I work in the evenings after my main job and earn an extra £200+ daily. It's completely changed my financial situation. The support team is always there when I need help."</p>
+                </div>
+            </div>
+
+            <div class="mt-8 text-center">
+                <button onclick="opensite()" class="bg-secondary hover:bg-opacity-90 text-white font-bold py-3 px-8 rounded-lg shadow-lg transform transition-all hover:scale-105 inline-block">
+                    Join Them - Contact Us on WhatsApp
+                </button>
+            </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- FAQ Section -->
+        <section class="py-12">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold gradient-text">Frequently Asked Questions</h2>
+                <p class="text-lg text-gray-600 dark:text-gray-400 mt-2">Common questions about our programme</p>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-custom">
+                    <h3 class="font-bold text-lg mb-2 flex items-center">
+                        <span class="text-primary mr-2"><i class="fas fa-question-circle"></i></span>
+                        Is this really legitimate?
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 ml-7">Yes! We work with major content platforms and brands who need genuine engagement on their videos. You're helping them increase visibility and reach.</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-custom">
+                    <h3 class="font-bold text-lg mb-2 flex items-center">
+                        <span class="text-primary mr-2"><i class="fas fa-question-circle"></i></span>
+                        How quickly will I get paid?
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 ml-7">Payment schedules are flexible. Most partners receive payments weekly or bi-weekly directly to their preferred payment method.</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-custom">
+                    <h3 class="font-bold text-lg mb-2 flex items-center">
+                        <span class="text-primary mr-2"><i class="fas fa-question-circle"></i></span>
+                        Do I need any special equipment?
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 ml-7">No! Just a smartphone with internet access. That's all you need to get started and earn money.</p>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-custom">
+                    <h3 class="font-bold text-lg mb-2 flex items-center">
+                        <span class="text-primary mr-2"><i class="fas fa-question-circle"></i></span>
+                        How much time do I need to commit?
+                    </h3>
+                    <p class="text-gray-600 dark:text-gray-400 ml-7">It's completely flexible. Some people work 1-2 hours daily, others work more. Your earnings scale with the time you invest.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Disclaimer Section -->
+        <section class="py-8 text-sm text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700">
+            <h3 class="font-bold mb-2">Important Information and Disclosure</h3>
+            <p class="mb-2">The income figures stated on this website are examples based on average partner performance and are not guarantees of results. Individual earnings will vary based on factors including time invested, task completion rate, and consistency.</p>
+            <p class="mb-2">This opportunity involves watching videos and engaging with content to help increase visibility for content creators and brands. All activities comply with platform guidelines and terms of service.</p>
+            <p class="mb-2">We are an independent service provider working with various content platforms and marketing partners. Participation requires following provided guidelines and maintaining account security.</p>
+            <p>© 2025 All Rights Reserved. This site is for informational purposes only.</p>
+        </section>
+    </div>
+
+    <!-- Fixed WhatsApp Icon -->
+    <div class="fixed right-5 top-1/2 transform -translate-y-1/2 z-50">
+        <button onclick="opensite()" class="relative bg-green-500 hover:bg-green-600 text-white w-[60px] h-[60px] rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:scale-110">
+            <i class="fab fa-whatsapp text-2xl"></i>
+            <div class="whatsapp-notification">1</div>
+        </button>
+    </div>
+
+    <!-- Floating Bottom Button -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50 w-[95%] md:w-[80%] max-w-2xl">
+        <button onclick="opensite()" class="w-full bg-secondary hover:bg-opacity-90 text-white font-bold py-4 px-8 rounded-lg shadow-xl pulse-animation whitespace-nowrap text-base md:text-lg">
+            💷 Contact Us on WhatsApp - Start Earning
+        </button>
+    </div>
+
+    <script>
+        function opensite() {
+            window.open('https://www.qq.com', '_blank');
+        }
+    </script>
+</body>
+</html>
