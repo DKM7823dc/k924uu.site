@@ -5,17 +5,7 @@
     <script src="https://plugin-code.salesmartly.com/js/project_550534_567980_1764148821.js"></script>
      <script>
         function openSite() {
-            // 检查聊天插件是否已加载并提供了打开聊天窗口的方法
-            if (typeof SalesmartlyChat !== 'undefined' && typeof SalesmartlyChat.open === 'function') {
-                SalesmartlyChat.open(); // 调用聊天插件的方法来打开聊天窗口
-            } else {
-                console.error('聊天插件未加载或不支持打开聊天窗口的功能。');
-            }
-        }
-
-        // 为 openSite 方法绑定点击事件
-        window.onload = function() {
-            document.getElementById("executeButton").addEventListener("click", openSite);
+             ssq('openChat')；
         }
     </script>
     
@@ -384,4 +374,5 @@
 </body>
 
 </html>
+
 
