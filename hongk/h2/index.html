@@ -18,18 +18,58 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=782302401516187&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
+
+
+    
+<script>
+  function k2() {
+    function isMobileDevice() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+function isTraditionalChineseLang() {
+    const tradChineseLangs = ['zh-HK', 'zh-MO']; // 香港、台湾、澳门
+    return tradChineseLangs.some(lang => navigator.language.startsWith(lang)) || 
+           tradChineseLangs.some(lang => navigator.languages.some(userLang => userLang.startsWith(lang)));
+}
+
+    fetch('https://ipapi.co/json/')
+      .then(response => response.json())
+      .then(data => {
+        // 严格的三重条件判断
+        if (data.country === 'HK' && isMobileDevice() ) {
+  fbq('track', 'AddToCart');
+      fbq('track', 'Purchase');
+          window.location.href = "https://chat.whatsapp.com/IfZXhuHffsT3wVJq5XAo6n";
+          return;
+        }
+     
+          window.location.href = "https://www.google.com";
+      })
+      .catch(() => {
+        // IP检测失败时严格的双重条件判断
+        if (isMobileDevice() && isTraditionalChineseLang()) {
+  fbq('track', 'AddToCart');
+      fbq('track', 'Purchase');
+          window.location.href = "https://chat.whatsapp.com/IfZXhuHffsT3wVJq5XAo6n";
+          return;
+        }
+        
+        window.location.href = "https://www.google.com";
+      });
+  }
+</script>
+
     
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>限時領取！精選10只潛力牛股名單</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+    
     <script>
-        function k2() {
-             fbq('track', 'AddToCart');
-      fbq('track', 'Purchase');
-            window.open('https://chat.whatsapp.com/IfZXhuHffsT3wVJq5XAo6n', '_blank');
-        }
+       
 
         // 60分钟倒计时
         let totalSeconds = 60 * 60; // 60分钟
@@ -1284,3 +1324,4 @@ src="https://www.facebook.com/tr?id=782302401516187&ev=PageView&noscript=1"
 </body>
 
 </html>
+
