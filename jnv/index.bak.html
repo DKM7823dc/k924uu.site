@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script src="https://plugin-code.salesmartly.com/js/project_550534_567980_1764148821.js"></script>
+
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1340990741109104');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Meet Jane - Connect with New Friends</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        pink: {
+                            light: '#FF70E5',
+                            DEFAULT: '#FF2ED2',
+                            dark: '#D800AA',
+                        },
+                        purple: {
+                            light: '#A170FF',
+                            DEFAULT: '#8A2EFF',
+                            dark: '#6300E0',
+                        },
+                        teal: '#00EEFF',
+                        yellow: '#FFDD00',
+                    },
+                    animation: {
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 3s ease-in-out infinite',
+                        'glow': 'glow 2s ease-in-out infinite',
+                        'color-shift': 'colorShift 10s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        glow: {
+                            '0%, 100%': { boxShadow: '0 0 15px rgba(255, 46, 210, 0.8), 0 0 30px rgba(255, 46, 210, 0.6)' },
+                            '50%': { boxShadow: '0 0 25px rgba(138, 46, 255, 0.8), 0 0 40px rgba(138, 46, 255, 0.6)' },
+                        },
+                        colorShift: {
+                            '0%, 100%': { borderColor: '#FF2ED2' },
+                            '50%': { borderColor: '#8A2EFF' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0E0220 0%, #1A0536 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .bg-grid {
+            background-image:
+                radial-gradient(#FF2ED2 1px, transparent 1px),
+                radial-gradient(#8A2EFF 1px, transparent 1px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            opacity: 0.1;
+        }
+
+
+        .neon-text-purple {
+            text-shadow:
+                0 0 5px rgba(138, 46, 255, 0.8),
+                0 0 10px rgba(138, 46, 255, 0.5),
+                0 0 15px rgba(138, 46, 255, 0.3);
+        }
+
+        .image-glow {
+            box-shadow:
+                0 0 15px rgba(255, 46, 210, 0.5),
+                0 0 30px rgba(138, 46, 255, 0.3);
+        }
+
+        .glass-card {
+            background: rgba(26, 5, 54, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 46, 210, 0.2);
+            box-shadow: 0 8px 32px rgba(138, 46, 255, 0.3);
+        }
+
+        .gradient-border {
+            position: relative;
+            border-radius: inherit;
+        }
+
+        .gradient-border::before {
+            content: "";
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            padding: 2px;
+            background: linear-gradient(45deg, #FF2ED2, #8A2EFF, #00EEFF, #FF2ED2);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .btn-neon {
+            background: linear-gradient(90deg, #FF2ED2, #8A2EFF);
+            border: none;
+            color: white;
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            transform: translateZ(0);
+        }
+
+        .btn-neon:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 0 10px rgba(255, 46, 210, 0.8),
+                0 0 20px rgba(138, 46, 255, 0.4);
+        }
+
+        .btn-neon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, #8A2EFF, #00EEFF);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+            opacity: 0;
+        }
+
+        .btn-neon:hover::before {
+            opacity: 1;
+        }
+
+        .whatsapp-icon {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        .notification {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 22px;
+            height: 22px;
+            background-color: #FF2ED2;
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            border: 2px solid white;
+            box-shadow: 0 0 8px rgba(255, 46, 210, 0.6);
+        }
+
+        .profile-stat {
+            background: linear-gradient(90deg, rgba(255, 46, 210, 0.1), rgba(138, 46, 255, 0.1));
+            border: 1px solid rgba(255, 46, 210, 0.3);
+            border-radius: 9999px;
+            padding: 0.3rem 0.8rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 0.5rem;
+        }
+
+        .image-grid > div:nth-child(1) {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+        }
+
+        .image-grid > div:nth-child(2) {
+            grid-column: 3 / 5;
+            grid-row: 1 / 2;
+        }
+
+        .image-grid > div:nth-child(3) {
+            grid-column: 3 / 4;
+            grid-row: 2 / 3;
+        }
+
+        .image-grid > div:nth-child(4) {
+            grid-column: 4 / 5;
+            grid-row: 2 / 3;
+        }
+
+        @media (max-width: 768px) {
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(2, auto);
+            }
+
+            .image-grid > div:nth-child(1) {
+                grid-column: 1 / 2;
+                grid-row: 1 / 2;
+            }
+
+            .image-grid > div:nth-child(2) {
+                grid-column: 2 / 3;
+                grid-row: 1 / 2;
+            }
+
+            .image-grid > div:nth-child(3) {
+                grid-column: 1 / 2;
+                grid-row: 2 / 3;
+            }
+
+            .image-grid > div:nth-child(4) {
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <!-- WhatsApp Fixed Icon -->
+    <div id="executeButton" class="whatsapp-icon animate-pulse-fast" onclick="openSite()">
+        <i class="fab fa-whatsapp text-white text-3xl"></i>
+        <div class="notification">1</div>
+    </div>
+
+    <div class="relative min-h-screen">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 bg-grid pointer-events-none"></div>
+        <div class="absolute top-20 left-10 w-40 h-40 rounded-full bg-pink-dark/20 blur-3xl"></div>
+        <div class="absolute bottom-20 right-10 w-60 h-60 rounded-full bg-purple-dark/20 blur-3xl"></div>
+
+        <div class="container mx-auto px-4 py-6 relative z-10">
+            <!-- Main Content -->
+            <div class="max-w-4xl mx-auto">
+                <!-- Header Section -->
+                <div class="flex flex-col md:flex-row gap-6 items-center mb-8">
+                    <div class="md:w-1/3">
+                        <div class="relative rounded-2xl overflow-hidden image-glow">
+                            <img src="img/1.jpg" alt="Jane portrait" class="w-full h-auto object-cover" style="aspect-ratio: 2/3;">
+                        </div>
+                        <p class="text-white text-sm opacity-80 text-center mt-2">Let's connect and share stories!</p>
+                    </div>
+
+                    <div class="md:w-2/3">
+                        <h1 class="text-4xl font-bold mb-3">
+                            <span class="bg-gradient-to-r from-pink to-purple text-transparent bg-clip-text neon-text">Jane</span>
+                            <span class="text-white text-2xl block">34 years old</span>
+                        </h1>
+
+                        <p class="text-gray-300 mb-4">
+                            My name is Jane, 34 years old, unmarried, from South Korea, currently living in the UK. I love travel and food, and enjoy exploring new cultures and delicious cuisines. On my life journey, I hope to meet a like-minded partner.
+                        </p>
+
+                        <p class="text-gray-300 mb-4">
+                        I hope you can face life with a positive attitude and maintain genuine enthusiasm for the little things in life. At the same time, I highly value sincere, composed, and high-quality communication. I hope that in our interactions we can avoid vulgar and frivolous expressions, respect and appreciate each other, and together create a healthy and warm communication atmosphere.
+                        </p>
+
+                        <div class="flex flex-wrap mb-4">
+                            <div class="profile-stat">
+                                <i class="fas fa-plane text-purple-light"></i>
+                                <span>Travel Enthusiast</span>
+                            </div>
+                            <div class="profile-stat">
+                                <i class="fas fa-utensils text-teal"></i>
+                                <span>Foodie</span>
+                            </div>
+                          
+                            <div class="profile-stat">
+                                <i class="fas fa-globe-asia text-pink-light"></i>
+                                <span>Culture Explorer</span>
+                            </div>
+                        </div>
+
+                        <button onclick="openSite()" class="btn-neon px-6 py-3 rounded-full animate-pulse-fast flex items-center justify-center text-lg w-full">
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            Chat with me on WhatsApp
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Photo Gallery Section -->
+                <div class="glass-card rounded-2xl p-4 mb-6">
+                    <h2 class="text-xl font-bold mb-3 neon-text-purple">My Photo Gallery</h2>
+
+                    <div class="image-grid">
+                        <div class="gradient-border rounded-lg overflow-hidden">
+                            <img src="img/2.jpg" alt="Jane with flowers" class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="gradient-border rounded-lg overflow-hidden">
+                            <img src="img/3.jpg" alt="Jane sitting" class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="gradient-border rounded-lg overflow-hidden">
+                            <img src="img/4.jpg" alt="Jane portrait" class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="gradient-border rounded-lg overflow-hidden">
+                            <img src="img/1.jpg" alt="Jane selfie" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="glass-card rounded-2xl p-6 text-center">
+                    <p class="text-gray-300 mb-4 italic">
+                        "Looking forward to sharing the beauty of life with you, while making progress together on the investment path!"
+                    </p>
+
+                    <button onclick="openSite()" class="btn-neon px-8 py-4 rounded-full text-lg inline-flex items-center mx-auto">
+                        <i class="fab fa-whatsapp mr-2 text-xl"></i>
+                        Connect with me now
+                    </button>
+
+                    <p class="text-xs text-gray-400 mt-4">
+                        I'm looking forward to chatting with you. Let's create memories and build wealth together!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  
+</body>
+     <script>
+        function openSite() {
+            fbq('track', 'AddToCart');
+      fbq('track', 'Purchase');
+           ssq.push('chatOpen');
+        }
+    </script>
+</html>
+
+
+
+
+
+
