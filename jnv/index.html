@@ -19,10 +19,10 @@ fbq('track', 'PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
-/></noscript>
+></noscript>
 <!-- End Meta Pixel Code -->
 
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Meet Jane - Connect with New Friends</title>
@@ -275,6 +275,33 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
                 grid-row: 2 / 3;
             }
         }
+
+        .warning-box {
+            background: linear-gradient(135deg, rgba(255, 46, 210, 0.15), rgba(138, 46, 255, 0.15));
+            border-left: 4px solid #FF2ED2;
+            padding: 1rem;
+            margin-top: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .warning-box ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .warning-box li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .warning-box li::before {
+            content: "✗";
+            position: absolute;
+            left: 0;
+            color: #FF2ED2;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -309,14 +336,27 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
                         </h1>
 
                         <p class="text-gray-300 mb-4">
-                            My name is Jane, 34 years old, unmarried, from South Korea, currently living in the UK. I love travel and food, and enjoy exploring new cultures and delicious cuisines. On my life journey, I hope to meet a like-minded partner.
+                            Hello, my name is Jane, I'm 34 years old, from South Korea, currently living in the UK. I love travel, food, and exploring different cultures, and I also enjoy meeting new people and experiencing new scenery during my journeys.
                         </p>
 
                         <p class="text-gray-300 mb-4">
-                        I hope you can face life with a positive attitude and maintain genuine enthusiasm for the little things in life. At the same time, I highly value sincere, composed, and high-quality communication. I hope that in our interactions we can avoid vulgar and frivolous expressions, respect and appreciate each other, and together create a healthy and warm communication atmosphere.
+                            I hope to meet someone with similar values, who is sincere and mature, with whom I can share a common language, to share the beautiful moments in life together. Whether it's tasting food, exploring cities, or simple daily exchanges, I hope we can feel each other's warmth.
                         </p>
 
-                        <div class="flex flex-wrap mb-4">
+                        <p class="text-gray-300 mb-4">
+                            I appreciate communication that is respectful, cultured, and considerate of each other.
+                        </p>
+
+                        <div class="warning-box">
+                            <p class="text-white font-semibold mb-2">Please note:</p>
+                            <ul class="text-gray-300 text-sm">
+                                <li>I reject vulgar remarks</li>
+                                <li>I do not accept flirtation</li>
+                                <li>I will not respond to any disrespectful or inappropriate messages</li>
+                            </ul>
+                        </div>
+
+                        <div class="flex flex-wrap mb-4 mt-4">
                             <div class="profile-stat">
                                 <i class="fas fa-plane text-purple-light"></i>
                                 <span>Travel Enthusiast</span>
@@ -325,7 +365,7 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
                                 <i class="fas fa-utensils text-teal"></i>
                                 <span>Foodie</span>
                             </div>
-                          
+
                             <div class="profile-stat">
                                 <i class="fas fa-globe-asia text-pink-light"></i>
                                 <span>Culture Explorer</span>
@@ -365,7 +405,7 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
                 <!-- Call to Action -->
                 <div class="glass-card rounded-2xl p-6 text-center">
                     <p class="text-gray-300 mb-4 italic">
-                        "Looking forward to sharing the beauty of life with you, while making progress together on the investment path!"
+                        "Thank you for your sincerity and kindness, and I look forward to meeting someone who is truly right for me."
                     </p>
 
                     <button onclick="openSite()" class="btn-neon px-8 py-4 rounded-full text-lg inline-flex items-center mx-auto">
@@ -374,14 +414,14 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
                     </button>
 
                     <p class="text-xs text-gray-400 mt-4">
-                        I'm looking forward to chatting with you. Let's create memories and build wealth together!
+                        I'm looking forward to chatting with you. Let's create meaningful connections together!
                     </p>
                 </div>
             </div>
         </div>
     </div>
 
-  
+
 </body>
      <script>
         function openSite() {
@@ -391,10 +431,3 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
         }
     </script>
 </html>
-
-
-
-
-
-
-
