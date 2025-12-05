@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KAYNO Apple Bag - Magical Christmas Dreams</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --festive-red: #C41E3A;
+            --deep-red: #8B1538;
+            --forest-green: #165B33;
+            --cream: #FFF8F0;
+            --ivory: #FFFEF7;
+            --gold: #D4AF37;
+            --charcoal: #2C2C2C;
+            --soft-gray: #F5F5F5;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--charcoal);
+            background: var(--ivory);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(165deg, var(--deep-red) 0%, var(--festive-red) 50%, var(--forest-green) 100%);
+            color: white;
+            overflow: hidden;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.15) 0%, transparent 70%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 7vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            text-shadow: 2px 4px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 4vw, 1.5rem);
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 450px;
+            margin: 2rem auto;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-top: 2rem;
+            opacity: 0.9;
+        }
+
+        /* Price Section */
+        .price-section {
+            background: var(--cream);
+            padding: 3rem 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .price-badge {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .price-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .original-price {
+            font-size: 1.5rem;
+            color: #999;
+            text-decoration: line-through;
+            font-weight: 300;
+        }
+
+        .current-price {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--festive-red);
+            font-weight: 800;
+        }
+
+        .price-description {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--charcoal);
+        }
+
+        /* Features Section */
+        .features-section {
+            padding: 4rem 1.5rem;
+            background: white;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--deep-red);
+            font-weight: 700;
+        }
+
+        /* Carousel */
+        .carousel-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .carousel-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%; /* 1:1 aspect ratio */
+            height: 0;
+        }
+
+        .carousel-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+        }
+
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 1.5rem;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ddd;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .dot.active {
+            background: var(--festive-red);
+            transform: scale(1.3);
+        }
+
+        /* Feature Cards */
+        .features-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background: var(--soft-gray);
+            padding: 2rem;
+            border-radius: 16px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--festive-red), var(--deep-red));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .feature-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+            color: var(--deep-red);
+            font-weight: 600;
+        }
+
+        .feature-description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+        }
+
+        /* Shipping Section */
+        .shipping-section {
+            background: var(--forest-green);
+            color: white;
+            padding: 3rem 1.5rem;
+        }
+
+        .shipping-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .shipping-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .shipping-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 4rem 1.5rem;
+            background: var(--cream);
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .testimonial-text {
+            font-size: 1.1rem;
+            font-style: italic;
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            color: var(--charcoal);
+        }
+
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--festive-red);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--deep-red), var(--festive-red));
+            padding: 4rem 1.5rem;
+            text-align: center;
+            color: white;
+        }
+
+        .cta-image {
+            max-width: 400px;
+            margin: 0 auto 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+        }
+
+        .cta-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .cta-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+
+        .cta-text {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(212, 175, 55, 0.6);
+            background: #C4961A;
+        }
+
+        .cta-button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Animations on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (min-width: 768px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .price-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Marketing Elements */
+        .urgency-bar {
+            background: linear-gradient(90deg, #FF4757, #FF6348);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 2px 10px rgba(255, 71, 87, 0.3);
+        }
+
+        .urgency-bar span {
+            margin: 0 0.5rem;
+        }
+
+        .stock-badge, .sold-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 1rem 0.5rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .stock-badge {
+            background: #FFF3CD;
+            color: #856404;
+            border: 2px solid #FFE69C;
+        }
+
+        .sold-badge {
+            background: #D4EDDA;
+            color: #155724;
+            border: 2px solid #C3E6CB;
+        }
+
+        .trust-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+        }
+
+        .trust-badge-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            flex: 1;
+            min-width: 120px;
+        }
+
+        .trust-badge-icon {
+            font-size: 2rem;
+        }
+
+        .trust-badge-text {
+            font-size: 0.85rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .countdown-item {
+            background: white;
+            border-radius: 10px;
+            padding: 1rem;
+            min-width: 70px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .countdown-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--festive-red);
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.75rem;
+            color: #666;
+            text-transform: uppercase;
+            margin-top: 0.3rem;
+        }
+
+        /* Social Proof Reviews Section */
+        .social-proof-section {
+            background: white;
+            padding: 4rem 1.5rem;
+            border-top: 1px solid #eee;
+        }
+
+        .review-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .review-stats {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+        }
+
+        .review-count {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .review-stream {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .review-item {
+            background: var(--soft-gray);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            position: relative;
+            animation: slideInRight 0.5s ease-out;
+            border-left: 3px solid var(--gold);
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .review-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .reviewer-name {
+            font-weight: 600;
+            color: var(--charcoal);
+        }
+
+        .review-time {
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        .review-stars {
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .review-text {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: #E8F5E9;
+            color: #2E7D32;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+
+        /* Floating Buy Button */
+        .floating-buy-button {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--gold), #C4961A);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+            z-index: 999;
+            transition: all 0.3s;
+            animation: pulse-button 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-button {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.05);
+                box-shadow: 0 12px 40px rgba(212, 175, 55, 0.7);
+            }
+        }
+
+        .floating-buy-button:hover {
+            transform: translateX(-50%) scale(1.1);
+            box-shadow: 0 12px 40px rgba(212, 175, 55, 0.8);
+        }
+
+        .floating-buy-button:active {
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        /* Christmas Animations */
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            user-select: none;
+            cursor: default;
+            animation: fall linear infinite;
+            color: white;
+            font-size: 1em;
+            opacity: 0.8;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        .christmas-lights {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            pointer-events: none;
+            z-index: 998;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding-top: 10px;
+        }
+
+        .light {
+            width: 15px;
+            height: 25px;
+            border-radius: 0 0 50% 50%;
+            animation: blink 2s infinite;
+        }
+
+        .light:nth-child(1) { background: #ff4757; animation-delay: 0s; }
+        .light:nth-child(2) { background: #ffd93d; animation-delay: 0.2s; }
+        .light:nth-child(3) { background: #6BCB77; animation-delay: 0.4s; }
+        .light:nth-child(4) { background: #4D96FF; animation-delay: 0.6s; }
+        .light:nth-child(5) { background: #ff4757; animation-delay: 0.8s; }
+        .light:nth-child(6) { background: #ffd93d; animation-delay: 1s; }
+        .light:nth-child(7) { background: #6BCB77; animation-delay: 1.2s; }
+        .light:nth-child(8) { background: #4D96FF; animation-delay: 1.4s; }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; box-shadow: 0 0 20px currentColor; }
+            25%, 75% { opacity: 0.3; box-shadow: 0 0 5px currentColor; }
+        }
+
+        .santa-icon {
+            position: fixed;
+            bottom: 100px;
+            right: 20px;
+            font-size: 3rem;
+            z-index: 997;
+            animation: bounce 2s ease-in-out infinite;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        /* Avatar Styles */
+        .reviewer-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            margin-right: 0.8rem;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+        }
+
+        .review-header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.8rem;
+        }
+
+        .reviewer-info {
+            display: flex;
+            align-items: center;
+        }
+
+        .reviewer-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #1a1a1a;
+            }
+
+            .price-section {
+                background: #252525;
+            }
+
+            .price-description {
+                color: #e0e0e0;
+            }
+
+            .features-section {
+                background: #1e1e1e;
+            }
+
+            .feature-card {
+                background: #2a2a2a;
+            }
+
+            .feature-description {
+                color: #bbb;
+            }
+
+            .testimonials-section {
+                background: #252525;
+            }
+
+            .testimonial-card {
+                background: #2a2a2a;
+            }
+
+            .testimonial-text {
+                color: #e0e0e0;
+            }
+
+            .countdown-item {
+                background: #2a2a2a;
+                color: #e0e0e0;
+            }
+
+            .social-proof-section {
+                background: #1e1e1e;
+            }
+
+            .review-item {
+                background: #2a2a2a;
+            }
+
+            .reviewer-name {
+                color: #e0e0e0;
+            }
+
+            .review-text {
+                color: #bbb;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Christmas Lights -->
+    <div class="christmas-lights">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+
+    <!-- Santa Icon -->
+    <div class="santa-icon">🎅</div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">KAYNO Apple Bag: The Magic Companion for Children's Dreams</h1>
+            <p class="hero-subtitle">Welcome to Our Christmas Wonderland!</p>
+
+            <div class="hero-image">
+                <img src="img/1.webp" alt="KAYNO Apple Bag" loading="lazy">
+            </div>
+
+            <p class="hero-description">
+                On this romantic Christmas Eve, the KAYNO Apple Bag becomes a vessel for children's dreams. This exquisite handbag not only holds their most cherished gifts but is filled with blessings of love, allowing every child to feel endless warmth and surprise in this special moment.
+            </p>
+        </div>
+    </section>
+
+    <!-- Price Section -->
+    <section class="price-section">
+        <div class="price-badge">Limited Time Offer!</div>
+
+        <div class="price-container">
+            <span class="original-price">Original: $2.99</span>
+            <span class="current-price">$1.99</span>
+        </div>
+
+        <!-- Marketing Badges -->
+        <div style="margin: 1.5rem 0;">
+            <span class="sold-badge">🔥 <span id="sold-count">2,847</span> Sold Today</span>
+            <span class="stock-badge">⚠️ Only <span id="stock-count">23</span> Left in Stock</span>
+        </div>
+
+        <p class="price-description">
+            Seize this opportunity to purchase this magical KAYNO Apple Bag for your child. Whether it's a festive celebration or everyday use, it will bring endless joy to children.
+        </p>
+
+        <!-- Trust Badges -->
+        <div class="trust-badges">
+            <div class="trust-badge-item">
+                <div class="trust-badge-icon">🚚</div>
+                <div class="trust-badge-text">Free Shipping</div>
+            </div>
+            <div class="trust-badge-item">
+                <div class="trust-badge-icon">↩️</div>
+                <div class="trust-badge-text">30-Day Returns</div>
+            </div>
+            <div class="trust-badge-item">
+                <div class="trust-badge-icon">✓</div>
+                <div class="trust-badge-text">Quality Guaranteed</div>
+            </div>
+            <div class="trust-badge-item">
+                <div class="trust-badge-icon">🔒</div>
+                <div class="trust-badge-text">Secure Payment</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <h2 class="section-title">Why Choose KAYNO Apple Bag?</h2>
+
+        <!-- Carousel -->
+        <div class="carousel-container fade-in">
+            <div class="carousel-wrapper">
+                <div class="carousel-slide active">
+                    <img src="img/2.webp" alt="KAYNO Apple Bag Feature 1" loading="lazy">
+                </div>
+                <div class="carousel-slide">
+                    <img src="img/3.webp" alt="KAYNO Apple Bag Feature 2" loading="lazy">
+                </div>
+            </div>
+            <div class="carousel-dots">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+            </div>
+        </div>
+
+        <!-- Feature Cards -->
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">✨</div>
+                <h3 class="feature-title">Premium Materials, Durable Design</h3>
+                <p class="feature-description">
+                    Our KAYNO Apple Bag is made from high-quality materials, ensuring durability and reusability. From Christmas Eve to everyday life, this bag will become a loyal companion for children.
+                </p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎁</div>
+                <h3 class="feature-title">Perfect Size, Carrying Dreams</h3>
+                <p class="feature-description">
+                    Thoughtfully designed dimensions can accommodate various gifts. Imagine the pure joy and laughter when children open the bag to find their long-desired surprises—that will be the most precious treasure.
+                </p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎨</div>
+                <h3 class="feature-title">Playful Design</h3>
+                <p class="feature-description">
+                    Every detail has been carefully considered. Vibrant colors and adorable patterns add endless fun to children's lives, making it shine on any occasion.
+                </p>
+            </div>
+
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🌍</div>
+                <h3 class="feature-title">Eco-Friendly Choice, Moving Forward with Love</h3>
+                <p class="feature-description">
+                    KAYNO Apple Bag cares not only about children's happiness but also about Earth's future. Choose this reusable bag and teach children from an early age the importance of cherishing resources and protecting the environment.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shipping Section -->
+    <section class="shipping-section fade-in">
+        <div class="shipping-content">
+            <h2 class="shipping-title">Fast Delivery, Easy Returns</h2>
+            <p class="shipping-text">
+                We deliver to your door within 1-3 days via USPS, making it easy for you to receive your order. Additionally, returns are accepted within 30 days from the date of purchase, ensuring your shopping experience. Please note that customs duties and taxes are non-refundable.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-image fade-in">
+            <img src="img/4.webp" alt="KAYNO Apple Bag Collection" loading="lazy">
+        </div>
+
+        <h2 class="cta-title">Buy Now, Harvest Happiness</h2>
+        <p class="cta-text">
+            Act now! Purchase the KAYNO Apple Bag for your child, let this bag become part of their joyful moments, and create beautiful memories together.
+        </p>
+
+        <button class="cta-button" onclick="k2()">Buy Now</button>
+    </section>
+
+    <!-- Social Proof Reviews Section -->
+    <section class="social-proof-section">
+        <div class="review-header">
+            <h2 class="section-title">What Our Customers Are Saying</h2>
+            <div class="review-stats">
+                <div class="stars">★★★★★</div>
+                <div class="review-count">Based on 3,264 verified reviews</div>
+            </div>
+        </div>
+
+        <div class="review-stream">
+            <div class="review-item">
+                <div class="review-header-info">
+                    <div class="reviewer-info">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="Emily Thompson" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <div>
+                                <span class="reviewer-name">Emily Thompson</span>
+                                <span class="verified-badge">✓ Verified Purchase</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="review-time">2 hours ago</span>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                    Just received my order and I'm absolutely thrilled! The quality is outstanding and my daughter couldn't stop smiling when she saw it. The bear design is even cuter in person. Highly recommend this for anyone looking for a special Christmas gift!
+                </p>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header-info">
+                    <div class="reviewer-info">
+                        <img src="https://i.pravatar.cc/150?img=12" alt="Michael Rodriguez" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <div>
+                                <span class="reviewer-name">Michael Rodriguez</span>
+                                <span class="verified-badge">✓ Verified Purchase</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="review-time">5 hours ago</span>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                    Bought three of these for my kids and they absolutely love them! The material feels durable and the size is perfect for holding small gifts. The delivery was super fast too - ordered on Monday and received it Wednesday. Worth every penny!
+                </p>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header-info">
+                    <div class="reviewer-info">
+                        <img src="https://i.pravatar.cc/150?img=47" alt="Sarah Chen" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <div>
+                                <span class="reviewer-name">Sarah Chen</span>
+                                <span class="verified-badge">✓ Verified Purchase</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="review-time">8 hours ago</span>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                    This apple bag exceeded my expectations! The colors are vibrant, the stitching is solid, and it's the perfect size for my 5-year-old. She uses it not just for special occasions but carries it around the house with her favorite toys. Great value for the price!
+                </p>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header-info">
+                    <div class="reviewer-info">
+                        <img src="https://i.pravatar.cc/150?img=9" alt="Jessica Williams" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <div>
+                                <span class="reviewer-name">Jessica Williams</span>
+                                <span class="verified-badge">✓ Verified Purchase</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="review-time">1 day ago</span>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                    I ordered this as a Christmas gift and I'm so glad I did! The quality is premium - you can tell it's made to last. My niece loved the Santa Claus version and has been using it every day since. Plus, knowing it's eco-friendly makes me feel good about the purchase. Will definitely buy more!
+                </p>
+            </div>
+
+            <div class="review-item">
+                <div class="review-header-info">
+                    <div class="reviewer-info">
+                        <img src="https://i.pravatar.cc/150?img=20" alt="Amanda Foster" class="reviewer-avatar">
+                        <div class="reviewer-details">
+                            <div>
+                                <span class="reviewer-name">Amanda Foster</span>
+                                <span class="verified-badge">✓ Verified Purchase</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span class="review-time">1 day ago</span>
+                </div>
+                <div class="review-stars">★★★★★</div>
+                <p class="review-text">
+                    Absolutely perfect! The reindeer design is adorable and the quality is excellent. What impressed me most was the attention to detail - from the cute bow-tie to the festive decorations. My son takes it everywhere now. At this price point, it's a steal. Ordering two more for his friends!
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Buy Button -->
+    <button class="floating-buy-button" onclick="k2()">Buy Now</button>
+
+    <script>
+        // k2 function to redirect to qq.com
+        function k2() {
+            window.location.href = 'https://catcolor.shop/product/kayno-christmas-creative-gift-tote-bag-childrens-personalized-apple-bag-christmas-eve-gift-decoration-packaging-bag';
+        }
+
+        // Create snowflakes
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+            snowflake.innerHTML = '❄';
+            snowflake.style.left = Math.random() * 100 + 'vw';
+            snowflake.style.fontSize = (Math.random() * 1.5 + 0.5) + 'em';
+            snowflake.style.animationDuration = (Math.random() * 5 + 10) + 's';
+            snowflake.style.opacity = Math.random() * 0.6 + 0.4;
+
+            document.body.appendChild(snowflake);
+
+            // Remove snowflake after animation
+            setTimeout(() => {
+                snowflake.remove();
+            }, 15000);
+        }
+
+        // Create snowflakes periodically
+        setInterval(createSnowflake, 300);
+
+        // Create initial snowflakes
+        for (let i = 0; i < 20; i++) {
+            setTimeout(createSnowflake, i * 150);
+        }
+
+        // Simulate dynamic stock counter
+        let stockCount = 23;
+        let soldCount = 2847;
+
+        setInterval(() => {
+            // Randomly decrease stock (simulate sales)
+            if (Math.random() > 0.7 && stockCount > 5) {
+                stockCount--;
+                soldCount++;
+                document.getElementById('stock-count').textContent = stockCount;
+                document.getElementById('sold-count').textContent = soldCount.toLocaleString();
+            }
+        }, 15000); // Check every 15 seconds
+
+        // Carousel functionality
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.dot');
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+        }
+
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        }
+
+        // Auto-advance carousel
+        setInterval(nextSlide, 1500);
+
+        // Dot click handlers
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentSlide = index;
+                showSlide(currentSlide);
+            });
+        });
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Smooth scroll for better UX
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
