@@ -47,6 +47,153 @@
             transform: translateX(-50%) scale(0.98);
         }
 
+        /* 人设介绍样式 */
+        .l-profile {
+            padding: 60px 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8f0f7 100%);
+        }
+
+        .l-profile .c-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .l-profile h2 {
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #06c755;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .l-profile__content {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .l-profile__intro {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #34495e;
+            margin-bottom: 35px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        .l-profile__list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .l-profile__item {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 10px;
+            border-left: 5px solid #06c755;
+            transition: all 0.3s ease;
+        }
+
+        .l-profile__item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 15px rgba(6, 199, 85, 0.2);
+        }
+
+        .l-profile__number {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            background: #06c755;
+            color: #fff;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+
+        .l-profile__title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 12px;
+        }
+
+        .l-profile__desc {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #5a6c7d;
+            margin-left: 50px;
+        }
+
+        .l-profile__highlight {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border-left: 5px solid #ffc107;
+            font-size: 16px;
+            color: #856404;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 768px) {
+            .l-profile {
+                padding: 40px 0;
+            }
+
+            .l-profile h2 {
+                font-size: 22px;
+                margin-bottom: 30px;
+            }
+
+            .l-profile__content {
+                padding: 25px 20px;
+            }
+
+            .l-profile__intro {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+
+            .l-profile__item {
+                padding: 20px 15px;
+                margin-bottom: 20px;
+            }
+
+            .l-profile__number {
+                width: 30px;
+                height: 30px;
+                line-height: 30px;
+                font-size: 16px;
+                margin-right: 10px;
+            }
+
+            .l-profile__title {
+                font-size: 18px;
+            }
+
+            .l-profile__desc {
+                font-size: 14px;
+                margin-left: 40px;
+            }
+
+            .l-profile__highlight {
+                font-size: 14px;
+                padding: 15px;
+            }
+        }
+
         @keyframes pulse {
             0%, 100% {
                 box-shadow: 0 4px 15px rgba(6, 199, 85, 0.4);
@@ -89,6 +236,52 @@ function addCartEvent(){
             </picture>
           </div>
         </div>
+
+        <!-- 人设背景介绍 -->
+        <section class="l-profile">
+          <div class="c-wrapper">
+            <h2>現段階の事業と目標</h2>
+            <div class="l-profile__content">
+              <p class="l-profile__intro">
+                67歳の藤原正雄は、依然として旺盛な仕事への情熱を保っています。<br>
+                近年、彼は主に以下の活動に従事しています：
+              </p>
+              <ul class="l-profile__list">
+                <li class="l-profile__item">
+                  <div class="l-profile__title">
+                    <span class="l-profile__number">1</span>
+                    グローバル市場投資とセミナー運営
+                  </div>
+                  <p class="l-profile__desc">
+                    チームを率いて日本と米国の株式市場への投資を行い、毎週グローバル市場分析のオンラインセミナーを継続的に開催しています。
+                  </p>
+                </li>
+                <li class="l-profile__item">
+                  <div class="l-profile__title">
+                    <span class="l-profile__number">2</span>
+                    オンライン・オフライン投資教育
+                  </div>
+                  <p class="l-profile__desc">
+                    基礎入門、業界研究、実践戦略の3つのコースを開設。その内容は、日本の厳密な論理とウォール街の体系的手法を融合させています。
+                  </p>
+                </li>
+                <li class="l-profile__item">
+                  <div class="l-profile__title">
+                    <span class="l-profile__number">3</span>
+                    若手アナリストと株式従事者の指導
+                  </div>
+                  <p class="l-profile__desc">
+                    次世代の投資プロフェッショナル育成に注力し、実践的な指導を通じて市場分析力と投資判断力を養成しています。
+                  </p>
+                </li>
+              </ul>
+              <div class="l-profile__highlight">
+                「最も多くの株式戦略人材を育成した日本の投資指導者の一人」として称賛されています。
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section class="l-cv">
           <div class="c-wrapper">
             <h2>
@@ -118,7 +311,7 @@ function addCartEvent(){
           <div class="p-title">
             <p>01</p>
             <h2>
-              LINE配信され���
+              LINE配信される
               <br class="u-display--sp">株式投資情報をご活用頂くことで
               <br>
               <em>1000万円</em>を <em>超える利益</em>を
@@ -159,7 +352,7 @@ function addCartEvent(){
                       <span style="
                           background-color: rgb(231, 248, 248);
                           color: rgb(34, 34, 34);
-                        ">アナリストレーティングが高い、直近のPV数が多い、目標株価との乖離幅が大きい銘柄をランキング</span>
+                        ">アナリストレーティングが高い、直近のPV数が多い、���標株価との乖離幅が大きい銘柄をランキング</span>
                       <br>
                       <span style="
                           background-color: rgb(231, 248, 248);
