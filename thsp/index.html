@@ -44,7 +44,7 @@
             flex: 1;
             display: flex;
             flex-direction: column;
-            padding: 1rem 1rem 4.5rem 1rem;
+            padding: 0.6rem 0.8rem 3.5rem 0.8rem;
             max-width: 600px;
             margin: 0 auto;
             width: 100%;
@@ -53,22 +53,22 @@
         /* Header */
         .header {
             text-align: center;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .title {
-            font-size: 2rem;
+            font-size: 1.4rem;
             font-weight: 900;
-            line-height: 1.3;
-            margin-bottom: 0.5rem;
+            line-height: 1.2;
+            margin-bottom: 0.3rem;
             text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         }
 
         .stats {
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-top: 0.8rem;
+            gap: 1.2rem;
+            margin-top: 0.4rem;
         }
 
         .stat-item {
@@ -76,7 +76,7 @@
         }
 
         .stat-value {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 900;
             background: linear-gradient(45deg, #FFC312, #FF4757);
             -webkit-background-clip: text;
@@ -86,17 +86,17 @@
         }
 
         .stat-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             opacity: 0.9;
-            margin-top: 0.2rem;
+            margin-top: 0.1rem;
         }
 
         /* Image */
         .image-container {
-            margin: 1rem 0;
-            border-radius: 12px;
+            margin: 0.5rem 0;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
         }
 
         .image-container img {
@@ -108,22 +108,22 @@
         .content {
             background: rgba(255, 255, 255, 0.08);
             backdrop-filter: blur(10px);
-            padding: 1rem;
-            border-radius: 12px;
+            padding: 0.6rem 0.8rem;
+            border-radius: 10px;
             border: 1px solid rgba(255, 255, 255, 0.15);
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .content-title {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.4rem;
             color: #FFC312;
         }
 
         .content-text {
-            font-size: 0.85rem;
-            line-height: 1.6;
+            font-size: 0.75rem;
+            line-height: 1.5;
             opacity: 0.95;
         }
 
@@ -131,23 +131,23 @@
         .cta {
             background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            padding: 1rem;
-            border-radius: 12px;
+            padding: 0.6rem 0.8rem;
+            border-radius: 10px;
             border: 2px solid rgba(255, 255, 255, 0.2);
             text-align: center;
         }
 
         .cta-title {
-            font-size: 0.9rem;
-            margin-bottom: 0.8rem;
+            font-size: 0.8rem;
+            margin-bottom: 0.5rem;
             opacity: 0.9;
         }
 
         .cta-highlight {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             font-weight: 900;
             color: #FF4757;
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.5rem;
         }
 
         .copy-btn {
@@ -158,9 +158,9 @@
             background: linear-gradient(135deg, #FF4757 0%, #FF6B7A 100%);
             color: white;
             border: none;
-            padding: 1rem 2rem;
+            padding: 0.8rem 2rem;
             border-radius: 0;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 700;
             box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.3);
             cursor: pointer;
@@ -177,18 +177,18 @@
         .wechat-ids {
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            gap: 0.4rem;
             margin-bottom: 0;
         }
 
         .wechat-id {
             font-family: 'Courier New', monospace;
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 900;
             color: #FFC312;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             background: rgba(255, 195, 18, 0.1);
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 0.8rem;
             border-radius: 8px;
             border: 1px solid rgba(255, 195, 18, 0.3);
         }
@@ -236,54 +236,75 @@
         /* Responsive */
         @media (max-width: 480px) {
             .container {
-                padding: 0.8rem 0.8rem 4rem 0.8rem;
+                padding: 0.5rem 0.8rem 3rem 0.8rem;
             }
 
             .title {
-                font-size: 1.8rem;
-            }
-
-            .stat-value {
                 font-size: 1.3rem;
             }
 
+            .stat-value {
+                font-size: 1.1rem;
+            }
+
             .stat-label {
-                font-size: 0.65rem;
+                font-size: 0.6rem;
             }
 
             .content-text {
-                font-size: 0.8rem;
+                font-size: 0.7rem;
             }
         }
 
         @media (max-height: 700px) {
             .container {
-                padding: 0.6rem 1rem 4rem 1rem;
+                padding: 0.4rem 0.8rem 3rem 0.8rem;
             }
 
             .header {
-                margin-bottom: 0.6rem;
+                margin-bottom: 0.4rem;
             }
 
             .image-container {
-                margin: 0.6rem 0;
+                margin: 0.4rem 0;
             }
 
             .content {
-                padding: 0.8rem;
-                margin-bottom: 0.8rem;
+                padding: 0.5rem 0.7rem;
+                margin-bottom: 0.4rem;
             }
 
             .cta {
-                padding: 0.8rem;
+                padding: 0.5rem 0.7rem;
             }
 
             .title {
-                font-size: 1.6rem;
+                font-size: 1.2rem;
             }
 
             .stat-value {
-                font-size: 1.2rem;
+                font-size: 1rem;
+            }
+
+            .content-title {
+                font-size: 0.8rem;
+            }
+
+            .content-text {
+                font-size: 0.7rem;
+            }
+
+            .cta-title {
+                font-size: 0.75rem;
+            }
+
+            .cta-highlight {
+                font-size: 1rem;
+            }
+
+            .wechat-id {
+                font-size: 0.85rem;
+                padding: 0.3rem 0.6rem;
             }
         }
     </style>
