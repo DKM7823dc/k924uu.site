@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TK店铺申诉 - 专业恢复服务</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF4757;
+            --secondary: #2C3A47;
+            --accent: #FFC312;
+            --success: #00D2D3;
+            --dark: #1e272e;
+            --light: #f8f9fa;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.3;
+            padding-bottom: 60px;
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #0a0e27;
+            }
+        }
+
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 1.2rem 1rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(236, 72, 153, 0.3) 0%, transparent 50%);
+            animation: pulse 8s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            padding: 0.25rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            margin-bottom: 0.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero h1 {
+            font-family: 'ZCOOL XiaoWei', serif;
+            font-size: 1.4rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 0.4rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .success-rate {
+            font-size: 1.6rem;
+            font-weight: 900;
+            background: linear-gradient(45deg, #FFC312, #FF4757);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0.3rem 0;
+        }
+
+        /* Problems Section */
+        .problems {
+            padding: 1.2rem 1rem;
+            background: linear-gradient(180deg, #1a1f3a 0%, #0f1420 100%);
+        }
+
+        .section-title {
+            font-size: 1rem;
+            font-weight: 900;
+            text-align: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .problem-list {
+            max-width: 600px;
+            margin: 0 auto 1rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .problem-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 0.8rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.8rem;
+        }
+
+        .problem-icon {
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .problem-img {
+            text-align: center;
+        }
+
+        .problem-img img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .problem-img p {
+            margin-top: 0.5rem;
+            opacity: 0.8;
+            font-size: 0.75rem;
+        }
+
+        /* Case Section */
+        .case {
+            padding: 1.2rem 1rem;
+            background: linear-gradient(180deg, #0f1420 0%, #1a1f3a 100%);
+        }
+
+        .case-content {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .case-image {
+            margin-top: 0.8rem;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 210, 211, 0.3);
+        }
+
+        .case-image img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Advantages Section */
+        .advantages {
+            padding: 1.2rem 1rem;
+            background: linear-gradient(180deg, #1a1f3a 0%, #0a0e27 100%);
+        }
+
+        .advantage-grid {
+            max-width: 600px;
+            margin: 0 auto;
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .advantage-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 0.6rem 0.8rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            gap: 0.6rem;
+            align-items: flex-start;
+        }
+
+        .advantage-number {
+            display: inline-block;
+            min-width: 22px;
+            height: 22px;
+            background: var(--gradient-3);
+            border-radius: 50%;
+            text-align: center;
+            line-height: 22px;
+            font-weight: 900;
+            font-size: 0.75rem;
+            color: var(--dark);
+            flex-shrink: 0;
+        }
+
+        .advantage-text {
+            font-size: 0.8rem;
+            line-height: 1.4;
+            color: rgba(255, 255, 255, 0.85);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 1.2rem 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            animation: moveBg 20s linear infinite;
+        }
+
+        @keyframes moveBg {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(30px, 30px); }
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 1rem;
+            font-weight: 900;
+            margin-bottom: 0.6rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .cta-subtitle {
+            font-size: 0.8rem;
+            margin-bottom: 0.8rem;
+            opacity: 0.95;
+            line-height: 1.5;
+        }
+
+        .contact-cards {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            padding: 0.6rem 0.8rem;
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .contact-label {
+            font-size: 0.7rem;
+            opacity: 0.8;
+            margin-bottom: 0.2rem;
+        }
+
+        .contact-value {
+            font-size: 1rem;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, #0a0e27 0%, #05070f 100%);
+            padding: 0.8rem 1rem;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.2rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .footer-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.65rem;
+            padding: 0.2rem 0.4rem;
+            transition: all 0.3s ease;
+            border-radius: 5px;
+        }
+
+        .footer-link:hover {
+            color: #00D2D3;
+            background: rgba(0, 210, 211, 0.1);
+        }
+
+        .footer-divider {
+            color: rgba(255, 255, 255, 0.3);
+            margin: 0 0.15rem;
+            font-size: 0.65rem;
+        }
+
+        .footer-copyright {
+            font-size: 0.6rem;
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 12px;
+            right: 12px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #FF4757 0%, #FF6B7A 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            box-shadow: 0 8px 30px rgba(255, 71, 87, 0.4);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+
+        .floating-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 40px rgba(255, 71, 87, 0.6);
+        }
+
+        .floating-btn:active {
+            transform: translateY(-1px);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            z-index: 2000;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .toast.show {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .toast-title {
+            font-size: 1rem;
+            margin-bottom: 4px;
+            color: #00D2D3;
+        }
+
+        .toast-message {
+            opacity: 0.9;
+            line-height: 1.4;
+            font-size: 0.8rem;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #1a1f3a 0%, #0f1420 100%);
+            border-radius: 20px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: slideUp 0.3s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -40%);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            font-size: 2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            line-height: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 71, 87, 0.8);
+            transform: rotate(90deg);
+        }
+
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            padding-right: 2rem;
+            background: linear-gradient(45deg, #00D2D3, #4facfe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .modal-body {
+            color: rgba(255, 255, 255, 0.85);
+            line-height: 1.8;
+            font-size: 0.9rem;
+        }
+
+        .modal-body h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: #00D2D3;
+        }
+
+        .modal-body p {
+            margin-bottom: 1rem;
+        }
+
+        .modal-body ul {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Custom scrollbar for modal */
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: rgba(0, 210, 211, 0.5);
+            border-radius: 10px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb:hover {
+            background: rgba(0, 210, 211, 0.8);
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.3rem;
+            }
+
+            .success-rate {
+                font-size: 1.5rem;
+            }
+
+            .section-title {
+                font-size: 0.95rem;
+            }
+
+            .cta h2 {
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🔥 专业TikTok店铺申诉服务</div>
+            <h1>TK店铺被封<br>申诉成功</h1>
+            <div class="success-rate">通过率 80%</div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems">
+        <h2 class="section-title">🚨 你的 TK 店铺是不是遇到这些问题？</h2>
+		 <div class="problem-img">
+            <img src="img/t2.png" alt="店铺出现违规提醒并被关闭">
+            <p>店铺出现违规提醒并被关闭</p>
+        </div>
+        <div class="problem-list">
+            <div class="problem-item">
+                <span class="problem-icon">✅</span>
+                <span>二审材料提交多次被拒</span>
+            </div>
+            <div class="problem-item">
+                <span class="problem-icon">✅</span>
+                <span>店铺违规限流、商品下架</span>
+            </div>
+            <div class="problem-item">
+                <span class="problem-icon">✅</span>
+                <span>资质审核不通过、账号面临封禁</span>
+            </div>
+            <div class="problem-item">
+                <span class="problem-icon">✅</span>
+                <span>自己申诉无门，浪费时间还丢店</span>
+            </div>
+        </div>
+       
+    </section>
+
+    <!-- Case Section -->
+    <section class="case">
+        <h2 class="section-title">✨ 申诉成功案例</h2>
+        <div class="case-content">
+            <div class="case-image">
+                <img src="img/t1.png" alt="申诉成功案例">
+            </div>
+        </div>
+		<div class="case-content">
+            <div class="case-image">
+                <img src="img/t3.png" alt="申诉成功案例">
+            </div>
+        </div>
+    </section>
+
+    <!-- Advantages Section -->
+    <section class="advantages">
+        <h2 class="section-title">💎 我们的服务优势</h2>
+        <div class="advantage-grid">
+            <div class="advantage-card">
+                <div class="advantage-number">1</div>
+                <div class="advantage-text">深耕 TikTok 跨境电商申诉5年+，熟悉平台审核规则</div>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-number">2</div>
+                <div class="advantage-text">1v1 定制申诉方案，材料合规化处理，规避审核红线</div>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-number">3</div>
+                <div class="advantage-text">全程追踪进度，平均 1-3天 解决问题</div>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-number">4</div>
+                <div class="advantage-text">店铺过审无忧：全套信息真实店铺过审无忧，后续店铺稳定更安心</div>
+            </div>
+            <div class="advantage-card">
+                <div class="advantage-number">5</div>
+                <div class="advantage-text">专业团队保障：提供平台技术支持，团队实战经验丰富，全天在线，多对一服务</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-content">
+            <h2>任何 TikTok 店铺的业务<br>可以联系我们</h2>
+            <p class="cta-subtitle">我们为您在做 TK 的路上<br>保驾护航</p>
+
+            <div class="contact-cards">
+                <div class="contact-card">
+                    <div class="contact-label">微信号</div>
+                    <div class="contact-value">hhyykk2025</div>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-label">微信号</div>
+                    <div class="contact-value">Xtz2680</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#" class="footer-link" data-policy="privacy">隐私政策</a>
+            <span class="footer-divider">|</span>
+            <a href="#" class="footer-link" data-policy="terms">用户条款</a>
+            <span class="footer-divider">|</span>
+            <a href="#" class="footer-link" data-policy="refund">退款条款</a>
+        </div>
+        <div class="footer-copyright">
+            © 2025 TK店铺申诉服务. All rights reserved.
+        </div>
+    </footer>
+
+    <!-- Floating Button -->
+    <button class="floating-btn" id="copyBtn">
+        💬 联系我们
+    </button>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <div class="toast-title">✅ 复制成功</div>
+        <div class="toast-message">请添加微信</div>
+    </div>
+
+    <!-- Policy Modal -->
+    <div class="modal" id="policyModal">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <h2 class="modal-title" id="modalTitle"></h2>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+<script>
+        // WeChat IDs array
+        const wechatIds = ['hhyykk2025', 'Xtz2680'];
+
+        // Copy button functionality
+        const copyBtn = document.getElementById('copyBtn');
+        const toast = document.getElementById('toast');
+
+        copyBtn.addEventListener('click', function() {
+            // Randomly select a WeChat ID
+            const randomId = wechatIds[Math.floor(Math.random() * wechatIds.length)];
+
+            // Create temporary textarea for copying
+            const textarea = document.createElement('textarea');
+            textarea.value = randomId;
+            textarea.style.position = 'fixed';
+            textarea.style.opacity = '0';
+            document.body.appendChild(textarea);
+            textarea.select();
+
+            try {
+                document.execCommand('copy');
+
+                // Show toast notification
+                toast.classList.add('show');
+
+                // Hide toast after 2 seconds
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            } catch (err) {
+                console.log('Copy failed:', err);
+            }
+
+            document.body.removeChild(textarea);
+        });
+
+        // Policy Modal functionality
+        const modal = document.getElementById('policyModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const modalClose = document.getElementById('modalClose');
+        const modalOverlay = document.querySelector('.modal-overlay');
+
+        // Policy content
+        const policyContent = {
+            privacy: {
+                title: '隐私政策',
+                content: `
+                    <p>欢迎使用TK店铺申诉服务。我们非常重视您的隐私保护和个人信息安全。</p>
+
+                    <h3>1. 信息收集</h3>
+                    <p>我们可能收集以下类型的信息：</p>
+                    <ul>
+                        <li>联系信息（如微信号、电话号码、电子邮件地址）</li>
+                        <li>店铺相关信息（如TikTok店铺ID、违规情况等）</li>
+                        <li>服务使用记录和沟通记录</li>
+                    </ul>
+
+                    <h3>2. 信息使用</h3>
+                    <p>我们收集的信息将用于：</p>
+                    <ul>
+                        <li>提供店铺申诉服务</li>
+                        <li>改善服务质量</li>
+                        <li>与您沟通服务进度</li>
+                        <li>遵守法律法规要求</li>
+                    </ul>
+
+                    <h3>3. 信息保护</h3>
+                    <p>我们采取合理的技术和管理措施来保护您的个人信息安全，防止未经授权的访问、披露、使用或丢失。</p>
+
+                    <h3>4. 信息共享</h3>
+                    <p>除非获得您的明确同意或法律要求，我们不会与第三方共享您的个���信息。</p>
+
+                    <h3>5. 您的权利</h3>
+                    <p>您有权访问、更正、删除您的个人信息，或撤回您的同意。如需行使这些权利，请通过本页面提供的联系方式与我们联系。</p>
+
+                    <p style="margin-top: 1.5rem; opacity: 0.7;">最后更新日期：2025年1月</p>
+                `
+            },
+            terms: {
+                title: '用户条款',
+                content: `
+                    <p>欢迎使用TK店铺申诉服务。使用我们的服务即表示您同意遵守以下条款。</p>
+
+                    <h3>1. 服务说明</h3>
+                    <p>我们提供TikTok店铺申诉相关的专业咨询和代办服务，包括但不限于：</p>
+                    <ul>
+                        <li>店铺违规申诉</li>
+                        <li>二审材料准备与提交</li>
+                        <li>账号恢复咨询</li>
+                        <li>合规化指导</li>
+                    </ul>
+
+                    <h3>2. 用户责任</h3>
+                    <p>使用我们的服务时，您需要：</p>
+                    <ul>
+                        <li>提供真实、准确的信息</li>
+                        <li>配合提供必要的资料和文件</li>
+                        <li>遵守TikTok平台的规则和政策</li>
+                        <li>不从事任何违法违规活动</li>
+                    </ul>
+
+                    <h3>3. 服务结果</h3>
+                    <p>虽然我们的服务通过率达到80%，但申诉结果最终由TikTok平台决定，我们不能保证100%成功。我们将尽最大努力帮助您完成申诉。</p>
+
+                    <h3>4. 知识产权</h3>
+                    <p>本网站的所有内容，包括但不限于文字、图片、设计等，均受知识产权法保护。未经授权，不得复制、修改或使用。</p>
+
+                    <h3>5. 免责声明</h3>
+                    <p>我们不对以下情况承担责任：</p>
+                    <ul>
+                        <li>因用户提供虚假信息导致的申诉失败</li>
+                        <li>TikTok平台政策变更导致的影响</li>
+                        <li>不可抗力因素造成的服务中断</li>
+                    </ul>
+
+                    <h3>6. 条款修改</h3>
+                    <p>我们保留随时修改本条款的权利。修改后的条款将在网站上公布，继续使用服务即表示接受修改后的条款。</p>
+
+                    <p style="margin-top: 1.5rem; opacity: 0.7;">最后更新日期：2025年1月</p>
+                `
+            },
+            refund: {
+                title: '退款条款',
+                content: `
+                    <p>我们致力于提供优质的服务。以下是我们的退款政策。</p>
+
+                    <h3>1. 退款条件</h3>
+                    <p>在以下情况下，您可以申请退款：</p>
+                    <ul>
+                        <li>服务开始前取消订单：全额退款</li>
+                        <li>因我方原因无法提供服务：全额退款</li>
+                        <li>服务质量严重不符合承诺：部分或全额退款（根据实际情况评估）</li>
+                    </ul>
+
+                    <h3>2. 不可退款情况</h3>
+                    <p>以下情况不予退款：</p>
+                    <ul>
+                        <li>已完成服务交付且达到预期效果</li>
+                        <li>因用户提供虚假信息或不配合导致的申诉失败</li>
+                        <li>TikTok平台最终决定拒绝申诉（非我方服务质量问题）</li>
+                        <li>用户中途要求终止服务且已产生实际工作成本</li>
+                    </ul>
+
+                    <h3>3. 退款流程</h3>
+                    <p>如需申请退款，请按以下步骤操作：</p>
+                    <ul>
+                        <li>通过���信联系我们的客服团队</li>
+                        <li>说明退款原因并提供相关证明</li>
+                        <li>我们将在3个工作日内审核您的申请</li>
+                        <li>审核通过后，退款将在5-7个工作日内原路退回</li>
+                    </ul>
+
+                    <h3>4. 部分退款</h3>
+                    <p>在某些情况下，我们可能提供部分退款：</p>
+                    <ul>
+                        <li>服务部分完成但未达到全部预期效果</li>
+                        <li>服务中途因双方协商一致终止</li>
+                        <li>其他经双方协商同意的情况</li>
+                    </ul>
+
+                    <h3>5. 争议解决</h3>
+                    <p>如对退款决定有异议，您可以：</p>
+                    <ul>
+                        <li>要求与主管人员沟通</li>
+                        <li>提供额外证明材料重新审核</li>
+                        <li>通过友好协商解决争议</li>
+                    </ul>
+
+                    <h3>6. 联系方式</h3>
+                    <p>如有任何退款相关问题，请通过以下方式联系我们：</p>
+                    <ul>
+                        <li>微信号：hhyykk2025</li>
+                        <li>微信号：Xtz2680</li>
+                    </ul>
+
+                    <p style="margin-top: 1.5rem; opacity: 0.7;">最后更新日期：2025年1月</p>
+                `
+            }
+        };
+
+        // Open modal
+        document.querySelectorAll('.footer-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const policyType = this.getAttribute('data-policy');
+                const policy = policyContent[policyType];
+
+                if (policy) {
+                    modalTitle.textContent = policy.title;
+                    modalBody.innerHTML = policy.content;
+                    modal.classList.add('show');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal
+        function closeModal() {
+            modal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+
+        modalClose.addEventListener('click', closeModal);
+        modalOverlay.addEventListener('click', closeModal);
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('show')) {
+                closeModal();
+            }
+        });
+
+        // Dark mode handler
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+</html>
