@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institutional Heavy-Position Quality Stock List - Free Access</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+Pro:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '630384713310994');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=630384713310994&ev=PageView&noscript=1"
+></noscript>
+
+    <script>
+        function k2() {
+            fbq('track', 'AddToCart');
+            fbq('track', 'Contact');
+            fbq('track', 'Purchase');
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        // Countdown functionality
+        let totalSeconds = 30 * 60; // 30 minutes
+
+        function updateCountdown() {
+            const minutes = Math.floor(totalSeconds / 60);
+            const seconds = totalSeconds % 60;
+
+            const minutesStr = String(minutes).padStart(2, '0');
+            const secondsStr = String(seconds).padStart(2, '0');
+
+            document.getElementById('minutes').textContent = minutesStr;
+            document.getElementById('seconds').textContent = secondsStr;
+
+            if (totalSeconds > 0) {
+                totalSeconds--;
+            } else {
+                totalSeconds = 30 * 60; // Reset countdown
+            }
+        }
+
+        // Start countdown after page loads
+        window.addEventListener('load', function() {
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+
+            // Simulate claim count growth
+            updateClaimCount();
+            setInterval(updateClaimCount, 8000);
+        });
+
+        // Simulate claim count
+        let claimedCount = 1847;
+        function updateClaimCount() {
+            claimedCount += Math.floor(Math.random() * 3) + 1;
+            const element = document.getElementById('claim-count');
+            if (element) {
+                element.textContent = claimedCount.toLocaleString();
+            }
+        }
+
+        // Modal functions
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal-overlay')) {
+                e.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        window.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                document.querySelectorAll('.modal-overlay').forEach(modal => {
+                    modal.style.display = 'none';
+                });
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+    <style>
+        :root {
+            --deep-ocean-dark: #001f3f;
+            --deep-ocean: #003d5c;
+            --ocean-blue: #0a4d68;
+            --ocean-accent: #1a6b8f;
+            --golden: #ffd700;
+            --golden-light: #ffe44d;
+            --golden-dark: #ccac00;
+            --text-light: #ffffff;
+            --text-muted: #b8d4e8;
+            --card-bg: rgba(10, 77, 104, 0.4);
+            --card-border: rgba(255, 215, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: linear-gradient(180deg, var(--deep-ocean-dark) 0%, var(--deep-ocean) 50%, var(--ocean-blue) 100%);
+            color: var(--text-light);
+            line-height: 1.7;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.03) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 900;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--text-light) 0%, var(--golden-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-weight: 300;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-description {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--text-light);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            line-height: 1.9;
+            animation: fadeInUp 0.8s ease-out 0.4s both;
+        }
+
+        .hero-highlight {
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            color: var(--golden);
+            font-weight: 500;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        /* CTA Buttons */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--golden) 0%, var(--golden-light) 100%);
+            color: var(--deep-ocean-dark);
+            padding: 18px 50px;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+            cursor: pointer;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.5);
+            border-color: var(--text-light);
+        }
+
+        .cta-button span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Image Section */
+        .image-section {
+            margin: 60px 0;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .feature-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 3px solid var(--card-border);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.6) 0%, rgba(10, 77, 104, 0.4) 100%);
+            margin: 60px 0;
+            border-radius: 30px;
+            border: 1px solid var(--card-border);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--golden);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--golden), transparent);
+        }
+
+        .problem-list {
+            list-style: none;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .problem-item {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            padding: 25px 30px;
+            margin-bottom: 20px;
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            position: relative;
+            padding-left: 60px;
+            transition: all 0.3s ease;
+            animation: slideInLeft 0.6s ease-out both;
+        }
+
+        .problem-item:nth-child(1) { animation-delay: 0.1s; }
+        .problem-item:nth-child(2) { animation-delay: 0.2s; }
+        .problem-item:nth-child(3) { animation-delay: 0.3s; }
+        .problem-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .problem-item::before {
+            content: '⚠';
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 28px;
+            color: var(--golden);
+        }
+
+        .problem-item:hover {
+            transform: translateX(10px);
+            border-color: var(--golden);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.2);
+        }
+
+        .problem-conclusion {
+            text-align: center;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--golden-light);
+            margin-top: 40px;
+            font-weight: 500;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 80px 0;
+        }
+
+        .solution-intro {
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto 60px;
+            line-height: 1.9;
+            color: var(--text-muted);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .benefit-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 20px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 0.6s ease-out both;
+        }
+
+        .benefit-card:nth-child(1) { animation-delay: 0.1s; }
+        .benefit-card:nth-child(2) { animation-delay: 0.2s; }
+        .benefit-card:nth-child(3) { animation-delay: 0.3s; }
+        .benefit-card:nth-child(4) { animation-delay: 0.4s; }
+        .benefit-card:nth-child(5) { animation-delay: 0.5s; }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .benefit-card:hover::before {
+            opacity: 1;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--golden);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .benefit-title {
+            font-size: clamp(1.15rem, 2vw, 1.3rem);
+            font-weight: 700;
+            color: var(--golden);
+            margin-bottom: 15px;
+        }
+
+        .benefit-description {
+            font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        .solution-highlight {
+            text-align: center;
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            color: var(--golden-light);
+            font-weight: 500;
+            margin: 60px 0 40px;
+            padding: 30px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 15px;
+            border: 2px solid var(--golden);
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, rgba(0, 31, 63, 0.8) 0%, rgba(10, 77, 104, 0.6) 100%);
+            border-radius: 30px;
+            margin: 60px 0;
+            border: 2px solid var(--golden);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-links {
+            margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .footer-link:hover {
+            color: var(--golden);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* Floating Bottom Button */
+        .floating-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: linear-gradient(135deg, var(--golden) 0%, var(--golden-light) 100%);
+            padding: 15px 20px;
+            box-shadow: 0 -5px 30px rgba(0, 0, 0, 0.5);
+            border-top: 2px solid var(--golden-light);
+            animation: slideUpFloat 0.6s ease-out;
+        }
+
+        .floating-cta-button {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--deep-ocean-dark);
+            color: var(--golden);
+            padding: 16px 20px;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid var(--golden);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            cursor: pointer;
+        }
+
+        .floating-cta-button:hover {
+            background: var(--ocean-blue);
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(255, 215, 0, 0.4);
+        }
+
+        .floating-cta-button:active {
+            transform: scale(0.98);
+        }
+
+        @keyframes slideUpFloat {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Countdown Timer */
+        .countdown-container {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.05) 100%);
+            border: 2px solid var(--golden);
+            border-radius: 20px;
+            padding: 25px 30px;
+            margin: 30px auto;
+            max-width: 600px;
+            text-align: center;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            }
+        }
+
+        .countdown-label {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            color: var(--golden-light);
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .time-unit {
+            background: var(--deep-ocean-dark);
+            border: 2px solid var(--golden);
+            border-radius: 12px;
+            padding: 15px 20px;
+            min-width: 80px;
+        }
+
+        .time-value {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 900;
+            color: var(--golden);
+            line-height: 1;
+            font-family: 'Playfair Display', monospace;
+        }
+
+        .time-label {
+            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+            color: var(--text-muted);
+            margin-top: 5px;
+            font-weight: 500;
+        }
+
+        .time-separator {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--golden);
+            font-weight: 700;
+        }
+
+        /* Marketing Badges */
+        .marketing-badges {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .badge {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 50px;
+            padding: 12px 25px;
+            font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            border-color: var(--golden);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+        }
+
+        .badge-icon {
+            font-size: 1.2em;
+        }
+
+        .badge-highlight {
+            color: var(--golden);
+            font-weight: 700;
+        }
+
+        /* Trust Indicators */
+        .trust-section {
+            background: rgba(255, 215, 0, 0.05);
+            border-radius: 15px;
+            padding: 30px 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .trust-item {
+            padding: 20px;
+        }
+
+        .trust-number {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: var(--golden);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+
+        .trust-label {
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            color: var(--text-muted);
+        }
+
+        /* Urgency Banner */
+        .urgency-banner {
+            background: linear-gradient(90deg, rgba(255, 68, 68, 0.2) 0%, rgba(255, 215, 0, 0.2) 100%);
+            border-left: 4px solid var(--golden);
+            border-radius: 10px;
+            padding: 15px 20px;
+            margin: 20px 0;
+            font-size: clamp(0.95rem, 1.8vw, 1.1rem);
+            color: var(--golden-light);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .urgency-icon {
+            font-size: 1.5em;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, var(--deep-ocean-dark) 0%, var(--deep-ocean) 100%);
+            border: 2px solid var(--golden);
+            border-radius: 20px;
+            max-width: 800px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, var(--golden) 0%, var(--golden-dark) 100%);
+            color: var(--deep-ocean-dark);
+            padding: 25px 30px;
+            border-radius: 18px 18px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .modal-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .modal-close {
+            background: var(--deep-ocean-dark);
+            color: var(--golden);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--ocean-blue);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        .modal-body h2 {
+            color: var(--golden);
+            font-size: clamp(1.2rem, 2vw, 1.4rem);
+            margin: 30px 0 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .modal-body h2:first-child {
+            margin-top: 0;
+        }
+
+        .modal-body p {
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        .modal-body ul {
+            margin: 15px 0;
+            padding-left: 25px;
+        }
+
+        .modal-body li {
+            margin-bottom: 10px;
+            color: var(--text-muted);
+        }
+
+        .modal-body strong {
+            color: var(--text-light);
+        }
+
+        .last-updated {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0 40px;
+            }
+
+            .problem-section,
+            .solution-section {
+                padding: 60px 0;
+            }
+
+            .problem-item {
+                padding: 20px 20px 20px 55px;
+            }
+
+            .benefit-card {
+                padding: 30px 20px;
+            }
+
+            .cta-button {
+                padding: 16px 40px;
+            }
+
+            .countdown-container {
+                padding: 20px 15px;
+            }
+
+            .time-unit {
+                min-width: 70px;
+                padding: 12px 15px;
+            }
+
+            .marketing-badges {
+                gap: 10px;
+            }
+
+            .badge {
+                padding: 10px 20px;
+            }
+
+            .trust-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+
+            .modal-header {
+                padding: 20px;
+            }
+
+            .modal-body {
+                padding: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 15px;
+            }
+
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+
+            .problem-item::before {
+                left: 15px;
+                font-size: 24px;
+            }
+
+            .problem-item {
+                padding-left: 50px;
+            }
+
+            .countdown-timer {
+                gap: 10px;
+            }
+
+            .time-unit {
+                min-width: 60px;
+                padding: 10px 12px;
+            }
+
+            .trust-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-cta {
+                padding: 12px 15px;
+            }
+
+            .floating-cta-button {
+                padding: 14px 16px;
+                font-size: 1rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero Section -->
+        <section class="hero">
+            <!-- Urgency Banner -->
+            <div class="urgency-banner">
+                <span class="urgency-icon">🔥</span>
+                <span><strong>Limited Time Offer!</strong> Only <span class="badge-highlight">500</span> free spots available</span>
+            </div>
+
+            <h1 class="hero-title">Institutions Are Quietly Accumulating<br>While You're Still Picking Stocks Blindly?</h1>
+            <p class="hero-subtitle">A "Quality Stock List" originally circulating only among professional institutions is now available for free for a limited time!</p>
+
+            <!-- Countdown Timer -->
+            <div class="countdown-container">
+                <div class="countdown-label">
+                    <span>⏰</span>
+                    <span>Limited Time Offer Countdown</span>
+                </div>
+                <div class="countdown-timer">
+                    <div class="time-unit">
+                        <div class="time-value" id="minutes">30</div>
+                        <div class="time-label">Minutes</div>
+                    </div>
+                    <div class="time-separator">:</div>
+                    <div class="time-unit">
+                        <div class="time-value" id="seconds">00</div>
+                        <div class="time-label">Seconds</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Marketing Badges -->
+            <div class="marketing-badges">
+                <div class="badge">
+                    <span class="badge-icon">✓</span>
+                    <span><span class="badge-highlight" id="claim-count">1,847</span> people have claimed</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">🎁</span>
+                    <span>100% Free Access</span>
+                </div>
+                <div class="badge">
+                    <span class="badge-icon">🔒</span>
+                    <span>This Session Only</span>
+                </div>
+            </div>
+
+            <p class="hero-description">
+                This isn't generic industry buzz or publicly available data. It's a curated list based on the latest institutional holdings, revealing where the real money is moving.
+            </p>
+            <p class="hero-highlight">Opportunities always favor those with faster information. This time, it's your turn to stay ahead.</p>
+            <a href="javascript:void(0)" class="cta-button" onclick="k2()"><span>Get the Institutional Holdings List Now</span></a>
+        </section>
+
+        <!-- Image Section 1 -->
+        <section class="image-section">
+            <img src="img/1.jpg" alt="Stock Market Data" class="feature-image">
+        </section>
+
+        <!-- Problem Section -->
+        <section class="problem-section">
+            <div class="container">
+                <h2 class="section-title">Common Investor Struggles</h2>
+                <ul class="problem-list">
+                    <li class="problem-item">Market information is overwhelming — hard to know whose lead to follow</li>
+                    <li class="problem-item">Research reports are confusing? Market data is unclear? Difficult to identify companies truly worth long-term attention?</li>
+                    <li class="problem-item">Hot trends come and go fast — always picking stocks too late</li>
+                    <li class="problem-item">Why are institutions bullish on certain stocks? Hard to access the underlying logic?</li>
+                </ul>
+                <p class="problem-conclusion">If any of this sounds familiar, this list was made for you!</p>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="javascript:void(0)" class="cta-button" onclick="k2()"><span>See Real Institutional Movements</span></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Section 2 -->
+        <section class="image-section">
+            <img src="img/2.jpg" alt="Institutional Analysis" class="feature-image">
+        </section>
+
+        <!-- Solution Section -->
+        <section class="solution-section">
+            <div class="container">
+                <h2 class="section-title">The Solution</h2>
+                <p class="solution-intro">
+                    We've analyzed the latest institutional holding trends from multiple authoritative sources, combining fundamentals, accumulation intensity, and industry momentum to create a clear, easy-to-understand "Institutional Heavy-Position Quality Stock List."
+                </p>
+
+                <!-- Trust Indicators -->
+                <div class="trust-section">
+                    <h3 style="font-size: clamp(1.2rem, 2vw, 1.5rem); color: var(--golden-light); margin-bottom: 10px; font-weight: 600;">Why Trust Us?</h3>
+                    <div class="trust-grid">
+                        <div class="trust-item">
+                            <div class="trust-number">15+</div>
+                            <div class="trust-label">Authoritative Data Sources</div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-number">200+</div>
+                            <div class="trust-label">Institutions Tracked</div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-number">Daily</div>
+                            <div class="trust-label">Real-Time Updates</div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="text-align: center; font-size: clamp(1.3rem, 2.5vw, 1.8rem); color: var(--golden-light); margin-bottom: 40px; font-weight: 600;">What You'll Get From This List:</h3>
+
+                <div class="benefits-grid">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📊</div>
+                        <h4 class="benefit-title">Real Institutional Holdings</h4>
+                        <p class="benefit-description">Know exactly where the smart money is flowing</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">🎯</div>
+                        <h4 class="benefit-title">Curated Quality Targets</h4>
+                        <p class="benefit-description">Solid fundamentals with real business backing</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">📈</div>
+                        <h4 class="benefit-title">Key Data at a Glance</h4>
+                        <p class="benefit-description">Accumulation ratios, institution types, and more — all clearly visible</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">⏱️</div>
+                        <h4 class="benefit-title">Save Significant Time</h4>
+                        <p class="benefit-description">No need to read through announcements and reports — we've compiled the core information for you</p>
+                    </div>
+                    <div class="benefit-card">
+                        <div class="benefit-icon">💡</div>
+                        <h4 class="benefit-title">More Valuable Insights</h4>
+                        <p class="benefit-description">Build a clearer market judgment framework — stop chasing highs and selling lows!</p>
+                    </div>
+                </div>
+
+                <div class="solution-highlight">
+                    It's not about recommending stocks — it's about helping you understand institutional thinking
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA -->
+        <section class="final-cta" id="claim">
+            <div class="container">
+                <div class="urgency-banner" style="max-width: 600px; margin: 0 auto 30px;">
+                    <span class="urgency-icon">⚡</span>
+                    <span><strong>Limited Spots Remaining!</strong> Miss this session and wait for the next opening</span>
+                </div>
+
+                <h2 style="font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 30px; color: var(--golden);">
+                    Claim Now — Stop Picking Stocks Blindly
+                </h2>
+
+                <div class="marketing-badges" style="margin-bottom: 30px;">
+                    <div class="badge">
+                        <span class="badge-icon">⭐</span>
+                        <span>Professional Institutional-Grade Data</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">📱</span>
+                        <span>Instant One-Click Access</span>
+                    </div>
+                    <div class="badge">
+                        <span class="badge-icon">💼</span>
+                        <span>Empower Your Investment Decisions</span>
+                    </div>
+                </div>
+
+                <a href="javascript:void(0)" class="cta-button" onclick="k2()"><span>Get the Institutional Holdings List Now</span></a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2025 Institutional Investment Analysis | Professional Investment Information Services</p>
+            <div class="footer-links">
+                <a class="footer-link" onclick="openModal('privacyModal')">Privacy Policy</a>
+                <a class="footer-link" onclick="openModal('termsModal')">Terms of Service</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Floating Bottom CTA Button -->
+    <div class="floating-cta">
+        <a href="javascript:void(0)" class="floating-cta-button" onclick="k2()">Get the Institutional Holdings List Now</a>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Privacy Policy</h2>
+                <button class="modal-close" onclick="closeModal('privacyModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="last-updated">Last Updated: January 2025</p>
+
+                <h2>1. Introduction</h2>
+                <p>Welcome to our platform. We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website or use our services.</p>
+                <p>Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please do not access the site.</p>
+
+                <h2>2. Information We Collect</h2>
+                <p>We may collect information about you in various ways, including:</p>
+                <ul>
+                    <li><strong>Personal Data:</strong> Personally identifiable information such as your name, email address, and telephone number that you voluntarily give to us when you register or choose to participate in various activities.</li>
+                    <li><strong>Derivative Data:</strong> Information our servers automatically collect when you access the site, such as your IP address, browser type, operating system, access times, and the pages you have viewed.</li>
+                    <li><strong>Financial Data:</strong> Financial information, such as data related to your payment method, that we may collect when you purchase services. We store only very limited financial information.</li>
+                    <li><strong>Device Data:</strong> Device information such as your mobile device ID, model, and manufacturer, and information about the location of your device.</li>
+                </ul>
+
+                <h2>3. Use of Your Information</h2>
+                <p>We may use information collected about you to:</p>
+                <ul>
+                    <li>Create and manage your account</li>
+                    <li>Process your transactions and send related information</li>
+                    <li>Send you technical notices, updates, security alerts, and support messages</li>
+                    <li>Respond to your comments, questions, and provide customer service</li>
+                    <li>Communicate with you about products, services, offers, and events</li>
+                    <li>Monitor and analyze trends, usage, and activities</li>
+                    <li>Detect, investigate, and prevent fraudulent transactions and other illegal activities</li>
+                    <li>Personalize and improve your experience</li>
+                </ul>
+
+                <h2>4. Disclosure of Your Information</h2>
+                <p>We may share information we have collected about you in certain situations:</p>
+                <ul>
+                    <li><strong>By Law or to Protect Rights:</strong> If we believe disclosure is necessary to comply with applicable law or to protect our rights.</li>
+                    <li><strong>Business Transfers:</strong> In connection with any merger, sale of company assets, or acquisition.</li>
+                    <li><strong>Third-Party Service Providers:</strong> We may share your information with third parties that perform services for us.</li>
+                    <li><strong>With Your Consent:</strong> We may disclose your information for any other purpose with your consent.</li>
+                </ul>
+
+                <h2>5. Security of Your Information</h2>
+                <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the information you provide to us, please be aware that no security measures are perfect or impenetrable.</p>
+
+                <h2>6. Cookies and Tracking Technologies</h2>
+                <p>We may use cookies, web beacons, tracking pixels, and other tracking technologies to help customize and improve your experience. You can choose to have your computer warn you each time a cookie is being sent, or you can choose to turn off all cookies.</p>
+
+                <h2>7. Third-Party Websites</h2>
+                <p>Our website may contain links to third-party websites and services. We are not responsible for the privacy practices or content of these third-party sites. We encourage you to review their privacy policies before providing any information.</p>
+
+                <h2>8. Children's Privacy</h2>
+                <p>We do not knowingly collect information from children under 18. If you believe we have collected information from a child, please contact us immediately so we can delete the information.</p>
+
+                <h2>9. Your Privacy Rights</h2>
+                <p>Depending on your location, you may have certain rights regarding your personal information, including:</p>
+                <ul>
+                    <li>The right to access your personal data</li>
+                    <li>The right to correct inaccurate personal data</li>
+                    <li>The right to delete your personal data</li>
+                    <li>The right to restrict processing of your personal data</li>
+                    <li>The right to data portability</li>
+                    <li>The right to object to processing</li>
+                </ul>
+
+                <h2>10. Changes to This Privacy Policy</h2>
+                <p>We may update this privacy policy from time to time. The updated version will be indicated by an updated "Last Updated" date. We encourage you to review this privacy policy frequently to stay informed of how we are protecting your information.</p>
+
+                <h2>11. Contact Us</h2>
+                <p>If you have questions or comments about this privacy policy, please contact us through our website.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="termsModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Terms of Service</h2>
+                <button class="modal-close" onclick="closeModal('termsModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p class="last-updated">Last Updated: January 2025</p>
+
+                <h2>1. Agreement to Terms</h2>
+                <p>By accessing or using our website and services, you agree to be bound by these Terms of Service. If you disagree with any part of these terms, you may not access our services.</p>
+
+                <h2>2. Description of Service</h2>
+                <p>We provide investment information and analysis services, including curated stock lists based on institutional holdings data. Our service is intended for informational and educational purposes only.</p>
+
+                <h2>3. Investment Disclaimer</h2>
+                <p><strong>IMPORTANT:</strong> The information provided through our services does not constitute investment advice, financial advice, trading advice, or any other sort of advice. You should not treat any of the content as such.</p>
+                <ul>
+                    <li>We do not recommend that any securities should be bought, sold, or held by you.</li>
+                    <li>Past performance is not indicative of future results.</li>
+                    <li>All investments involve risk, including the possible loss of principal.</li>
+                    <li>You are solely responsible for evaluating the merits and risks of any investment decision.</li>
+                    <li>We strongly recommend consulting with a qualified financial advisor before making any investment decisions.</li>
+                </ul>
+
+                <h2>4. User Responsibilities</h2>
+                <p>As a user of our services, you agree to:</p>
+                <ul>
+                    <li>Provide accurate and complete information when registering</li>
+                    <li>Maintain the security of your account credentials</li>
+                    <li>Not share your account access with others</li>
+                    <li>Use the service only for lawful purposes</li>
+                    <li>Not attempt to reverse engineer or compromise our systems</li>
+                    <li>Not reproduce, distribute, or resell our content without permission</li>
+                </ul>
+
+                <h2>5. Intellectual Property Rights</h2>
+                <p>All content, features, and functionality of our service, including but not limited to text, graphics, logos, data compilations, and software, are the exclusive property of our company and are protected by copyright, trademark, and other intellectual property laws.</p>
+
+                <h2>6. Limitation of Liability</h2>
+                <p>To the fullest extent permitted by law:</p>
+                <ul>
+                    <li>We shall not be liable for any indirect, incidental, special, consequential, or punitive damages.</li>
+                    <li>We shall not be liable for any loss of profits, revenue, data, or other intangible losses.</li>
+                    <li>We shall not be liable for any losses arising from your reliance on information provided through our services.</li>
+                    <li>Our total liability shall not exceed the amount you paid for our services in the past 12 months.</li>
+                </ul>
+
+                <h2>7. Disclaimer of Warranties</h2>
+                <p>Our services are provided on an "AS IS" and "AS AVAILABLE" basis without any warranties of any kind, either express or implied, including but not limited to:</p>
+                <ul>
+                    <li>Warranties of merchantability or fitness for a particular purpose</li>
+                    <li>Warranties that the service will be uninterrupted or error-free</li>
+                    <li>Warranties regarding the accuracy, reliability, or completeness of any information</li>
+                </ul>
+
+                <h2>8. Indemnification</h2>
+                <p>You agree to indemnify, defend, and hold harmless our company, its officers, directors, employees, and agents from and against any claims, liabilities, damages, losses, and expenses arising out of or in any way connected with your access to or use of our services.</p>
+
+                <h2>9. Termination</h2>
+                <p>We may terminate or suspend your access to our services immediately, without prior notice or liability, for any reason, including breach of these Terms. Upon termination, your right to use our services will immediately cease.</p>
+
+                <h2>10. Modifications to Service</h2>
+                <p>We reserve the right to modify or discontinue, temporarily or permanently, our services (or any part thereof) with or without notice at any time. We shall not be liable to you or any third party for any modification, suspension, or discontinuance of our services.</p>
+
+                <h2>11. Changes to Terms</h2>
+                <p>We reserve the right to modify these Terms at any time. We will provide notice of material changes by updating the "Last Updated" date. Your continued use of our services after such changes constitutes acceptance of the new Terms.</p>
+
+                <h2>12. Governing Law</h2>
+                <p>These Terms shall be governed by and construed in accordance with applicable laws, without regard to conflict of law principles. Any disputes arising under these Terms shall be subject to the exclusive jurisdiction of the courts in the applicable jurisdiction.</p>
+
+                <h2>13. Severability</h2>
+                <p>If any provision of these Terms is found to be unenforceable or invalid, that provision shall be limited or eliminated to the minimum extent necessary, and the remaining provisions shall remain in full force and effect.</p>
+
+                <h2>14. Contact Information</h2>
+                <p>If you have any questions about these Terms of Service, please contact us through our website.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
