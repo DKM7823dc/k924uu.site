@@ -1,27 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
- 
-
     <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1340990741109104');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
-></noscript>
-<!-- End Meta Pixel Code -->
-
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1340990741109104');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
+    ></noscript>
+    <!-- End Meta Pixel Code -->
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -51,6 +47,7 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
                         'float': 'float 3s ease-in-out infinite',
                         'glow': 'glow 2s ease-in-out infinite',
                         'color-shift': 'colorShift 10s infinite',
+                        'rotate-border': 'rotateBorder 4s linear infinite',
                     },
                     keyframes: {
                         float: {
@@ -64,6 +61,10 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
                         colorShift: {
                             '0%, 100%': { borderColor: '#FF2ED2' },
                             '50%': { borderColor: '#8A2EFF' },
+                        },
+                        rotateBorder: {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
                         }
                     }
                 }
@@ -88,7 +89,6 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
             background-position: 0 0, 15px 15px;
             opacity: 0.1;
         }
-
 
         .neon-text-purple {
             text-shadow:
@@ -302,6 +302,86 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
             color: #FF2ED2;
             font-weight: bold;
         }
+
+        /* Mobile Circular Avatar Styles */
+        .avatar-wrapper {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            flex-shrink: 0;
+        }
+
+        .avatar-border {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #FF2ED2, #8A2EFF, #00EEFF, #FF2ED2);
+            animation: rotateBorder 4s linear infinite;
+        }
+
+        .avatar-inner {
+            position: absolute;
+            inset: 3px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: #1A0536;
+        }
+
+        .avatar-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .online-indicator {
+            position: absolute;
+            bottom: 8px;
+            right: 8px;
+            width: 18px;
+            height: 18px;
+            background: #25D366;
+            border-radius: 50%;
+            border: 3px solid #1A0536;
+            z-index: 10;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            50% { box-shadow: 0 0 0 8px rgba(37, 211, 102, 0); }
+        }
+
+        /* Desktop full image */
+        .desktop-image {
+            display: none;
+        }
+
+        /* Mobile header layout */
+        .mobile-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        @media (min-width: 769px) {
+            .mobile-header {
+                display: none;
+            }
+            .desktop-image {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .whatsapp-icon {
+                width: 50px;
+                height: 50px;
+                right: 15px;
+            }
+            .whatsapp-icon i {
+                font-size: 1.5rem;
+            }
+        }
     </style>
 </head>
 <body class="min-h-screen">
@@ -320,9 +400,39 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
         <div class="container mx-auto px-4 py-6 relative z-10">
             <!-- Main Content -->
             <div class="max-w-4xl mx-auto">
-                <!-- Header Section -->
-                <div class="flex flex-col md:flex-row gap-6 items-center mb-8">
-                    <div class="md:w-1/3">
+
+                <!-- Mobile Header with Circular Avatar -->
+                <div class="mobile-header mb-6">
+                    <div class="avatar-wrapper">
+                        <div class="avatar-border"></div>
+                        <div class="avatar-inner">
+                            <img src="img/1.jpg" alt="Rebecca">
+                        </div>
+                        <div class="online-indicator"></div>
+                    </div>
+                    <div class="flex-1">
+                        <h1 class="text-2xl font-bold">
+                            <span class="bg-gradient-to-r from-pink to-purple text-transparent bg-clip-text">Rebecca</span>
+                        </h1>
+                        <p class="text-gray-300 text-sm">35 years old • UK</p>
+                        <div class="flex flex-wrap gap-1 mt-2">
+                            <span class="text-xs bg-pink/20 text-pink-light px-2 py-0.5 rounded-full">
+                                <i class="fas fa-plane mr-1"></i>Travel
+                            </span>
+                            <span class="text-xs bg-purple/20 text-purple-light px-2 py-0.5 rounded-full">
+                                <i class="fas fa-utensils mr-1"></i>Foodie
+                            </span>
+                        </div>
+                        <button onclick="openSite()" class="btn-neon px-4 py-2 rounded-full text-sm mt-3 flex items-center">
+                            <i class="fab fa-whatsapp mr-2"></i>
+                            Chat Now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Desktop Layout (Original) -->
+                <div class="hidden md:flex flex-row gap-6 items-center mb-8">
+                    <div class="md:w-1/3 desktop-image">
                         <div class="relative rounded-2xl overflow-hidden image-glow">
                             <img src="img/1.jpg" alt="Rebecca portrait" class="w-full h-auto object-cover" style="aspect-ratio: 2/3;">
                         </div>
@@ -336,7 +446,7 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
                         </h1>
 
                         <p class="text-gray-300 mb-4">
-                            Hello, my name is Rebecca,From the UK. 35 years old, living with my mother. I attended my best friend's wedding in the client's country last week and plan to go to the client's country for an extensive one-month trip next month
+                            Hello, my name is Rebecca, from the UK. 35 years old, living with my mother. I attended my best friend's wedding in the client's country last week and plan to go to the client's country for an extensive one-month trip next month.
                         </p>
 
                         <p class="text-gray-300 mb-4">
@@ -365,7 +475,6 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
                                 <i class="fas fa-utensils text-teal"></i>
                                 <span>Foodie</span>
                             </div>
-
                             <div class="profile-stat">
                                 <i class="fas fa-globe-asia text-pink-light"></i>
                                 <span>Culture Explorer</span>
@@ -376,6 +485,25 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
                             <i class="fab fa-whatsapp mr-2"></i>
                             Chat with me on WhatsApp
                         </button>
+                    </div>
+                </div>
+
+                <!-- Mobile About Section -->
+                <div class="glass-card rounded-2xl p-4 mb-4 md:hidden">
+                    <h2 class="text-lg font-bold mb-2 neon-text-purple">About Me</h2>
+                    <p class="text-gray-300 text-sm mb-3">
+                        Hello, my name is Rebecca, from the UK. 35 years old, living with my mother. I attended my best friend's wedding last week and plan to go for an extensive one-month trip next month.
+                    </p>
+                    <p class="text-gray-300 text-sm mb-3">
+                        I hope to meet someone with similar values, who is sincere and mature, with whom I can share a common language.
+                    </p>
+                    <div class="warning-box text-sm">
+                        <p class="text-white font-semibold mb-1">Please note:</p>
+                        <ul class="text-gray-300 text-xs">
+                            <li>I reject vulgar remarks</li>
+                            <li>I do not accept flirtation</li>
+                            <li>No disrespectful messages</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -421,14 +549,14 @@ src="https://www.facebook.com/tr?id=1340990741109104&ev=PageView&noscript=1"
         </div>
     </div>
 
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"373c7c119a7443a7a1cad01dc8e023ab","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 
-<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"373c7c119a7443a7a1cad01dc8e023ab","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
-</body>
-     <script>
+    <script>
         function openSite() {
             fbq('track', 'AddToCart');
-      fbq('track', 'Purchase');
+            fbq('track', 'Purchase');
             window.location.href="https://www.qq.com";
         }
     </script>
+</body>
 </html>
