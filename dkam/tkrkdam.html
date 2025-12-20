@@ -533,74 +533,6 @@
         .delay-3 { animation-delay: 0.3s; }
         .delay-4 { animation-delay: 0.4s; }
 
-        /* Modal styles */
-        .modal-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 200;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .modal-overlay.active {
-            display: flex;
-        }
-
-        .modal-content {
-            background: var(--bg-secondary);
-            border-radius: 20px;
-            padding: 32px 24px;
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .modal-title {
-            font-size: 20px;
-            font-weight: 700;
-            margin-bottom: 16px;
-        }
-
-        .modal-text {
-            font-size: 14px;
-            color: var(--text-sub);
-            margin-bottom: 24px;
-            line-height: 1.8;
-        }
-
-        .modal-buttons {
-            display: flex;
-            gap: 12px;
-        }
-
-        .modal-btn {
-            flex: 1;
-            padding: 12px 20px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            transition: transform 0.2s;
-        }
-
-        .modal-btn:active {
-            transform: scale(0.98);
-        }
-
-        .modal-btn-cancel {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--text-sub);
-        }
-
-        .modal-btn-confirm {
-            background: var(--gradient-cool);
-            color: #fff;
-        }
     </style>
 </head>
 <body>
@@ -619,7 +551,7 @@
             <div class="hero-image fade-in delay-3">
                 <img src="img/1.jpg" alt="資金計画サポート">
             </div>
-            <button class="cta-primary fade-in delay-4" onclick="showConfirmModal()">
+            <button class="cta-primary fade-in delay-4" onclick="k2()">
                 無料相談を予約する →
             </button>
         </div>
@@ -672,7 +604,7 @@
                 <img src="img/2.jpg" alt="ご相談の流れ">
             </div>
 
-            <button class="cta-primary" style="width: 100%; margin-bottom: 32px;" onclick="showConfirmModal()">
+            <button class="cta-primary" style="width: 100%; margin-bottom: 32px;" onclick="k2()">
                 まずは無料相談 →
             </button>
 
@@ -721,7 +653,7 @@
                     <p class="cta-desc">
                         資金計画に関するお悩みをお聞かせください。経験豊富なアドバイザーが、お客様に最適なプランをご提案いたします。
                     </p>
-                    <button class="cta-primary" onclick="showConfirmModal()">
+                    <button class="cta-primary" onclick="k2()">
                         無料相談を予約する
                     </button>
 
@@ -774,7 +706,7 @@
                 <div class="disclaimer-title">⚠️ 重要事項・免責事項</div>
                 <p>• 当サービスは資金計画に関するコンサルティングサービスです。</p>
                 <p>• 融資の可否および条件は、提携金融機関の審査基準に基づきます。</p>
-                <p>• ローンのご利用は計画的に行ってください。借り過ぎにご注意ください。</p>
+                <p>• ローンのご利用は計画的に行ってください。借り過ぎにご注意くださ���。</p>
                 <p>• 本サービスのご利用により、融資が保証されるものではありません。</p>
                 <p>• 個人情報は当社プライバシーポリシーに従って厳重に管理されます。</p>
                 <p>• 契約の際は、各金融機関の契約条件をよくご確認ください。</p>
@@ -786,24 +718,11 @@
 
     <!-- Fixed CTA Button -->
     <div class="fixed-cta">
-        <button class="fixed-cta-btn" onclick="showConfirmModal()">
+        <button class="fixed-cta-btn" onclick="k2()">
             無料相談を予約する
         </button>
     </div>
 
-    <!-- Confirmation Modal -->
-    <div class="modal-overlay" id="confirmModal">
-        <div class="modal-content">
-            <h3 class="modal-title">外部サイトへ移動します</h3>
-            <p class="modal-text">
-                予約フォームページに移動します。よろしいですか？
-            </p>
-            <div class="modal-buttons">
-                <button class="modal-btn modal-btn-cancel" onclick="closeModal()">キャンセル</button>
-                <button class="modal-btn modal-btn-confirm" onclick="proceedToForm()">移動する</button>
-            </div>
-        </div>
-    </div>
 
     <script>
         // Dark mode detection
@@ -818,40 +737,20 @@
             }
         });
 
-        // Modal functions
-        function showConfirmModal() {
-            document.getElementById('confirmModal').classList.add('active');
-        }
-
-        function closeModal() {
-            document.getElementById('confirmModal').classList.remove('active');
-        }
-
-        function proceedToForm() {
-            closeModal();
-
-            // Haptic feedback
+        // K2 method - direct navigation
+        function k2() {
             if (navigator.vibrate) {
                 navigator.vibrate(50);
             }
 
             var btn = document.querySelector('.fixed-cta-btn');
-            var originalText = btn.innerHTML;
             btn.innerHTML = "移動中...";
             btn.style.opacity = "0.8";
 
             setTimeout(function() {
-                // 这里替换为您的正规跳转链接
-                window.location.href = "YOUR_FORM_URL_HERE";
-            }, 300);
+                window.location.href = "https://www.qq.com";
+            }, 10);
         }
-
-        // Close modal on overlay click
-        document.getElementById('confirmModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
 
         // Intersection Observer for animations
         var observerOptions = {
