@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Política de Privacidade - TransformeVida</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #ff6600;
+            --primary-light: #ff8533;
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-hover: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #707070;
+            --border-color: rgba(255, 102, 0, 0.2);
+            --gradient-primary: linear-gradient(135deg, #ff6600 0%, #ff8533 100%);
+        }
+
+        .dark {
+            --bg-dark: #0a0a0a;
+            --bg-card: #141414;
+            --bg-card-hover: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        /* Animated Background */
+        .bg-pattern {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 102, 0, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 80% 80%, rgba(255, 133, 51, 0.06) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(255, 102, 0, 0.03) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+            transform: translateX(-5px);
+        }
+
+        /* Main Content */
+        .main-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem 5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hero Section */
+        .policy-hero {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding: 3rem 0;
+        }
+
+        .policy-hero h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .policy-hero .subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .last-updated {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--bg-card);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .last-updated span {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        /* Section Styles */
+        .policy-section {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .policy-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .policy-section:hover {
+            border-color: rgba(255, 102, 0, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(255, 102, 0, 0.1);
+        }
+
+        .policy-section:hover::before {
+            opacity: 1;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .section-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 102, 0, 0.15);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .policy-section h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .policy-section p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .policy-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .policy-section ul {
+            list-style: none;
+            margin: 1.5rem 0;
+            padding: 0;
+        }
+
+        .policy-section li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .policy-section li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--primary);
+            font-weight: bold;
+            background: rgba(255, 102, 0, 0.15);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: rgba(255, 102, 0, 0.1);
+            border: 1px solid rgba(255, 102, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-box p {
+            color: var(--text-primary);
+            margin: 0;
+        }
+
+        .highlight-box strong {
+            color: var(--primary);
+        }
+
+        /* Table of Contents */
+        .toc {
+            background: var(--bg-card);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .toc h3 {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .toc-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 0.75rem;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .toc-list a {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .toc-list a:hover {
+            background: rgba(255, 102, 0, 0.1);
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+
+        .toc-number {
+            width: 28px;
+            height: 28px;
+            background: rgba(255, 102, 0, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .back-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.85rem;
+            }
+
+            .main-container {
+                padding: 2rem 1rem 4rem;
+            }
+
+            .policy-hero h1 {
+                font-size: 2rem;
+            }
+
+            .policy-section {
+                padding: 1.5rem;
+                border-radius: 15px;
+            }
+
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+
+            .section-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .policy-section h2 {
+                font-size: 1.25rem;
+            }
+
+            .toc {
+                padding: 1.5rem;
+            }
+
+            .toc-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .policy-section {
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
+        .policy-section:nth-child(1) { animation-delay: 0.1s; }
+        .policy-section:nth-child(2) { animation-delay: 0.15s; }
+        .policy-section:nth-child(3) { animation-delay: 0.2s; }
+        .policy-section:nth-child(4) { animation-delay: 0.25s; }
+        .policy-section:nth-child(5) { animation-delay: 0.3s; }
+        .policy-section:nth-child(6) { animation-delay: 0.35s; }
+        .policy-section:nth-child(7) { animation-delay: 0.4s; }
+        .policy-section:nth-child(8) { animation-delay: 0.45s; }
+        .policy-section:nth-child(9) { animation-delay: 0.5s; }
+        .policy-section:nth-child(10) { animation-delay: 0.55s; }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="javascript:history.back()" class="logo">
+                <span class="logo-icon">🚀</span>
+                <span>TransformeVida</span>
+            </a>
+            <a href="javascript:history.back()" class="back-btn">
+                ← Voltar
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <!-- Hero -->
+        <div class="policy-hero">
+            <h1>Política de Privacidade</h1>
+            <p class="subtitle">Sua privacidade é importante para nós. Esta política descreve como coletamos, usamos e protegemos suas informações pessoais.</p>
+            <div class="last-updated">
+                📅 Última atualização: <span>Dezembro de 2024</span>
+            </div>
+        </div>
+
+        <!-- Table of Contents -->
+        <nav class="toc">
+            <h3>📋 Índice</h3>
+            <ul class="toc-list">
+                <li><a href="#introducao"><span class="toc-number">1</span> Introdução</a></li>
+                <li><a href="#coleta"><span class="toc-number">2</span> Coleta de Dados</a></li>
+                <li><a href="#uso"><span class="toc-number">3</span> Uso das Informações</a></li>
+                <li><a href="#compartilhamento"><span class="toc-number">4</span> Compartilhamento</a></li>
+                <li><a href="#seguranca"><span class="toc-number">5</span> Segurança</a></li>
+                <li><a href="#cookies"><span class="toc-number">6</span> Cookies</a></li>
+                <li><a href="#direitos"><span class="toc-number">7</span> Seus Direitos</a></li>
+                <li><a href="#menores"><span class="toc-number">8</span> Menores de Idade</a></li>
+                <li><a href="#alteracoes"><span class="toc-number">9</span> Alterações</a></li>
+                <li><a href="#consentimento"><span class="toc-number">10</span> Consentimento</a></li>
+            </ul>
+        </nav>
+
+        <!-- Section 1 -->
+        <section class="policy-section" id="introducao">
+            <div class="section-header">
+                <div class="section-icon">📜</div>
+                <h2>1. Introdução</h2>
+            </div>
+            <p>Bem-vindo à nossa Política de Privacidade. Este documento foi elaborado para esclarecer como tratamos as informações pessoais dos usuários que acessam nossa plataforma de serviços financeiros e educacionais.</p>
+            <p>Nosso compromisso é garantir a transparência no tratamento de dados, respeitando a Lei Geral de Proteção de Dados (LGPD) e demais legislações aplicáveis à proteção de dados pessoais.</p>
+            <div class="highlight-box">
+                <p><strong>Importante:</strong> Ao utilizar nossos serviços, você concorda com as práticas descritas nesta Política de Privacidade. Recomendamos a leitura completa deste documento.</p>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="policy-section" id="coleta">
+            <div class="section-header">
+                <div class="section-icon">📊</div>
+                <h2>2. Coleta de Dados</h2>
+            </div>
+            <p>Coletamos informações pessoais de diferentes formas para fornecer e melhorar nossos serviços. Os dados podem ser coletados quando você:</p>
+            <ul>
+                <li>Preenche formulários de cadastro ou interesse em nossa plataforma</li>
+                <li>Participa de nossos grupos de comunidade e redes sociais</li>
+                <li>Interage com nosso conteúdo educacional sobre investimentos e finanças</li>
+                <li>Navega em nosso site (dados de navegação automáticos)</li>
+                <li>Entra em contato conosco através de canais de comunicação</li>
+            </ul>
+            <p><strong>Tipos de dados coletados:</strong></p>
+            <ul>
+                <li>Dados de identificação: nome, e-mail, número de telefone</li>
+                <li>Dados de navegação: endereço IP, tipo de navegador, páginas visitadas</li>
+                <li>Dados de preferência: interesses em produtos financeiros e educacionais</li>
+                <li>Dados de interação: respostas a questionários e formulários</li>
+            </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="policy-section" id="uso">
+            <div class="section-header">
+                <div class="section-icon">⚙️</div>
+                <h2>3. Uso das Informações</h2>
+            </div>
+            <p>Utilizamos as informações coletadas para os seguintes propósitos:</p>
+            <ul>
+                <li>Fornecer acesso aos nossos serviços educacionais sobre investimentos</li>
+                <li>Enviar informações sobre tendências de mercado e oportunidades</li>
+                <li>Personalizar sua experiência em nossa plataforma</li>
+                <li>Melhorar nossos serviços e desenvolver novos recursos</li>
+                <li>Comunicar atualizações importantes sobre nossos serviços</li>
+                <li>Garantir a segurança e prevenir fraudes</li>
+                <li>Cumprir obrigações legais e regulatórias</li>
+            </ul>
+            <div class="highlight-box">
+                <p><strong>Nota:</strong> Nunca vendemos suas informações pessoais a terceiros. Seus dados são utilizados exclusivamente para melhorar sua experiência com nossos serviços.</p>
+            </div>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="policy-section" id="compartilhamento">
+            <div class="section-header">
+                <div class="section-icon">🔗</div>
+                <h2>4. Compartilhamento de Dados</h2>
+            </div>
+            <p>Podemos compartilhar suas informações apenas nas seguintes situações:</p>
+            <ul>
+                <li><strong>Prestadores de serviços:</strong> Empresas que nos auxiliam na operação da plataforma, sempre sob acordos de confidencialidade</li>
+                <li><strong>Obrigações legais:</strong> Quando exigido por lei, ordem judicial ou autoridades competentes</li>
+                <li><strong>Proteção de direitos:</strong> Para proteger nossos direitos, propriedade ou segurança</li>
+                <li><strong>Com seu consentimento:</strong> Em outras situações, apenas com sua autorização expressa</li>
+            </ul>
+            <p>Não compartilhamos seus dados pessoais com terceiros para fins de marketing sem seu consentimento prévio.</p>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="policy-section" id="seguranca">
+            <div class="section-header">
+                <div class="section-icon">🔐</div>
+                <h2>5. Segurança dos Dados</h2>
+            </div>
+            <p>Implementamos medidas de segurança técnicas e organizacionais para proteger suas informações pessoais contra acesso não autorizado, alteração, divulgação ou destruição.</p>
+            <p>Nossas medidas de segurança incluem:</p>
+            <ul>
+                <li>Criptografia de dados em trânsito e em repouso</li>
+                <li>Controles de acesso rigorosos aos sistemas</li>
+                <li>Monitoramento contínuo de atividades suspeitas</li>
+                <li>Treinamento regular da equipe sobre práticas de segurança</li>
+                <li>Backups regulares e planos de recuperação de dados</li>
+            </ul>
+            <div class="highlight-box">
+                <p><strong>Atenção:</strong> Embora adotemos as melhores práticas de segurança, nenhum sistema é 100% seguro. Recomendamos que você também proteja suas credenciais de acesso.</p>
+            </div>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="policy-section" id="cookies">
+            <div class="section-header">
+                <div class="section-icon">🍪</div>
+                <h2>6. Cookies e Tecnologias Similares</h2>
+            </div>
+            <p>Utilizamos cookies e tecnologias similares para melhorar sua experiência de navegação. Os cookies são pequenos arquivos de texto armazenados em seu dispositivo.</p>
+            <p><strong>Tipos de cookies que utilizamos:</strong></p>
+            <ul>
+                <li><strong>Cookies essenciais:</strong> Necessários para o funcionamento básico do site</li>
+                <li><strong>Cookies de desempenho:</strong> Nos ajudam a entender como os visitantes interagem com o site</li>
+                <li><strong>Cookies de funcionalidade:</strong> Permitem lembrar suas preferências</li>
+                <li><strong>Cookies de marketing:</strong> Utilizados para exibir anúncios relevantes</li>
+            </ul>
+            <p>Você pode gerenciar suas preferências de cookies através das configurações do seu navegador. Note que desabilitar certos cookies pode afetar a funcionalidade do site.</p>
+        </section>
+
+        <!-- Section 7 -->
+        <section class="policy-section" id="direitos">
+            <div class="section-header">
+                <div class="section-icon">⚖️</div>
+                <h2>7. Seus Direitos</h2>
+            </div>
+            <p>De acordo com a LGPD e outras legislações de proteção de dados, você possui os seguintes direitos:</p>
+            <ul>
+                <li><strong>Acesso:</strong> Solicitar informações sobre quais dados pessoais temos sobre você</li>
+                <li><strong>Correção:</strong> Solicitar a correção de dados incompletos, inexatos ou desatualizados</li>
+                <li><strong>Exclusão:</strong> Solicitar a eliminação de seus dados pessoais</li>
+                <li><strong>Portabilidade:</strong> Solicitar a transferência de seus dados para outro serviço</li>
+                <li><strong>Revogação:</strong> Revogar seu consentimento a qualquer momento</li>
+                <li><strong>Oposição:</strong> Opor-se ao tratamento de dados em determinadas circunstâncias</li>
+                <li><strong>Informação:</strong> Ser informado sobre com quem seus dados foram compartilhados</li>
+            </ul>
+            <p>Para exercer qualquer desses direitos, entre em contato conosco através dos canais oficiais disponibilizados em nossa plataforma.</p>
+        </section>
+
+        <!-- Section 8 -->
+        <section class="policy-section" id="menores">
+            <div class="section-header">
+                <div class="section-icon">👶</div>
+                <h2>8. Menores de Idade</h2>
+            </div>
+            <p>Nossos serviços são destinados exclusivamente a pessoas maiores de 18 anos. Não coletamos intencionalmente informações pessoais de menores de idade.</p>
+            <p>Se tomarmos conhecimento de que coletamos dados de um menor de idade sem o consentimento apropriado dos pais ou responsáveis, tomaremos medidas para excluir essas informações de nossos sistemas.</p>
+            <div class="highlight-box">
+                <p><strong>Aviso aos pais e responsáveis:</strong> Se você acredita que seu filho nos forneceu informações pessoais, entre em contato conosco para que possamos tomar as medidas necessárias.</p>
+            </div>
+        </section>
+
+        <!-- Section 9 -->
+        <section class="policy-section" id="alteracoes">
+            <div class="section-header">
+                <div class="section-icon">📝</div>
+                <h2>9. Alterações nesta Política</h2>
+            </div>
+            <p>Reservamo-nos o direito de atualizar esta Política de Privacidade periodicamente para refletir mudanças em nossas práticas ou por outros motivos operacionais, legais ou regulatórios.</p>
+            <p>Quando fizermos alterações significativas:</p>
+            <ul>
+                <li>Atualizaremos a data de "última atualização" no topo desta página</li>
+                <li>Notificaremos você através de aviso em destaque em nossa plataforma</li>
+                <li>Em casos de mudanças materiais, poderemos solicitar novo consentimento</li>
+            </ul>
+            <p>Recomendamos que você revise esta política periodicamente para se manter informado sobre como estamos protegendo suas informações.</p>
+        </section>
+
+        <!-- Section 10 -->
+        <section class="policy-section" id="consentimento">
+            <div class="section-header">
+                <div class="section-icon">✅</div>
+                <h2>10. Consentimento</h2>
+            </div>
+            <p>Ao utilizar nossa plataforma e serviços, você declara que:</p>
+            <ul>
+                <li>Leu e compreendeu esta Política de Privacidade</li>
+                <li>Concorda com a coleta e uso de suas informações conforme descrito</li>
+                <li>Tem idade mínima de 18 anos ou possui autorização de responsável legal</li>
+                <li>Compreende os riscos associados a investimentos e decisões financeiras</li>
+                <li>Está ciente de que pode revogar seu consentimento a qualquer momento</li>
+            </ul>
+            <div class="highlight-box">
+                <p><strong>Lembre-se:</strong> Os serviços educacionais e informativos sobre investimentos não constituem aconselhamento financeiro personalizado. Sempre consulte um profissional qualificado antes de tomar decisões de investimento.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>🚀</span>
+                <span>TransformeVida</span>
+            </div>
+            <p>Comprometidos com a transparência e proteção de seus dados pessoais.</p>
+            <p>© 2024 TransformeVida. Todos os direitos reservados.</p>
+            <div class="footer-links">
+                <a href="javascript:history.back()">← Voltar ao Site</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Detect dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll animation for sections
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.policy-section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
