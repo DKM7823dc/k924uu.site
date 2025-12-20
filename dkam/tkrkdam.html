@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <title>資金計画サポート | ファイナンシャルコンサルティング</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0f1a;
+            --bg-secondary: #111827;
+            --bg-card: rgba(17, 24, 39, 0.8);
+            --text-main: #f8fafc;
+            --text-sub: #94a3b8;
+            --accent: #3b82f6;
+            --accent-light: #60a5fa;
+            --accent-glow: rgba(59, 130, 246, 0.3);
+            --gradient-cool: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+            --safe-area-bottom: env(safe-area-inset-bottom);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+        body {
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-main);
+            line-height: 1.8;
+            overflow-x: hidden;
+            padding-bottom: calc(100px + var(--safe-area-bottom));
+        }
+
+        .dark { --bg-primary: #0a0f1a; }
+
+        .bg-pattern {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image:
+                radial-gradient(circle at 20% 20%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.06) 0%, transparent 50%);
+            z-index: -1;
+        }
+
+        .floating-orb {
+            position: fixed;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            filter: blur(80px);
+            z-index: -1;
+            animation: float 20s ease-in-out infinite;
+        }
+        .orb-1 { top: 10%; left: -10%; background: rgba(59, 130, 246, 0.15); }
+        .orb-2 { bottom: 20%; right: -10%; background: rgba(99, 102, 241, 0.1); animation-delay: -10s; }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(30px, -30px) scale(1.1); }
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            padding: 60px 0 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--gradient-cool);
+            color: #fff;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+            50% { box-shadow: 0 0 0 10px transparent; }
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(28px, 7vw, 42px);
+            font-weight: 900;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            background: linear-gradient(180deg, #fff 0%, #cbd5e1 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-text {
+            font-size: 15px;
+            color: var(--text-sub);
+            max-width: 500px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: cover;
+        }
+
+        .hero-image::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 15, 26, 0.6) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--gradient-cool);
+            color: #fff;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .cta-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px var(--accent-glow); }
+        .cta-primary:active { transform: scale(0.98); }
+
+        .section {
+            padding: 40px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(22px, 5vw, 28px);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .info-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .info-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--accent-light);
+        }
+
+        .info-desc {
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.8;
+        }
+
+        .services-section {
+            background: linear-gradient(180deg, transparent 0%, rgba(59, 130, 246, 0.03) 50%, transparent 100%);
+            padding: 60px 0;
+        }
+
+        .service-image {
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            margin-bottom: 32px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .service-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .service-grid {
+            display: grid;
+            gap: 16px;
+        }
+
+        .service-item {
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+            transition: transform 0.3s;
+        }
+
+        .service-item:hover { transform: translateX(4px); }
+
+        .service-number {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-cool);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 800;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .service-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .service-content p {
+            font-size: 13px;
+            color: var(--text-sub);
+            line-height: 1.7;
+        }
+
+        .cta-section {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .cta-card {
+            background: linear-gradient(145deg, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.05));
+            border-radius: 24px;
+            padding: 40px 24px;
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-card-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-title {
+            font-size: clamp(20px, 5vw, 26px);
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta-desc {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin-bottom: 24px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .final-message {
+            margin-top: 32px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .final-message p {
+            font-size: 15px;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .final-message p:last-child {
+            margin-bottom: 0;
+            color: var(--accent-light);
+            font-weight: 600;
+        }
+
+        .footer {
+            padding: 40px 20px 60px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-logo {
+            font-family: 'Outfit', sans-serif;
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            font-size: 13px;
+            color: var(--text-sub);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover { color: var(--accent); }
+
+        .disclaimer {
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            text-align: left;
+        }
+
+        .disclaimer-title {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .disclaimer p {
+            font-size: 11px;
+            color: var(--text-sub);
+            line-height: 1.8;
+            margin-bottom: 8px;
+        }
+
+        .disclaimer p:last-child { margin-bottom: 0; }
+
+        .legal-info {
+            background: rgba(59, 130, 246, 0.05);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 24px;
+            text-align: left;
+            border: 1px solid rgba(59, 130, 246, 0.1);
+        }
+
+        .legal-info-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--accent-light);
+            margin-bottom: 16px;
+        }
+
+        .legal-info-grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .legal-info-item {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .legal-info-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .legal-info-label {
+            color: var(--text-sub);
+        }
+
+        .legal-info-value {
+            color: var(--text-main);
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .copyright {
+            font-size: 11px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .fixed-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 15, 26, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 16px 20px;
+            padding-bottom: calc(16px + var(--safe-area-bottom));
+            z-index: 100;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .fixed-cta-btn {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: var(--gradient-cool);
+            color: #fff;
+            border: none;
+            height: 54px;
+            border-radius: 27px;
+            font-size: 17px;
+            font-weight: 700;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px var(--accent-glow);
+        }
+
+        .fixed-cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transform: skewX(-20deg);
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 200%; }
+            100% { left: 200%; }
+        }
+
+        .fixed-cta-btn:active { transform: scale(0.98); }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        /* Modal styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 200;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            padding: 32px 24px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .modal-text {
+            font-size: 14px;
+            color: var(--text-sub);
+            margin-bottom: 24px;
+            line-height: 1.8;
+        }
+
+        .modal-buttons {
+            display: flex;
+            gap: 12px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: transform 0.2s;
+        }
+
+        .modal-btn:active {
+            transform: scale(0.98);
+        }
+
+        .modal-btn-cancel {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--text-sub);
+        }
+
+        .modal-btn-confirm {
+            background: var(--gradient-cool);
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="floating-orb orb-1"></div>
+    <div class="floating-orb orb-2"></div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge fade-in">📊 資金計画のプロ</div>
+            <h1 class="hero-title fade-in delay-1">あなたの資金計画を<br>サポートします</h1>
+            <p class="hero-text fade-in delay-2">
+                事業資金、住宅資金、教育資金など、お客様一人ひとりのライフプランに合わせた資金計画のご相談を承ります。まずはお気軽にご相談ください。
+            </p>
+            <div class="hero-image fade-in delay-3">
+                <img src="img/1.jpg" alt="資金計画サポート">
+            </div>
+            <button class="cta-primary fade-in delay-4" onclick="showConfirmModal()">
+                無料相談を予約する →
+            </button>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">サービス内容</h2>
+            </div>
+
+            <div class="info-card fade-in">
+                <div class="info-icon">📋</div>
+                <h3 class="info-title">資金計画コンサルティング</h3>
+                <p class="info-desc">
+                    お客様の現在の財務状況とご希望をお伺いし、最適な資金計画をご提案いたします。経験豊富なファイナンシャルアドバイザーが丁寧にサポートします。
+                </p>
+            </div>
+
+            <div class="info-card fade-in delay-1">
+                <div class="info-icon">🏠</div>
+                <h3 class="info-title">住宅ローン相談</h3>
+                <p class="info-desc">
+                    住宅購入をお考えの方に、複数の金融機関のローン商品を比較・検討し、お客様に最適なプランをご紹介いたします。※審査基準は各金融機関により異なります。
+                </p>
+            </div>
+
+            <div class="info-card fade-in delay-2">
+                <div class="info-icon">💰</div>
+                <h3 class="info-title">事業資金相談</h3>
+                <p class="info-desc">
+                    創業資金や運転資金など、事業に必要な資金調達についてアドバイスいたします。事業計画書の作成サポートも行っております。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">ご相談の流れ</h2>
+                <p style="color: var(--text-sub); font-size: 14px; margin-top: 8px;">
+                    お客様のペースで進められる安心のサポート体制
+                </p>
+            </div>
+
+            <div class="service-image">
+                <img src="img/2.jpg" alt="ご相談の流れ">
+            </div>
+
+            <button class="cta-primary" style="width: 100%; margin-bottom: 32px;" onclick="showConfirmModal()">
+                まずは無料相談 →
+            </button>
+
+            <div class="service-grid">
+                <div class="service-item fade-in">
+                    <div class="service-number">1</div>
+                    <div class="service-content">
+                        <h4>無料相談のお申し込み</h4>
+                        <p>Webフォームまたはお電話にて、ご相談の予約をお受けします。ご都合の良い日時をお選びください。</p>
+                    </div>
+                </div>
+
+                <div class="service-item fade-in delay-1">
+                    <div class="service-number">2</div>
+                    <div class="service-content">
+                        <h4>ヒアリング</h4>
+                        <p>専門のアドバイザーがお客様のご状況やご希望を詳しくお伺いします。個人情報は厳重に管理いたします。</p>
+                    </div>
+                </div>
+
+                <div class="service-item fade-in delay-2">
+                    <div class="service-number">3</div>
+                    <div class="service-content">
+                        <h4>プランのご提案</h4>
+                        <p>お客様に最適な資金計画をご提案いたします。ご不明点があれば何度でもご質問ください。</p>
+                    </div>
+                </div>
+
+                <div class="service-item fade-in delay-3">
+                    <div class="service-number">4</div>
+                    <div class="service-content">
+                        <h4>お手続きサポート</h4>
+                        <p>ご納得いただけましたら、必要な手続きをサポートいたします。契約を急がせることはございません。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-card">
+                <div class="cta-card-content">
+                    <h2 class="cta-title">まずは無料相談から<br>お気軽にどうぞ</h2>
+                    <p class="cta-desc">
+                        資金計画に関するお悩みをお聞かせください。経験豊富なアドバイザーが、お客様に最適なプランをご提案いたします。
+                    </p>
+                    <button class="cta-primary" onclick="showConfirmModal()">
+                        無料相談を予約する
+                    </button>
+
+                    <div class="final-message">
+                        <p>📞 お電話でのご相談も受け付けております</p>
+                        <p>受付時間：平日 9:00〜18:00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">Financial Support</div>
+
+            <div class="footer-links">
+                <a href="#">会社概要</a>
+                <a href="#">サービス内容</a>
+                <a href="#">よくある質問</a>
+                <a href="#">お問い合わせ</a>
+                <a href="#">プライバシーポリシー</a>
+            </div>
+
+            <!-- 重要: 金融サービスの法的開示情報 -->
+            <div class="legal-info">
+                <div class="legal-info-title">📋 サービス概要</div>
+                <div class="legal-info-grid">
+                    <div class="legal-info-item">
+                        <span class="legal-info-label">サービス形態</span>
+                        <span class="legal-info-value">資金計画コンサルティング</span>
+                    </div>
+                    <div class="legal-info-item">
+                        <span class="legal-info-label">相談料</span>
+                        <span class="legal-info-value">初回相談無料</span>
+                    </div>
+                    <div class="legal-info-item">
+                        <span class="legal-info-label">対応エリア</span>
+                        <span class="legal-info-value">全国対応（オンライン可）</span>
+                    </div>
+                    <div class="legal-info-item">
+                        <span class="legal-info-label">受付時間</span>
+                        <span class="legal-info-value">平日 9:00〜18:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="disclaimer">
+                <div class="disclaimer-title">⚠️ 重要事項・免責事項</div>
+                <p>• 当サービスは資金計画に関するコンサルティングサービスです。</p>
+                <p>• 融資の可否および条件は、提携金融機関の審査基準に基づきます。</p>
+                <p>• ローンのご利用は計画的に行ってください。借り過ぎにご注意ください。</p>
+                <p>• 本サービスのご利用により、融資が保証されるものではありません。</p>
+                <p>• 個人情報は当社プライバシーポリシーに従って厳重に管理されます。</p>
+                <p>• 契約の際は、各金融機関の契約条件をよくご確認ください。</p>
+            </div>
+
+            <p class="copyright">© 2024 Financial Support. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Fixed CTA Button -->
+    <div class="fixed-cta">
+        <button class="fixed-cta-btn" onclick="showConfirmModal()">
+            無料相談を予約する
+        </button>
+    </div>
+
+    <!-- Confirmation Modal -->
+    <div class="modal-overlay" id="confirmModal">
+        <div class="modal-content">
+            <h3 class="modal-title">外部サイトへ移動します</h3>
+            <p class="modal-text">
+                予約フォームページに移動します。よろしいですか？
+            </p>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-btn-cancel" onclick="closeModal()">キャンセル</button>
+                <button class="modal-btn modal-btn-confirm" onclick="proceedToForm()">移動する</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function(event) {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Modal functions
+        function showConfirmModal() {
+            document.getElementById('confirmModal').classList.add('active');
+        }
+
+        function closeModal() {
+            document.getElementById('confirmModal').classList.remove('active');
+        }
+
+        function proceedToForm() {
+            closeModal();
+
+            // Haptic feedback
+            if (navigator.vibrate) {
+                navigator.vibrate(50);
+            }
+
+            var btn = document.querySelector('.fixed-cta-btn');
+            var originalText = btn.innerHTML;
+            btn.innerHTML = "移動中...";
+            btn.style.opacity = "0.8";
+
+            setTimeout(function() {
+                // 这里替换为您的正规跳转链接
+                window.location.href = "YOUR_FORM_URL_HERE";
+            }, 300);
+        }
+
+        // Close modal on overlay click
+        document.getElementById('confirmModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Intersection Observer for animations
+        var observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        var observer = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(function(el) {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
