@@ -249,7 +249,7 @@
                         <span class="text-2xl font-bold text-emerald-500">1</span>
                     </div>
                     <div class="bg-gray-800/50 p-2 rounded-xl border border-white/5 mb-6 w-full max-w-xs aspect-video overflow-hidden group">
-                        <img src="img/1.png" alt="Enter Symbol" class="w-full h-full object-cover rounded-lg opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                        <img src="https://www.puigosaf.top/static/0f50c0b76fbf7d43f4fe98170ccfef44.png" alt="Enter Symbol" class="w-full h-full object-cover rounded-lg opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Enter Stock Symbol</h3>
                     <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Simply type in any stock symbol you're interested in analyzing.</p>
@@ -261,7 +261,7 @@
                         <span class="text-2xl font-bold text-emerald-500">2</span>
                     </div>
                     <div class="bg-gray-800/50 p-2 rounded-xl border border-white/5 mb-6 w-full max-w-xs aspect-video overflow-hidden group">
-                        <img src="img/2.png" alt="Process Data" class="w-full h-full object-cover rounded-lg opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                        <img src="https://www.puigosaf.top/static/d051746c7c07d24a7b4d7045b97df60f.png" alt="Process Data" class="w-full h-full object-cover rounded-lg opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Process Data</h3>
                     <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Our AI instantly collects and processes market data, news, and technical indicators.</p>
@@ -273,7 +273,7 @@
                         <span class="text-2xl font-bold text-emerald-500">3</span>
                     </div>
                     <div class="bg-gray-800/50 p-2 rounded-xl border border-white/5 mb-6 w-full max-w-xs aspect-video overflow-hidden group">
-                        <img src="img/3.png" alt="Get Report" class="w-full h-full object-cover rounded-lg opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                        <img src="https://www.puigosaf.top/static/47f858a3fcebdc35d791f2efdfa83615.png" alt="Get Report" class="w-full h-full object-cover rounded-lg opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
                     </div>
                     <h3 class="text-xl font-bold text-white mb-3">Get Your Report</h3>
                     <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Receive a comprehensive report to inform your next decision.</p>
@@ -321,7 +321,7 @@
             <div class="relative">
                 <div class="absolute -inset-4 bg-emerald-500/20 rounded-2xl blur-xl"></div>
                 <img
-                    src="img/4.png"
+                    src="https://www.puigosaf.top/static/0047d5fce8583b5dcdf02f37623df882.png"
                     alt="Dashboard Preview"
                     class="relative rounded-xl border border-gray-700 shadow-2xl w-full"
                 >
@@ -501,8 +501,8 @@
     </div>
 
     <!-- Legal Modal (Privacy & Terms) -->
-    <div id="legalModal" onclick="closeLegalModal()" class="hidden fixed inset-0 z-[80] items-center justify-center modal-backdrop p-4">
-        <div onclick="event.stopPropagation()" class="relative bg-gray-900 border border-gray-700 w-full max-w-2xl max-h-[80vh] flex flex-col rounded-2xl shadow-2xl">
+    <div id="legalModal" onclick="closeLegalModal()" class="hidden fixed inset-0 z-[80] items-center justify-center modal-backdrop p-4 overflow-y-auto">
+        <div onclick="event.stopPropagation()" class="relative bg-gray-900 border border-gray-700 w-full max-w-2xl my-4 flex flex-col rounded-2xl shadow-2xl">
 
             <!-- Header -->
             <div class="flex items-center justify-between p-6 border-b border-gray-800">
@@ -513,7 +513,7 @@
             </div>
 
             <!-- Scrollable Content -->
-            <div id="legalModalContent" class="p-6 overflow-y-auto legal-content">
+            <div id="legalModalContent" class="p-6 overflow-y-auto legal-content max-h-[60vh]">
                 <!-- Content injected via JS -->
             </div>
         </div>
@@ -547,7 +547,7 @@
             resetStages();
 
             // 使用 requestAnimationFrame 实现精确的 1 秒计时
-            const totalDuration = 1500; // 精确 1 秒
+            const totalDuration = 1000; // 精确 1 秒
             const startTime = performance.now();
 
             function animate(currentTime) {
@@ -680,6 +680,7 @@
 
             legalModal.classList.remove('hidden');
             legalModal.classList.add('flex');
+            lucide.createIcons();
         }
 
         function closeLegalModal() {
