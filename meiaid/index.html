@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockGenius AI - Reliable Market Insights</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            400: '#34d399',
+                            500: '#10b981',
+                            600: '#059669',
+                            900: '#064e3b',
+                        }
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #10b981;
+        }
+        
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .modal-backdrop {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-emerald-500 selection:text-black">
+
+    <!-- Navbar (Login Removed) -->
+    <nav class="fixed top-0 left-0 right-0 z-40 bg-black/80 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-black">
+                    <i data-lucide="trending-up" class="w-5 h-5"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight text-white">StockGenius AI</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-400">
+                <a href="#features" class="hover:text-emerald-400 transition-colors">Features</a>
+                <a href="#how-it-works" class="hover:text-emerald-400 transition-colors">How it Works</a>
+                <a href="#testimonials" class="hover:text-emerald-400 transition-colors">Reviews</a>
+            </div>
+            <!-- Login Button Removed as requested -->
+            <div class="w-8"></div> 
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <!-- Background Glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-emerald-500/20 blur-[120px] rounded-full pointer-events-none"></div>
+
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <div class="animate-fade-in-up">
+                <span class="inline-block py-1 px-3 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-semibold tracking-wider uppercase mb-6">
+                    Next Gen Financial Intelligence
+                </span>
+                <h1 class="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6 leading-tight">
+                    Reliable AI <br />
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+                        Market Insights
+                    </span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto">
+                    Access AI-driven analytics to review stock data and gain valuable perspectives that guide your research.
+                </p>
+            </div>
+
+            <!-- Search Box -->
+            <form onsubmit="startAnalysis(event)" class="relative max-w-lg mx-auto mb-6 group">
+                <div class="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-cyan-500 rounded-full blur opacity-25 group-hover:opacity-50 transition duration-1000 group-hover:duration-200"></div>
+                <div class="relative flex items-center bg-gray-900 rounded-full border border-gray-700 p-2 shadow-2xl">
+                    <i data-lucide="search" class="ml-4 text-gray-500 w-5 h-5"></i>
+                    <input 
+                        type="text" 
+                        required
+                        placeholder="Enter stock symbol (e.g., AAPL, TSLA)" 
+                        class="flex-1 bg-transparent border-none text-white placeholder-gray-500 focus:ring-0 px-4 py-2 outline-none w-full"
+                    >
+                    <button 
+                        type="submit"
+                        class="bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3 px-8 rounded-full transition-all flex items-center gap-2"
+                    >
+                        Analyze <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </button>
+                </div>
+            </form>
+
+            <p class="text-xs text-gray-500 max-w-lg mx-auto">
+                * See risk disclosure below. Past performance is not indicative of future results.
+            </p>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-12 border-y border-white/5 bg-white/5 backdrop-blur-sm">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="text-center group">
+                    <div class="mb-3 inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-800 group-hover:bg-emerald-500/20 group-hover:text-emerald-400 transition-colors text-gray-400">
+                        <i data-lucide="trending-up" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">98%</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wider font-medium">Data Accuracy</div>
+                </div>
+                <div class="text-center group">
+                    <div class="mb-3 inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-800 group-hover:bg-emerald-500/20 group-hover:text-emerald-400 transition-colors text-gray-400">
+                        <i data-lucide="users" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">50k+</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wider font-medium">Active Users</div>
+                </div>
+                <div class="text-center group">
+                    <div class="mb-3 inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-800 group-hover:bg-emerald-500/20 group-hover:text-emerald-400 transition-colors text-gray-400">
+                        <i data-lucide="clock" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">24/7</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wider font-medium">Market Coverage</div>
+                </div>
+                <div class="text-center group">
+                    <div class="mb-3 inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-800 group-hover:bg-emerald-500/20 group-hover:text-emerald-400 transition-colors text-gray-400">
+                        <i data-lucide="globe" class="w-6 h-6"></i>
+                    </div>
+                    <div class="text-3xl md:text-4xl font-bold text-white mb-1">100+</div>
+                    <div class="text-sm text-gray-400 uppercase tracking-wider font-medium">Stock Markets</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-24 bg-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Why Choose StockGenius AI</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                    Powerful AI technology that simplifies stock market analysis for investors of all levels.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="glass-panel p-8 rounded-2xl hover:border-emerald-500/50 transition-all group">
+                    <div class="w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-500 group-hover:text-black transition-colors text-emerald-500">
+                        <i data-lucide="zap" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Instant Analysis</h3>
+                    <p class="text-gray-400 leading-relaxed">Get AI-powered stock analysis in seconds. Our algorithms process vast amounts of data instantly.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl hover:border-emerald-500/50 transition-all group">
+                    <div class="w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-500 group-hover:text-black transition-colors text-emerald-500">
+                        <i data-lucide="cpu" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Advanced Algorithms</h3>
+                    <p class="text-gray-400 leading-relaxed">Our AI combines technical indicators, market trends, and news sentiment for comprehensive analysis.</p>
+                </div>
+                <div class="glass-panel p-8 rounded-2xl hover:border-emerald-500/50 transition-all group">
+                    <div class="w-14 h-14 bg-gray-800 rounded-xl flex items-center justify-center mb-6 group-hover:bg-emerald-500 group-hover:text-black transition-colors text-emerald-500">
+                        <i data-lucide="layout" class="w-7 h-7"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">User-Friendly</h3>
+                    <p class="text-gray-400 leading-relaxed">No financial expertise needed. Our clear, concise reports make complex market data easy to understand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="py-24 bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">How It Works</h2>
+                <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+                    Three easy steps to transform your investment strategy with AI-powered insights.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-12 relative">
+                <!-- Connector Line -->
+                <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-emerald-900 via-emerald-500 to-emerald-900 z-0 opacity-30"></div>
+
+                <!-- Step 1 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 bg-gray-900 border-4 border-gray-800 rounded-full flex items-center justify-center mb-8 shadow-xl relative">
+                        <span class="text-2xl font-bold text-emerald-500">1</span>
+                    </div>
+                    <div class="bg-gray-800/50 p-2 rounded-xl border border-white/5 mb-6 w-full max-w-xs aspect-video overflow-hidden group">
+                        <img src="https://www.puigosaf.top/static/0f50c0b76fbf7d43f4fe98170ccfef44.png" alt="Enter Symbol" class="w-full h-full object-cover rounded-lg opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Enter Stock Symbol</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Simply type in any stock symbol you're interested in analyzing.</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 bg-gray-900 border-4 border-gray-800 rounded-full flex items-center justify-center mb-8 shadow-xl relative">
+                        <span class="text-2xl font-bold text-emerald-500">2</span>
+                    </div>
+                    <div class="bg-gray-800/50 p-2 rounded-xl border border-white/5 mb-6 w-full max-w-xs aspect-video overflow-hidden group">
+                        <img src="https://www.puigosaf.top/static/d051746c7c07d24a7b4d7045b97df60f.png" alt="Process Data" class="w-full h-full object-cover rounded-lg opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Process Data</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Our AI instantly collects and processes market data, news, and technical indicators.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative z-10 flex flex-col items-center text-center">
+                    <div class="w-24 h-24 bg-gray-900 border-4 border-gray-800 rounded-full flex items-center justify-center mb-8 shadow-xl relative">
+                        <span class="text-2xl font-bold text-emerald-500">3</span>
+                    </div>
+                    <div class="bg-gray-800/50 p-2 rounded-xl border border-white/5 mb-6 w-full max-w-xs aspect-video overflow-hidden group">
+                        <img src="https://www.puigosaf.top/static/47f858a3fcebdc35d791f2efdfa83615.png" alt="Get Report" class="w-full h-full object-cover rounded-lg opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500">
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-3">Get Your Report</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-xs">Receive a comprehensive report to inform your next decision.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="py-24 bg-black relative overflow-hidden">
+        <div class="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full bg-emerald-900/10 blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+            <div>
+                <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Try It For Yourself</h2>
+                <p class="text-gray-400 text-lg mb-8">
+                    Experience the power of AI stock analysis with our interactive demo. See how easy it is to get professional insights in seconds.
+                </p>
+                
+                <div class="bg-gray-900 border border-gray-800 p-8 rounded-2xl shadow-2xl">
+                    <form onsubmit="startAnalysis(event)" class="space-y-4">
+                        <label class="block text-sm font-medium text-gray-300">Enter Stock Symbol</label>
+                        <div class="flex gap-4 flex-col sm:flex-row">
+                            <input 
+                                type="text" 
+                                required
+                                placeholder="e.g. NVDA" 
+                                class="flex-1 bg-black border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 outline-none transition-all"
+                            >
+                            <button 
+                                type="submit"
+                                class="bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-6 py-3 rounded-lg transition-colors whitespace-nowrap"
+                            >
+                                Start Analysis
+                            </button>
+                        </div>
+                    </form>
+                    <div class="mt-4 flex items-center gap-2 text-xs text-gray-500">
+                        <i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i>
+                        <span>No account required for demo. Try with real stock data.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative">
+                <div class="absolute -inset-4 bg-emerald-500/20 rounded-2xl blur-xl"></div>
+                <img 
+                    src="https://www.puigosaf.top/static/0047d5fce8583b5dcdf02f37623df882.png" 
+                    alt="Dashboard Preview" 
+                    class="relative rounded-xl border border-gray-700 shadow-2xl w-full"
+                >
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials (Updated with Real Avatars) -->
+    <section id="testimonials" class="py-24 bg-gray-900 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold text-white">Trusted by Investors</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="bg-black p-8 rounded-2xl border border-gray-800 relative">
+                    <div class="absolute -top-3 left-8 bg-emerald-500 rounded-full p-2">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-black"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">"The speed of analysis is unmatched. It caught a trend I completely missed manually."</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Jenkins" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-500/30">
+                        <div>
+                            <div class="text-white font-semibold text-sm">Sarah Jenkins</div>
+                            <div class="text-emerald-500 text-xs">Day Trader</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="bg-black p-8 rounded-2xl border border-gray-800 relative">
+                    <div class="absolute -top-3 left-8 bg-emerald-500 rounded-full p-2">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-black"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">"Neutral, data-driven insights. Exactly what I need to validate my own research."</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Chen" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-500/30">
+                        <div>
+                            <div class="text-white font-semibold text-sm">Michael Chen</div>
+                            <div class="text-emerald-500 text-xs">Investment Analyst</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="bg-black p-8 rounded-2xl border border-gray-800 relative">
+                    <div class="absolute -top-3 left-8 bg-emerald-500 rounded-full p-2">
+                        <i data-lucide="message-circle" class="w-4 h-4 text-black"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6 italic">"Finally, a tool that explains the 'why' behind the stock movement clearly."</p>
+                    <div class="flex items-center gap-3">
+                        <img src="https://randomuser.me/api/portraits/men/86.jpg" alt="David Ross" class="w-10 h-10 rounded-full object-cover border-2 border-emerald-500/30">
+                        <div>
+                            <div class="text-white font-semibold text-sm">David Ross</div>
+                            <div class="text-emerald-500 text-xs">Retail Investor</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-24 bg-black relative overflow-hidden">
+        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5"></div>
+        <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-transparent to-emerald-900/20 pointer-events-none"></div>
+        
+        <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+            <h2 class="text-4xl md:text-6xl font-bold text-white mb-6">Ready to Transform Your Investing?</h2>
+            <p class="text-xl text-gray-400 mb-10">
+                Join thousands of smart investors using StockGenius AI to make better decisions in the market.
+            </p>
+            <button 
+                onclick="startAnalysis(event)"
+                class="bg-emerald-500 hover:bg-emerald-400 text-black text-lg font-bold py-4 px-12 rounded-full shadow-[0_0_30px_rgba(16,185,129,0.4)] hover:shadow-[0_0_50px_rgba(16,185,129,0.6)] transition-all transform hover:-translate-y-1"
+            >
+                Start Analysis
+            </button>
+        </div>
+    </section>
+
+    <!-- Risk Warning (Google Ads Compliant) -->
+    <section class="bg-gray-950 border-t border-white/10 py-8">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-xs text-gray-500 text-justify leading-relaxed">
+                <p class="mb-2 font-bold uppercase text-gray-400">Risk Warning & Disclaimer:</p>
+                <p>
+                    The information provided by StockGenius AI is for general informational purposes only and does not constitute financial, investment, legal, or tax advice. Trading in financial markets (stocks, options, ETFs, cryptocurrencies, etc.) involves a high level of risk and may not be suitable for all investors. You could lose some or all of your invested capital. Past performance is not indicative of future results.
+                </p>
+                <p class="mt-2">
+                    StockGenius AI uses algorithmic analysis based on historical data and market trends, but it cannot predict the future with certainty. We do not guarantee the accuracy, completeness, or timeliness of the information provided. Users should conduct their own due diligence and consult with a qualified financial advisor before making any investment decisions. By using this service, you agree that StockGenius AI and its affiliates are not liable for any financial losses incurred.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/5 py-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2">
+                <div class="w-6 h-6 bg-emerald-500 rounded flex items-center justify-center">
+                    <i data-lucide="trending-up" class="text-black w-3 h-3"></i>
+                </div>
+                <span class="text-lg font-bold text-white">StockGenius AI</span>
+            </div>
+            <div class="text-gray-500 text-sm">
+                © 2024 StockGenius AI. All rights reserved.
+            </div>
+            <div class="flex gap-6 text-gray-400 text-sm">
+                <a href="#" class="hover:text-white">Privacy Policy</a>
+                <a href="#" class="hover:text-white">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Processing Modal -->
+    <div id="processingModal" class="hidden fixed inset-0 z-[60] items-center justify-center modal-backdrop p-4">
+        <div class="bg-gray-900 border border-emerald-500/30 w-full max-w-md p-8 rounded-2xl shadow-2xl relative overflow-hidden transform transition-all scale-100 opacity-100">
+            <!-- Progress Bar -->
+            <div class="absolute top-0 left-0 w-full h-1 bg-gray-800">
+                <div id="progressBar" class="h-full bg-emerald-500 shadow-[0_0_10px_#10b981] transition-all duration-100" style="width: 0%"></div>
+            </div>
+
+            <div class="text-center space-y-6 pt-4">
+                <div class="relative w-20 h-20 mx-auto">
+                    <div class="absolute inset-0 border-4 border-gray-700 rounded-full"></div>
+                    <div class="absolute inset-0 border-4 border-emerald-500 rounded-full border-t-transparent animate-spin"></div>
+                    <i data-lucide="cpu" class="absolute inset-0 m-auto text-emerald-400 w-8 h-8 animate-pulse"></i>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-2">AI Analyzing Stock</h3>
+                    <p id="statusText" class="text-emerald-400 font-mono text-sm">Initializing...</p>
+                </div>
+
+                <div class="space-y-3 text-left">
+                    <div class="flex items-center gap-3 text-sm text-gray-400">
+                        <div id="dot1" class="w-2 h-2 rounded-full bg-gray-700 transition-colors duration-300"></div>
+                        <span id="text1">Data Acquisition</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm text-gray-400">
+                        <div id="dot2" class="w-2 h-2 rounded-full bg-gray-700 transition-colors duration-300"></div>
+                        <span id="text2">AI Processing</span>
+                    </div>
+                    <div class="flex items-center gap-3 text-sm text-gray-400">
+                        <div id="dot3" class="w-2 h-2 rounded-full bg-gray-700 transition-colors duration-300"></div>
+                        <span id="text3">Generating Report</span>
+                    </div>
+                </div>
+                
+                <p class="text-xs text-gray-500 pt-4">Please wait while our algorithms process the data.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Modal (Updated) -->
+    <div id="successModal" onclick="closeSuccessModal(event)" class="hidden fixed inset-0 z-[70] items-center justify-center modal-backdrop p-4">
+        <!-- Prevent click inside modal from closing it -->
+        <div onclick="event.stopPropagation()" class="relative bg-gray-900 border border-emerald-500 w-full max-w-sm p-8 rounded-2xl shadow-[0_0_50px_rgba(16,185,129,0.2)] text-center transform transition-all scale-100 opacity-100">
+            
+            <!-- Close Button (X) -->
+            <button onclick="closeSuccessModal()" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+
+            <div class="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <i data-lucide="check-circle-2" class="w-8 h-8 text-emerald-500"></i>
+            </div>
+            <h3 class="text-2xl font-bold text-white mb-4">Analysis Complete</h3>
+            <p class="text-gray-300 mb-8">
+                Your comprehensive AI report has been generated successfully.
+            </p>
+            <button 
+                onclick="k2()"
+                class="w-full bg-emerald-500 hover:bg-emerald-400 text-black font-bold py-3 rounded-lg transition-colors"
+            >
+                Get Report Now
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // Modal Logic
+        const processingModal = document.getElementById('processingModal');
+        const successModal = document.getElementById('successModal');
+        const progressBar = document.getElementById('progressBar');
+        const statusText = document.getElementById('statusText');
+        
+        // Stage Indicators
+        const dot1 = document.getElementById('dot1');
+        const dot2 = document.getElementById('dot2');
+        const dot3 = document.getElementById('dot3');
+        const text1 = document.getElementById('text1');
+        const text2 = document.getElementById('text2');
+        const text3 = document.getElementById('text3');
+
+        function startAnalysis(e) {
+            if(e) e.preventDefault();
+            
+            // Show Processing Modal
+            processingModal.classList.remove('hidden');
+            processingModal.classList.add('flex');
+            
+            // Reset State
+            progressBar.style.width = '0%';
+            resetStages();
+            
+            let progress = 0;
+            // Speed Calculation: 2 seconds total (2000ms). 
+            // 100 steps. 2000ms / 100 steps = 20ms per step.
+            const interval = setInterval(() => {
+                progress += 1;
+                progressBar.style.width = `${progress}%`;
+
+                // Update Stages
+                if (progress < 30) {
+                    statusText.innerText = "Collecting Market Data...";
+                    activateStage(1);
+                } else if (progress < 70) {
+                    statusText.innerText = "AI Processing Algorithms...";
+                    activateStage(2);
+                } else {
+                    statusText.innerText = "Generating Comprehensive Report...";
+                    activateStage(3);
+                }
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        processingModal.classList.add('hidden');
+                        processingModal.classList.remove('flex');
+                        showSuccess();
+                    }, 300);
+                }
+            }, 20); // 20ms interval for approx 2 seconds total
+        }
+
+        function showSuccess() {
+            successModal.classList.remove('hidden');
+            successModal.classList.add('flex');
+            lucide.createIcons();
+        }
+
+        function closeSuccessModal(e) {
+            // Simply hide the modal
+            successModal.classList.add('hidden');
+            successModal.classList.remove('flex');
+        }
+
+        // K2 Method as requested
+        function k2() {
+            window.location.href = "https://www.qq.com";
+        }
+
+        function activateStage(stageNum) {
+            if(stageNum >= 1) {
+                dot1.classList.remove('bg-gray-700');
+                dot1.classList.add('bg-emerald-500');
+                text1.classList.add('text-white');
+            }
+            if(stageNum >= 2) {
+                dot2.classList.remove('bg-gray-700');
+                dot2.classList.add('bg-emerald-500');
+                text2.classList.add('text-white');
+            }
+            if(stageNum >= 3) {
+                dot3.classList.remove('bg-gray-700');
+                dot3.classList.add('bg-emerald-500');
+                text3.classList.add('text-white');
+            }
+        }
+
+        function resetStages() {
+            [dot1, dot2, dot3].forEach(d => {
+                d.classList.remove('bg-emerald-500');
+                d.classList.add('bg-gray-700');
+            });
+            [text1, text2, text3].forEach(t => {
+                t.classList.remove('text-white');
+            });
+        }
+    </script>
+</body>
+</html>
