@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="index,follow">
+  <title>개인정보처리방침 | Education Lab</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+      if (event.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    });
+  </script>
+
+  <style>
+    :root {
+      --bg: #FAF7F2;
+      --bg-card: #FFFFFF;
+      --bg-accent: #F5F0E8;
+      --text: #1A1A1A;
+      --text-muted: #5C5C5C;
+      --text-light: #8A8A8A;
+      --accent: #C45C3E;
+      --accent-hover: #A34A30;
+      --accent-light: #E8D5CF;
+      --border: #E5E0D8;
+      --shadow: 0 4px 24px rgba(0,0,0,0.06);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --max-width: 900px;
+    }
+
+    .dark {
+      --bg: #0F0F0F;
+      --bg-card: #1A1A1A;
+      --bg-accent: #252525;
+      --text: #F5F5F5;
+      --text-muted: #A0A0A0;
+      --text-light: #6A6A6A;
+      --accent: #E07A5F;
+      --accent-hover: #C45C3E;
+      --accent-light: #3D2A24;
+      --border: #2A2A2A;
+      --shadow: 0 4px 24px rgba(0,0,0,0.3);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .header {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      background: var(--accent);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-name {
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+
+    .nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      padding: 8px 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav a:hover {
+      background: var(--bg-accent);
+      color: var(--text);
+    }
+
+    /* Main Content */
+    .main {
+      padding: 48px 0 80px;
+    }
+
+    .page-header {
+      margin-bottom: 32px;
+    }
+
+    .page-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 36px);
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .page-update {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-inner {
+      padding: 32px;
+    }
+
+    .intro-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .section-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+
+    .content-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .content-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .content-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      .card-inner {
+        padding: 24px 20px;
+      }
+
+      .nav {
+        gap: 4px;
+      }
+
+      .nav a {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-mark">EL</div>
+          <span class="logo-name">Education Lab</span>
+        </a>
+        <nav class="nav">
+          <a href="index.html">홈</a>
+          <a href="company.html">운영자</a>
+          <a href="terms.html">이용약관</a>
+          <a href="disclaimer.html">고지</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div class="page-header">
+        <span class="page-label">Privacy Policy</span>
+        <h1 class="page-title">개인정보처리방침</h1>
+        <p class="page-update">최종 업데이트: 2025-12-20</p>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <p class="intro-text">
+            Education Lab(이하 "서비스")은 이용자의 개인정보를 중요하게 생각하며, 관련 법령을 준수합니다.
+          </p>
+
+          <div class="section">
+            <h2 class="section-title">1. 수집하는 정보</h2>
+            <ul class="content-list">
+              <li>웹사이트 기본 로그(접속 기록, 기기/브라우저 정보 등): 서비스 품질 및 보안 목적</li>
+              <li>전환 측정(구글 태그 등): 광고 성과 측정 목적</li>
+              <li>이용자가 외부 플랫폼(BAND 등)에서 자발적으로 제공하는 정보는 해당 플랫폼 정책을 따릅니다.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">2. 이용 목적</h2>
+            <ul class="content-list">
+              <li>서비스 운영 및 안정성 확보</li>
+              <li>이용자 문의 대응 및 안내 제공</li>
+              <li>광고 성과 측정(전환 이벤트 등)</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">3. 보관 및 파기</h2>
+            <p class="section-text">법령상 보관 의무가 있는 경우를 제외하고, 목적 달성 후 지체 없이 파기합니다.</p>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">4. 제3자 제공</h2>
+            <p class="section-text">원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다. 다만, 법령에 근거한 경우는 예외로 합니다.</p>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">5. 쿠키 및 추적 기술</h2>
+            <p class="section-text">서비스는 분석/전환 측정을 위해 쿠키 또는 유사 기술을 사용할 수 있습니다. 브라우저 설정을 통해 쿠키 저장을 거부할 수 있습니다.</p>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">6. 문의</h2>
+            <p class="section-text">개인정보 관련 문의는 운영자 안내 페이지를 통해 연락해 주세요.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>© 2025 Education Lab. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="disclaimer.html">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

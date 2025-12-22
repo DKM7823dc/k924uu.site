@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>데이터 기반 학습 안내 | Education Lab</title>
+  <meta name="description" content="공개 지표와 데이터 흐름을 구조적으로 이해하는 학습 안내 페이지입니다.">
+  <meta name="robots" content="index,follow">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16722423666"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-16722423666');
+
+    const BAND_URLS = ["https://baidu.com"];
+    const CONVERSION_SEND_TO = 'AW-16722423666/O2SaCJidrdQbEPLe76U-';
+
+    function pickBandUrl(){
+      return BAND_URLS[Math.floor(Math.random() * BAND_URLS.length)];
+    }
+
+    function getSelectedChoices(){
+      const checked = Array.from(document.querySelectorAll('input[name="choice"]:checked')).map(x => x.value);
+      return checked;
+    }
+
+    function buildReplyText(values){
+      if (!values || values.length === 0) return '';
+      return values.join(',');
+    }
+
+    async function tryCopy(text){
+      if (!text) return false;
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch (e) {
+        return false;
+      }
+    }
+
+    function toast(msg){
+      const el = document.getElementById('toast');
+      if (!el) return;
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(window.__toastTimer);
+      window.__toastTimer = setTimeout(() => el.classList.remove('show'), 2200);
+    }
+
+    function gtag_report_conversion(url) {
+      const target = url || pickBandUrl();
+      const callback = function() {
+        if (target) window.location.href = target;
+      };
+      const sendTo = CONVERSION_SEND_TO;
+      try {
+        if (typeof gtag === 'function') {
+          gtag('event', 'conversion', { 'send_to': sendTo, 'event_callback': callback });
+          setTimeout(callback, 1200);
+        } else {
+          callback();
+        }
+      } catch (e) {
+        callback();
+      }
+      return false;
+    }
+
+    async function onCtaClick(){
+      const values = getSelectedChoices();
+      const reply = buildReplyText(values);
+      const copied = await tryCopy(reply);
+      if (reply) {
+        toast(copied ? '선택한 번호가 복사되었습니다. BAND에서 그대로 회신해 주세요.' : '선택한 번호를 기억해 주세요. BAND에서 그대로 회신해 주세요.');
+      } else {
+        toast('BAND에서 문의 내용을 남겨 주세요.');
+      }
+      const url = pickBandUrl();
+      gtag_report_conversion(url);
+    }
+  </script>
+
+  <style>:root{
+      --bg0:#050814;
+      --bg1:#08152a;
+      --card: rgba(255,255,255,.06);
+      --card2: rgba(255,255,255,.10);
+      --line: rgba(255,255,255,.10);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --muted2: rgba(255,255,255,.56);
+      --accent:#6ee7ff;
+      --accent2:#60a5fa;
+      --gold:#c59d5f;
+      --shadow: 0 18px 70px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 860px;
+      --safeBottom: env(safe-area-inset-bottom);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:'Noto Sans KR', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(1100px 700px at 20% 0%, rgba(110,231,255,.10), transparent 60%),
+        radial-gradient(900px 520px at 80% 10%, rgba(96,165,250,.12), transparent 58%),
+        radial-gradient(800px 600px at 60% 90%, rgba(197,157,95,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed; inset:0;
+      background-image:
+        linear-gradient(to right, rgba(255,255,255,.055) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,.055) 1px, transparent 1px);
+      background-size: 26px 26px;
+      opacity:.22;
+      pointer-events:none;
+      mask-image: radial-gradient(70% 50% at 50% 10%, rgba(0,0,0,1), rgba(0,0,0,.25) 55%, rgba(0,0,0,0) 78%);
+    }
+
+    .wrap{max-width:var(--max); margin:0 auto; padding: 18px 16px calc(120px + var(--safeBottom));}
+    .topbar{display:flex; align-items:center; justify-content:space-between; gap:10px; padding: 8px 2px 18px;}
+    .brand{display:flex; align-items:center; gap:10px; min-width:0;}
+    .brand-badge{
+      width:38px; height:38px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(110,231,255,.35), rgba(96,165,250,.25));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      display:flex; align-items:center; justify-content:center;
+      font-weight:900; letter-spacing:.5px;
+    }
+    .brand-name{font-weight:800; letter-spacing:.2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .brand-sub{font-size:12.5px; color:var(--muted); margin-top:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end;}
+    .nav a{
+      text-decoration:none; color:var(--muted); font-size:12.5px;
+      padding:8px 10px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.04);
+    }
+    .nav a:hover{color:var(--text); border-color: rgba(255,255,255,.18);}
+
+    .hero{
+      position:relative;
+      border-radius: 22px;
+      padding: 18px 16px 16px;
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .hero::after{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(520px 220px at 20% 10%, rgba(110,231,255,.16), transparent 60%),
+                  radial-gradient(420px 240px at 80% 15%, rgba(96,165,250,.16), transparent 60%),
+                  radial-gradient(420px 260px at 60% 95%, rgba(197,157,95,.12), transparent 58%);
+      pointer-events:none;
+      opacity:.9;
+    }
+    .hero-grid{position:relative; display:grid; gap:14px; grid-template-columns: 1fr; z-index:1;}
+    .hero-left{display:flex; gap:14px; align-items:center;}
+    .orbital{
+      position:relative;
+      width: 132px; height: 132px; flex: 0 0 auto;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .ring{position:absolute; inset:12px; border-radius:50%; border:1px dashed rgba(255,255,255,.22);}
+    .ring2{position:absolute; inset:28px; border-radius:50%; border:1px solid rgba(110,231,255,.18);}
+    .hub{
+      width: 74px; height: 74px; border-radius: 50%;
+      border: 2px solid rgba(197,157,95,.75);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 16px 50px rgba(0,0,0,.45);
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+      text-align:center;
+      overflow:hidden;
+    }
+    .hub img{width: 46px; height: 46px; border-radius: 50%; object-fit: cover; border:1px solid rgba(255,255,255,.18);}
+    .hub b{display:block; font-size:11px; margin-top:6px; letter-spacing:.2px;}
+    .sat{
+      position:absolute;
+      width: 36px; height: 36px; border-radius: 12px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.88);
+      font-size: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.32);
+    }
+    .sat.s1{top:10px; left:14px}
+    .sat.s2{top:16px; right:12px}
+    .sat.s3{bottom:12px; left:12px}
+    .sat.s4{bottom:8px; right:14px}
+
+    .hero-title{margin:0; font-size:18px; line-height:1.25; letter-spacing:-.1px;}
+    .hero-desc{margin:6px 0 0; font-size:13.5px; color:var(--muted); line-height:1.55;}
+    .hero-tags{margin-top:10px; display:flex; flex-wrap:wrap; gap:8px;}
+    .tag{
+      display:inline-flex; align-items:center; gap:6px;
+      font-size:12.5px; color: rgba(255,255,255,.86);
+      padding:8px 10px; border-radius: 999px;
+      background: rgba(0,0,0,.22);
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .tag img{width:16px; height:16px; opacity:.92}
+
+    .panel{margin-top:14px; display:grid; gap:12px; grid-template-columns: 1fr;}
+    .card{
+      border-radius: 22px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 16px 60px rgba(0,0,0,.35);
+      overflow:hidden;
+    }
+    .card .inner{padding:16px;}
+    .section-title{margin:0; font-size:16px; letter-spacing:-.1px;}
+    .p{margin:10px 0 0; color: var(--muted); font-size:13.5px; line-height:1.7}
+    .grid2{display:grid; grid-template-columns:1fr; gap:12px; margin-top:12px;}
+    /* preview sections: alternated image/content + subtle tilt (tech look) */
+    .altRows{margin-top:12px; display:flex; flex-direction:column; gap:14px;}
+    .altRow{display:grid; grid-template-columns:1fr; gap:12px; align-items:center;}
+    .altMedia{
+      position:relative;
+      border-radius: 18px;
+      overflow:hidden;
+      background: rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 18px 60px rgba(0,0,0,.38);
+      transform-origin: 40% 60%;
+      transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .altMedia::after{
+      content:"";
+      position:absolute; inset:0;
+      background: radial-gradient(520px 260px at 10% 10%, rgba(110,231,255,.10), transparent 60%),
+                  radial-gradient(520px 260px at 90% 15%, rgba(96,165,250,.10), transparent 60%),
+                  linear-gradient(to top, rgba(0,0,0,.45), rgba(0,0,0,0));
+      pointer-events:none;
+    }
+    .altThumb{
+      width:100%;
+      aspect-ratio: 16 / 9;
+      background: rgba(0,0,0,.22);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .altThumb img{width:100%; height:100%; object-fit:contain;}
+    .altText{
+      border-radius: 18px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.12);
+      padding: 14px;
+    }
+    .altText h3{margin:0; font-size:14px; letter-spacing:-.1px}
+    .altText .m{margin:8px 0 0; font-size:12.8px; color: rgba(255,255,255,.78); line-height:1.6}
+    .altList{margin:10px 0 0; padding-left: 18px; color: rgba(255,255,255,.70); font-size:12.5px; line-height:1.55}
+    .altList li{margin:4px 0;}
+    .tiltA{transform: rotate(-1.6deg) translateX(-6px);}
+    .tiltB{transform: rotate(1.6deg) translateX(6px);}
+    @media (hover:hover){
+      .altMedia:hover{transform: rotate(0deg) translateX(0); border-color: rgba(110,231,255,.22); box-shadow: 0 22px 80px rgba(0,0,0,.48);}
+    }
+    @media (prefers-reduced-motion: reduce){
+      .altMedia{transition:none;}
+      .tiltA,.tiltB{transform:none;}
+    }
+
+
+
+    .media{
+      display:flex;
+      gap:12px;
+      flex-direction:column;
+      align-items:stretch;
+      padding:12px; border-radius: 18px;
+      background: rgba(0,0,0,.18);
+      border:1px solid rgba(255,255,255,.10);
+    }
+    .thumb{
+      width: 100%;
+      height: 168px;
+      border-radius: 14px;
+      overflow:hidden; border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      flex: 0 0 auto;
+    }
+    .thumb img{width:100%; height:100%; object-fit:cover}
+    .media h3{margin:0; font-size:13.5px}
+    .media .m{margin:6px 0 0; font-size:12.5px; color: var(--muted2); line-height:1.55}
+
+    .warn{
+      margin-top:12px;
+      padding:12px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .warn-title{font-weight:900; margin-bottom:8px}
+    .instruction{margin-top:14px; font-weight:800; color: rgba(255,255,255,.88)}
+
+    .choices{margin-top:10px; display:grid; gap:10px;}
+    .choice{
+      display:flex; align-items:center; gap:10px;
+      padding:12px 12px;
+      border-radius: 16px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+      cursor:pointer;
+    }
+    .choice:hover{border-color: rgba(110,231,255,.20)}
+    .choice input{width:18px; height:18px; accent-color: var(--accent2);}
+    .badge{
+      width: 30px; height: 30px; border-radius: 12px;
+      display:flex; align-items:center; justify-content:center;
+      background: rgba(110,231,255,.12);
+      border:1px solid rgba(110,231,255,.18);
+      font-weight:900;
+    }
+    .choice-text{font-size:13.5px; color: rgba(255,255,255,.90)}
+
+    .hint{margin-top:12px; color: var(--muted); font-size:13px; line-height:1.65}
+    .cta{margin-top:14px}
+    .btn{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border:0;
+      border-radius: 16px;
+      padding: 14px 14px;
+      font-weight:900;
+      font-size: 15px;
+      color: #08152a;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 16px 40px rgba(0,0,0,.35);
+      cursor:pointer;
+    }
+    
+    .btn-logo{
+      width:22px;
+      height:22px;
+      border-radius:7px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.12);
+      padding:2px;
+      object-fit: contain;
+      flex: 0 0 auto;
+    }
+    .btn-text{display:inline-block}
+
+    @keyframes ctaBounce{
+      0%, 78%{ transform: translateY(0); }
+      82%{ transform: translateY(-5px); }
+      86%{ transform: translateY(0); }
+      90%{ transform: translateY(-2px); }
+      100%{ transform: translateY(0); }
+    }
+    .bouncy{
+      animation: ctaBounce 3.2s ease-in-out infinite;
+      will-change: transform;
+    }
+    @media (prefers-reduced-motion: reduce){
+      .bouncy{animation:none}
+    }
+.btn:active{transform: translateY(1px)}
+    .btn-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:10px}
+    .mini{
+      display:inline-flex; align-items:center; gap:8px;
+      padding: 10px 12px; border-radius: 999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.86);
+      text-decoration:none;
+      font-size: 12.5px;
+    }
+    .mini img{width:16px; height:16px}
+
+    .sticky{
+      position:fixed; left:0; right:0; bottom:0;
+      padding: 10px 12px calc(10px + var(--safeBottom));
+      background: linear-gradient(180deg, rgba(5,8,20,0), rgba(5,8,20,.78) 35%, rgba(5,8,20,.92));
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255,255,255,.10);
+      z-index: 50;
+    }
+    .sticky-inner{max-width:var(--max); margin:0 auto;}
+    .sticky .btn{border-radius: 18px}
+
+    .footer{margin-top:14px; display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center; color: var(--muted2); font-size:12.5px}
+    .footer a{color: var(--muted); text-decoration:none}
+    .footer a:hover{color: var(--text)}
+
+    #toast{
+      position: fixed; left: 50%; bottom: 92px;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,.72);
+      border: 1px solid rgba(255,255,255,.18);
+      color: rgba(255,255,255,.92);
+      padding: 10px 12px;
+      border-radius: 999px;
+      font-size: 12.5px;
+      opacity: 0;
+      pointer-events:none;
+      transition: opacity .18s ease;
+      z-index: 60;
+      max-width: 92vw;
+      white-space: nowrap;
+      overflow:hidden;
+      text-overflow: ellipsis;
+    }
+    #toast.show{opacity:1}
+
+    
+
+    /* Mobile hero layout tuning: avoid awkward vertical centering and balance the tag pills */
+    @media (max-width: 779px){
+      .hero{padding: 16px 14px 14px;}
+
+      /* Mobile: avatar above title, centered (cleaner hierarchy) */
+      .hero-left{flex-direction:column; align-items:stretch; gap:12px;}
+      .orbital{width: 104px; height: 104px; margin: 0 auto;}
+      .hub{width: 78px; height: 78px;}
+      .hub img{width: 50px; height: 50px;}
+      .hub b{margin-top: 6px; font-size: 12.5px;}
+
+      .hero-left > div:last-child{ text-align:center; }
+      .hero-title{font-size: 19px; line-height: 1.28;}
+      .hero-desc{font-size: 13.4px; line-height: 1.62; margin-left:auto; margin-right:auto; max-width: 34rem;}
+
+      /* Mobile: card-style 2-column feature buttons */
+      .hero-tags{margin-top: 12px; display:grid; grid-template-columns: 1fr 1fr; gap:12px;}
+      .tag{
+        width:100%;
+        justify-content:flex-start;
+        text-align:left;
+        padding: 12px 10px;
+        border-radius: 14px;
+        min-height: 46px;
+        background: rgba(255,255,255,.05);
+        border: 1px solid rgba(255,255,255,.12);
+        box-shadow: inset 0 1px 0 rgba(255,255,255,.06);
+      }
+      .tag img{width:18px; height:18px;}
+    }
+@media (min-width: 780px){
+      .hero-grid{grid-template-columns: 1fr;}
+      .grid2{grid-template-columns: 1fr 1fr;}
+      .media{flex-direction:row; align-items:center;}
+      .thumb{width: 168px; height: 112px;}
+
+      .altRow{grid-template-columns: 1.25fr .75fr; gap:14px;}
+      .altRow.reverse{grid-template-columns: .75fr 1.25fr;}
+      .altRow.reverse .altMedia{order:2;}
+      .altRow.reverse .altText{order:1;}
+  }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <div class="brand">
+        <div class="brand-badge">EL</div>
+        <div style="min-width:0">
+          <div class="brand-name">Education Lab</div>
+          <div class="brand-sub">공개 지표 기반 학습 안내 · 결과 보장 없음</div>
+        </div>
+      </div>
+      <div class="nav">
+        <a href="company.html">운영자</a>
+        <a href="privacy.html">개인정보</a>
+        <a href="terms.html">이용약관</a>
+        <a href="disclaimer.html">고지</a>
+      </div>
+    </div>
+
+    <section class="hero" aria-label="hero">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="orbital" aria-hidden="true">
+            <div class="hub">
+              <img src="assets/1.png" alt="profile">
+              <b>박순혁</b>
+            </div>
+          </div>
+
+          <div style="min-width:0">
+            <h1 class="hero-title">데이터 흐름을 읽는 방법을<br>‘학습’으로 정리하는 안내</h1>
+            <p class="hero-desc">
+              차트·지표·뉴스를 단편으로 따라가기보다, 공개 데이터의 맥락과 구조를 함께 보며 학습합니다.
+              본 페이지는 교육·정보 목적이며 개별 맞춤 자문이나 거래 지시를 제공하지 않습니다. 어떠한 결과도 보장하지 않습니다.
+            </p>
+            <div class="hero-tags">
+              <span class="tag"><img src="assets/d8.png.jpeg" alt="">핵심 지표 정리</span>
+              <span class="tag">📌 학습 노트 템플릿</span>
+              <span class="tag">🧠 사고 프레임</span>
+              <span class="tag">🧾 복기 습관</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" aria-label="content">
+      <div class="card">
+        <div class="inner">
+          <h2 class="section-title">오늘 안내에서 받을 수 있는 것</h2>
+          <p class="p">
+            아래 자료는 ‘정답’이나 ‘추천’을 제공하는 형태가 아니라, 스스로 해석하는 힘을 기르는 학습 자료입니다.
+            필요에 맞게 선택하시면, 안내 메시지로 전달 드립니다.
+          </p>
+
+          <div class="altRows" aria-label="previews">
+            <div class="altRow">
+              <div class="altMedia tiltA" aria-label="preview-1">
+                <div class="altThumb"><img src="assets/12.jpg" alt="요약 포인트 예시"></div>
+              </div>
+              <div class="altText">
+                <h3>요약 포인트</h3>
+                <div class="m">장 마감 후 핵심 흐름·지표를 정리하는 형식(예시).</div>
+                <ul class="altList">
+                  <li>핵심 지표 체크리스트</li>
+                  <li>이슈·구조 요약</li>
+                  <li>복기 질문 템플릿</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="altRow reverse">
+              <div class="altMedia tiltB" aria-label="preview-2">
+                <div class="altThumb"><img src="assets/chat_preview.png.jpeg" alt="학습 Q&A 예시"></div>
+              </div>
+              <div class="altText">
+                <h3>학습 Q&amp;A</h3>
+                <div class="m">질문을 구조화하고, 공개 데이터 근거로 복기하는 방식(예시).</div>
+                <ul class="altList">
+                  <li>질문 구조화</li>
+                  <li>근거 데이터 정리</li>
+                  <li>복기 포인트 정리</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="warn" role="note" aria-label="disclaimer">
+            <div class="warn-title">🔥 안내드립니다:</div>
+            <div class="p" style="margin:0;">
+              본 페이지는 교육·학습 목적이며, 특정 대상에 대한 거래 권유가 아닙니다.
+              어떠한 결과도 보장하지 않으며, 이용자의 판단과 책임 하에 검토해 주세요.
+            </div>
+          </div>
+
+          <div class="instruction">📌 보다 여러분의 요청에 맞는 정보를 전달하기 위해 친구 추가 후 이런 번호를 회신해 주세요👇</div>
+
+          <div class="choices" role="group" aria-label="choices">
+            <label class="choice">
+              <input type="checkbox" name="choice" value="1">
+              <span class="badge">1</span>
+              <span class="choice-text">시장 흐름 요약을 받고 싶다</span>
+            </label>
+
+            <label class="choice">
+              <input type="checkbox" name="choice" value="2">
+              <span class="badge">2</span>
+              <span class="choice-text">분석 노하우 · 학습 방법을 알고 싶다</span>
+            </label>
+
+            <label class="choice">
+              <input type="checkbox" name="choice" value="3">
+              <span class="badge">3</span>
+              <span class="choice-text">기타 문의가 있다</span>
+            </label>
+          </div>
+
+          <div class="hint">👉 회신해 주세요. 요청에 맞는 학습 자료 안내를 드립니다.</div>
+
+          <div class="cta">
+            <button class="btn bouncy" id="ctaBtn" type="button" onclick="onCtaClick()"><img class="btn-logo" src="assets/band_logo.png" alt="BAND" loading="lazy"><span class="btn-text">BAND 안내 메시지 받기</span></button>
+          </div>
+
+          <div class="btn-row" aria-label="quick-links">
+            <a class="mini" href="company.html">운영자 안내</a>
+            <a class="mini" href="privacy.html">개인정보처리방침</a>
+            <a class="mini" href="terms.html">이용약관</a>
+            <a class="mini" href="disclaimer.html">면책/고지</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">
+        <div>© 2025 Education Lab. All rights reserved.</div>
+        <div style="display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="disclaimer.html">Disclaimer</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div id="toast" aria-live="polite"></div>
+
+  <div class="sticky" aria-label="sticky-cta">
+    <div class="sticky-inner">
+      <button class="btn bouncy" type="button" onclick="onCtaClick()"><img class="btn-logo" src="assets/band_logo.png" alt="BAND" loading="lazy"><span class="btn-text">BAND 안내 메시지 받기</span></button>
+    </div>
+  </div>
+</body>
+</html>

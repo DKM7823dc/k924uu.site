@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="index,follow">
+  <title>운영자/소개 | Education Lab</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+      if (event.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    });
+  </script>
+
+  <style>
+    :root {
+      --bg: #FAF7F2;
+      --bg-card: #FFFFFF;
+      --bg-accent: #F5F0E8;
+      --text: #1A1A1A;
+      --text-muted: #5C5C5C;
+      --text-light: #8A8A8A;
+      --accent: #C45C3E;
+      --accent-hover: #A34A30;
+      --accent-light: #E8D5CF;
+      --border: #E5E0D8;
+      --shadow: 0 4px 24px rgba(0,0,0,0.06);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --max-width: 900px;
+    }
+
+    .dark {
+      --bg: #0F0F0F;
+      --bg-card: #1A1A1A;
+      --bg-accent: #252525;
+      --text: #F5F5F5;
+      --text-muted: #A0A0A0;
+      --text-light: #6A6A6A;
+      --accent: #E07A5F;
+      --accent-hover: #C45C3E;
+      --accent-light: #3D2A24;
+      --border: #2A2A2A;
+      --shadow: 0 4px 24px rgba(0,0,0,0.3);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .header {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      background: var(--accent);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-name {
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+
+    .nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      padding: 8px 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav a:hover {
+      background: var(--bg-accent);
+      color: var(--text);
+    }
+
+    /* Main Content */
+    .main {
+      padding: 48px 0 80px;
+    }
+
+    .page-header {
+      margin-bottom: 32px;
+    }
+
+    .page-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 36px);
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-inner {
+      padding: 32px;
+    }
+
+    .intro-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .content-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .content-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .content-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 10px;
+    }
+
+    .update-info {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    /* Footer */
+    .footer {
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      .card-inner {
+        padding: 24px 20px;
+      }
+
+      .nav {
+        gap: 4px;
+      }
+
+      .nav a {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-mark">EL</div>
+          <span class="logo-name">Education Lab</span>
+        </a>
+        <nav class="nav">
+          <a href="index.html">홈</a>
+          <a href="privacy.html">개인정보</a>
+          <a href="terms.html">이용약관</a>
+          <a href="disclaimer.html">고지</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div class="page-header">
+        <span class="page-label">About</span>
+        <h1 class="page-title">운영자/서비스 소개</h1>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <p class="intro-text">
+            Education Lab은 공개 지표와 데이터의 흐름을 구조적으로 이해하는 '학습' 중심 안내를 제공합니다.
+            본 서비스는 교육·정보 목적이며, 특정 행동을 지시하거나 결과를 약속하지 않습니다.
+          </p>
+
+          <div class="section">
+            <h2 class="section-title">제공 범위</h2>
+            <ul class="content-list">
+              <li>공개 지표(차트/지표/뉴스 등)의 해석 프레임 및 학습 자료 안내</li>
+              <li>복기 습관을 위한 기록 템플릿 및 정리 방식 예시</li>
+              <li>질문을 구조화하는 방법과 학습 방향성 안내</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">중요 고지</h2>
+            <ul class="content-list">
+              <li>본 서비스는 특정 대상에 대한 권유가 아니며, 개별 맞춤 자문이 아닙니다.</li>
+              <li>어떠한 결과도 보장하지 않으며, 모든 판단과 책임은 이용자에게 있습니다.</li>
+              <li>외부 플랫폼(BAND 등)에서의 소통 역시 위 고지 범위 내에서 진행됩니다.</li>
+            </ul>
+          </div>
+
+          <div class="update-info">최종 업데이트: 2025-12-20</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>© 2025 Education Lab. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="disclaimer.html">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

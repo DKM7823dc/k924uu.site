@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="index,follow">
+  <title>이용약관 | Education Lab</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      document.documentElement.classList.add('dark');
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+      if (event.matches) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    });
+  </script>
+
+  <style>
+    :root {
+      --bg: #FAF7F2;
+      --bg-card: #FFFFFF;
+      --bg-accent: #F5F0E8;
+      --text: #1A1A1A;
+      --text-muted: #5C5C5C;
+      --text-light: #8A8A8A;
+      --accent: #C45C3E;
+      --accent-hover: #A34A30;
+      --accent-light: #E8D5CF;
+      --border: #E5E0D8;
+      --shadow: 0 4px 24px rgba(0,0,0,0.06);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.08);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --max-width: 900px;
+    }
+
+    .dark {
+      --bg: #0F0F0F;
+      --bg-card: #1A1A1A;
+      --bg-accent: #252525;
+      --text: #F5F5F5;
+      --text-muted: #A0A0A0;
+      --text-light: #6A6A6A;
+      --accent: #E07A5F;
+      --accent-hover: #C45C3E;
+      --accent-light: #3D2A24;
+      --border: #2A2A2A;
+      --shadow: 0 4px 24px rgba(0,0,0,0.3);
+      --shadow-lg: 0 12px 48px rgba(0,0,0,0.4);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .header {
+      padding: 24px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-mark {
+      width: 42px;
+      height: 42px;
+      background: var(--accent);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 18px;
+      color: white;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-name {
+      font-weight: 600;
+      font-size: 16px;
+      letter-spacing: -0.3px;
+      color: var(--text);
+    }
+
+    .nav {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      padding: 8px 14px;
+      font-size: 13px;
+      color: var(--text-muted);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+
+    .nav a:hover {
+      background: var(--bg-accent);
+      color: var(--text);
+    }
+
+    /* Main Content */
+    .main {
+      padding: 48px 0 80px;
+    }
+
+    .page-header {
+      margin-bottom: 32px;
+    }
+
+    .page-label {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 5vw, 36px);
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .page-update {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: 8px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .card-inner {
+      padding: 32px;
+    }
+
+    .intro-text {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section {
+      margin-bottom: 32px;
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      width: 4px;
+      height: 20px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+
+    .section-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+
+    .content-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .content-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    .content-list li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    .footer {
+      padding: 24px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+      color: var(--text-light);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      .card-inner {
+        padding: 24px 20px;
+      }
+
+      .nav {
+        gap: 4px;
+      }
+
+      .nav a {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="header-inner">
+        <a href="index.html" class="logo">
+          <div class="logo-mark">EL</div>
+          <span class="logo-name">Education Lab</span>
+        </a>
+        <nav class="nav">
+          <a href="index.html">홈</a>
+          <a href="company.html">운영자</a>
+          <a href="privacy.html">개인정보</a>
+          <a href="disclaimer.html">고지</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div class="page-header">
+        <span class="page-label">Terms of Service</span>
+        <h1 class="page-title">이용약관</h1>
+        <p class="page-update">최종 업데이트: 2025-12-20</p>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <p class="intro-text">
+            본 약관은 Education Lab(이하 "서비스")의 이용과 관련하여 이용자와 서비스 간 권리·의무 및 책임 사항을 규정합니다.
+          </p>
+
+          <div class="section">
+            <h2 class="section-title">1. 서비스 성격</h2>
+            <ul class="content-list">
+              <li>본 서비스는 교육·정보 목적의 콘텐츠/자료 안내를 제공합니다.</li>
+              <li>특정 행동 지시, 개별 맞춤 자문, 결과 보장을 제공하지 않습니다.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">2. 이용자의 의무</h2>
+            <ul class="content-list">
+              <li>서비스 이용 시 관련 법령 및 플랫폼 정책을 준수해야 합니다.</li>
+              <li>타인의 권리(저작권/개인정보 등)를 침해하는 행위를 금지합니다.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">3. 면책</h2>
+            <ul class="content-list">
+              <li>서비스는 콘텐츠의 정확성·완전성을 보증하지 않으며, 이용자의 판단과 책임 하에 활용됩니다.</li>
+              <li>서비스 이용으로 발생한 손해에 대해 법령상 허용되는 범위 내에서 책임을 제한합니다.</li>
+            </ul>
+          </div>
+
+          <div class="section">
+            <h2 class="section-title">4. 약관 변경</h2>
+            <p class="section-text">서비스는 필요 시 약관을 변경할 수 있으며, 변경 사항은 웹사이트를 통해 공지합니다.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div>© 2025 Education Lab. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
+          <a href="disclaimer.html">Disclaimer</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
