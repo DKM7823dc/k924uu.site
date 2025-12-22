@@ -959,6 +959,54 @@
             }
         }
 
+        /* Floating Mobile Button */
+        @keyframes breathe {
+            0%, 100% {
+                box-shadow: 0 8px 32px rgba(20, 184, 166, 0.4);
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                box-shadow: 0 12px 48px rgba(20, 184, 166, 0.6), 0 0 20px rgba(20, 184, 166, 0.3);
+                transform: translateX(-50%) scale(1.03);
+            }
+        }
+
+        .floating-btn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-primary);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            z-index: 999;
+            box-shadow: 0 8px 32px rgba(20, 184, 166, 0.4);
+            font-family: inherit;
+            white-space: nowrap;
+            animation: breathe 2s ease-in-out infinite;
+        }
+
+        .floating-btn:active {
+            animation: none;
+            transform: translateX(-50%) scale(0.98);
+        }
+
+        @media (max-width: 768px) {
+            .floating-btn {
+                display: block;
+            }
+
+            footer {
+                padding-bottom: 100px;
+            }
+        }
+
         /* Dark mode support */
         @media (prefers-color-scheme: dark) {
             :root {
@@ -1230,7 +1278,7 @@
                             <span>+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>সমস্ত পেমেন্ট নিরাপদ, নিয়ন্ত্রিত আর্থিক প্রতিষ্ঠানের মাধ্যমে প্রক্রিয়া করা হয়��� আপনি ব্যাংক ট্রান্সফার, পেপাল বা জনপ্রিয় ডিজিটাল ওয়ালেটের মাধ্যমে উপার্জন উত্তোলন করতে পারেন। প্রতিটি লেনদেন এনক্রিপ্টেড এবং আপনার সুরক্ষার জন্য সম্পূর্ণ ট্র্যাক করা হয়।</p>
+                            <p>সমস্ত পেমেন্ট নিরাপদ, নিয়ন্ত্রিত আর্থিক প্রতিষ্ঠানের মাধ্যমে প্রক্রিয়া করা হয়। আপনি ব্যাংক ট্রান্সফার, পেপাল বা জনপ্রিয় ডিজিটাল ওয়ালেটের মাধ্যমে উপার্জন উত্তোলন করতে পারেন। প্রতিটি লেনদেন এনক্রিপ্টেড এবং আপনার সুরক্ষার জন্য সম্পূর্ণ ট্র্যাক করা হয়।</p>
                         </div>
                     </div>
 
@@ -1280,6 +1328,9 @@
         </div>
     </section>
 
+    <!-- Floating Mobile Button -->
+    <button class="floating-btn" onclick="d2()">এখনই আবেদন করুন</button>
+
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -1291,8 +1342,8 @@
                 </div>
 
                 <div class="footer-links">
-                    <a href="#">গোপনীয়তা নীতি</a>
-                    <a href="#">সেবার শর্তাবলী</a>
+                    <a href="privacy.html">গোপনীয়তা নীতি</a>
+                    <a href="terms.html">সেবার শর্তাবলী</a>
                     <a href="#">সাপোর্টে যোগাযোগ</a>
                 </div>
 
@@ -1365,5 +1416,7 @@
             }
         });
     </script>
- </body>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"35b4c4fff8aa42bfba5f0ef7ccf4cab8","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"35b4c4fff8aa42bfba5f0ef7ccf4cab8","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
 </html>
