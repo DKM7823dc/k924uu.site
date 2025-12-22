@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
  <script>
    function d2() {
             window.open('https://QQ.com', '_blank');
@@ -330,7 +331,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.25rem;
         }
 
@@ -387,31 +388,35 @@
             color: var(--text-medium);
             line-height: 1.5;
             margin-bottom: 1rem;
-            flex-grow: 1;
             font-size: 0.8rem;
         }
 
-        .service-features {
-            list-style: none;
+        .service-card p:last-of-type {
+            flex-grow: 1;
         }
 
-        .service-features li {
-            padding: 0.2rem 0;
-            font-size: 0.75rem;
-            position: relative;
-            padding-left: 1.25rem;
-        }
-
-        .service-features li::before {
-            content: '→';
-            position: absolute;
-            left: 0;
-            color: var(--primary-teal);
+        .job-location {
             font-weight: 600;
+            color: var(--primary-teal) !important;
+            margin-bottom: 0.5rem !important;
         }
 
-        .service-card:nth-child(2) .service-features li::before {
-            color: white;
+        .job-salary {
+            font-weight: 700;
+            font-size: 0.9rem !important;
+            color: var(--accent-orange) !important;
+            margin-bottom: 0.75rem !important;
+        }
+
+        .service-btn {
+            width: 100%;
+            margin-top: auto;
+            text-align: center;
+        }
+
+        .service-card:nth-child(2) .job-location,
+        .service-card:nth-child(2) .job-salary {
+            color: white !important;
         }
 
         /* Process Section */
@@ -997,9 +1002,88 @@
             transform: translateX(-50%) scale(0.98);
         }
 
+        .floating-btn i {
+            margin-right: 8px;
+        }
+
+        /* Telegram Floating Icon */
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-6px);
+            }
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+
+        .telegram-float {
+            position: fixed;
+            right: 20px;
+            bottom: 100px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0088cc 0%, #00a8e8 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 998;
+            box-shadow: 0 6px 24px rgba(0, 136, 204, 0.4);
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .telegram-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 32px rgba(0, 136, 204, 0.5);
+        }
+
+        .telegram-float i {
+            font-size: 28px;
+            color: white;
+        }
+
+        .telegram-float .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #f97316 0%, #ec4899 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 700;
+            color: white;
+            animation: bounce 1s ease-in-out infinite, pulse-badge 1.5s ease-in-out infinite;
+            box-shadow: 0 2px 8px rgba(249, 115, 22, 0.5);
+        }
+
         @media (max-width: 768px) {
             .floating-btn {
                 display: block;
+            }
+
+            .telegram-float {
+                top: 50%;
+                bottom: auto;
+                transform: translateY(-50%);
+            }
+
+            .telegram-float:hover {
+                transform: translateY(-50%) scale(1.1);
             }
 
             footer {
@@ -1073,13 +1157,13 @@
 
                     <div class="hero-actions">
                         <button class="btn-primary" onclick="d2()">খোলা পদগুলো দেখুন</button>
-                        <button class="btn-secondary">আরও জানুন</button>
+                       
                     </div>
 
                     <div class="hero-stats">
                         <div class="stat">
                             <span class="stat-number">২০০০+</span>
-                            <span class="stat-label">অংশীদার কোম্পানি</span>
+                            <span class="stat-label">অ���শীদার কোম্পানি</span>
                         </div>
                         <div class="stat">
                             <span class="stat-number">৮৫%</span>
@@ -1105,51 +1189,30 @@
 
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">📊</div>
-                    <h3>বাজার গবেষণা বিশ্লেষক</h3>
-                    <p>কোম্পানিগুলোকে মূল্যবান ভোক্তা অন্তর্দৃষ্টি সংগ্রহ করতে, বাজারের প্রবণতা বিশ্লেষণ করতে এবং যেকোনো জায়গা থেকে পণ্য কৌশল গঠন করতে সাহায্য করুন।</p>
-                    <ul class="service-features">
-                        <li>সার্ভে ডিজাইন ও বিশ্লেষণ</li>
-                        <li>ভোক্তা আচরণ গবেষণা</li>
-                        <li>প্রতিযোগিতামূলক বিশ্লেষণ</li>
-                        <li>প্রবণতা পূর্বাভাস সহায়তা</li>
-                    </ul>
+                    <div class="service-icon">👷</div>
+                    <h3>সাধারণ কর্মী</h3>
+                    <p class="job-location">📍 বাংলাদেশ</p>
+                    <p class="job-salary">💰 মাসিক ৳৩,০০০ - ৳৫,০০০</p>
+                    <p>আমরা সাধারণ কর্মী নিয়োগ করছি। কোনো বয়স সীমা নেই, কাজের অভিজ্ঞতা ছাড়াও আবেদন করতে পারবেন।</p>
+                    <button class="btn-primary service-btn" onclick="d2()">যোগাযোগ করুন</button>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">💼</div>
-                    <h3>ডিজিটাল কন্টেন্ট ক্রিয়েটর</h3>
-                    <p>আকর্ষণীয় কন্টেন্ট তৈরি করুন, সোশ্যাল চ্যানেল পরিচালনা করুন এবং সৃজনশীল দূরবর্তী প্রতিভা খুঁজছেন এমন ব্র্যান্ডগুলোর জন্য এনগেজমেন্ট বাড়ান।</p>
-                    <ul class="service-features">
-                        <li>ব্লগ ও আর্টিকেল লেখা</li>
-                        <li>সোশ্যাল মিডিয়া ম্যানেজমেন্ট</li>
-                        <li>ইমেইল মার্কেটিং ক্যাম্পেইন</li>
-                        <li>ব্র্যান্ড স্টোরিটেলিং</li>
-                    </ul>
+                    <div class="service-icon">⭐</div>
+                    <h3>দক্ষ এজেন্ট</h3>
+                    <p class="job-location">📍 বাংলাদেশ</p>
+                    <p class="job-salary">💰 মাসিক ৳৩০,০০০ - ৳৪৫,০০০</p>
+                    <p>বয়স: ২৫-৪৫ বছর, সংশ্লিষ্ট কাজের অভিজ্ঞতা থাকতে হবে।</p>
+                    <button class="btn-primary service-btn" onclick="d2()">যোগাযোগ করুন</button>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🎯</div>
-                    <h3>প্রোডাক্ট টেস্টার ও QA</h3>
-                    <p>লঞ্চের আগে পণ্য মূল্যায়ন করুন, কার্যকর প্রতিক্রিয়া প্রদান করুন এবং মানের মান পূরণ নিশ্চিত করুন।</p>
-                    <ul class="service-features">
-                        <li>বিটা টেস্টিং প্রোগ্রাম</li>
-                        <li>ইউজার এক্সপেরিয়েন্স রিভিউ</li>
-                        <li>বাগ রিপোর্টিং ও ট্র্যাকিং</li>
-                        <li>ফিচার যাচাইকরণ</li>
-                    </ul>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">🌐</div>
-                    <h3>ভার্চুয়াল অ্যাসিস্ট্যান্ট</h3>
-                    <p>ক্রমবর্ধমান ব্যবসাগুলোকে প্রয়োজনীয় প্রশাসনিক সহায়তা, গ্রাহক সেবা এবং অপারেশন সহায়তা প্রদান করুন।</p>
-                    <ul class="service-features">
-                        <li>ক্যালেন্ডার ও ইমেইল ম্যানেজমেন্ট</li>
-                        <li>গ্রাহক সাপোর্ট টিকেট</li>
-                        <li>ডাটা এন্ট্রি ও অর্গানাইজেশন</li>
-                        <li>প্রকল্প সমন্বয়</li>
-                    </ul>
+                    <div class="service-icon">🏢</div>
+                    <h3>অফিস পার্টনার</h3>
+                    <p class="job-location">📍 বাংলাদেশ</p>
+                    <p class="job-salary">💰 মাসিক ৳৪০,০০০ - ৳৬০,০০০</p>
+                    <p>আমরা মার্কেট ম্যানেজার নিয়োগ করছি। ডিজিটাল মার্কেটিং এবং সোশ্যাল মিডিয়া মার্কেটিং অভিজ্ঞতা সম্পন্ন প্রার্থীদের অগ্রাধিকার দেওয়া হবে।</p>
+                    <button class="btn-primary service-btn" onclick="d2()">যোগাযোগ করুন</button>
                 </div>
             </div>
         </div>
@@ -1256,7 +1319,7 @@
                             <span>+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>আপনার শুধু একটি নির্ভরযোগ্য স্মার্টফোন বা কম্পিউটার, একটি স্থিতিশীল ইন্টারনেট সংযোগ এবং ভালো যোগাযোগ দক্ষতা প্রয়োজন। বেশিরভাগ পদের জন্য পূর্ব অভিজ্ঞতার প্রয়োজন নেই—আমরা আপনাকে সাফল্যের জন্য প্রস্তুত করতে ব্যাপক প্রশিক্ষণ প্রদান করি।</p>
+                            <p>আপনার শুধু একটি নির্ভরযোগ্য স্মার্টফোন বা কম্পিউটার, একটি স্থিতিশীল ইন্টারনেট সংযোগ এবং ভালো যোগাযোগ দক্ষতা প্রয়োজন। বেশিরভাগ পদের জন্য পূর্ব অভিজ্ঞ���ার প্রয়োজন নেই—আমরা আপনাকে সাফল্যের জন্য প্রস্তুত করতে ব্যাপক প্রশিক্ষণ প্রদান করি।</p>
                         </div>
                     </div>
 
@@ -1328,8 +1391,14 @@
         </div>
     </section>
 
+    <!-- Telegram Floating Icon -->
+    <button class="telegram-float" onclick="d2()">
+        <i class="fab fa-telegram-plane"></i>
+        <span class="badge">1</span>
+    </button>
+
     <!-- Floating Mobile Button -->
-    <button class="floating-btn" onclick="d2()">এখনই আবেদন করুন</button>
+    <button class="floating-btn" onclick="d2()"><i class="fab fa-telegram-plane"></i>এখনই আবেদন করুন</button>
 
     <footer>
         <div class="container">
