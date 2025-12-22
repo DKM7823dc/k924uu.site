@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Risk Disclosure Statement - Stock Investment Education Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'financial-primary': '#1e40af',
+                        'financial-secondary': '#dc2626',
+                        'financial-accent': '#059669',
+                        'financial-gold': '#d97706',
+                        'financial-dark': '#1f2937',
+                        'financial-light': '#f8fafc'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .risk-disclosure-section {
+            background: linear-gradient(145deg, #fef2f2 0%, #fee2e2 100%);
+            border: 2px solid #fca5a5;
+        }
+        
+        .dark .risk-disclosure-section {
+            background: linear-gradient(145deg, #7f1d1d 0%, #991b1b 100%);
+            border-color: #dc2626;
+        }
+        
+        .warning-banner {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            animation: pulse 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-financial-light dark:bg-financial-dark text-gray-900 dark:text-gray-100 font-sans">
+    <!-- Header -->
+    <nav class="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-financial-primary to-financial-secondary rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">SI</span>
+                    </div>
+                    <span class="text-xl font-bold text-financial-primary">Stock Investment Education</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <button onclick="window.history.back()" class="text-financial-primary hover:text-financial-secondary transition-colors font-semibold">
+                        ← Back to Homepage
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Warning Banner -->
+    <div class="warning-banner text-white py-4">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-lg font-bold">
+                ⚠️ IMPORTANT: Please read this risk disclosure statement carefully before proceeding
+            </p>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="py-12">
+        <div class="max-w-5xl mx-auto px-4">
+            <!-- Title Section -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-red-800 dark:text-red-400 mb-6">
+                    ⚠️ RISK DISCLOSURE STATEMENT
+                </h1>
+                <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+                    This document contains important information about the risks associated with stock market investments and the use of our educational platform.
+                </p>
+            </div>
+
+            <!-- Risk Disclosure Content -->
+            <div class="risk-disclosure-section rounded-2xl p-8 mb-8">
+                <div class="space-y-8 text-red-700 dark:text-red-300">
+                    
+                    <!-- Investment Risk Warning -->
+                    <div class="border-b border-red-300 dark:border-red-600 pb-6">
+                        <h2 class="text-2xl font-bold mb-4 text-red-800 dark:text-red-400 flex items-center">
+                            <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                            </svg>
+                            1. INVESTMENT RISK WARNING
+                        </h2>
+                        <div class="space-y-4">
+                            <p><strong>High Risk Investment:</strong> Stock market investments carry substantial risk of loss. All investments involve risk, including the potential loss of principal invested. Past performance does not guarantee future results.</p>
+                            
+                            <p><strong>Market Volatility:</strong> Stock prices can fluctuate significantly due to various factors including economic conditions, political events, company performance, industry trends, interest rate changes, and investor sentiment. You may lose some or all of your investment.</p>
+                            
+                            <p><strong>Potential for Substantial Losses:</strong> Market volatility can result in substantial losses in short periods of time, especially for short-term trading strategies.</p>
+                        </div>
+                    </div>
+
+                    <!-- Educational Purpose -->
+                    <div class="border-b border-red-300 dark:border-red-600 pb-6">
+                        <h2 class="text-2xl font-bold mb-4 text-red-800 dark:text-red-400 flex items-center">
+                            <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
+                            </svg>
+                            2. EDUCATIONAL PURPOSE ONLY
+                        </h2>
+                        <div class="space-y-4">
+                            <p><strong>Not Investment Advice:</strong> All content provided on this platform is strictly for educational and informational purposes only. The information presented should not be considered as personalized investment advice, financial planning advice, or recommendations to buy, sell, or hold any specific securities.</p>
+                            
+                            <p><strong>Independent Research Required:</strong> You should always conduct your own independent research and analysis before making any investment decisions. Do not rely solely on the educational materials provided on this platform.</p>
+                            
+                            <p><strong>No Fiduciary Relationship:</strong> The use of this platform does not create any fiduciary relationship between you and our organization.</p>
+                        </div>
+                    </div>
+
+                    <!-- No Guarantees -->
+                    <div class="border-b border-red-300 dark:border-red-600 pb-6">
+                        <h2 class="text-2xl font-bold mb-4 text-red-800 dark:text-red-400 flex items-center">
+                            <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L5.636 5.636"></path>
+                            </svg>
+                            3. NO GUARANTEES OR WARRANTIES
+                        </h2>
+                        <div class="space-y-4">
+                            <p><strong>No Performance Guarantees:</strong> We do not guarantee any specific investment outcomes, profits, or returns. No representation is being made that any investment will or is likely to achieve results similar to those discussed on our platform.</p>
+                            
+                            <p><strong>Market Unpredictability:</strong> Market conditions can change rapidly and unpredictably, affecting investment performance. Economic factors, company-specific events, and market sentiment can significantly impact stock prices.</p>
+                            
+                            <p><strong>No Warranty:</strong> We provide no warranty regarding the accuracy, completeness, or timeliness of any information on our platform.</p>
+                        </div>
+                    </div>
+
+                    <!-- Professional Consultation -->
+                    <div class="border-b border-red-300 dark:border-red-600 pb-6">
+                        <h2 class="text-2xl font-bold mb-4 text-red-800 dark:text-red-400 flex items-center">
+                            <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                            </svg>
+                            4. PROFESSIONAL CONSULTATION REQUIRED
+                        </h2>
+                        <div class="space-y-4">
+                            <p><strong>Seek Professional Advice:</strong> Before making any investment decisions, you should consult with qualified, licensed financial advisors, investment professionals, or tax consultants who can assess your individual financial situation, risk tolerance, and investment objectives.</p>
+                            
+                            <p><strong>Individual Circumstances:</strong> Investment decisions should be based on your personal financial situation, goals, and risk tolerance. Our educational content does not replace professional financial advice tailored to your specific circumstances.</p>
+                            
+                            <p><strong>Licensed Professionals:</strong> Only work with properly licensed and regulated financial professionals when making investment decisions.</p>
+                        </div>
+                    </div>
+
+                    <!-- Regulatory Compliance -->
+                    <div class="border-b border-red-300 dark:border-red-600 pb-6">
+                        <h2 class="text-2xl font-bold mb-4 text-red-800 dark:text-red-400 flex items-center">
+                            <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                            </svg>
+                            5. REGULATORY COMPLIANCE
+                        </h2>
+                        <div class="space-y-4">
+                            <p><strong>Compliance Statement:</strong> This platform complies with applicable financial advertising regulations and Google's financial advertising policies. We are focused on education and do not provide direct investment services, brokerage services, or recommendations for specific securities.</p>
+                            
+                            <p><strong>Not a Registered Entity:</strong> We are not a registered investment advisor, broker-dealer, or financial planning firm. We do not manage investments or provide individualized investment advice.</p>
+                            
+                            <p><strong>Educational Focus:</strong> Our sole purpose is to provide educational content about investment concepts and market analysis techniques.</p>
+                        </div>
+                    </div>
+
+                    <!-- Eligibility Requirements -->
+                    <div class="border-b border-red-300 dark:border-red-600 pb-6">
+                        <h2 class="text-2xl font-bold mb-4 text-red-800 dark:text-red-400 flex items-center">
+                            <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"></path>
+                            </svg>
+                            6. ELIGIBILITY AND LEGAL REQUIREMENTS
+                        </h2>
+                        <div class="space-y-4">
+                            <p><strong>Age Requirement:</strong> Investment education services are intended for adults aged 25 and above. Minors should not use this platform without proper adult supervision and consent.</p>
+                            
+                            <p><strong>Legal Compliance:</strong> Users must comply with all applicable local, state, and federal financial regulations and laws in their jurisdiction. By accessing this platform, you confirm that you meet all eligibility requirements.</p>
+                            
+                            <p><strong>Legal Capacity:</strong> You confirm that you have the legal capacity to make investment decisions and enter into financial transactions in your jurisdiction.</p>
+                        </div>
+                    </div>
+
+                    <!-- Market Volatility -->
+                    <div class="border-b border-red-300 dark:border-red-600 pb-6">
+                        <h2 class="text-2xl font-bold mb-4 text-red-800 dark:text-red-400 flex items-center">
+                            <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path>
+                            </svg>
+                            7. MARKET VOLATILITY NOTICE
+                        </h2>
+                        <div class="space-y-4">
+                            <p><strong>Inherent Market Risks:</strong> Stock markets are subject to volatility and can experience significant price movements due to various factors including economic conditions, political events, company performance, industry trends, interest rate changes, and investor sentiment.</p>
+                            
+                            <p><strong>Short-term Risks:</strong> These factors can result in substantial losses, especially in short-term trading. Market timing is extremely difficult and can lead to significant losses.</p>
+                            
+                            <p><strong>Economic Factors:</strong> Broader economic conditions, inflation, recession, and global events can dramatically impact market performance and individual stock prices.</p>
+                        </div>
+                    </div>
+
+                    <!-- Information Accuracy -->
+                    <div class="border-b border-red-300 dark:border-red-600 pb-6">
+                        <h2 class="text-2xl font-bold mb-4 text-red-800 dark:text-red-400 flex items-center">
+                            <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            8. INFORMATION ACCURACY DISCLAIMER
+                        </h2>
+                        <div class="space-y-4">
+                            <p><strong>Data Sources and Accuracy:</strong> While we strive to provide accurate and up-to-date information, we cannot guarantee the completeness, accuracy, or timeliness of any information presented on our platform.</p>
+                            
+                            <p><strong>Subject to Change:</strong> Market data, financial information, and educational content are subject to change without notice. Information may become outdated quickly in fast-moving markets.</p>
+                            
+                            <p><strong>Independent Verification:</strong> Users should verify all information independently through multiple sources before making any investment decisions.</p>
+                        </div>
+                    </div>
+
+                    <!-- Limitation of Liability -->
+                    <div>
+                        <h2 class="text-2xl font-bold mb-4 text-red-800 dark:text-red-400 flex items-center">
+                            <svg class="w-8 h-8 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                            </svg>
+                            9. LIMITATION OF LIABILITY
+                        </h2>
+                        <div class="space-y-4">
+                            <p><strong>No Liability for Losses:</strong> We shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from the use of this educational platform or any investment decisions made based on the information provided.</p>
+                            
+                            <p><strong>User Responsibility:</strong> Users acknowledge that they access and use this platform at their own risk and responsibility. All investment decisions are made independently by the user.</p>
+                            
+                            <p><strong>Maximum Liability:</strong> Our maximum liability, if any, shall not exceed the amount paid by you to access our educational services.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Acknowledgment Section -->
+            <div class="bg-red-600 text-white rounded-2xl p-8 text-center mb-8">
+                <h2 class="text-3xl font-bold mb-4">ACKNOWLEDGMENT AND AGREEMENT</h2>
+                <div class="space-y-4 text-lg">
+                    <p>By using this platform, you acknowledge that you have:</p>
+                    <ul class="text-left max-w-3xl mx-auto space-y-2">
+                        <li>✓ Read and understood this entire Risk Disclosure Statement</li>
+                        <li>✓ Understand the risks associated with stock market investments</li>
+                        <li>✓ Acknowledge that all content is for educational purposes only</li>
+                        <li>✓ Agree to seek professional advice before making investment decisions</li>
+                        <li>✓ Accept full responsibility for your investment decisions</li>
+                        <li>✓ Understand that past performance does not guarantee future results</li>
+                        <li>✓ Agree to the limitation of liability outlined above</li>
+                    </ul>
+                    <p class="text-xl font-bold mt-6">
+                        IF YOU DO NOT AGREE TO THESE TERMS, DO NOT USE THIS PLATFORM.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Contact Information -->
+            <div class="bg-gray-100 dark:bg-gray-800 rounded-2xl p-6 text-center">
+                <h3 class="text-xl font-bold mb-3">Questions About This Disclosure?</h3>
+                <p class="text-gray-600 dark:text-gray-400">
+                    If you have any questions about this Risk Disclosure Statement, please contact our educational support team before using the platform.
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-400">
+                © 2024 Stock Investment Education Platform. This Risk Disclosure Statement was last updated on January 2024.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+</html>
