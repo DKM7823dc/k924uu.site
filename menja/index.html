@@ -1,0 +1,1369 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ফ্লেক্সওয়ার্ক প্রো - বৈধ দূরবর্তী কাজের সুযোগ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&family=Noto+Sans+Bengali:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+ <script>
+   function d2() {
+            window.open('https://QQ.com', '_blank');
+        }
+
+ </script>
+
+
+    <style>
+        :root {
+            --primary-teal: #14b8a6;
+            --primary-cyan: #06b6d4;
+            --primary-dark: #0f172a;
+            --accent-orange: #f97316;
+            --accent-pink: #ec4899;
+            --text-dark: #1e293b;
+            --text-medium: #64748b;
+            --text-light: #94a3b8;
+            --bg-white: #ffffff;
+            --bg-light: #f8fafc;
+            --bg-dark: #1e293b;
+            --bg-section: #f1f5f9;
+            --shadow-light: rgba(20, 184, 166, 0.08);
+            --shadow-medium: rgba(20, 184, 166, 0.15);
+            --shadow-heavy: rgba(20, 184, 166, 0.25);
+            --gradient-primary: linear-gradient(135deg, #14b8a6 0%, #06b6d4 100%);
+            --gradient-accent: linear-gradient(135deg, #f97316 0%, #ec4899 100%);
+            --gradient-dark: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Bengali', 'DM Sans', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            overflow-x: hidden;
+            font-size: 15px;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.75rem 0;
+            position: relative;
+        }
+
+        .logo {
+            position: absolute;
+            left: 1.5rem;
+            font-size: 1.25rem;
+            font-weight: 700;
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            background: var(--bg-light);
+            padding: 0.4rem 0.6rem;
+            border-radius: 100px;
+        }
+
+        .nav-links a {
+            color: var(--text-medium);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.4rem 0.9rem;
+            border-radius: 100px;
+            transition: all 0.2s ease;
+            font-size: 0.8rem;
+        }
+
+        .nav-links a:hover {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            position: absolute;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            font-size: 1.25rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: var(--bg-white);
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .mobile-nav.active { display: block; }
+
+        .mobile-nav a {
+            display: block;
+            color: var(--text-medium);
+            text-decoration: none;
+            padding: 0.75rem;
+            margin: 0.25rem 0;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+
+        .mobile-nav a:hover {
+            background: var(--bg-light);
+            color: var(--primary-teal);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--bg-white);
+            padding-top: 100px;
+            padding-bottom: 4rem;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 520px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: var(--gradient-accent);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .hero h1 .highlight {
+            background: var(--gradient-primary);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 0.95rem;
+            color: var(--text-medium);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 0.75rem 1.75rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--shadow-medium);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-dark);
+            padding: 0.75rem 1.75rem;
+            border: 1.5px solid var(--bg-section);
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--primary-teal);
+            color: var(--primary-teal);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary-teal);
+            line-height: 1;
+            letter-spacing: -1px;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-medium);
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 5rem 0;
+            background: var(--bg-light);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-subtitle {
+            color: var(--primary-teal);
+            font-weight: 600;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .section-description {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.25rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 12px var(--shadow-light);
+            transition: all 0.25s ease;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-primary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px var(--shadow-medium);
+        }
+
+        .service-card:nth-child(2) {
+            background: var(--gradient-primary);
+            color: white;
+        }
+
+        .service-card:nth-child(2) h3,
+        .service-card:nth-child(2) p {
+            color: white;
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.25px;
+        }
+
+        .service-card p {
+            color: var(--text-medium);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            font-size: 0.8rem;
+        }
+
+        .service-features {
+            list-style: none;
+        }
+
+        .service-features li {
+            padding: 0.2rem 0;
+            font-size: 0.75rem;
+            position: relative;
+            padding-left: 1.25rem;
+        }
+
+        .service-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--primary-teal);
+            font-weight: 600;
+        }
+
+        .service-card:nth-child(2) .service-features li::before {
+            color: white;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 5rem 0;
+            background: var(--bg-white);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 2.5rem;
+            position: relative;
+        }
+
+        .process-steps::before {
+            content: '';
+            position: absolute;
+            top: 40px;
+            left: 12.5%;
+            right: 12.5%;
+            height: 2px;
+            background: var(--gradient-primary);
+            z-index: 1;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .step-circle {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.25rem;
+            color: white;
+            font-size: 1.25rem;
+            font-weight: 700;
+            position: relative;
+        }
+
+        .step-circle::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            background: var(--gradient-primary);
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .process-step h3 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.25px;
+        }
+
+        .process-step p {
+            color: var(--text-medium);
+            line-height: 1.5;
+            font-size: 0.8rem;
+        }
+
+        /* Benefits Section */
+        .benefits {
+            padding: 5rem 0;
+            background: var(--bg-section);
+        }
+
+        .benefit-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin: 3.5rem 0;
+        }
+
+        .benefit-grid:nth-child(even) .benefit-content {
+            order: 2;
+        }
+
+        .benefit-content {
+            max-width: 440px;
+        }
+
+        .benefit-number {
+            width: 44px;
+            height: 44px;
+            background: var(--gradient-accent);
+            color: white;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .benefit-content h3 {
+            font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            line-height: 1.25;
+            letter-spacing: -0.5px;
+        }
+
+        .benefit-content p {
+            color: var(--text-medium);
+            line-height: 1.65;
+            font-size: 0.875rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .benefit-highlights {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.6rem;
+        }
+
+        .benefit-highlights li {
+            padding: 0.6rem 0.75rem;
+            background: white;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .benefit-visual {
+            position: relative;
+        }
+
+        .benefit-image {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 5rem 0;
+            background: var(--bg-white);
+        }
+
+        .faq-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 0.75rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .faq-tab {
+            padding: 0.6rem 1.25rem;
+            background: transparent;
+            border: 1.5px solid var(--bg-section);
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+
+        .faq-tab.active {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: var(--primary-teal);
+        }
+
+        .faq-content {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .faq-panel {
+            display: none;
+        }
+
+        .faq-panel.active {
+            display: block;
+        }
+
+        .faq-item {
+            background: var(--bg-light);
+            border-radius: 8px;
+            margin-bottom: 0.6rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.25rem;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 0.875rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .faq-question:hover {
+            background: white;
+        }
+
+        .faq-answer {
+            padding: 0 1.25rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.25s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 1.25rem 1.25rem;
+            max-height: 200px;
+        }
+
+        .faq-answer p {
+            color: var(--text-medium);
+            line-height: 1.6;
+            font-size: 0.85rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background: var(--gradient-dark);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle at 25% 25%, rgba(20, 184, 166, 0.1) 0%, transparent 50%),
+                              radial-gradient(circle at 75% 75%, rgba(6, 182, 212, 0.1) 0%, transparent 50%);
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            letter-spacing: -0.5px;
+        }
+
+        .cta-section p {
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: var(--bg-light);
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .risk-warning {
+            background: rgba(0,0,0,0.2);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 10px;
+        }
+
+        .risk-warning h3 {
+            color: var(--primary-teal);
+            margin-bottom: 1.25rem;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .risk-warning p {
+            font-size: 0.8rem;
+            margin-bottom: 0.6rem;
+            line-height: 1.6;
+            opacity: 0.85;
+        }
+
+        .footer-links {
+            margin: 2rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--primary-teal);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.85rem;
+            padding: 0.4rem 0.75rem;
+            border-radius: 4px;
+            transition: all 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            background: var(--primary-teal);
+            color: white;
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 1.5rem;
+            margin-top: 2rem;
+            opacity: 0.7;
+        }
+
+        .copyright p {
+            font-size: 0.75rem;
+            margin-bottom: 0.4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .process-steps {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem 1.5rem;
+            }
+
+            .process-steps::before {
+                display: none;
+            }
+
+            .hero-container {
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 14px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero {
+                padding-top: 70px;
+                padding-bottom: 2.5rem;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2.5rem;
+            }
+
+            .hero-content {
+                max-width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.9rem;
+            }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 280px;
+                text-align: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+                gap: 2rem;
+            }
+
+            .stat-number {
+                font-size: 1.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .logo {
+                position: static;
+            }
+
+            nav {
+                justify-content: space-between;
+                padding: 0.6rem 0;
+            }
+
+            .services, .process, .benefits, .faq, .cta-section {
+                padding: 3.5rem 0;
+            }
+
+            .section-header {
+                margin-bottom: 2rem;
+            }
+
+            .section-title {
+                font-size: 1.35rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .service-card {
+                padding: 1.25rem;
+            }
+
+            .service-icon {
+                font-size: 1.75rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .step-circle {
+                width: 64px;
+                height: 64px;
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+
+            .benefit-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin: 2.5rem 0;
+            }
+
+            .benefit-grid:nth-child(even) .benefit-content {
+                order: unset;
+            }
+
+            .benefit-content {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .benefit-number {
+                margin: 0 auto 1rem;
+            }
+
+            .benefit-highlights {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+
+            .faq-tabs {
+                gap: 0.5rem;
+            }
+
+            .faq-tab {
+                padding: 0.5rem 1rem;
+                font-size: 0.75rem;
+            }
+
+            .faq-question {
+                padding: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.35rem;
+            }
+
+            .cta-section p {
+                font-size: 0.875rem;
+            }
+
+            .footer-links {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .risk-warning {
+                padding: 1.5rem;
+            }
+
+            .risk-warning h3 {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .hero-badge {
+                font-size: 0.6rem;
+                padding: 0.35rem 0.8rem;
+            }
+
+            .stat-number {
+                font-size: 1.35rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --text-dark: #f1f5f9;
+                --text-medium: #94a3b8;
+                --bg-white: #0f172a;
+                --bg-light: #1e293b;
+                --bg-section: #1e293b;
+                --bg-dark: #334155;
+            }
+
+            header {
+                background: rgba(15, 23, 42, 0.95);
+                border-bottom-color: rgba(255,255,255,0.06);
+            }
+
+            .service-card,
+            .faq-item,
+            .benefit-highlights li {
+                background: #1e293b;
+            }
+
+            .service-card:nth-child(2) {
+                background: var(--gradient-primary);
+            }
+
+            .faq-question:hover {
+                background: rgba(255,255,255,0.05);
+            }
+
+            .mobile-menu-btn {
+                color: var(--text-dark);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">ফ্লেক্সওয়ার্ক প্রো</div>
+            <ul class="nav-links">
+                <li><a href="#services">সেবাসমূহ</a></li>
+                <li><a href="#process">কিভাবে কাজ করে</a></li>
+                <li><a href="#benefits">কেন আমরা</a></li>
+                <li><a href="#faq">প্রশ্নোত্তর</a></li>
+            </ul>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+        </nav>
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#services" onclick="closeMobileMenu()">সেবাসমূহ</a>
+            <a href="#process" onclick="closeMobileMenu()">কিভাবে কাজ করে</a>
+            <a href="#benefits" onclick="closeMobileMenu()">কেন আমরা</a>
+            <a href="#faq" onclick="closeMobileMenu()">প্রশ্নোত্তর</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">📋 বিশ্বস্ত চাকরি ম্যাচিং সেবা</div>
+                    <h1>আপনার <span class="highlight">দূরবর্তী</span> ক্যারিয়ার সাফল্যের দ্বার</h1>
+                    <p class="hero-subtitle">আমরা প্রতিভাবান পেশাদারদের নমনীয় দূরবর্তী পদের অফার করা শীর্ষ কোম্পানিগুলোর সাথে সংযুক্ত করি। আমাদের নির্বাচিত চাকরি ম্যাচিং সেবা আপনাকে আপনার দক্ষতা এবং জীবনধারার সাথে মানানসই নিখুঁত ওয়ার্ক-ফ্রম-হোম সুযোগ খুঁজে পেতে সাহায্য করে।</p>
+
+                    <div class="hero-actions">
+                        <button class="btn-primary" onclick="d2()">খোলা পদগুলো দেখুন</button>
+                        <button class="btn-secondary">আরও জানুন</button>
+                    </div>
+
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <span class="stat-number">২০০০+</span>
+                            <span class="stat-label">অংশীদার কোম্পানি</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">৮৫%</span>
+                            <span class="stat-label">নিয়োগ সাফল্য</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual">
+                    <img src="img/2.jpg" alt="দূরবর্তী কাজের জীবনধারা" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">ক্যারিয়ার সুযোগ</div>
+                <h2 class="section-title">দূরবর্তী চাকরির বিভাগসমূহ অন্বেষণ করুন</h2>
+                <p class="section-description">একাধিক শিল্পে বিস্তৃত দূরবর্তী কাজের সুযোগ আবিষ্কার করুন। আমরা প্রতিভাবান দূরবর্তী পেশাদারদের সক্রিয়ভাবে খুঁজছেন এমন শীর্ষস্থানীয় কোম্পানিগুলোর সাথে অংশীদারিত্ব করি।</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">📊</div>
+                    <h3>বাজার গবেষণা বিশ্লেষক</h3>
+                    <p>কোম্পানিগুলোকে মূল্যবান ভোক্তা অন্তর্দৃষ্টি সংগ্রহ করতে, বাজারের প্রবণতা বিশ্লেষণ করতে এবং যেকোনো জায়গা থেকে পণ্য কৌশল গঠন করতে সাহায্য করুন।</p>
+                    <ul class="service-features">
+                        <li>সার্ভে ডিজাইন ও বিশ্লেষণ</li>
+                        <li>ভোক্তা আচরণ গবেষণা</li>
+                        <li>প্রতিযোগিতামূলক বিশ্লেষণ</li>
+                        <li>প্রবণতা পূর্বাভাস সহায়তা</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">💼</div>
+                    <h3>ডিজিটাল কন্টেন্ট ক্রিয়েটর</h3>
+                    <p>আকর্ষণীয় কন্টেন্ট তৈরি করুন, সোশ্যাল চ্যানেল পরিচালনা করুন এবং সৃজনশীল দূরবর্তী প্রতিভা খুঁজছেন এমন ব্র্যান্ডগুলোর জন্য এনগেজমেন্ট বাড়ান।</p>
+                    <ul class="service-features">
+                        <li>ব্লগ ও আর্টিকেল লেখা</li>
+                        <li>সোশ্যাল মিডিয়া ম্যানেজমেন্ট</li>
+                        <li>ইমেইল মার্কেটিং ক্যাম্পেইন</li>
+                        <li>ব্র্যান্ড স্টোরিটেলিং</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎯</div>
+                    <h3>প্রোডাক্ট টেস্টার ও QA</h3>
+                    <p>লঞ্চের আগে পণ্য মূল্যায়ন করুন, কার্যকর প্রতিক্রিয়া প্রদান করুন এবং মানের মান পূরণ নিশ্চিত করুন।</p>
+                    <ul class="service-features">
+                        <li>বিটা টেস্টিং প্রোগ্রাম</li>
+                        <li>ইউজার এক্সপেরিয়েন্স রিভিউ</li>
+                        <li>বাগ রিপোর্টিং ও ট্র্যাকিং</li>
+                        <li>ফিচার যাচাইকরণ</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌐</div>
+                    <h3>ভার্চুয়াল অ্যাসিস্ট্যান্ট</h3>
+                    <p>ক্রমবর্ধমান ব্যবসাগুলোকে প্রয়োজনীয় প্রশাসনিক সহায়তা, গ্রাহক সেবা এবং অপারেশন সহায়তা প্রদান করুন।</p>
+                    <ul class="service-features">
+                        <li>ক্যালেন্ডার ও ইমেইল ম্যানেজমেন্ট</li>
+                        <li>গ্রাহক সাপোর্ট টিকেট</li>
+                        <li>ডাটা এন্ট্রি ও অর্গানাইজেশন</li>
+                        <li>প্রকল্প সমন্বয়</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="process" class="process">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">শুরু করুন</div>
+                <h2 class="section-title">দূরবর্তী সাফল্যের পথ</h2>
+                <p class="section-description">আমাদের সুবিন্যস্ত প্রক্রিয়া আপনাকে দ্রুত এবং পেশাদারভাবে সঠিক সুযোগের সাথে মিলিয়ে দেয়।</p>
+            </div>
+
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-circle">০১</div>
+                    <h3>আপনার প্রোফাইল তৈরি করুন</h3>
+                    <p>পরিচয় যাচাইকরণ এবং একটি ব্যাপক দক্ষতা মূল্যায়নের সাথে আমাদের দ্রুত নিবন্ধন সম্পূর্ণ করুন।</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-circle">০২</div>
+                    <h3>ম্যাচ হন</h3>
+                    <p>আমাদের স্মার্ট ম্যাচিং সিস্টেম আপনাকে আপনার অভিজ্ঞতা এবং লক্ষ্যের সাথে সামঞ্জস্যপূর্ণ পদের সাথে সংযুক্ত করে।</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-circle">০৩</div>
+                    <h3>কাজ শুরু করুন</h3>
+                    <p>প্রাথমিক স্তরের কাজ দিয়ে শুরু করুন এবং প্রিমিয়াম, উচ্চ বেতনের সুযোগে এগিয়ে যান।</p>
+                </div>
+
+                <div class="process-step">
+                    <div class="step-circle">০৪</div>
+                    <h3>আপনার ক্যারিয়ার বৃদ্ধি করুন</h3>
+                    <p>আপনার অগ্রগতি ট্র্যাক করুন, দারুণ রিভিউ অর্জন করুন এবং একচেটিয়া চাকরির তালিকায় অ্যাক্সেস আনলক করুন।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">ফ্লেক্সওয়ার্ক সুবিধা</div>
+                <h2 class="section-title">পেশাদাররা কেন আমাদের বেছে নেন</h2>
+            </div>
+
+            <div class="benefit-grid">
+                <div class="benefit-content">
+                    <div class="benefit-number">০১</div>
+                    <h3>এন্টারপ্রাইজ-স্তরের নিরাপত্তা ও বিশ্বাস</h3>
+                    <p>আপনার ব্যক্তিগত তথ্য এবং উপার্জন শিল্প-নেতৃস্থানীয় নিরাপত্তা ব্যবস্থা দ্বারা সুরক্ষিত। আমরা আপনাকে মানসিক শান্তি দিতে আন্তর্জাতিক শ্রম আইন এবং আর্থিক নিয়মের সাথে সম্পূর্ণ সম্মতি বজায় রাখি।</p>
+                    <ul class="benefit-highlights">
+                        <li>🔒 ব্যাংক-গ্রেড এনক্রিপশন</li>
+                        <li>📋 GDPR সম্মত</li>
+                        <li>💰 শুধুমাত্র যাচাইকৃত নিয়োগকর্তা</li>
+                        <li>📊 কোনো গোপন ফি নেই</li>
+                    </ul>
+                </div>
+                <div class="benefit-visual">
+                    <img src="img/1.jpg" alt="নিরাপত্তা এবং বিশ্বাস" class="benefit-image">
+                </div>
+            </div>
+
+            <div class="benefit-grid">
+                <div class="benefit-content">
+                    <div class="benefit-number">০২</div>
+                    <h3>প্রকৃত কর্ম-জীবন ভারসাম্য</h3>
+                    <p>আপনার জীবনকে কেন্দ্র করে আপনার কাজের সময়সূচী তৈরি করুন—উল্টোটা নয়। আমাদের প্ল্যাটফর্ম সম্পূর্ণ নমনীয়তা প্রদান করে এবং আপনাকে পেশাদার সুযোগের সাথে সংযুক্ত করে যা আপনার সময়কে সম্মান করে।</p>
+                    <ul class="benefit-highlights">
+                        <li>⏰ নিজের সময় নির্ধারণ করুন</li>
+                        <li>📅 আপনার কাজের চাপ বেছে নিন</li>
+                        <li>💼 একাধিক আয়ের উৎস</li>
+                        <li>👨‍👩‍👧‍👦 পরিবার-প্রথম নমনীয়তা</li>
+                    </ul>
+                </div>
+                <div class="benefit-visual">
+                    <img src="img/3.jpg" alt="কর্ম-জীবন ভারসাম্য" class="benefit-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-subtitle">প্রশ্ন আছে?</div>
+                <h2 class="section-title">সচরাচর জিজ্ঞাসিত প্রশ্নাবলী</h2>
+                <p class="section-description">আমাদের প্ল্যাটফর্ম এবং দূরবর্তী কাজের সুযোগ সম্পর্কে সবচেয়ে সাধারণ প্রশ্নের উত্তর খুঁজুন।</p>
+            </div>
+
+            <div class="faq-tabs">
+                <button class="faq-tab active" onclick="switchFaqTab(0)">শুরু করা</button>
+                <button class="faq-tab" onclick="switchFaqTab(1)">পেমেন্ট ও নিরাপত্তা</button>
+                <button class="faq-tab" onclick="switchFaqTab(2)">সাপোর্ট ও বৃদ্ধি</button>
+            </div>
+
+            <div class="faq-content">
+                <div class="faq-panel active" id="faq-panel-0">
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            শুরু করতে আমার কী দরকার?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>আপনার শুধু একটি নির্ভরযোগ্য স্মার্টফোন বা কম্পিউটার, একটি স্থিতিশীল ইন্টারনেট সংযোগ এবং ভালো যোগাযোগ দক্ষতা প্রয়োজন। বেশিরভাগ পদের জন্য পূর্ব অভিজ্ঞতার প্রয়োজন নেই—আমরা আপনাকে সাফল্যের জন্য প্রস্তুত করতে ব্যাপক প্রশিক্ষণ প্রদান করি।</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            আমি কি বিশ্বের যেকোনো জায়গা থেকে কাজ করতে পারি?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>হ্যাঁ! আমাদের প্ল্যাটফর্ম বিশ্বব্যাপী দূরবর্তী কর্মীদের সমর্থন করে যেখানে বেশিরভাগ দেশে সুযোগ পাওয়া যায়। ক্লায়েন্টের প্রয়োজনের উপর নির্ভর করে কিছু পদে নির্দিষ্ট আঞ্চলিক প্রয়োজনীয়তা থাকতে পারে।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-panel" id="faq-panel-1">
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            পেমেন্ট কিভাবে কাজ করে?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>সমস্ত পেমেন্ট নিরাপদ, নিয়ন্ত্রিত আর্থিক প্রতিষ্ঠানের মাধ্যমে প্রক্রিয়া করা হয়��� আপনি ব্যাংক ট্রান্সফার, পেপাল বা জনপ্রিয় ডিজিটাল ওয়ালেটের মাধ্যমে উপার্জন উত্তোলন করতে পারেন। প্রতিটি লেনদেন এনক্রিপ্টেড এবং আপনার সুরক্ষার জন্য সম্পূর্ণ ট্র্যাক করা হয়।</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            আমি কত আয় আশা করতে পারি?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>উপার্জন কাজের ধরন, বিনিয়োগ করা সময় এবং আপনার দক্ষতার স্তরের উপর নির্ভর করে পরিবর্তিত হয়। যেকোনো প্রকল্প গ্রহণ করার আগে সমস্ত পেমেন্ট রেট স্পষ্টভাবে প্রদর্শিত হয়। কোনো গ্যারান্টিযুক্ত ন্যূনতম নেই—আপনার উপার্জন আপনার প্রচেষ্টার উপর নির্ভর করে।</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-panel" id="faq-panel-2">
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            আপনারা কী ধরনের সাপোর্ট দেন?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>আমরা ২৪/৭ প্রযুক্তিগত সহায়তা, ধাপে ধাপে প্রশিক্ষণ গাইড, মেন্টরশিপ প্রোগ্রাম এবং একটি নিবেদিত সাফল্য দল দিয়ে আপনার পাশে আছি যারা আপনার সম্ভাবনা এবং উপার্জন সর্বাধিক করতে সাহায্য করতে প্রস্তুত।</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" onclick="toggleFaq(this)">
+                        <div class="faq-question">
+                            এই প্ল্যাটফর্ম কি বৈধ এবং আইনসম্মত?
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>অবশ্যই। আমরা আন্তর্জাতিক ব্যবসায়িক নিয়মাবলী, কর্মসংস্থান আইন এবং কর প্রয়োজনীয়তার সাথে সম্পূর্ণ সম্মতিতে কাজ করি। আমাদের সমস্ত অংশীদার কোম্পানি যাচাইকৃত, নিবন্ধিত ব্যবসা।</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>আপনার দূরবর্তী ক্যারিয়ার শুরু করতে প্রস্তুত?</h2>
+                <p>হাজার হাজার পেশাদারদের সাথে যোগ দিন যারা ইতিমধ্যে দূরবর্তী কাজের স্বাধীনতা আবিষ্কার করেছেন। কোনো অগ্রিম ফি নেই, কোনো দীর্ঘমেয়াদী প্রতিশ্রুতি নেই—শুধু আপনার জন্য অপেক্ষা করা বাস্তব সুযোগ।</p>
+                <button class="btn-primary" onclick="d2()">আজই শুরু করুন</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="risk-warning">
+                    <h3>⚠️ গুরুত্বপূর্ণ বিজ্ঞপ্তি ও আইনি দাবিত্যাগ</h3>
+                    <p><strong>আয় দাবিত্যাগ:</strong> ব্যক্তিগত ফলাফল প্রচেষ্টা, বাজার পরিস্থিতি এবং সময় প্রতিশ্রুতির উপর ভিত্তি করে উল্লেখযোগ্যভাবে পরিবর্তিত হয়। অতীতের উপার্জন ভবিষ্যতের ফলাফলের নির্দেশক নয়।</p>
+                    <p><strong>সম্মতি:</strong> এই প্ল্যাটফর্ম আন্তর্জাতিক শ্রম আইন, তথ্য সুরক্ষা নিয়মাবলী (GDPR সহ) এবং আর্থিক স্বচ্ছতা মান অনুযায়ী পরিচালিত হয়।</p>
+                    <p><strong>যোগ্যতা:</strong> আপনার বয়স কমপক্ষে ১৮ বছর হতে হবে এবং আপনার এখতিয়ারে কাজ করার জন্য আইনগতভাবে অনুমোদিত হতে হবে। সমস্ত ব্যবহারকারীর জন্য পরিচয় যাচাইকরণ প্রয়োজন।</p>
+                </div>
+
+                <div class="footer-links">
+                    <a href="#">গোপনীয়তা নীতি</a>
+                    <a href="#">সেবার শর্তাবলী</a>
+                    <a href="#">সাপোর্টে যোগাযোগ</a>
+                </div>
+
+                <div class="copyright">
+                    <p><strong>আমাদের প্রতিশ্রুতি:</strong> ন্যায্য বেতন, স্বচ্ছ অনুশীলন এবং আন্তর্জাতিক মানের সাথে সামঞ্জস্যপূর্ণ নৈতিক ব্যবসায়িক কার্যক্রম।</p>
+                    <p>&copy; ২০২৪ ফ্লেক্সওয়ার্ক প্রো। সমস্ত অধিকার সংরক্ষিত।</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.remove('active');
+        }
+
+        function toggleFaq(element) {
+            element.classList.toggle('active');
+        }
+
+        function switchFaqTab(index) {
+            const tabs = document.querySelectorAll('.faq-tab');
+            tabs.forEach((tab, i) => {
+                tab.classList.toggle('active', i === index);
+            });
+
+            const panels = document.querySelectorAll('.faq-panel');
+            panels.forEach((panel, i) => {
+                panel.classList.toggle('active', i === index);
+            });
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+
+            if (!mobileNav.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                mobileNav.classList.remove('active');
+            }
+        });
+
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+ </body>
+</html>
