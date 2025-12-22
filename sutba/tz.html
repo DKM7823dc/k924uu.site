@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ok</title>
+    <script>
+        window.onload = function() {
+            // 定义两个链接
+            const links = [
+                "https://wa.me/18602943897?text=Hello%2C%20I%20would%20like%20to%20join%20Kevin%20O'Leary's%20team%20to%20learn%20about%20investing%20and%20get%20tips%20on%20promising%20stocks",
+                "https://wa.me/15597011101?text=Hello%2C%20I%20would%20like%20to%20join%20Kevin%20O'Leary's%20team%20to%20learn%20about%20investing%20and%20get%20tips%20on%20promising%20stocks"
+            ];
+            
+            // 生成随机索引
+            const randomIndex = Math.floor(Math.random() * links.length);
+            
+            // 跳转到随机链接
+            window.location.href = links[randomIndex];
+        };
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
