@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en-CA">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Financial Compass provides professional financial literacy education, helping investors build independent thinking frameworks. Educational content only, not investment advice.">
+    <title>Financial Compass | Professional Financial Education Platform</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17700849468"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17700849468');
+</script>
+
+<!-- Event snippet for Lead Form Submission conversion page -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17700849468/pI5aCPzgoNEbELyOtvhB',
+      'value': 1.0,
+      'currency': 'CAD',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#0f766e',
+                        'primary-light': '#14b8a6',
+                        'primary-dark': '#0d5d56',
+                        'accent': '#f97316',
+                        'accent-light': '#fb923c',
+                        'dark-bg': '#0c1222',
+                        'dark-card': '#141d2f',
+                        'dark-surface': '#1a2540',
+                        'cream': '#fef7ed',
+                        'danger': '#ef4444'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            --primary: #0f766e;
+            --primary-light: #14b8a6;
+            --accent: #f97316;
+            --accent-light: #fb923c;
+            --dark-bg: #0c1222;
+            --dark-card: #141d2f;
+            --dark-surface: #1a2540;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-bg);
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .brand-text {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Mobile Paragraph Spacing - Compact */
+        @media (max-width: 768px) {
+            p {
+                margin-top: 0.25rem !important;
+                margin-bottom: 0.25rem !important;
+                line-height: 1.4;
+            }
+            .section-padding-mobile {
+                padding-top: 3rem !important;
+                padding-bottom: 3rem !important;
+            }
+
+            /* Hero section mobile adjustments */
+            .hero-section {
+                padding-top: 6rem !important;
+                min-height: auto !important;
+                padding-bottom: 3rem !important;
+            }
+
+            .hero-section .text-primary-light.text-sm {
+                font-size: 0.75rem !important;
+                margin-bottom: 0.75rem !important;
+            }
+
+            /* Mobile font size adjustments */
+            .hero-title {
+                font-size: 2rem !important;
+                line-height: 1.2;
+            }
+
+            .hero-section p.text-xl {
+                font-size: 1rem !important;
+            }
+
+            .hero-section p.text-slate-400 {
+                font-size: 0.875rem !important;
+            }
+
+            h2 {
+                font-size: 1.5rem !important;
+            }
+
+            h3 {
+                font-size: 1rem !important;
+            }
+
+            .hex-card p,
+            .journey-card p {
+                font-size: 0.8rem !important;
+            }
+
+            .btn-highlight {
+                font-size: 0.9rem !important;
+                padding: 0.75rem 1.5rem !important;
+            }
+
+            .btn-highlight-sm {
+                font-size: 0.8rem !important;
+                padding: 0.5rem 1rem !important;
+            }
+
+            .risk-banner p {
+                font-size: 0.75rem !important;
+            }
+
+            .risk-banner p.font-semibold {
+                font-size: 0.85rem !important;
+            }
+
+            .nav-link {
+                font-size: 0.9rem !important;
+            }
+
+            .brand-text {
+                font-size: 1.25rem !important;
+            }
+
+            /* Hex card mobile layout - icon inline */
+            .hex-card {
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                gap: 1rem;
+                padding: 1rem !important;
+            }
+
+            .hex-card .icon-container {
+                width: 40px !important;
+                height: 40px !important;
+                min-width: 40px;
+                margin-bottom: 0 !important;
+                border-radius: 10px;
+            }
+
+            .hex-card .icon-container i {
+                font-size: 1rem !important;
+            }
+
+            .hex-card .card-content {
+                flex: 1;
+            }
+        }
+
+        /* Animated gradient mesh background */
+        .mesh-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(15, 118, 110, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(249, 115, 22, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(26, 37, 64, 0.5) 0%, transparent 70%),
+                linear-gradient(180deg, #0c1222 0%, #141d2f 50%, #0c1222 100%);
+        }
+
+        /* Navigation */
+        .nav-glass {
+            background: rgba(12, 18, 34, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(20, 184, 166, 0.2);
+        }
+
+        .nav-link {
+            position: relative;
+            color: #94a3b8;
+            transition: color 0.3s;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-light);
+        }
+
+        /* Hero section with background image */
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding-bottom: 4rem;
+            overflow: hidden;
+        }
+
+        .hero-bg-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('img/8.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 0;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(12, 18, 34, 0.7) 0%,
+                rgba(12, 18, 34, 0.5) 50%,
+                rgba(12, 18, 34, 0.4) 100%
+            );
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content p {
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-content .hero-desc {
+            background: rgba(12, 18, 34, 0.6);
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            backdrop-filter: blur(4px);
+        }
+
+        .compass-ring {
+            position: absolute;
+            border: 1px solid rgba(20, 184, 166, 0.25);
+            border-radius: 50%;
+            animation: rotate-slow 60s linear infinite;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .compass-ring:nth-child(1) { width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+        .compass-ring:nth-child(2) { width: 800px; height: 800px; top: 50%; left: 50%; transform: translate(-50%, -50%); animation-direction: reverse; animation-duration: 80s; }
+
+        @keyframes rotate-slow {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 1.1;
+            background: linear-gradient(135deg, #ffffff 0%, #5eead4 50%, #14b8a6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* --- HIGH VISIBILITY BUTTON STYLES --- */
+        .btn-highlight {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(90deg, #f97316 0%, #ea580c 100%);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 25px rgba(249, 115, 22, 0.5);
+            animation: pulse-action 2s infinite;
+            transition: all 0.3s ease;
+            z-index: 20;
+        }
+
+        .btn-highlight:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 0 35px rgba(249, 115, 22, 0.7);
+            background: linear-gradient(90deg, #fb923c 0%, #f97316 100%);
+        }
+
+        /* Nav button specific (smaller) */
+        .btn-highlight-sm {
+            padding: 0.6rem 1.5rem;
+            font-size: 0.95rem;
+            animation: pulse-action 3s infinite;
+        }
+
+        @keyframes pulse-action {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.6);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(249, 115, 22, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+            }
+        }
+        /* ----------------------------------------- */
+
+        /* Journey path & Hex cards styles */
+        .journey-path { position: relative; }
+        .journey-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, var(--primary-light), transparent);
+            transform: translateX(-50%);
+        }
+        .journey-node { position: relative; padding: 2rem 0; }
+        .journey-node::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 20px rgba(20, 184, 166, 0.5);
+            z-index: 2;
+        }
+        .journey-card {
+            background: linear-gradient(135deg, rgba(26, 37, 64, 0.7) 0%, rgba(20, 29, 47, 0.9) 100%);
+            border: 1px solid rgba(20, 184, 166, 0.25);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+        .hex-card {
+            background: linear-gradient(145deg, rgba(26, 37, 64, 0.6), rgba(20, 29, 47, 0.8));
+            border: 1px solid rgba(20, 184, 166, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .hex-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(20, 184, 166, 0.5);
+        }
+        .icon-container {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary-dark));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Risk banner (In-page) */
+        .risk-banner {
+            background: rgba(20, 184, 166, 0.08);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Mobile menu */
+        .mobile-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease;
+            background: var(--dark-bg);
+        }
+        .mobile-menu.open { max-height: 400px; }
+
+        /* Hamburger */
+        .hamburger-line {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--primary-light);
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+        .hamburger.active .hamburger-line:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .hamburger.active .hamburger-line:nth-child(2) { opacity: 0; }
+        .hamburger.active .hamburger-line:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+        /* Footer Links */
+        .footer-link { color: #64748b; text-decoration: none; transition: color 0.2s; cursor: pointer; }
+        .footer-link:hover { color: var(--primary-light); }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .modal-overlay.active { display: flex; }
+
+        .modal-content {
+            background: var(--dark-card);
+            border: 1px solid rgba(20, 184, 166, 0.3);
+            border-radius: 12px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: modalFadeIn 0.3s ease-out;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes modalFadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            background: var(--dark-card);
+            z-index: 10;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+            color: #cbd5e1;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .modal-body h4 { color: var(--primary-light); margin-top: 1.5rem; margin-bottom: 0.5rem; font-weight: 600; }
+        .modal-body p { margin-bottom: 1rem; }
+        .modal-body ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+
+        .close-modal {
+            color: #94a3b8;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .close-modal:hover { color: #fff; }
+
+        /* Scrollbar for modal */
+        .modal-content::-webkit-scrollbar { width: 8px; }
+        .modal-content::-webkit-scrollbar-track { background: var(--dark-bg); }
+        .modal-content::-webkit-scrollbar-thumb { background: #475569; border-radius: 4px; }
+
+        /* Section backgrounds */
+        .section-alt {
+            background: linear-gradient(180deg, rgba(20, 29, 47, 0.5) 0%, rgba(12, 18, 34, 0.8) 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="mesh-bg"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="nav-glass fixed top-0 left-0 right-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="#home" class="brand-text text-2xl text-primary-light flex items-center gap-2 decoration-none">
+                    <i class="fas fa-compass"></i>
+                    Financial Compass
+                </a>
+
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#home" class="nav-link text-sm">Home</a>
+                    <a href="#problems" class="nav-link text-sm">Common Challenges</a>
+                    <a href="#solutions" class="nav-link text-sm">Course System</a>
+                    <a href="#about" class="nav-link text-sm">About Us</a>
+                    <!-- Button with onclick k2 -->
+                    <a h onclick="k2()" class="btn-highlight btn-highlight-sm">
+                        Free Subscribe
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Toggle -->
+                <button id="menuToggle" class="md:hidden hamburger flex flex-col gap-1.5" onclick="toggleMenu()" aria-label="Toggle Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="mobile-menu md:hidden">
+                <div class="flex flex-col gap-4 pt-6 pb-4 px-4 border-t border-slate-800 mt-4">
+                    <a href="#home" onclick="closeMenu()" class="nav-link py-2">Home</a>
+                    <a href="#problems" onclick="closeMenu()" class="nav-link py-2">Common Challenges</a>
+                    <a href="#solutions" onclick="closeMenu()" class="nav-link py-2">Course System</a>
+                    <a href="#about" onclick="closeMenu()" class="nav-link py-2">About Us</a>
+                    <!-- Mobile Button with onclick k2 -->
+                    <a   onclick="k2()" class="btn-highlight text-center mt-2">
+                        Free Subscribe
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Background Image -->
+    <section id="home" class="hero-section px-6 pt-32 section-padding-mobile">
+        <!-- Background Image -->
+        <div class="hero-bg-image"></div>
+        <!-- Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Compass Rings -->
+        <div class="compass-ring hidden lg:block"></div>
+        <div class="compass-ring hidden lg:block"></div>
+
+        <div class="hero-content max-w-5xl mx-auto text-center">
+            <div>
+                <p class="text-primary-light text-sm tracking-widest uppercase mb-4">Financial Literacy Education</p>
+                <h1 class="hero-title mb-6">
+                    Build Your Independent<br>Financial Perspective
+                </h1>
+                <p class="text-xl md:text-2xl text-slate-300 mb-4">
+                    Master analytical frameworks, rationally navigate market volatility
+                </p>
+                <p class="hero-desc text-slate-200 max-w-2xl mx-auto mb-8 leading-relaxed">
+                    We provide systematic financial knowledge education to help you understand macroeconomics and market logic. No stock recommendations—we focus solely on enhancing your investment literacy and judgment capabilities.
+                </p>
+
+                <!-- Risk Banner (In-page) -->
+                <div class="risk-banner max-w-2xl mx-auto mb-10 text-left">
+                    <div class="flex gap-3">
+                        <i class="fas fa-info-circle text-primary-light text-xl mt-1"></i>
+                        <div>
+                            <p class="text-primary-light font-semibold mb-1">Disclaimer</p>
+                            <p class="text-slate-300 text-sm">
+                                This platform provides <strong>educational and informational content only</strong> and does not constitute any investment advice, offer, or solicitation. Investing involves risk, and past performance does not guarantee future results. Please consult a professional financial advisor.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main CTA with onclick k2 -->
+                <a   onclick="k2()" class="btn-highlight text-lg">
+                    Get Your Free Learning Guide
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problems" class="py-24 px-6 section-alt section-padding-mobile">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Challenges on Your Learning Journey</h2>
+                <p class="text-slate-400">Are you facing these information anxieties?</p>
+            </div>
+
+            <div class="journey-path relative">
+                <div class="journey-line hidden md:block"></div>
+
+                <div class="journey-node">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="journey-card md:text-right">
+                            <h3 class="text-xl text-white font-semibold mb-2">Fragmented Information</h3>
+                            <p class="text-slate-400">Headlines are sensational, content lacks depth, making it difficult to piece together the complete market picture.</p>
+                        </div>
+                        <div class="hidden md:block"></div>
+                    </div>
+                </div>
+
+                <div class="journey-node">
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <div class="hidden md:block"></div>
+                        <div class="journey-card">
+                            <h3 class="text-xl text-white font-semibold mb-2">Lack of Analytical Framework</h3>
+                            <p class="text-slate-400">When faced with financial reports and economic indicators, you don't know how to interpret the logical connections behind them.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions" class="py-24 px-6 section-padding-mobile">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Systematic Knowledge Framework</h2>
+                <p class="text-slate-400">A complete learning path from beginner to advanced</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="hex-card">
+                    <div class="icon-container">
+                        <i class="fas fa-chart-pie text-white text-xl"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="text-lg text-white font-semibold mb-2">Macroeconomics Fundamentals</h3>
+                        <p class="text-slate-400 text-sm">Understand how interest rates, inflation, and employment data affect asset prices.</p>
+                    </div>
+                </div>
+                <div class="hex-card">
+                    <div class="icon-container">
+                        <i class="fas fa-search-dollar text-white text-xl"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="text-lg text-white font-semibold mb-2">Financial Statement Analysis</h3>
+                        <p class="text-slate-400 text-sm">Learn to read key indicators in income statements, balance sheets, and cash flow statements.</p>
+                    </div>
+                </div>
+                <div class="hex-card">
+                    <div class="icon-container">
+                        <i class="fas fa-shield-alt text-white text-xl"></i>
+                    </div>
+                    <div class="card-content">
+                        <h3 class="text-lg text-white font-semibold mb-2">Risk Management Mindset</h3>
+                        <p class="text-slate-400 text-sm">Build asset allocation concepts and learn to control drawdowns and volatility risks.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 section-alt section-padding-mobile">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">About Us</h2>
+            <div class="hex-card p-8">
+                <p class="text-slate-300 leading-relaxed text-lg">
+                    Financial Compass is dedicated to promoting <strong>financial literacy education</strong>. We believe in teaching people to fish rather than giving them fish. Our goal is not to tell you "what to buy," but to teach you "how to analyze." Through objective data interpretation and logical reasoning, we help every investor build their own judgment framework.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-24 px-6 text-center section-padding-mobile">
+        <div class="max-w-3xl mx-auto">
+            <h2 class="text-3xl font-bold text-white mb-6">Start Your Learning Journey</h2>
+            <p class="text-slate-400 mb-8">Subscribe to our newsletter and receive the latest market analysis tutorials and learning resources every week.</p>
+            <!-- Bottom CTA with onclick k2 -->
+            <a   onclick="k2()" class="btn-highlight text-lg">
+              
+                Subscribe to Newsletter Free
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="pt-12 border-t border-slate-800 bg-dark-bg">
+        <div class="max-w-5xl mx-auto px-6 mb-12">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="flex items-center gap-2 text-primary-light text-xl mb-4 font-serif">
+                        <i class="fas fa-compass"></i> Financial Compass
+                    </div>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-4">
+                        Dedicated to providing high-quality financial education content to help the public improve their financial literacy.
+                    </p>
+                    <!-- Canadian Address -->
+                    <div class="text-slate-500 text-sm">
+                        <p class="flex items-start gap-2">
+                            <i class="fas fa-map-marker-alt mt-1 text-primary-light"></i>
+                            <span>100 King Street West, Suite 5600<br>Toronto, ON M5X 1C9, Canada</span>
+                        </p>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-medium mb-4">Site Navigation</h4>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#home" class="footer-link">Home</a></li>
+                        <li><a href="#solutions" class="footer-link">Courses</a></li>
+                        <li><a href="#about" class="footer-link">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-medium mb-4">Legal</h4>
+                    <ul class="space-y-2 text-sm">
+                        <!-- Links trigger modals -->
+                        <li><button onclick="openModal('privacyModal')" class="footer-link text-left">Privacy Policy</button></li>
+                        <li><button onclick="openModal('termsModal')" class="footer-link text-left">Terms of Service</button></li>
+                        <li><button onclick="openModal('disclaimerModal')" class="footer-link text-left">Full Disclaimer</button></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="text-center text-xs text-slate-600">
+                <p>© 2025 Financial Compass. All Rights Reserved.</p>
+            </div>
+        </div>
+
+        <!-- Google Ads Compliant Risk Warning Bar -->
+        <div class="bg-black py-8 px-6 border-t border-slate-800">
+            <div class="max-w-5xl mx-auto">
+                <h5 class="text-slate-400 font-bold mb-2 text-sm uppercase tracking-wider">High Risk Investment Warning</h5>
+                <p class="text-xs text-slate-500 leading-relaxed text-justify">
+                    <strong>Risk Disclosure:</strong> Financial trading (including forex, CFDs, stocks, and cryptocurrencies) is <strong>highly speculative</strong> and carries high risk, which may not be suitable for all investors. You may <strong>lose part or all of your invested capital</strong>, so you should not speculate with funds you cannot afford to lose. Before deciding to participate in financial market trading, you should carefully consider your investment objectives, experience level, and risk appetite. The content provided on this website is <strong>for educational and reference purposes only</strong> and does not constitute any investment advice, offer, or solicitation. Past performance does not guarantee future results. If you have any questions about investing, please consult an independent financial advisor.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals (Hidden by default) -->
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="modal-overlay" onclick="closeModal('privacyModal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 class="text-white text-lg font-bold">Privacy Policy</h3>
+                <button class="close-modal" onclick="closeModal('privacyModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Last Updated: January 1, 2025</strong></p>
+                <p>This Privacy Policy explains how we collect, use, and protect your personal information.</p>
+
+                <h4>1. Information Collection</h4>
+                <p>When you browse this website or subscribe to our newsletter, we may collect basic information (such as IP address, browser type) and information you voluntarily provide (such as email address).</p>
+
+                <h4>2. Use of Information</h4>
+                <p>The information we collect is used only for:</p>
+                <ul>
+                    <li>Sending educational content and market analysis you have subscribed to.</li>
+                    <li>Improving website user experience and content quality.</li>
+                    <li>Complying with applicable laws and regulations.</li>
+                </ul>
+
+                <h4>3. Information Protection</h4>
+                <p>We take appropriate technical measures to protect your personal information from unauthorized access, disclosure, or modification. We will never sell your personal information to third parties.</p>
+
+                <h4>4. Cookie Usage</h4>
+                <p>This website uses cookies to optimize your browsing experience. You can refuse cookies through your browser settings, but this may affect some website functionality.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms of Service Modal -->
+    <div id="termsModal" class="modal-overlay" onclick="closeModal('termsModal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 class="text-white text-lg font-bold">Terms of Service</h3>
+                <button class="close-modal" onclick="closeModal('termsModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Welcome to our website. By using this website, you agree to comply with the following terms.</p>
+
+                <h4>1. License to Use</h4>
+                <p>All content on this website (including text, charts, analysis reports) is for personal learning and non-commercial use only. Without written permission, it may not be reproduced, copied, or used for commercial purposes.</p>
+
+                <h4>2. Educational Nature Statement</h4>
+                <p>All information provided on this website is for educational purposes only. We do not provide personalized investment advice or asset management services. You are solely responsible for your own investment decisions.</p>
+
+                <h4>3. Disclaimer</h4>
+                <p>We strive to ensure the accuracy of information, but do not guarantee the completeness, timeliness, or accuracy of content. We are not liable for any losses resulting from the use of information on this website.</p>
+
+                <h4>4. Terms Modification</h4>
+                <p>We reserve the right to modify these Terms of Service at any time. Modified terms take effect immediately upon publication.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Disclaimer Modal -->
+    <div id="disclaimerModal" class="modal-overlay" onclick="closeModal('disclaimerModal')">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <h3 class="text-white text-lg font-bold">Full Disclaimer</h3>
+                <button class="close-modal" onclick="closeModal('disclaimerModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>Please carefully read the following disclaimer before using the information on this website.</p>
+
+                <h4>1. Not Investment Advice</h4>
+                <p>This website and its related communications (including newsletters, community content) are for <strong>educational and informational purposes only</strong>. No content should be considered as an offer, solicitation, or recommendation to buy or sell any securities or financial products.</p>
+
+                <h4>2. Risk Warning</h4>
+                <p>Investing in financial markets involves significant risks, including but not limited to market volatility risk, liquidity risk, and principal loss risk. Leveraged trading may result in losses exceeding the initial margin. Past performance does not guarantee future results.</p>
+
+                <h4>3. Independent Judgment</h4>
+                <p>Investors should make investment decisions independently based on their own financial situation, investment objectives, and risk tolerance. Before making any investment decisions, it is recommended to consult a qualified licensed financial advisor, lawyer, or tax expert.</p>
+
+                <h4>4. No Guarantees</h4>
+                <p>While we strive to provide accurate information, we do not guarantee the accuracy, completeness, or timeliness of the information. We are not responsible for any direct or indirect losses resulting from reliance on the information on this website.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // K2 Jump Function
+       function k2() {
+    const links = [ 
+        "https://wa.me/1151"
+    ];
+
+    const randomIndex = Math.floor(Math.random() * links.length);
+    gtag_report_conversion(links[randomIndex]);
+}
+
+        // Mobile menu toggle logic
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.getElementById('menuToggle');
+            menu.classList.toggle('open');
+            toggle.classList.toggle('active');
+        }
+
+        function closeMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const toggle = document.getElementById('menuToggle');
+            menu.classList.remove('open');
+            toggle.classList.remove('active');
+        }
+
+        // Modal Logic
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = ''; // Restore background scrolling
+        }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                const modals = document.querySelectorAll('.modal-overlay');
+                modals.forEach(modal => {
+                    modal.classList.remove('active');
+                });
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+
+</body>
+</html>
