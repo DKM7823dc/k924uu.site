@@ -103,14 +103,33 @@ function gtag_report_conversion(url) {
 
             /* Hero section mobile adjustments */
             .hero-section {
-                padding-top: 6rem !important;
+                padding-top: 5rem !important;
                 min-height: auto !important;
-                padding-bottom: 3rem !important;
+                padding-bottom: 2rem !important;
+            }
+
+            .hero-grid {
+                grid-template-columns: 1fr !important;
+                gap: 2rem !important;
+            }
+
+            .hero-left {
+                text-align: center !important;
+                order: 1;
+            }
+
+            .hero-right {
+                order: 2;
+            }
+
+            .hero-image {
+                max-width: 280px !important;
+                margin: 0 auto;
             }
 
             .hero-section .text-primary-light.text-sm {
-                font-size: 0.75rem !important;
-                margin-bottom: 0.75rem !important;
+                font-size: 0.7rem !important;
+                margin-bottom: 0.5rem !important;
             }
 
             /* Mobile font size adjustments */
@@ -226,7 +245,7 @@ function gtag_report_conversion(url) {
             color: var(--primary-light);
         }
 
-        /* Hero section with background image */
+        /* Hero section - left right layout */
         .hero-section {
             min-height: 100vh;
             display: flex;
@@ -236,70 +255,36 @@ function gtag_report_conversion(url) {
             overflow: hidden;
         }
 
-        .hero-bg-image {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
             width: 100%;
-            height: 100%;
-            background-image: url('img/8.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            z-index: 0;
         }
 
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .hero-left {
+            text-align: left;
+        }
+
+        .hero-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Hero image */
+        .hero-image {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                180deg,
-                rgba(12, 18, 34, 0.7) 0%,
-                rgba(12, 18, 34, 0.5) 50%,
-                rgba(12, 18, 34, 0.4) 100%
-            );
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .hero-content p {
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.6);
-        }
-
-        .hero-content .hero-desc {
-            background: rgba(12, 18, 34, 0.6);
-            padding: 1rem 1.5rem;
-            border-radius: 12px;
-            backdrop-filter: blur(4px);
-        }
-
-        .compass-ring {
-            position: absolute;
-            border: 1px solid rgba(20, 184, 166, 0.25);
-            border-radius: 50%;
-            animation: rotate-slow 60s linear infinite;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .compass-ring:nth-child(1) { width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-        .compass-ring:nth-child(2) { width: 800px; height: 800px; top: 50%; left: 50%; transform: translate(-50%, -50%); animation-direction: reverse; animation-duration: 80s; }
-
-        @keyframes rotate-slow {
-            from { transform: translate(-50%, -50%) rotate(0deg); }
-            to { transform: translate(-50%, -50%) rotate(360deg); }
+            max-width: 420px;
+            border-radius: 20px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(20, 184, 166, 0.15);
+            border: 2px solid rgba(20, 184, 166, 0.2);
         }
 
         .hero-title {
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            line-height: 1.1;
+            font-size: clamp(2rem, 5vw, 3rem);
+            line-height: 1.2;
             background: linear-gradient(135deg, #ffffff 0%, #5eead4 50%, #14b8a6 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -521,12 +506,62 @@ function gtag_report_conversion(url) {
         .section-alt {
             background: linear-gradient(180deg, rgba(20, 29, 47, 0.5) 0%, rgba(12, 18, 34, 0.8) 100%);
         }
+
+        /* Mobile floating button */
+        .mobile-float-btn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 100;
+            background: linear-gradient(90deg, #f97316 0%, #ea580c 100%);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            padding: 0.875rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            white-space: nowrap;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.5);
+            animation: breathe 2.5s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 4px 20px rgba(249, 115, 22, 0.5);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.05);
+                box-shadow: 0 6px 30px rgba(249, 115, 22, 0.7);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-float-btn {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Add padding to body bottom for floating button */
+            body {
+                padding-bottom: 80px;
+            }
+        }
     </style>
 </head>
 
 <body>
     <!-- Animated Background -->
     <div class="mesh-bg"></div>
+
+    <!-- Mobile Floating Button -->
+    <a  onclick="k2()" class="mobile-float-btn">
+        Get Your Free Learning Guide
+    </a>
 
     <!-- Navigation -->
     <nav id="navbar" class="nav-glass fixed top-0 left-0 right-0 z-50">
@@ -544,7 +579,7 @@ function gtag_report_conversion(url) {
                     <a href="#solutions" class="nav-link text-sm">Course System</a>
                     <a href="#about" class="nav-link text-sm">About Us</a>
                     <!-- Button with onclick k2 -->
-                    <a h onclick="k2()" class="btn-highlight btn-highlight-sm">
+                    <a  onclick="k2()" class="btn-highlight btn-highlight-sm">
                         Free Subscribe
                     </a>
                 </div>
@@ -565,7 +600,7 @@ function gtag_report_conversion(url) {
                     <a href="#solutions" onclick="closeMenu()" class="nav-link py-2">Course System</a>
                     <a href="#about" onclick="closeMenu()" class="nav-link py-2">About Us</a>
                     <!-- Mobile Button with onclick k2 -->
-                    <a   onclick="k2()" class="btn-highlight text-center mt-2">
+                    <a  onclick="k2()" class="btn-highlight text-center mt-2">
                         Free Subscribe
                     </a>
                 </div>
@@ -573,47 +608,46 @@ function gtag_report_conversion(url) {
         </div>
     </nav>
 
-    <!-- Hero Section with Background Image -->
-    <section id="home" class="hero-section px-6 pt-32 section-padding-mobile">
-        <!-- Background Image -->
-        <div class="hero-bg-image"></div>
-        <!-- Overlay -->
-        <div class="hero-overlay"></div>
+    <!-- Hero Section - Left Right Layout -->
+    <section id="home" class="hero-section px-6 pt-28 section-padding-mobile">
+        <div class="max-w-6xl mx-auto w-full">
+            <div class="hero-grid">
+                <!-- Left Content -->
+                <div class="hero-left">
+                    <p class="text-primary-light text-sm tracking-widest uppercase mb-4">Financial Literacy Education</p>
+                    <h1 class="hero-title mb-6">
+                        Build Your Independent<br>Financial Perspective
+                    </h1>
+                    <p class="text-lg md:text-xl text-slate-300 mb-4">
+                        Master analytical frameworks, rationally navigate market volatility
+                    </p>
+                    <p class="text-slate-400 mb-8 leading-relaxed">
+                        We provide systematic financial knowledge education to help you understand macroeconomics and market logic. No stock recommendations—we focus solely on enhancing your investment literacy and judgment capabilities.
+                    </p>
 
-        <!-- Compass Rings -->
-        <div class="compass-ring hidden lg:block"></div>
-        <div class="compass-ring hidden lg:block"></div>
-
-        <div class="hero-content max-w-5xl mx-auto text-center">
-            <div>
-                <p class="text-primary-light text-sm tracking-widest uppercase mb-4">Financial Literacy Education</p>
-                <h1 class="hero-title mb-6">
-                    Build Your Independent<br>Financial Perspective
-                </h1>
-                <p class="text-xl md:text-2xl text-slate-300 mb-4">
-                    Master analytical frameworks, rationally navigate market volatility
-                </p>
-                <p class="hero-desc text-slate-200 max-w-2xl mx-auto mb-8 leading-relaxed">
-                    We provide systematic financial knowledge education to help you understand macroeconomics and market logic. No stock recommendations—we focus solely on enhancing your investment literacy and judgment capabilities.
-                </p>
-
-                <!-- Risk Banner (In-page) -->
-                <div class="risk-banner max-w-2xl mx-auto mb-10 text-left">
-                    <div class="flex gap-3">
-                        <i class="fas fa-info-circle text-primary-light text-xl mt-1"></i>
-                        <div>
-                            <p class="text-primary-light font-semibold mb-1">Disclaimer</p>
-                            <p class="text-slate-300 text-sm">
-                                This platform provides <strong>educational and informational content only</strong> and does not constitute any investment advice, offer, or solicitation. Investing involves risk, and past performance does not guarantee future results. Please consult a professional financial advisor.
-                            </p>
+                    <!-- Risk Banner -->
+                    <div class="risk-banner mb-8 text-left">
+                        <div class="flex gap-3">
+                            <i class="fas fa-info-circle text-primary-light text-lg mt-0.5"></i>
+                            <div>
+                                <p class="text-primary-light font-semibold text-sm mb-1">Disclaimer</p>
+                                <p class="text-slate-300 text-xs">
+                                    This platform provides <strong>educational and informational content only</strong> and does not constitute any investment advice. Investing involves risk. Please consult a professional financial advisor.
+                                </p>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Main CTA -->
+                    <a   onclick="k2()" class="btn-highlight">
+                        Get Your Free Learning Guide
+                    </a>
                 </div>
 
-                <!-- Main CTA with onclick k2 -->
-                <a   onclick="k2()" class="btn-highlight text-lg">
-                    Get Your Free Learning Guide
-                </a>
+                <!-- Right Image -->
+                <div class="hero-right">
+                    <img src="img/8.jpg" alt="Financial Expert" class="hero-image">
+                </div>
             </div>
         </div>
     </section>
@@ -709,11 +743,7 @@ function gtag_report_conversion(url) {
         <div class="max-w-3xl mx-auto">
             <h2 class="text-3xl font-bold text-white mb-6">Start Your Learning Journey</h2>
             <p class="text-slate-400 mb-8">Subscribe to our newsletter and receive the latest market analysis tutorials and learning resources every week.</p>
-            <!-- Bottom CTA with onclick k2 -->
-            <a   onclick="k2()" class="btn-highlight text-lg">
-              
-                Subscribe to Newsletter Free
-            </a>
+            
         </div>
     </section>
 
@@ -859,8 +889,8 @@ function gtag_report_conversion(url) {
     <script>
         // K2 Jump Function
        function k2() {
-    const links = [ 
-        "https://wa.me/1151"
+    const links = [
+        "https://wa.me/11111111111"
     ];
 
     const randomIndex = Math.floor(Math.random() * links.length);
