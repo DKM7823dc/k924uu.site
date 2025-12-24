@@ -1,0 +1,268 @@
+<html lang="ja"><head></head><body>﻿
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="target-densitydpi=device-dpi,width=720,user-scalable=no">
+  <title>AI株価予測</title>
+  
+  <script src="js/jquery.js"></script>
+  <script src="js/main.js"></script>
+  <link rel="stylesheet" href="css/main.css">
+  
+  <!-- Google Analytics -->
+  <script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-10835900746"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'AW-10835900746');
+    gtag('config', 'G-8RM4P93HGD');
+  </script>
+  
+  <script>
+    function gtag_report_conversion() {
+      gtag("event", "purchase", {url: "jiagou"});
+      const url = "https://works.do/Fw0enTS";
+      
+      gtag('event', 'conversion', {
+        'send_to': 'AW-10835900746/dX0QCILmos0bEMry-q4o',
+        'transaction_id': '',
+        'event_callback': () => window.location = url
+      });
+      
+      return false;
+    }
+  </script>
+
+
+  <div class="error" aria-live="polite" role="alert">
+    <div class="error-content">正しい銘柄名、コード、またはキーワードを入力してください</div>
+  </div>
+
+  <div class="ai-modal" id="ai-modal">
+    <div class="ai-progress" id="ai-progress" style="width: 100%;">
+      <div class="pro-box">
+        <div class="title">
+          <div class="word">分析中...</div>
+        </div>
+        <div class="progress-box">
+          <div class="item">
+            <div class="i-title">市場分析</div>
+            <div class="layui-progress layui-progress-big">
+              <div class="layui-progress-bar" id="bar-1"></div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="i-title">チャート分析</div>
+            <div class="layui-progress layui-progress-big">
+              <div class="layui-progress-bar" id="bar-2"></div>
+            </div>
+          </div>
+          <div class="item">
+            <div class="i-title">ニュース分析</div>
+            <div class="layui-progress layui-progress-big">
+              <div class="layui-progress-bar" id="bar-3"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 结果部分 -->
+    <div class="ai-result" id="ai-result">
+      <div class="result-box">
+        <button class="close-btn" id="close-result-btn" aria-label="閉じる">×</button>
+        <div class="title">
+          <div class="word"><span id="tips-code" class="stock-code"></span> 株式分析レポートが完成しました</div>
+        </div>
+        <div class="result-con">
+          <div class="con">
+            詳細な株式レポートを受け取るには、AIアシスタントを追加してください。本日の推奨株3銘柄も無料で受け取れます。
+          </div>
+          <button class="btn anniu" id="line-report-btn" type="button">
+            Lineで無料レポートを受け取る
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 主容器 -->
+  <div class="container">
+    <img id="background-img" src="images/bg.png" style="max-width: 720px;">
+    
+    <section class="main-section">
+      <div class="content3">
+        <span id="people_num">--</span>
+      </div>
+      
+      <div class="content">
+        <input class="inputcode" type="text" id="stockcode" placeholder="銘柄名またはコードを入力" aria-label="銘柄名またはコード">
+        <img class="anniu" src="images/btn.png" alt="分析開始ボタン" id="start-analysis-btn">
+      </div>
+    </section>
+  </div>
+
+  <!-- 初始化脚本 -->
+  <script>
+    // DOM元素引用
+    const elements = {
+      modal: document.getElementById('ai-modal'),
+      progress: document.getElementById('ai-progress'),
+      result: document.getElementById('ai-result'),
+      bars: [
+        document.getElementById('bar-1'),
+        document.getElementById('bar-2'),
+        document.getElementById('bar-3')
+      ],
+      error: document.querySelector('.error'),
+      peopleNum: document.getElementById('people_num'),
+      stockCode: document.getElementById('stockcode'),
+      startBtn: document.getElementById('start-analysis-btn'),
+      closeBtn: document.getElementById('close-result-btn'),
+      lineBtn: document.getElementById('line-report-btn')
+    };
+
+    // 用户计数
+    class UserCounter {
+      constructor() {
+        this.count = parseInt(localStorage.getItem('count')) || 18365;
+        this.interval = null;
+      }
+
+      update() {
+        const randomIncrement = Math.floor(Math.random() * 8);
+        this.count += randomIncrement;
+        localStorage.setItem('count', this.count);
+        elements.peopleNum.textContent = this.count.toLocaleString();
+      }
+
+      start() {
+        const now = new Date();
+        const milliseconds = now.getMilliseconds();
+        const seconds = now.getSeconds();
+        const delay = 5000 - ((seconds % 5) * 1000 + milliseconds);
+
+        setTimeout(() => {
+          this.update();
+          this.interval = setInterval(() => this.update(), 2000);
+        }, delay);
+      }
+
+      stop() {
+        if (this.interval) {
+          clearInterval(this.interval);
+        }
+      }
+    }
+
+    // 进度条控制器
+    class ProgressController {
+      constructor() {
+        this.interval = 30;
+        this.duration = 1500;
+      }
+
+      run(callback) {
+        elements.progress.style.display = "block";
+        elements.bars.forEach(bar => bar.style.width = "0%");
+        
+        let elapsed = 0;
+        const timer = setInterval(() => {
+          elapsed += this.interval;
+          const percent = Math.min(100, Math.round((elapsed / this.duration) * 100));
+          
+          elements.bars[0].style.width = `${percent}%`;
+          if (percent > 33) elements.bars[1].style.width = `${(percent - 33) * 1.5}%`;
+          if (percent > 66) elements.bars[2].style.width = `${(percent - 66) * 3}%`;
+          
+          if (elapsed >= this.duration) {
+            clearInterval(timer);
+            elements.bars.forEach(bar => bar.style.width = "100%");
+            setTimeout(callback, 200);
+          }
+        }, this.interval);
+      }
+    }
+
+    // 模态框控制器
+    class ModalController {
+      constructor() {
+        this.progressController = new ProgressController();
+        this.isProcessing = false;
+      }
+
+      showError() {
+        elements.error.style.display = "flex";
+        setTimeout(() => {
+          elements.error.style.display = "none";
+        }, 1500);
+      }
+
+      showResult() {
+        elements.progress.style.display = "none";
+        elements.result.style.display = "block";
+      }
+
+      closeModal() {
+        elements.modal.style.display = "none";
+        elements.result.style.display = "none";
+        this.isProcessing = false;
+      }
+
+      startAnalysis() {
+        if (this.isProcessing) return;
+        
+        const stockCode = elements.stockCode.value.trim();
+        
+        if (!stockCode) {
+          this.showError();
+          return;
+        }
+        
+        this.isProcessing = true;
+        elements.modal.style.display = "flex";
+        elements.result.style.display = "none";
+        
+        this.progressController.run(() => {
+          this.showResult();
+        });
+      }
+    }
+
+    // 初始化应用
+    document.addEventListener('DOMContentLoaded', () => {
+      // 初始化计数器
+      const counter = new UserCounter();
+      counter.start();
+      
+      // 初始化模态框控制器
+      const modalController = new ModalController();
+      
+      // 事件绑定
+      elements.startBtn.addEventListener('click', () => {
+        modalController.startAnalysis();
+      });
+      
+      elements.stockCode.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          modalController.startAnalysis();
+        }
+      });
+      
+      elements.closeBtn.addEventListener('click', () => {
+        modalController.closeModal();
+      });
+      
+      elements.lineBtn.addEventListener('click', () => {
+        gtag_report_conversion();
+      });
+      
+      // 错误提示点击关闭
+      elements.error.addEventListener('click', () => {
+        elements.error.style.display = 'none';
+      });
+    });
+  </script>
+ 
+</body></html>

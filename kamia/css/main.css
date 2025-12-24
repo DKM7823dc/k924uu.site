@@ -1,0 +1,282 @@
+﻿/* 重置和基础样式 */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  text-align: center;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+section {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+
+/* 关闭按钮 */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #243447;
+  border: none;
+  color: #f00;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+}
+
+.close-btn:hover {
+  background: #ff4d4d;
+  color: #fff;
+}
+
+/* 主容器 */
+.container {
+  position: relative;
+  max-width: 720px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 内容区域 */
+.content {
+  position: absolute;
+  width: 720px;
+  text-align: center;
+  top: 72%;
+}
+
+.content img {
+  padding: 20px;
+  max-width: 650px;
+}
+
+.content3 {
+  position: absolute;
+  width: 720px;
+  text-align: center;
+  top: 62.5%;
+  left: -18%;
+  color: red;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+/* 输入框 */
+.inputcode {
+  width: 90%;
+  height: 8%;
+  border-radius: 1rem;
+  border: 2px solid #3ba2bc;
+  margin-top: 1rem;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  font-size: 30px;
+  background: rgb(238, 238, 238);
+  color: black;
+}
+
+.inputcode:focus {
+  outline: none;
+  border-color: #15a223;
+  box-shadow: 0 0 0 3px rgba(21, 162, 35, 0.1);
+}
+
+/* 错误提示 */
+.error {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 99999;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.error-content {
+  padding: 30px;
+  line-height: 1.5;
+  word-break: break-word;
+  overflow: auto;
+  font-size: 35px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  max-width: 750px;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 动画按钮 */
+.anniu {
+  animation: pulse 1s linear infinite;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); }
+  50% { transform: scale(1); }
+  100% { transform: scale(0.9); }
+}
+
+/* AI模态框 */
+.ai-modal {
+  position: fixed;
+  display: none;
+  inset: 0;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+}
+
+/* 进度框 */
+.pro-box {
+  background: rgb(9, 76, 137);
+  border-radius: 12px;
+  padding: 32px 18px;
+  max-width: 680px;
+  margin: 60px auto;
+}
+
+.pro-box .title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.pro-box .word {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+/* 进度条 */
+.progress-box .item {
+  margin-bottom: 20px;
+}
+
+.progress-box .i-title {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+
+.layui-progress {
+  background: #eee;
+  border-radius: 8px;
+  height: 16px;
+  overflow: hidden;
+}
+
+.layui-progress-bar {
+  width: 0%;
+  background: #00dcf4;
+  height: 100%;
+  border-radius: 8px;
+  transition: width 0.1s linear;
+}
+
+/* 结果框 */
+.result-box {
+  position: relative;
+  background: rgb(9, 76, 137);
+  border-radius: 12px;
+  padding: 32px 18px;
+  height: inherit;
+  margin: 26px auto;
+  max-width: 680px;
+}
+
+.result-box .title {
+  margin-bottom: 18px;
+}
+
+.result-box .word {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.stock-code {
+  color: #15a223;
+}
+
+.result-con .con {
+  font-size: 25px;
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+
+.result-con .btn {
+  background: #15a223;
+  color: #fff;
+  padding: 12px 0;
+  border-radius: 8px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  font-size: 30px;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.result-con .btn:hover {
+  background: #12851e;
+}
+
+/* 响应式调整 */
+@media (max-width: 720px) {
+  .container {
+    width: 100%;
+  }
+  
+  .content,
+  .content3 {
+    width: 100%;
+  }
+  
+  .inputcode {
+    font-size: 24px;
+    padding: 1rem 1.5rem;
+  }
+  
+  .pro-box,
+  .result-box {
+    margin: 20px;
+    padding: 20px 15px;
+  }
+  
+  .pro-box .word,
+  .result-box .word {
+    font-size: 28px;
+  }
+  
+  .progress-box .i-title,
+  .result-con .con {
+    font-size: 24px;
+  }
+  
+  .result-con .btn {
+    font-size: 26px;
+  }
+}
