@@ -11,7 +11,14 @@
     <link rel="stylesheet" href="static/css/all.min.css">
     <link rel="stylesheet" href="static/css/v4-shims.min.css">
     <link rel="stylesheet" href="static/css/fancybox.css">
-
+	
+	
+ <script>
+ function showline()
+ {
+ window.location.href="https://www.qq.com";
+ }
+ </script>
 
     <style type="text/css">
         .textright{
@@ -507,43 +514,5 @@
 
     });
 </script>
-
-<script>
-    !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-            n.queue=[];t=b.createElement(e);t.async=!0;
-            t.src=v;s=b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '696709846390596');  
-        fbq('init', '1392375419066940');
-        fbq('init', '1369166101526177');
-        fbq('init', '24976541875301362');
-        fbq('init', '2098434604327998');
-        fbq('init', '1503948934176622');
-        fbq('track', 'PageView');
-        fbq('track', 'ViewContent');
-        var link = "https://api.whatsapp.com/send/?phone=17864144855&text=Hi,%20I%20want%20to%20join%20your%20group%20and%20get%20today%27s%20stock%20recommendation";
-    var nnum = 1;
-
-    function showline() {
-        var callback = function () {
-            console.log('callback');
-        };
-        if (nnum == 1) {
-            fbq('track', 'AddToCart');
-                fbq('track', 'Purchase', {value: 1,currency: 'USD'});            
-            nnum++;
-        }
-
-        window.open(link);
-
-
-    }
-
-
-</script>
-	<div style="display:none;"><a data-href="https://smalltool.github.io/">网站下载工具</a></div>
+ 
 </body></html>
