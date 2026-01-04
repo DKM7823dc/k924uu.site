@@ -551,6 +551,222 @@
             to { opacity: 1; }
         }
 
+        /* Floating particles background */
+        .assessment-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--aurora-teal);
+            border-radius: 50%;
+            opacity: 0;
+            animation: floatParticle 8s infinite ease-in-out;
+        }
+
+        @keyframes floatParticle {
+            0%, 100% { opacity: 0; transform: translateY(100vh) scale(0); }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { opacity: 0; transform: translateY(-100px) scale(1); }
+        }
+
+        /* Welcome Screen */
+        .welcome-screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 100px);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .welcome-screen.active {
+            display: flex;
+            animation: welcomeFadeIn 1s ease-out;
+        }
+
+        @keyframes welcomeFadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .welcome-compass {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .welcome-compass-outer {
+            position: absolute;
+            inset: 0;
+            border: 3px solid var(--glass-border);
+            border-radius: 50%;
+            animation: rotateCompass 20s linear infinite;
+        }
+
+        .welcome-compass-outer::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--aurora-teal);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--aurora-teal);
+        }
+
+        @keyframes rotateCompass {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .welcome-compass-inner {
+            position: absolute;
+            inset: 30px;
+            background: var(--gradient-aurora);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 60px rgba(0, 212, 170, 0.4);
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 60px rgba(0, 212, 170, 0.4); }
+            50% { box-shadow: 0 0 100px rgba(0, 212, 170, 0.7); }
+        }
+
+        .welcome-compass-inner i {
+            font-size: 3rem;
+            color: #0a0e1a;
+        }
+
+        .welcome-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: var(--gradient-aurora);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .welcome-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .welcome-features {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .welcome-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.25rem;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            animation: featureFade 0.6s ease-out backwards;
+        }
+
+        .welcome-feature:nth-child(1) { animation-delay: 0.3s; }
+        .welcome-feature:nth-child(2) { animation-delay: 0.5s; }
+        .welcome-feature:nth-child(3) { animation-delay: 0.7s; }
+
+        .welcome-feature i {
+            color: var(--aurora-teal);
+        }
+
+        @keyframes featureFade {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .welcome-start-btn {
+            padding: 1.25rem 3rem;
+            font-size: 1.2rem;
+            background: var(--gradient-aurora);
+            border: none;
+            border-radius: 60px;
+            color: #0a0e1a;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: inherit;
+            animation: btnPulse 2s ease-in-out infinite;
+        }
+
+        .welcome-start-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 212, 170, 0.4);
+        }
+
+        @keyframes btnPulse {
+            0%, 100% { box-shadow: 0 10px 40px rgba(0, 212, 170, 0.3); }
+            50% { box-shadow: 0 15px 50px rgba(0, 212, 170, 0.5); }
+        }
+
+        .welcome-tip {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .welcome-tip i {
+            margin-right: 0.5rem;
+            color: var(--star-gold);
+        }
+
+        /* Progress Enhancement */
+        .progress-milestone {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--aurora-teal);
+            margin-top: 0.5rem;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.4s ease;
+        }
+
+        .progress-milestone.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .progress-milestone i {
+            font-size: 1rem;
+        }
+
         .assessment-header {
             position: sticky;
             top: 0;
@@ -626,16 +842,45 @@
         .question-container {
             flex: 1;
             display: none;
-            animation: slideIn 0.5s ease;
+            animation: questionSlideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
         }
 
         .question-container.active {
             display: block;
         }
 
-        @keyframes slideIn {
-            from { opacity: 0; transform: translateX(30px); }
-            to { opacity: 1; transform: translateX(0); }
+        .question-container.exit {
+            animation: questionSlideOut 0.4s ease-in forwards;
+        }
+
+        @keyframes questionSlideIn {
+            from { opacity: 0; transform: translateY(40px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes questionSlideOut {
+            from { opacity: 1; transform: translateY(0) scale(1); }
+            to { opacity: 0; transform: translateY(-30px) scale(0.98); }
+        }
+
+        /* Question number indicator */
+        .question-number-badge {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 60px;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--aurora-teal);
         }
 
         .question-header {
@@ -650,6 +895,12 @@
             border-radius: 50px;
             font-size: 0.85rem;
             margin-bottom: 1rem;
+            animation: theoryBadgePop 0.4s ease-out 0.2s backwards;
+        }
+
+        @keyframes theoryBadgePop {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         .question-theory.gallup { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
@@ -665,11 +916,42 @@
             font-size: 1.75rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
+            animation: titleFadeIn 0.5s ease-out 0.1s backwards;
+        }
+
+        @keyframes titleFadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .question-desc {
             color: var(--text-secondary);
             font-size: 1rem;
+            animation: descFadeIn 0.5s ease-out 0.2s backwards;
+        }
+
+        @keyframes descFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Encouraging tip after question */
+        .question-tip {
+            margin-top: 1.5rem;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(59, 130, 246, 0.1));
+            border-radius: 12px;
+            border-left: 3px solid var(--aurora-teal);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .question-tip i {
+            color: var(--aurora-teal);
+            font-size: 1.1rem;
         }
 
         /* Ranking Question */
@@ -755,27 +1037,50 @@
             border: 2px solid var(--glass-border);
             border-radius: 16px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             text-align: left;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .scenario-option::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 212, 170, 0.15), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .scenario-option:hover::before {
+            opacity: 1;
         }
 
         .scenario-option:hover {
             border-color: var(--aurora-teal);
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 212, 170, 0.15);
         }
 
         .scenario-option.selected {
             border-color: var(--aurora-teal);
             background: rgba(0, 212, 170, 0.1);
+            animation: selectPulse 0.5s ease-out;
         }
 
-        .scenario-option.selected::before {
+        @keyframes selectPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.03); }
+            100% { transform: scale(1); }
+        }
+
+        .scenario-option.selected::after {
             content: '✓';
             position: absolute;
             top: 1rem;
             right: 1rem;
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             background: var(--aurora-teal);
             color: #0a0e1a;
             border-radius: 50%;
@@ -783,21 +1088,35 @@
             align-items: center;
             justify-content: center;
             font-weight: 700;
+            font-size: 0.9rem;
+            animation: checkPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
-        .scenario-option {
-            position: relative;
+        @keyframes checkPop {
+            from { transform: scale(0) rotate(-45deg); }
+            to { transform: scale(1) rotate(0); }
+        }
+
+        .scenario-option.selected .scenario-icon {
+            animation: iconBounce 0.5s ease-out;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
 
         .scenario-icon {
-            width: 48px;
-            height: 48px;
-            border-radius: 12px;
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
             margin-bottom: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
 
         .scenario-option h4 {
@@ -809,6 +1128,17 @@
         .scenario-option p {
             font-size: 0.9rem;
             color: var(--text-secondary);
+        }
+
+        /* Staggered animation for scenario options */
+        .scenario-options .scenario-option:nth-child(1) { animation: optionFadeIn 0.4s ease-out 0.1s backwards; }
+        .scenario-options .scenario-option:nth-child(2) { animation: optionFadeIn 0.4s ease-out 0.2s backwards; }
+        .scenario-options .scenario-option:nth-child(3) { animation: optionFadeIn 0.4s ease-out 0.3s backwards; }
+        .scenario-options .scenario-option:nth-child(4) { animation: optionFadeIn 0.4s ease-out 0.4s backwards; }
+
+        @keyframes optionFadeIn {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         /* Scale Question */
@@ -854,38 +1184,68 @@
 
         .scale-buttons {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.75rem;
             flex: 1;
             justify-content: center;
         }
 
         .scale-btn {
-            width: 44px;
-            height: 44px;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
             border: 2px solid var(--glass-border);
             background: transparent;
             color: var(--text-secondary);
             font-weight: 600;
             cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: inherit;
+            font-size: 1rem;
+            position: relative;
+        }
+
+        .scale-btn::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: var(--aurora-teal);
+            opacity: 0;
+            transform: scale(0.8);
             transition: all 0.3s ease;
+            z-index: -1;
         }
 
         .scale-btn:hover {
             border-color: var(--aurora-teal);
             color: var(--aurora-teal);
+            transform: scale(1.1);
+        }
+
+        .scale-btn:hover::before {
+            opacity: 0.15;
+            transform: scale(1);
         }
 
         .scale-btn.selected {
             background: var(--aurora-teal);
             border-color: var(--aurora-teal);
             color: #0a0e1a;
+            transform: scale(1.15);
+            box-shadow: 0 0 25px rgba(0, 212, 170, 0.5);
+            animation: scaleSelect 0.4s ease-out;
+        }
+
+        @keyframes scaleSelect {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1.15); }
         }
 
         /* Icon Selection */
         .icon-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
         }
 
@@ -901,27 +1261,53 @@
             border: 2px solid var(--glass-border);
             border-radius: 16px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
+            overflow: hidden;
+        }
+
+        .icon-option::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(0, 212, 170, 0.2), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
 
         .icon-option:hover {
             border-color: var(--aurora-teal);
-            transform: scale(1.02);
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 212, 170, 0.15);
+        }
+
+        .icon-option:hover::before {
+            opacity: 1;
         }
 
         .icon-option.selected {
             border-color: var(--aurora-teal);
-            background: rgba(0, 212, 170, 0.1);
+            background: rgba(0, 212, 170, 0.15);
+            animation: iconSelect 0.5s ease-out;
+        }
+
+        @keyframes iconSelect {
+            0% { transform: scale(1); }
+            30% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        .icon-option.selected::before {
+            opacity: 1;
         }
 
         .icon-option.selected::after {
             content: '✓';
             position: absolute;
-            top: 0.75rem;
-            right: 0.75rem;
-            width: 24px;
-            height: 24px;
+            top: 0.5rem;
+            right: 0.5rem;
+            width: 26px;
+            height: 26px;
             background: var(--aurora-teal);
             color: #0a0e1a;
             border-radius: 50%;
@@ -930,17 +1316,43 @@
             justify-content: center;
             font-weight: 700;
             font-size: 0.8rem;
+            animation: checkPop 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .icon-option i {
             font-size: 2.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .icon-option:hover i {
+            transform: scale(1.1);
+        }
+
+        .icon-option.selected i {
+            animation: iconWiggle 0.5s ease-out;
+        }
+
+        @keyframes iconWiggle {
+            0%, 100% { transform: rotate(0); }
+            25% { transform: rotate(-10deg); }
+            75% { transform: rotate(10deg); }
         }
 
         .icon-option span {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 500;
             text-align: center;
         }
+
+        /* Staggered animation for icon grid */
+        .icon-grid .icon-option:nth-child(1) { animation: optionFadeIn 0.3s ease-out 0.05s backwards; }
+        .icon-grid .icon-option:nth-child(2) { animation: optionFadeIn 0.3s ease-out 0.1s backwards; }
+        .icon-grid .icon-option:nth-child(3) { animation: optionFadeIn 0.3s ease-out 0.15s backwards; }
+        .icon-grid .icon-option:nth-child(4) { animation: optionFadeIn 0.3s ease-out 0.2s backwards; }
+        .icon-grid .icon-option:nth-child(5) { animation: optionFadeIn 0.3s ease-out 0.25s backwards; }
+        .icon-grid .icon-option:nth-child(6) { animation: optionFadeIn 0.3s ease-out 0.3s backwards; }
+        .icon-grid .icon-option:nth-child(7) { animation: optionFadeIn 0.3s ease-out 0.35s backwards; }
+        .icon-grid .icon-option:nth-child(8) { animation: optionFadeIn 0.3s ease-out 0.4s backwards; }
 
         /* Flow Activity */
         .flow-activities {
@@ -1048,16 +1460,53 @@
         /* Results Panel */
         .results-container {
             display: none;
-            animation: fadeIn 0.5s ease;
+            position: relative;
         }
 
         .results-container.active {
             display: block;
+            animation: resultsReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes resultsReveal {
+            0% { opacity: 0; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        /* Confetti celebration */
+        .confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 100;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            top: -20px;
+            animation: confettiFall 4s ease-out forwards;
+        }
+
+        @keyframes confettiFall {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
         }
 
         .results-header {
             text-align: center;
             margin-bottom: 3rem;
+            animation: headerReveal 0.6s ease-out 0.2s backwards;
+        }
+
+        @keyframes headerReveal {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .results-header h2 {
@@ -1077,6 +1526,32 @@
         .results-header p {
             color: var(--text-secondary);
             font-size: 1.1rem;
+        }
+
+        /* Staggered reveal for result cards */
+        .results-main {
+            animation: cardReveal 0.6s ease-out 0.4s backwards;
+        }
+
+        .theory-results {
+            animation: cardReveal 0.6s ease-out 0.6s backwards;
+        }
+
+        .ai-insights {
+            animation: cardReveal 0.6s ease-out 0.8s backwards;
+        }
+
+        .career-section {
+            animation: cardReveal 0.6s ease-out 1s backwards;
+        }
+
+        .results-actions {
+            animation: cardReveal 0.6s ease-out 1.2s backwards;
+        }
+
+        @keyframes cardReveal {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Results Radar */
@@ -1429,39 +1904,163 @@
             flex-wrap: wrap;
         }
 
-        /* Loading Animation */
+        /* Loading Animation - Constellation Theme */
         .loading-container {
             display: none;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 60vh;
+            min-height: 70vh;
             text-align: center;
+            animation: loadingFadeIn 0.6s ease-out;
+        }
+
+        @keyframes loadingFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
         .loading-container.active {
             display: flex;
         }
 
-        .loading-spinner {
-            width: 80px;
-            height: 80px;
-            border: 4px solid var(--glass-border);
-            border-top-color: var(--aurora-teal);
+        .loading-constellation {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 3rem;
+        }
+
+        .constellation-ring {
+            position: absolute;
+            border: 2px solid var(--glass-border);
             border-radius: 50%;
-            animation: spin 1s linear infinite;
-            margin-bottom: 2rem;
+            animation: constellationPulse 2s ease-in-out infinite;
+        }
+
+        .constellation-ring:nth-child(1) {
+            inset: 0;
+            animation-delay: 0s;
+        }
+
+        .constellation-ring:nth-child(2) {
+            inset: 20px;
+            animation-delay: 0.3s;
+        }
+
+        .constellation-ring:nth-child(3) {
+            inset: 40px;
+            animation-delay: 0.6s;
+        }
+
+        @keyframes constellationPulse {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.02); }
+        }
+
+        .constellation-center {
+            position: absolute;
+            inset: 60px;
+            background: var(--gradient-aurora);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: centerGlow 1.5s ease-in-out infinite;
+        }
+
+        @keyframes centerGlow {
+            0%, 100% { box-shadow: 0 0 40px rgba(0, 212, 170, 0.4); }
+            50% { box-shadow: 0 0 80px rgba(0, 212, 170, 0.8); }
+        }
+
+        .constellation-center i {
+            font-size: 2rem;
+            color: #0a0e1a;
+            animation: compassSpin 4s linear infinite;
+        }
+
+        @keyframes compassSpin {
+            0% { transform: rotate(0deg); }
+            25% { transform: rotate(90deg); }
+            50% { transform: rotate(180deg); }
+            75% { transform: rotate(270deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .constellation-star {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--aurora-teal);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--aurora-teal);
+        }
+
+        .constellation-star:nth-child(5) { top: 0; left: 50%; transform: translateX(-50%); animation: starTwinkle 1.5s ease-in-out infinite 0s; }
+        .constellation-star:nth-child(6) { top: 25%; right: 10%; animation: starTwinkle 1.5s ease-in-out infinite 0.2s; }
+        .constellation-star:nth-child(7) { bottom: 25%; right: 10%; animation: starTwinkle 1.5s ease-in-out infinite 0.4s; }
+        .constellation-star:nth-child(8) { bottom: 0; left: 50%; transform: translateX(-50%); animation: starTwinkle 1.5s ease-in-out infinite 0.6s; }
+        .constellation-star:nth-child(9) { bottom: 25%; left: 10%; animation: starTwinkle 1.5s ease-in-out infinite 0.8s; }
+        .constellation-star:nth-child(10) { top: 25%; left: 10%; animation: starTwinkle 1.5s ease-in-out infinite 1s; }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.4; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.3); }
+        }
+
+        .loading-spinner {
+            display: none;
         }
 
         .loading-text {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.5rem;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            background: var(--gradient-aurora);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .loading-subtext {
-            font-size: 0.9rem;
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .loading-theories {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            max-width: 400px;
+        }
+
+        .loading-theory-tag {
+            padding: 0.5rem 1rem;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.8rem;
             color: var(--text-muted);
+            opacity: 0;
+            animation: theoryTagFade 3s ease-in-out infinite;
+        }
+
+        .loading-theory-tag:nth-child(1) { animation-delay: 0s; }
+        .loading-theory-tag:nth-child(2) { animation-delay: 0.4s; }
+        .loading-theory-tag:nth-child(3) { animation-delay: 0.8s; }
+        .loading-theory-tag:nth-child(4) { animation-delay: 1.2s; }
+        .loading-theory-tag:nth-child(5) { animation-delay: 1.6s; }
+        .loading-theory-tag:nth-child(6) { animation-delay: 2s; }
+        .loading-theory-tag:nth-child(7) { animation-delay: 2.4s; }
+
+        @keyframes theoryTagFade {
+            0%, 20%, 100% { opacity: 0.3; border-color: var(--glass-border); }
+            10% { opacity: 1; border-color: var(--aurora-teal); color: var(--aurora-teal); }
         }
 
         /* Responsive */
@@ -1540,6 +2139,77 @@
 
             .career-paths {
                 grid-template-columns: 1fr 1fr;
+            }
+
+            /* Welcome screen mobile */
+            .welcome-compass {
+                width: 150px;
+                height: 150px;
+                margin-bottom: 2rem;
+            }
+
+            .welcome-title {
+                font-size: 1.75rem;
+            }
+
+            .welcome-subtitle {
+                font-size: 1rem;
+            }
+
+            .welcome-features {
+                gap: 1rem;
+            }
+
+            .welcome-feature {
+                font-size: 0.85rem;
+                padding: 0.5rem 1rem;
+            }
+
+            .welcome-start-btn {
+                padding: 1rem 2rem;
+                font-size: 1rem;
+            }
+
+            /* Loading mobile */
+            .loading-constellation {
+                width: 150px;
+                height: 150px;
+            }
+
+            .loading-text {
+                font-size: 1.25rem;
+            }
+
+            .loading-theories {
+                max-width: 300px;
+            }
+
+            /* Progress milestone mobile */
+            .progress-milestone {
+                font-size: 0.75rem;
+            }
+
+            /* Scale buttons mobile */
+            .scale-container {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .scale-label {
+                width: auto;
+                text-align: center !important;
+            }
+
+            .scale-buttons {
+                order: 2;
+            }
+
+            .scale-label.left {
+                order: 1;
+            }
+
+            .scale-label.right {
+                order: 3;
             }
         }
 
@@ -1950,7 +2620,7 @@
             <div class="problem-card animate-on-scroll">
                 <div class="problem-icon purple"><i class="fas fa-eye-slash"></i></div>
                 <h3>优势被掩盖</h3>
-                <p>传统评价标准（考试分数）只看到冰山一角，真正的天赋才干���"不及格"的阴影下被忽视。</p>
+                <p>传统评价标准（考试分数）只看到冰山一角，真正的天赋才干在"不及格"的阴影下被忽视。</p>
             </div>
             <div class="problem-card animate-on-scroll">
                 <div class="problem-icon blue"><i class="fas fa-puzzle-piece"></i></div>
@@ -2089,7 +2759,7 @@
         <div class="features-container">
             <div class="feature-row animate-on-scroll">
                 <div class="feature-text">
-                    <h3><i class="fas fa-globe" style="color: var(--aurora-teal);"></i> 个���潜能动态图谱</h3>
+                    <h3><i class="fas fa-globe" style="color: var(--aurora-teal);"></i> 个人潜能动态图谱</h3>
                     <p>这不是一份静态报告，而是一个可视化的、可交互的3D星系。7大理论数据融合计算，形成统一的人格-能力模型。</p>
                     <ul class="feature-list">
                         <li><i class="fas fa-check"></i> 多维数据可视化，一眼看清全貌</li>
@@ -2118,7 +2788,7 @@
             <div class="feature-row animate-on-scroll">
                 <div class="feature-text">
                     <h3><i class="fas fa-fire-alt" style="color: var(--plasma-pink);"></i> 心流时刻记录器</h3>
-                    <p>结合日记和AI分析，让你标记产生心流的活动。AI反向推导其背后的优势与兴趣组合，验证测评结果。</p>
+                    <p>结合日记和AI分析，让你标记产生心流的活动。AI反向推导其背后的优势与兴趣组合，验证���评结果。</p>
                     <ul class="feature-list">
                         <li><i class="fas fa-check"></i> 简单打卡，记录沉浸时刻</li>
                         <li><i class="fas fa-check"></i> AI分析心流背后的特质组合</li>
@@ -2326,7 +2996,10 @@
 
     <!-- Assessment Panel -->
     <div class="assessment-panel" id="assessmentPanel">
-        <div class="assessment-header">
+        <!-- Floating Particles Background -->
+        <div class="assessment-particles" id="assessmentParticles"></div>
+
+        <div class="assessment-header" id="assessmentHeader" style="display: none;">
             <div class="assessment-header-content">
                 <button class="assessment-close" id="assessmentClose">
                     <i class="fas fa-times"></i>
@@ -2336,12 +3009,51 @@
                         <div class="progress-fill" id="progressFill" style="width: 0%"></div>
                     </div>
                     <div class="progress-text" id="progressText">第 1 题 / 共 7 题</div>
+                    <div class="progress-milestone" id="progressMilestone">
+                        <i class="fas fa-sparkles"></i>
+                        <span id="milestoneText"></span>
+                    </div>
                 </div>
                 <div style="width: 40px;"></div>
             </div>
         </div>
 
         <div class="assessment-content">
+            <!-- Welcome Screen -->
+            <div class="welcome-screen active" id="welcomeScreen">
+                <div class="welcome-compass">
+                    <div class="welcome-compass-outer"></div>
+                    <div class="welcome-compass-inner">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                </div>
+                <h1 class="welcome-title">开启你的天赋之旅</h1>
+                <p class="welcome-subtitle">
+                    接下来的7个问题将帮助我们探索你的独特潜能，<br>
+                    融合7大心理学理论，为你绘制专属的发展蓝图
+                </p>
+                <div class="welcome-features">
+                    <div class="welcome-feature">
+                        <i class="fas fa-clock"></i>
+                        <span>约5分钟完成</span>
+                    </div>
+                    <div class="welcome-feature">
+                        <i class="fas fa-brain"></i>
+                        <span>7大科学理论</span>
+                    </div>
+                    <div class="welcome-feature">
+                        <i class="fas fa-chart-radar"></i>
+                        <span>多维潜能分析</span>
+                    </div>
+                </div>
+                <button class="welcome-start-btn" id="welcomeStartBtn">
+                    <i class="fas fa-rocket"></i> 开始探索
+                </button>
+                <p class="welcome-tip">
+                    <i class="fas fa-lightbulb"></i>
+                    小贴士：没有对错之分，请按照第一直觉作答
+                </p>
+            </div>
             <!-- Question 1: Gallup Strengths - Ranking -->
             <div class="question-container" id="q1">
                 <div class="question-header">
@@ -2653,7 +3365,7 @@
                             <i class="fas fa-paint-brush" style="color: white;"></i>
                         </div>
                         <div class="flow-activity-content">
-                            <h4>艺术创作/设计</h4>
+                            <h4>艺术创作/设���</h4>
                             <p>绘画、设计、音乐创作等</p>
                         </div>
                         <div class="flow-slider-container">
@@ -2718,7 +3430,7 @@
                         <i class="fas fa-lightbulb"></i> 认知心理学
                     </div>
                     <h2 class="question-title">学习新知识时，你更倾向于哪种方式？</h2>
-                    <p class="question-desc">选择最符合你学习习惯的选项</p>
+                    <p class="question-desc">选择最符合���学习习惯的选项</p>
                 </div>
                 <div class="scenario-options">
                     <div class="scenario-option" data-value="visual" onclick="selectScenario(this, 7)">
@@ -2762,9 +3474,31 @@
 
             <!-- Loading -->
             <div class="loading-container" id="loadingContainer">
-                <div class="loading-spinner"></div>
-                <div class="loading-text">AI正在分析您的潜能图谱...</div>
-                <div class="loading-subtext">融合7大理论，生成个性化洞察</div>
+                <div class="loading-constellation">
+                    <div class="constellation-ring"></div>
+                    <div class="constellation-ring"></div>
+                    <div class="constellation-ring"></div>
+                    <div class="constellation-center">
+                        <i class="fas fa-compass"></i>
+                    </div>
+                    <div class="constellation-star"></div>
+                    <div class="constellation-star"></div>
+                    <div class="constellation-star"></div>
+                    <div class="constellation-star"></div>
+                    <div class="constellation-star"></div>
+                    <div class="constellation-star"></div>
+                </div>
+                <div class="loading-text">正在绘制您的潜能星图...</div>
+                <div class="loading-subtext">AI正在融合7大理论，发现您的独特潜能</div>
+                <div class="loading-theories">
+                    <span class="loading-theory-tag">盖洛普优势</span>
+                    <span class="loading-theory-tag">荣格心理类型</span>
+                    <span class="loading-theory-tag">大五人格</span>
+                    <span class="loading-theory-tag">多元智能</span>
+                    <span class="loading-theory-tag">霍兰德职业</span>
+                    <span class="loading-theory-tag">心流理论</span>
+                    <span class="loading-theory-tag">认知风格</span>
+                </div>
             </div>
 
             <!-- Results -->
@@ -2896,20 +3630,66 @@
         };
 
         // Open assessment
+        // Milestone messages for encouragement
+        const milestones = {
+            1: { icon: 'fa-star', text: '探索你的核心才干...' },
+            2: { icon: 'fa-yin-yang', text: '解读你的能量来源...' },
+            3: { icon: 'fa-chart-pie', text: '描绘你的人格维度...' },
+            4: { icon: 'fa-brain', text: '发现你的多元智能...' },
+            5: { icon: 'fa-briefcase', text: '匹配你的职业兴趣...' },
+            6: { icon: 'fa-fire', text: '寻找你的心流时刻...' },
+            7: { icon: 'fa-lightbulb', text: '最后一步！分析你的学习风格...' }
+        };
+
+        function createParticles() {
+            const container = document.getElementById('assessmentParticles');
+            container.innerHTML = '';
+            const colors = ['#00d4aa', '#3b82f6', '#ec4899', '#f59e0b', '#8b5cf6'];
+            for (let i = 0; i < 30; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 8 + 's';
+                particle.style.animationDuration = (6 + Math.random() * 4) + 's';
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.width = (2 + Math.random() * 4) + 'px';
+                particle.style.height = particle.style.width;
+                container.appendChild(particle);
+            }
+        }
+
         function openAssessment() {
             document.getElementById('assessmentPanel').classList.add('active');
             document.body.style.overflow = 'hidden';
+            createParticles();
+            // Show welcome screen first
+            document.getElementById('welcomeScreen').classList.add('active');
+            document.getElementById('assessmentHeader').style.display = 'none';
+            document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
+        }
+
+        function startFromWelcome() {
+            document.getElementById('welcomeScreen').classList.remove('active');
+            document.getElementById('assessmentHeader').style.display = 'block';
+            document.getElementById('assessmentHeader').style.animation = 'fadeIn 0.5s ease';
             showQuestion(1);
         }
 
         function closeAssessment() {
             document.getElementById('assessmentPanel').classList.remove('active');
             document.body.style.overflow = '';
+            // Reset for next open
+            document.getElementById('welcomeScreen').classList.add('active');
+            document.getElementById('assessmentHeader').style.display = 'none';
+            document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
+            document.getElementById('loadingContainer').classList.remove('active');
+            document.getElementById('resultsContainer').classList.remove('active');
         }
 
         document.getElementById('startBtn').addEventListener('click', openAssessment);
         document.getElementById('heroStartBtn').addEventListener('click', openAssessment);
         document.getElementById('ctaStartBtn').addEventListener('click', openAssessment);
+        document.getElementById('welcomeStartBtn').addEventListener('click', startFromWelcome);
         document.getElementById('navAssessment').addEventListener('click', (e) => { e.preventDefault(); openAssessment(); });
         document.getElementById('mobileNavAssessment').addEventListener('click', (e) => { e.preventDefault(); mobileMenu.classList.remove('active'); openAssessment(); });
         document.getElementById('mobileStartBtn').addEventListener('click', () => { mobileMenu.classList.remove('active'); openAssessment(); });
@@ -2946,16 +3726,33 @@
         });
 
         function showQuestion(num) {
+            // Hide all questions
             document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
-            document.getElementById(`q${num}`).classList.add('active');
+            // Show the selected question with animation
+            const questionEl = document.getElementById(`q${num}`);
+            questionEl.classList.add('active');
             currentQuestion = num;
             updateProgress();
+            // Scroll to top of assessment content
+            document.querySelector('.assessment-content').scrollTop = 0;
         }
 
         function updateProgress() {
             const progress = (currentQuestion / totalQuestions) * 100;
             document.getElementById('progressFill').style.width = `${progress}%`;
             document.getElementById('progressText').textContent = `第 ${currentQuestion} 题 / 共 ${totalQuestions} 题`;
+
+            // Show milestone message
+            const milestone = milestones[currentQuestion];
+            if (milestone) {
+                const milestoneEl = document.getElementById('progressMilestone');
+                const iconEl = milestoneEl.querySelector('i');
+                const textEl = document.getElementById('milestoneText');
+                iconEl.className = 'fas ' + milestone.icon;
+                textEl.textContent = milestone.text;
+                milestoneEl.classList.remove('show');
+                setTimeout(() => milestoneEl.classList.add('show'), 100);
+            }
         }
 
         function nextQuestion(current) {
@@ -3099,10 +3896,39 @@
             document.getElementById('progressFill').style.width = '100%';
         }
 
+        function createConfetti() {
+            const container = document.createElement('div');
+            container.className = 'confetti-container';
+            container.id = 'confettiContainer';
+            document.body.appendChild(container);
+
+            const colors = ['#00d4aa', '#3b82f6', '#ec4899', '#f59e0b', '#8b5cf6', '#fbbf24', '#ef4444'];
+            const shapes = ['square', 'circle'];
+
+            for (let i = 0; i < 80; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confetti.style.animationDuration = (3 + Math.random() * 2) + 's';
+                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.width = (6 + Math.random() * 8) + 'px';
+                confetti.style.height = confetti.style.width;
+                confetti.style.borderRadius = shapes[Math.floor(Math.random() * shapes.length)] === 'circle' ? '50%' : '2px';
+                container.appendChild(confetti);
+            }
+
+            // Remove confetti after animation
+            setTimeout(() => {
+                container.remove();
+            }, 5000);
+        }
+
         function showResults() {
             document.getElementById('loadingContainer').classList.remove('active');
             document.getElementById('resultsContainer').classList.add('active');
             generateResults();
+            createConfetti();
         }
 
         function generateResults() {
@@ -3148,7 +3974,7 @@
             const theories = [
                 { icon: 'gallup', name: '盖洛普优势', value: getTopStrength(), desc: '你的首要才干主题，发挥它能获得6倍效率提升' },
                 { icon: 'jung', name: '荣格类型', value: mbtiType, desc: '你的心理能量模式和认知偏好' },
-                { icon: 'big5', name: '大五人格', value: getBig5Summary(), desc: '你在五大人格维���上的特质分布' },
+                { icon: 'big5', name: '大五人格', value: getBig5Summary(), desc: '你在五大人格维度上的特质分布' },
                 { icon: 'mi', name: '多元智能', value: getTopIntelligence(), desc: '你最突出的智能领域' },
                 { icon: 'holland', name: '霍兰德代码', value: hollandCode + '型', desc: '你的职业兴趣类型组合' },
                 { icon: 'flow', name: '心流活动', value: getTopFlow(), desc: '最容易让你进入心流状态的活动' },
@@ -3312,7 +4138,7 @@
             return [
                 {
                     title: `"${strength}"才干 × ${intelligence} = 独特优势组合`,
-                    content: `你的${strength}才干与${intelligence}形成了强大的协同效应。这意味着你在需要${strength === '战略' ? '规划全局���识别模式' : '持续投入和达成目标'}的同时运用${intelligence.replace('智能', '')}能力的领域会表现出色。`
+                    content: `你的${strength}才干与${intelligence}形成了强大的协同效应。这意味着你在需要${strength === '战略' ? '规划全局和识别模式' : '持续投入和达成目标'}的同时运用${intelligence.replace('智能', '')}能力的领域会表现出色。`
                 },
                 {
                     title: `霍兰德${hollandCode}型的职业启示`,
@@ -3419,6 +4245,17 @@
                 compassContainer.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${-y}deg)`;
             });
         }
+
+        // Mouse follow glow effect for scenario options
+        document.querySelectorAll('.scenario-option').forEach(option => {
+            option.addEventListener('mousemove', (e) => {
+                const rect = option.getBoundingClientRect();
+                const x = ((e.clientX - rect.left) / rect.width) * 100;
+                const y = ((e.clientY - rect.top) / rect.height) * 100;
+                option.style.setProperty('--mouse-x', x + '%');
+                option.style.setProperty('--mouse-y', y + '%');
+            });
+        });
     </script>
 </body>
 </html>
