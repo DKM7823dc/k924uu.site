@@ -1,544 +1,459 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Back to eLink</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>天赋罗盘 - AI + 心理学深度融合</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary: #0ea5e9;
-            --accent: #f97316;
-            --red: #dc2626;
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --card-border: #334155;
-            --text-primary: #f1f5f9;
-            --text-secondary: #94a3b8;
-            --gold: #fbbf24;
-            --green: #22c55e;
-        }
-
-        .light {
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --card-border: #e2e8f0;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Outfit', sans-serif;
-            background: var(--bg);
-            color: var(--text-primary);
-            line-height: 1.5;
-            padding: 16px;
-        }
-
-        .container {
-            max-width: 480px;
-            margin: 0 auto;
-        }
-
-        /* 1. Header - 开头问候 */
-        .header {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .brand-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--primary);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .hero-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            line-height: 1.2;
-            margin-bottom: 10px;
-        }
-
-        .highlight { color: var(--accent); }
-
-        .hero-message {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            text-align: left;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            padding: 12px;
-        }
-
-        .brand-highlight {
-            color: var(--accent);
-            font-weight: 800;
-            font-size: 1rem;
-        }
-
-        /* Section styling */
-        .section {
-            margin-bottom: 16px;
-        }
-
-        .section-title {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .section-title i {
-            color: var(--primary);
-        }
-
-        /* 2. 为什么选择eLink - 最低价 */
-        .price-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 10px;
-            padding: 14px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-        }
-
-        .price-icon {
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-            flex-shrink: 0;
-        }
-
-        .price-content p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .price-content strong {
-            color: var(--text-primary);
-        }
-
-        /* 3. 圣诞专属福利 */
-        .christmas-card {
-            background: linear-gradient(135deg, var(--red), #b91c1c);
-            border-radius: 10px;
-            padding: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .christmas-left {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .christmas-left i { font-size: 1.3rem; }
-
-        .christmas-text { font-size: 0.85rem; color: #fff; }
-        .christmas-text strong { display: block; font-size: 0.95rem; color: #fff; }
-        .christmas-text span { opacity: 0.9; font-size: 0.75rem; color: rgba(255,255,255,0.9); }
-
-        .promo-code {
-            background: rgba(255,255,255,0.2);
-            padding: 6px 14px;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 1rem;
-            letter-spacing: 1px;
-            border: 1.5px dashed rgba(255,255,255,0.5);
-            white-space: nowrap;
-        }
-
-        /* 4. 20%返现 */
-        .cashback-card {
-            background: var(--card-bg);
-            border: 2px solid var(--green);
-            border-radius: 10px;
-            padding: 14px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .cashback-badge {
-            background: var(--green);
-            color: white;
-            font-size: 1.3rem;
-            font-weight: 800;
-            padding: 8px 12px;
-            border-radius: 8px;
-            white-space: nowrap;
-        }
-
-        .cashback-text {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-        }
-
-        .cashback-text strong {
-            color: var(--text-primary);
-            display: block;
-        }
-
-        /* 5. 老友专属回归礼 */
-        .gift-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--gold);
-            color: #1e293b;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .gift-cards {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-        }
-
-        .gift-card {
-            background: var(--card-bg);
-            border: 2px solid var(--card-border);
-            border-radius: 12px;
-            padding: 14px 10px;
-            text-align: center;
-            position: relative;
-        }
-
-        .option-tag {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            background: var(--accent);
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
-            font-size: 0.7rem;
-        }
-
-        .gift-icon { font-size: 1.6rem; margin-bottom: 6px; }
-
-        .gift-card h3 {
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 4px;
-        }
-
-        .gift-value {
-            font-size: 1.4rem;
-            font-weight: 800;
-            color: var(--accent);
-            margin-bottom: 4px;
-        }
-
-        .gift-card p {
-            font-size: 0.7rem;
-            color: var(--text-secondary);
-            line-height: 1.3;
-        }
-
-        /* 6. 如何领取 */
-        .step {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .step-number {
-            width: 26px;
-            height: 26px;
-            background: var(--primary);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            font-weight: 700;
-            flex-shrink: 0;
-        }
-
-        .step-content h4 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 2px;
-        }
-
-        .step-content p {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-        }
-
-        .step-content a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        /* 7. 结尾承诺 + CTA */
-        .promises {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin-bottom: 16px;
-        }
-
-        .promise-item {
-            text-align: center;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 8px;
-            padding: 10px 6px;
-        }
-
-        .promise-item i {
-            color: var(--primary);
-            font-size: 1.1rem;
-            margin-bottom: 4px;
-        }
-
-        .promise-item span {
-            display: block;
-            font-size: 0.65rem;
-            font-weight: 500;
-            line-height: 1.2;
-        }
-
-        .cta-section {
-            text-align: center;
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 16px;
-        }
-
-        .cta-section p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin-bottom: 12px;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--accent), #ea580c);
-            color: white;
-            padding: 14px 24px;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 700;
-            text-decoration: none;
-            width: 100%;
-        }
-
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding-top: 14px;
-            border-top: 1px solid var(--card-border);
-        }
-
-        .footer-logo {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-bottom: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        .footer-logo i { color: var(--primary); }
-
-        .footer p {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
+        body { font-family: 'Noto Sans SC', sans-serif; scroll-behavior: smooth; }
+        .hero-bg { background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%); }
+        .glass-card { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        
+        /* 简单的淡入淡出动画 */
+        .fade-in { animation: fadeIn 0.5s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        
+        /* 进度条动画 */
+        .progress-transition { transition: width 0.5s ease-in-out; }
     </style>
 </head>
-<body>
-    <div class="container">
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
 
-        <!-- 1. 开头问候 + 致歉说明 -->
-        <header class="header">
-            <div class="brand-badge">
-                <i class="fas fa-signal"></i>
-                PhoneSIM → eLink
+    <!-- ==================== 1. 首页 (Landing Page) ==================== -->
+    <div id="view-landing" class="flex-grow">
+        <!-- 导航栏 -->
+        <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center gap-2 cursor-pointer" onclick="location.reload()">
+                        <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                        </svg>
+                        <span class="font-bold text-xl text-slate-900">天赋罗盘</span>
+                    </div>
+                    <div class="hidden md:flex space-x-8">
+                        <a href="#why" class="text-slate-600 hover:text-indigo-600 transition">为什么测</a>
+                        <a href="#science" class="text-slate-600 hover:text-indigo-600 transition">科学理论</a>
+                    </div>
+                    <button onclick="startAssessment()" class="bg-indigo-600 text-white px-6 py-2 rounded-full font-medium hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">
+                        立即测评
+                    </button>
+                </div>
             </div>
-            <h1 class="hero-title">
-                Dear <span class="highlight">PhoneSIM</span> Friend
-            </h1>
-            <div class="hero-message">
-                Remember the times we traveled the world together? First, we owe you a sincere apology. Due to PhoneSIM's unexpected removal from the App Store, we briefly lost touch. During this time, we listened to countless user feedback and worked hard to build a brand new upgraded app — <span class="brand-highlight">eLink</span>, with more stable service and more competitive prices. We look forward to reconnecting with you!
+        </nav>
+
+        <!-- Hero 区域 -->
+        <header class="hero-bg text-white pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden relative">
+            <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-indigo-500 opacity-20 blur-3xl"></div>
+            <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-purple-500 opacity-20 blur-3xl"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8 text-indigo-100 text-sm font-medium">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                    AI + 心理学 深度融合
+                </div>
+                <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-6 leading-tight">
+                    每个孩子都有<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 to-purple-200">独特天赋密码</span>
+                </h1>
+                <p class="text-lg md:text-xl text-indigo-100 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    融合盖洛普优势理论、荣格心理类型、霍兰德职业兴趣等权威体系，<br class="hidden md:block">科学解码孩子的天赋基因。
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <button onclick="startAssessment()" class="bg-white text-indigo-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-indigo-50 transition shadow-xl transform hover:scale-105 duration-200">
+                        开启探索之旅
+                    </button>
+                </div>
             </div>
         </header>
 
-        <!-- 2. 为什么选择eLink - 最低价保证 -->
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-star"></i> Why Choose eLink?</h2>
-            <div class="price-card">
-                <div class="price-icon"><i class="fas fa-trophy"></i></div>
-                <div class="price-content">
-                    <p><strong>Best Price Guarantee</strong><br>Through direct partnerships with global carriers, we offer the lowest prices network-wide. Same reliable quality, better prices.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 3. 圣诞专属福利 -->
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-gift"></i> Holiday Special</h2>
-            <div class="christmas-card">
-                <div class="christmas-left">
-                    <i class="fas fa-snowflake"></i>
-                    <div class="christmas-text">
-                        <strong>🎄 Extra 10% OFF</strong>
-                        <span>Stackable with returning gift below!</span>
+        <!-- 简单的介绍部分 -->
+        <section id="why" class="py-16 bg-white">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold text-slate-900 mb-8">科学的多维评估模型</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="p-6 bg-slate-50 rounded-xl">
+                        <div class="text-4xl mb-4">🧠</div>
+                        <h3 class="font-bold text-lg">认知模式</h3>
+                        <p class="text-slate-600 text-sm mt-2">分析信息处理与学习偏好</p>
+                    </div>
+                    <div class="p-6 bg-slate-50 rounded-xl">
+                        <div class="text-4xl mb-4">❤️</div>
+                        <h3 class="font-bold text-lg">核心驱动力</h3>
+                        <p class="text-slate-600 text-sm mt-2">发现内在动机与热情所在</p>
+                    </div>
+                    <div class="p-6 bg-slate-50 rounded-xl">
+                        <div class="text-4xl mb-4">🌟</div>
+                        <h3 class="font-bold text-lg">天赋优势</h3>
+                        <p class="text-slate-600 text-sm mt-2">识别与生俱来的才干主题</p>
                     </div>
                 </div>
-                <div class="promo-code">2026</div>
             </div>
         </section>
-
-        <!-- 4. 20%返现 -->
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-coins"></i> Cash Back Reward</h2>
-            <div class="cashback-card">
-                <div class="cashback-badge">10%</div>
-                <div class="cashback-text">
-                    <strong>Cash Back on Every Order</strong>
-                    To thank you for your long-term support, you'll receive 10% cash back on every order, redeemable for future purchases.
-                </div>
-            </div>
-        </section>
-
-        <!-- 5. 老友专属回归礼 -->
-        <section class="section">
-            <div class="gift-badge"><i class="fas fa-crown"></i> Exclusive for Returning Friends</div>
-            <h2 class="section-title">Welcome Back Gift (Choose One)</h2>
-            <div class="gift-cards">
-                <div class="gift-card">
-                    <span class="option-tag">A</span>
-                    <div class="gift-icon">💵</div>
-                    <h3>Cash Voucher</h3>
-                    <div class="gift-value">$3</div>
-                    <p>No minimum purchase. Apply directly at checkout!</p>
-                </div>
-                <div class="gift-card">
-                    <span class="option-tag">B</span>
-                    <div class="gift-icon">📶</div>
-                    <h3>Free Data</h3>
-                    <div class="gift-value">3×1GB</div>
-                    <p>3 vouchers for any destination of your choice!</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 6. 如何领取 -->
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-hand-pointer"></i> How to Claim</h2>
-            <div class="step">
-                <div class="step-number">1</div>
-                <div class="step-content">
-                    <h4>Download eLink</h4>
-                    <p><a href="https://apps.apple.com/app/id6747476845" target="_blank">Get it on App Store →</a></p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-number">2</div>
-                <div class="step-content">
-                    <h4>Register with Your Email</h4>
-                    <p>Use your original PhoneSIM email. We'll automatically recognize you!</p>
-                </div>
-            </div>
-            <div class="step">
-                <div class="step-number">3</div>
-                <div class="step-content">
-                    <h4>Contact Support</h4>
-                    <p>Tell us you're a returning user and choose Option A or B to unlock your gift!</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- 7. 结尾承诺 + CTA -->
-        <section class="section">
-            <h2 class="section-title"><i class="fas fa-shield-alt"></i> Our Promise to You</h2>
-            <div class="promises">
-                <div class="promise-item">
-                    <i class="fas fa-headset"></i>
-                    <span>24/7 VIP Support</span>
-                </div>
-                <div class="promise-item">
-                    <i class="fas fa-undo"></i>
-                    <span>One-Click Refunds</span>
-                </div>
-                <div class="promise-item">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Transparent Usage</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section">
-            <p>We know trust is rebuilt through action. Thank you for your support — you are our most precious VIP user. We look forward to being your reliable global travel partner again!</p>
-            <a href="https://apps.apple.com/app/id6747476845" class="cta-button" target="_blank">
-                <i class="fab fa-apple"></i>
-                Download eLink Now
-            </a>
-        </section>
-
-        <footer class="footer">
-            <div class="footer-logo">
-                <i class="fas fa-signal"></i>
-                PhoneSIM & eLink Team
-            </div>
-            <p>Wishing you worry-free travels!</p>
-        </footer>
-
     </div>
 
+    <!-- ==================== 2. 测评界面 (Quiz Interface) ==================== -->
+    <div id="view-quiz" class="hidden min-h-screen bg-slate-50 flex flex-col items-center justify-center py-10 px-4">
+        <div class="w-full max-w-2xl bg-white rounded-2xl shadow-xl overflow-hidden fade-in">
+            <!-- 进度条 -->
+            <div class="bg-slate-100 h-2 w-full">
+                <div id="progress-bar" class="bg-indigo-600 h-full w-0 progress-transition"></div>
+            </div>
+            
+            <div class="p-8 md:p-12">
+                <div class="flex justify-between items-center mb-8">
+                    <span class="text-sm font-bold text-indigo-600 tracking-wider uppercase">Question <span id="q-current">1</span>/<span id="q-total">6</span></span>
+                    <span class="text-xs text-slate-400 bg-slate-100 px-2 py-1 rounded">单选题</span>
+                </div>
+
+                <h2 id="question-text" class="text-2xl font-bold text-slate-900 mb-8 leading-relaxed">
+                    题目加载中...
+                </h2>
+
+                <div id="options-container" class="space-y-4">
+                    <!-- 选项将通过 JS 插入这里 -->
+                </div>
+            </div>
+            
+            <div class="bg-slate-50 px-8 py-4 border-t border-slate-100 flex justify-between items-center">
+                <button onclick="location.reload()" class="text-slate-400 hover:text-slate-600 text-sm">退出测评</button>
+                <div class="text-xs text-slate-400">基于大五人格与霍兰德理论模型</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 3. 加载/分析界面 (Loading Screen) ==================== -->
+    <div id="view-loading" class="hidden min-h-screen bg-slate-900 flex flex-col items-center justify-center text-white relative overflow-hidden">
+        <!-- 背景动效 -->
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-indigo-600 rounded-full mix-blend-multiply filter blur-xl animate-blob"></div>
+            <div class="absolute top-1/3 right-1/4 w-64 h-64 bg-purple-600 rounded-full mix-blend-multiply filter blur-xl animate-blob animation-delay-2000"></div>
+        </div>
+
+        <div class="relative z-10 text-center">
+            <div class="mb-8 relative">
+                <!-- 旋转罗盘 -->
+                <svg class="w-24 h-24 text-indigo-400 animate-spin-slow mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                </svg>
+                <div class="absolute inset-0 flex items-center justify-center">
+                    <div class="w-2 h-2 bg-white rounded-full animate-ping"></div>
+                </div>
+            </div>
+            
+            <h2 class="text-2xl font-bold mb-2">AI 正在解码天赋基因...</h2>
+            <p id="loading-text" class="text-indigo-300 font-mono text-sm h-6">正在连接知识图谱...</p>
+            
+            <div class="mt-8 w-64 h-1 bg-slate-800 rounded-full mx-auto overflow-hidden">
+                <div class="h-full bg-indigo-500 animate-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== 4. 结果报告 (Results Page) ==================== -->
+    <div id="view-results" class="hidden min-h-screen bg-slate-50 pb-20">
+        <!-- 结果页头部 -->
+        <div class="bg-slate-900 text-white pt-20 pb-32 px-4 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-indigo-600 rounded-full opacity-20 blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+            <div class="max-w-4xl mx-auto relative z-10 text-center">
+                <div class="inline-block bg-green-500/20 text-green-300 text-xs font-bold px-3 py-1 rounded-full mb-4 border border-green-500/30">测评完成</div>
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">你的天赋原型是：<br><span class="text-indigo-400">战略型探索者</span></h1>
+                <p class="text-slate-400 max-w-2xl mx-auto">你拥有敏锐的洞察力和强大的逻辑构建能力，善于在复杂信息中发现规律，是天生的思考者与规划师。</p>
+            </div>
+        </div>
+
+        <!-- 报告卡片 -->
+        <div class="max-w-4xl mx-auto px-4 -mt-20 relative z-20">
+            
+            <!-- 核心优势卡片 -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 mb-8 fade-in">
+                <h2 class="text-xl font-bold text-slate-900 mb-6 flex items-center gap-2">
+                    <span class="w-1 h-6 bg-indigo-600 rounded-full"></span>
+                    核心优势雷达
+                </h2>
+                
+                <div class="flex flex-col md:flex-row gap-8 items-center">
+                    <!-- 模拟雷达图/能力条 -->
+                    <div class="w-full md:w-1/2 space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-700">逻辑分析 (Logic)</span>
+                                <span class="font-bold text-indigo-600">92%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-700">创新思维 (Creativity)</span>
+                                <span class="font-bold text-purple-600">85%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="bg-purple-600 h-2.5 rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-700">共情能力 (Empathy)</span>
+                                <span class="font-bold text-blue-500">65%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="bg-blue-500 h-2.5 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span class="font-medium text-slate-700">执行力 (Execution)</span>
+                                <span class="font-bold text-green-500">78%</span>
+                            </div>
+                            <div class="w-full bg-slate-100 rounded-full h-2.5">
+                                <div class="bg-green-500 h-2.5 rounded-full" style="width: 78%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 关键词标签 -->
+                    <div class="w-full md:w-1/2">
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-indigo-50 text-indigo-700 rounded-lg font-medium text-sm"># 全局视野</span>
+                            <span class="px-4 py-2 bg-purple-50 text-purple-700 rounded-lg font-medium text-sm"># 深度思考</span>
+                            <span class="px-4 py-2 bg-blue-50 text-blue-700 rounded-lg font-medium text-sm"># 结构化思维</span>
+                            <span class="px-4 py-2 bg-orange-50 text-orange-700 rounded-lg font-medium text-sm"># 独立自主</span>
+                            <span class="px-4 py-2 bg-teal-50 text-teal-700 rounded-lg font-medium text-sm"># 问题解决者</span>
+                        </div>
+                        <div class="mt-6 p-4 bg-slate-50 rounded-xl border border-slate-100">
+                            <p class="text-sm text-slate-600 italic">
+                                "你的大脑就像一个精密的扫描仪，总能快速识别出系统中的漏洞并提出优化方案。"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 详细建议 -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">🎓 推荐学科方向</h3>
+                    <ul class="space-y-2 text-slate-600 text-sm">
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 计算机科学与技术</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 应用数学 / 统计学</li>
+                        <li class="flex items-center gap-2"><svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg> 建筑设计 / 城市规划</li>
+                    </ul>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+                    <h3 class="font-bold text-lg text-slate-900 mb-3">🚀 潜能开发建议</h3>
+                    <ul class="space-y-2 text-slate-600 text-sm">
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> 鼓励参与辩论或编程类活动</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> 提供复杂的乐高或模型玩具</li>
+                        <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 bg-indigo-500 rounded-full"></span> 引导其将想法写下来，形成闭环</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center">
+                <p class="text-slate-500 mb-4 text-sm">想获取更详细的 20 页完整版报告？</p>
+                <button class="bg-indigo-600 text-white px-8 py-3 rounded-full font-bold hover:bg-indigo-700 transition shadow-lg w-full md:w-auto">
+                    解锁完整版报告 (演示结束)
+                </button>
+                <button onclick="location.reload()" class="block mt-4 text-indigo-600 text-sm mx-auto hover:underline">返回首页</button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript 逻辑 -->
     <script>
-        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
-            document.documentElement.classList.add('light');
-        }
-        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', event => {
-            if (event.matches) {
-                document.documentElement.classList.add('light');
-            } else {
-                document.documentElement.classList.remove('light');
+        // 模拟题库
+        const questions = [
+            {
+                question: "当遇到一个全新的复杂玩具或问题时，孩子通常会？",
+                options: [
+                    "立即动手尝试，在试错中寻找答案",
+                    "先观察说明书或结构，思考清楚再动手",
+                    "询问父母或同伴该怎么玩",
+                    "对它不感兴趣，去玩熟悉的玩具"
+                ]
+            },
+            {
+                question: "在团队游戏中，孩子更倾向于扮演什么角色？",
+                options: [
+                    "指挥者，告诉大家该做什么",
+                    "执行者，认真完成分配的任务",
+                    "调停者，关注大家是否开心",
+                    "创意者，提出新的玩法规则"
+                ]
+            },
+            {
+                question: "如果有一个自由的下午，孩子更可能选择？",
+                options: [
+                    "阅读书籍或看科普纪录片",
+                    "出去找朋友运动或玩耍",
+                    "画画、做手工或搭建积木",
+                    "观察昆虫、植物或做科学小实验"
+                ]
+            },
+            {
+                question: "面对困难的任务（如很难的拼图），孩子的反应是？",
+                options: [
+                    "很容易沮丧，想要放弃",
+                    "非常专注，不拼好不吃饭",
+                    "寻求帮助，希望一起完成",
+                    "尝试一会儿，不行就换个简单的玩"
+                ]
+            },
+            {
+                question: "孩子在表达想法时，通常表现为？",
+                options: [
+                    "逻辑清晰，有条理地陈述事实",
+                    "绘声绘色，带有丰富的情感和想象",
+                    "言简意赅，只说重点",
+                    "比较害羞，需要引导才能表达"
+                ]
+            },
+            {
+                question: "对于学校的课程，孩子最感兴趣的是？",
+                options: [
+                    "数学、科学等逻辑类课程",
+                    "语文、英语等语言类课程",
+                    "美术、音乐等艺术类课程",
+                    "体育、劳动等实践类课程"
+                ]
             }
-        });
+        ];
+
+        let currentQuestionIndex = 0;
+        const totalQuestions = questions.length;
+
+        // 视图切换函数
+        function switchView(viewId) {
+            ['view-landing', 'view-quiz', 'view-loading', 'view-results'].forEach(id => {
+                document.getElementById(id).classList.add('hidden');
+            });
+            document.getElementById(viewId).classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+
+        // 开始测评
+        function startAssessment() {
+            currentQuestionIndex = 0;
+            switchView('view-quiz');
+            renderQuestion();
+        }
+
+        // 渲染题目
+        function renderQuestion() {
+            const q = questions[currentQuestionIndex];
+            document.getElementById('q-current').innerText = currentQuestionIndex + 1;
+            document.getElementById('q-total').innerText = totalQuestions;
+            
+            // 更新进度条
+            const progress = ((currentQuestionIndex) / totalQuestions) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+
+            // 渲染文本
+            document.getElementById('question-text').innerText = q.question;
+            
+            // 渲染选项
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-600 hover:bg-indigo-50 transition duration-200 group flex items-center";
+                btn.innerHTML = `
+                    <span class="w-8 h-8 rounded-full bg-slate-100 text-slate-500 flex items-center justify-center mr-4 group-hover:bg-indigo-600 group-hover:text-white transition font-bold">${String.fromCharCode(65 + index)}</span>
+                    <span class="text-slate-700 font-medium group-hover:text-indigo-900">${opt}</span>
+                `;
+                btn.onclick = () => handleAnswer(index);
+                optionsContainer.appendChild(btn);
+            });
+        }
+
+        // 处理答题
+        function handleAnswer(index) {
+            // 可以在这里记录答案
+            // console.log(`Question ${currentQuestionIndex} Answered: ${index}`);
+
+            currentQuestionIndex++;
+            
+            // 更新进度条到当前题答完的状态
+            const progress = ((currentQuestionIndex) / totalQuestions) * 100;
+            document.getElementById('progress-bar').style.width = `${progress}%`;
+
+            if (currentQuestionIndex < totalQuestions) {
+                // 稍微延迟一下进入下一题，体验更好
+                setTimeout(() => {
+                    renderQuestion();
+                }, 300);
+            } else {
+                // 答题结束，进入加载页
+                setTimeout(() => {
+                    startLoadingSimulation();
+                }, 300);
+            }
+        }
+
+        // 模拟 AI 分析过程
+        function startLoadingSimulation() {
+            switchView('view-loading');
+            const loadingText = document.getElementById('loading-text');
+            const messages = [
+                "正在连接心理学知识图谱...",
+                "分析认知思维模式...",
+                "计算霍兰德职业兴趣代码...",
+                "匹配盖洛普优势主题...",
+                "生成个性化成长建议...",
+                "报告生成完毕！"
+            ];
+            
+            let step = 0;
+            const interval = setInterval(() => {
+                if (step < messages.length) {
+                    loadingText.innerText = messages[step];
+                    step++;
+                } else {
+                    clearInterval(interval);
+                    switchView('view-results');
+                }
+            }, 800); // 每800ms切换一次文案，总共约5秒
+        }
+
+        // 动画相关的 CSS
+        const style = document.createElement('style');
+        style.innerHTML = `
+            @keyframes spin-slow {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+            }
+            .animate-spin-slow {
+                animation: spin-slow 8s linear infinite;
+            }
+            @keyframes progress {
+                0% { width: 0%; }
+                100% { width: 100%; }
+            }
+            .animate-progress {
+                animation: progress 4.8s ease-in-out forwards;
+            }
+            @keyframes blob {
+                0% { transform: translate(0px, 0px) scale(1); }
+                33% { transform: translate(30px, -50px) scale(1.1); }
+                66% { transform: translate(-20px, 20px) scale(0.9); }
+                100% { transform: translate(0px, 0px) scale(1); }
+            }
+            .animate-blob {
+                animation: blob 7s infinite;
+            }
+            .animation-delay-2000 {
+                animation-delay: 2s;
+            }
+        `;
+        document.head.appendChild(style);
+
     </script>
 </body>
 </html>
