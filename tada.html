@@ -1554,6 +1554,305 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Profile Summary */
+        .profile-summary {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(59, 130, 246, 0.1));
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            margin-bottom: 2rem;
+            animation: cardReveal 0.6s ease-out 0.3s backwards;
+        }
+
+        .profile-avatar {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            flex-shrink: 0;
+        }
+
+        .avatar-ring {
+            position: absolute;
+            inset: 0;
+            border: 3px solid var(--aurora-teal);
+            border-radius: 50%;
+            animation: rotateCompass 20s linear infinite;
+        }
+
+        .avatar-core {
+            position: absolute;
+            inset: 10px;
+            background: var(--gradient-aurora);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .avatar-core i {
+            font-size: 2rem;
+            color: #0a0e1a;
+        }
+
+        .profile-main-info {
+            flex: 1;
+        }
+
+        .profile-type {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            background: var(--gradient-aurora);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile-tagline {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* Guidance Sections */
+        .guidance-section {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            animation: cardReveal 0.6s ease-out backwards;
+        }
+
+        .guidance-section:nth-child(4) { animation-delay: 0.4s; }
+        .guidance-section:nth-child(5) { animation-delay: 0.5s; }
+        .guidance-section:nth-child(6) { animation-delay: 0.6s; }
+        .guidance-section:nth-child(7) { animation-delay: 0.7s; }
+        .guidance-section:nth-child(8) { animation-delay: 0.8s; }
+        .guidance-section:nth-child(9) { animation-delay: 0.9s; }
+
+        .guidance-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.25rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .guidance-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .guidance-icon.work { background: linear-gradient(135deg, #3b82f6, #60a5fa); color: white; }
+        .guidance-icon.life { background: linear-gradient(135deg, #10b981, #34d399); color: white; }
+        .guidance-icon.relationship { background: linear-gradient(135deg, #ec4899, #f472b6); color: white; }
+        .guidance-icon.growth { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; }
+        .guidance-icon.challenges { background: linear-gradient(135deg, #ef4444, #f87171); color: white; }
+        .guidance-icon.actions { background: linear-gradient(135deg, #8b5cf6, #a78bfa); color: white; }
+
+        .guidance-title h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .guidance-title p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        .guidance-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* Guidance Cards */
+        .guidance-card {
+            display: flex;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .light .guidance-card {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .guidance-card:hover {
+            transform: translateX(5px);
+            background: rgba(0, 212, 170, 0.1);
+        }
+
+        .guidance-card-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .guidance-card-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.35rem;
+            color: var(--text-primary);
+        }
+
+        .guidance-card-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Action Items */
+        .action-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.25rem;
+            background: rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            border-left: 4px solid var(--aurora-teal);
+        }
+
+        .light .action-item {
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .action-check {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            background: var(--aurora-teal);
+            color: #0a0e1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+
+        .action-text {
+            flex: 1;
+        }
+
+        .action-text h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.2rem;
+        }
+
+        .action-text p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .action-time {
+            font-size: 0.8rem;
+            color: var(--aurora-teal);
+            padding: 0.25rem 0.75rem;
+            background: rgba(0, 212, 170, 0.1);
+            border-radius: 50px;
+            white-space: nowrap;
+        }
+
+        /* Challenge Cards */
+        .challenge-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+            border-radius: 16px;
+        }
+
+        .challenge-problem, .challenge-solution {
+            padding: 1rem;
+            border-radius: 12px;
+        }
+
+        .challenge-problem {
+            background: rgba(239, 68, 68, 0.1);
+        }
+
+        .challenge-solution {
+            background: rgba(16, 185, 129, 0.1);
+        }
+
+        .challenge-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .challenge-problem .challenge-label { color: #ef4444; }
+        .challenge-solution .challenge-label { color: #10b981; }
+
+        .challenge-problem p, .challenge-solution p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .profile-summary {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .profile-badges {
+                justify-content: center;
+            }
+
+            .guidance-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .challenge-card {
+                grid-template-columns: 1fr;
+            }
+
+            .action-item {
+                flex-wrap: wrap;
+            }
+
+            .action-time {
+                width: 100%;
+                text-align: center;
+                margin-top: 0.5rem;
+            }
+        }
+
         /* Results Radar */
         .results-main {
             display: grid;
@@ -2583,7 +2882,7 @@
                         <i class="fas fa-lightbulb"></i>
                         <div class="planet-tooltip" style="top: 50%; right: 100%; transform: translateY(-50%);">
                             <div class="tooltip-title"><i class="fas fa-lightbulb" style="color: #06b6d4;"></i> 认知心理学</div>
-                            <div class="tooltip-desc">解析学习风格，生成个性化策略</div>
+                            <div class="tooltip-desc">解析学习风格，生成个���化策略</div>
                         </div>
                     </div>
 
@@ -2788,7 +3087,7 @@
             <div class="feature-row animate-on-scroll">
                 <div class="feature-text">
                     <h3><i class="fas fa-fire-alt" style="color: var(--plasma-pink);"></i> 心流时刻记录器</h3>
-                    <p>结合日记和AI分析，让你标记产生心流的活动。AI反向推导其背后的优势与兴趣组合，验证���评结果。</p>
+                    <p>结合日记和AI分析，让你标记产生心流的活动。AI反向推导其背后的优势与兴趣组合，验证测评结果。</p>
                     <ul class="feature-list">
                         <li><i class="fas fa-check"></i> 简单打卡，记录沉浸时刻</li>
                         <li><i class="fas fa-check"></i> AI分析心流背后的特质组合</li>
@@ -3365,7 +3664,7 @@
                             <i class="fas fa-paint-brush" style="color: white;"></i>
                         </div>
                         <div class="flow-activity-content">
-                            <h4>艺术创作/设���</h4>
+                            <h4>艺术创作/设计</h4>
                             <p>绘画、设计、音乐创作等</p>
                         </div>
                         <div class="flow-slider-container">
@@ -3430,7 +3729,7 @@
                         <i class="fas fa-lightbulb"></i> 认知心理学
                     </div>
                     <h2 class="question-title">学习新知识时，你更倾向于哪种方式？</h2>
-                    <p class="question-desc">选择最符合���学习习惯的选项</p>
+                    <p class="question-desc">选择最符合你学习习惯的选项</p>
                 </div>
                 <div class="scenario-options">
                     <div class="scenario-option" data-value="visual" onclick="selectScenario(this, 7)">
@@ -3508,46 +3807,118 @@
                     <p>基于7大科学理论的深度分析，这是属于您的独特发展蓝图</p>
                 </div>
 
+                <!-- Profile Summary -->
+                <div class="profile-summary" id="profileSummary">
+                    <div class="profile-avatar">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-core"><i class="fas fa-user-astronaut"></i></div>
+                    </div>
+                    <div class="profile-main-info">
+                        <div class="profile-type" id="profileType"></div>
+                        <div class="profile-tagline" id="profileTagline"></div>
+                        <div class="profile-badges" id="profileBadges"></div>
+                    </div>
+                </div>
+
                 <div class="results-main">
                     <div class="radar-card">
                         <h3><i class="fas fa-chart-radar" style="color: var(--aurora-teal);"></i> 多维潜能雷达</h3>
                         <div class="radar-chart">
-                            <svg viewBox="0 0 200 200" id="radarSvg">
-                                <!-- Will be generated by JS -->
-                            </svg>
+                            <svg viewBox="0 0 200 200" id="radarSvg"></svg>
                         </div>
                     </div>
 
                     <div class="profile-card">
                         <h3><i class="fas fa-id-card" style="color: var(--aurora-teal);"></i> 核心特质画像</h3>
-                        <div class="profile-badges" id="profileBadges">
-                            <!-- Generated by JS -->
-                        </div>
-                        <div class="profile-traits" id="profileTraits">
-                            <!-- Generated by JS -->
-                        </div>
+                        <div class="profile-traits" id="profileTraits"></div>
                     </div>
                 </div>
 
-                <div class="theory-results" id="theoryResults">
-                    <!-- Generated by JS -->
+                <!-- Work Guidance Section -->
+                <div class="guidance-section work-guidance">
+                    <div class="guidance-header">
+                        <div class="guidance-icon work"><i class="fas fa-briefcase"></i></div>
+                        <div class="guidance-title">
+                            <h3>💼 职场发展指南</h3>
+                            <p>基于你的特质组合，这些是最适合你的工作方式和职业方向</p>
+                        </div>
+                    </div>
+                    <div class="guidance-content" id="workGuidance"></div>
                 </div>
+
+                <!-- Life Guidance Section -->
+                <div class="guidance-section life-guidance">
+                    <div class="guidance-header">
+                        <div class="guidance-icon life"><i class="fas fa-heart"></i></div>
+                        <div class="guidance-title">
+                            <h3>🌱 生活平衡建议</h3>
+                            <p>让你的天赋在日常生活中持续发光</p>
+                        </div>
+                    </div>
+                    <div class="guidance-content" id="lifeGuidance"></div>
+                </div>
+
+                <!-- Relationship Guidance Section -->
+                <div class="guidance-section relationship-guidance">
+                    <div class="guidance-header">
+                        <div class="guidance-icon relationship"><i class="fas fa-users"></i></div>
+                        <div class="guidance-title">
+                            <h3>🤝 人际沟通风格</h3>
+                            <p>了解你的社交模式，建立更有效的人际关系</p>
+                        </div>
+                    </div>
+                    <div class="guidance-content" id="relationshipGuidance"></div>
+                </div>
+
+                <!-- Growth Guidance Section -->
+                <div class="guidance-section growth-guidance">
+                    <div class="guidance-header">
+                        <div class="guidance-icon growth"><i class="fas fa-chart-line"></i></div>
+                        <div class="guidance-title">
+                            <h3>📈 成长提升路径</h3>
+                            <p>针对你的特质设计的个性化学习和成长方案</p>
+                        </div>
+                    </div>
+                    <div class="guidance-content" id="growthGuidance"></div>
+                </div>
+
+                <!-- Challenges Section -->
+                <div class="guidance-section challenges-guidance">
+                    <div class="guidance-header">
+                        <div class="guidance-icon challenges"><i class="fas fa-mountain"></i></div>
+                        <div class="guidance-title">
+                            <h3>⚡ 潜在挑战与应对</h3>
+                            <p>每种天赋都有其盲点，这里是你需要注意的方面</p>
+                        </div>
+                    </div>
+                    <div class="guidance-content" id="challengesGuidance"></div>
+                </div>
+
+                <!-- Daily Actions Section -->
+                <div class="guidance-section actions-guidance">
+                    <div class="guidance-header">
+                        <div class="guidance-icon actions"><i class="fas fa-tasks"></i></div>
+                        <div class="guidance-title">
+                            <h3>✅ 每日行动建议</h3>
+                            <p>从今天开始，用这些微习惯激活你的潜能</p>
+                        </div>
+                    </div>
+                    <div class="guidance-content" id="actionsGuidance"></div>
+                </div>
+
+                <div class="theory-results" id="theoryResults"></div>
 
                 <div class="ai-insights">
                     <div class="ai-insights-header">
                         <div class="ai-icon"><i class="fas fa-robot"></i></div>
                         <h3>AI 深度洞察</h3>
                     </div>
-                    <div class="ai-insights-content" id="aiInsights">
-                        <!-- Generated by JS -->
-                    </div>
+                    <div class="ai-insights-content" id="aiInsights"></div>
                 </div>
 
                 <div class="career-section">
                     <h3><i class="fas fa-road"></i> 推荐发展路径</h3>
-                    <div class="career-paths" id="careerPaths">
-                        <!-- Generated by JS -->
-                    </div>
+                    <div class="career-paths" id="careerPaths"></div>
                 </div>
 
                 <div class="results-actions">
@@ -3935,23 +4306,30 @@
             // Generate radar chart
             generateRadarChart();
 
-            // Generate profile badges
-            const badges = document.getElementById('profileBadges');
             const hollandCode = answers.holland.join('') || 'IA';
             const mbtiType = getMBTIType();
-            badges.innerHTML = `
+            const strength = getTopStrength();
+            const intelligence = getTopIntelligence();
+            const flowActivity = getTopFlow();
+            const cogStyle = getCognitiveStyle();
+
+            // Profile Summary
+            document.getElementById('profileType').textContent = getProfileTitle(strength, mbtiType);
+            document.getElementById('profileTagline').textContent = getProfileTagline(strength, intelligence, hollandCode);
+            document.getElementById('profileBadges').innerHTML = `
                 <span class="profile-badge primary">${mbtiType}</span>
-                <span class="profile-badge secondary">霍兰德 ${hollandCode}</span>
-                <span class="profile-badge secondary">${getTopStrength()}</span>
+                <span class="profile-badge secondary">霍兰德 ${hollandCode}型</span>
+                <span class="profile-badge secondary">${strength}型人才</span>
+                <span class="profile-badge secondary">${intelligence}</span>
             `;
 
             // Generate profile traits
             const traits = document.getElementById('profileTraits');
             const traitData = [
-                { icon: 'fa-star', color: '#f59e0b', name: '核心才干', value: getTopStrength(), score: 92 },
-                { icon: 'fa-brain', color: '#3b82f6', name: '主导智能', value: getTopIntelligence(), score: 88 },
-                { icon: 'fa-fire', color: '#ec4899', name: '心流活动', value: getTopFlow(), score: 85 },
-                { icon: 'fa-lightbulb', color: '#06b6d4', name: '学习风格', value: getCognitiveStyle(), score: 90 }
+                { icon: 'fa-star', color: '#f59e0b', name: '核心才干', value: strength, score: 92 },
+                { icon: 'fa-brain', color: '#3b82f6', name: '主导智能', value: intelligence, score: 88 },
+                { icon: 'fa-fire', color: '#ec4899', name: '心流活动', value: flowActivity, score: 85 },
+                { icon: 'fa-lightbulb', color: '#06b6d4', name: '学习风格', value: cogStyle, score: 90 }
             ];
 
             traits.innerHTML = traitData.map(t => `
@@ -3969,16 +4347,34 @@
                 </div>
             `).join('');
 
+            // Generate Work Guidance
+            generateWorkGuidance(strength, hollandCode, mbtiType);
+
+            // Generate Life Guidance
+            generateLifeGuidance(strength, flowActivity, mbtiType);
+
+            // Generate Relationship Guidance
+            generateRelationshipGuidance(mbtiType, strength);
+
+            // Generate Growth Guidance
+            generateGrowthGuidance(cogStyle, intelligence, strength);
+
+            // Generate Challenges
+            generateChallenges(strength, mbtiType);
+
+            // Generate Daily Actions
+            generateDailyActions(strength, flowActivity, cogStyle);
+
             // Generate theory results
             const theoryResults = document.getElementById('theoryResults');
             const theories = [
-                { icon: 'gallup', name: '盖洛普优势', value: getTopStrength(), desc: '你的首要才干主题，发挥它能获得6倍效率提升' },
+                { icon: 'gallup', name: '盖洛普优势', value: strength, desc: '你的首要才干主题，发挥它能获得6倍效率提升' },
                 { icon: 'jung', name: '荣格类型', value: mbtiType, desc: '你的心理能量模式和认知偏好' },
                 { icon: 'big5', name: '大五人格', value: getBig5Summary(), desc: '你在五大人格维度上的特质分布' },
-                { icon: 'mi', name: '多元智能', value: getTopIntelligence(), desc: '你最突出的智能领域' },
+                { icon: 'mi', name: '多元智能', value: intelligence, desc: '你最突出的智能领域' },
                 { icon: 'holland', name: '霍兰德代码', value: hollandCode + '型', desc: '你的职业兴趣类型组合' },
-                { icon: 'flow', name: '心流活动', value: getTopFlow(), desc: '最容易让你进入心流状态的活动' },
-                { icon: 'cognitive', name: '认知风格', value: getCognitiveStyle(), desc: '你的最佳学习方式' }
+                { icon: 'flow', name: '心流活动', value: flowActivity, desc: '最容易让你进入心流状态的活动' },
+                { icon: 'cognitive', name: '认知���格', value: cogStyle, desc: '你的最佳学习方式' }
             ];
 
             theoryResults.innerHTML = theories.map(t => `
@@ -4018,10 +4414,303 @@
             `).join('');
         }
 
+        function getProfileTitle(strength, mbti) {
+            const titles = {
+                '战略': '远见卓识的战略家',
+                '成就': '目标导向的实干家',
+                '学习': '永不止步的探索者',
+                '关联': '深度连接的共情者',
+                '思维': '创意无限的思想家'
+            };
+            return titles[strength] || '独特潜能的拥有者';
+        }
+
+        function getProfileTagline(strength, intelligence, holland) {
+            const strengthDesc = {
+                '战略': '善于在复杂局面中找到最佳路径',
+                '成就': '拥有强大的内驱力和执行力',
+                '学习': '对新知识有着天然的渴望',
+                '关联': '能够建立深度而持久的关系',
+                '思维': '擅长在不同概念间建立联系'
+            };
+            return `你是一位${strengthDesc[strength] || '具有独特才能'}的人，结合${intelligence}优势，在${holland}型领域有着巨大的发展潜力。`;
+        }
+
+        function generateWorkGuidance(strength, holland, mbti) {
+            const workData = {
+                '战略': [
+                    { icon: 'fa-chess', title: '理想工作环境', text: '需要战略思考和长期规划的岗位最能发挥你的优势。适合咨询顾问、产品经理、投资分析师等需要全局视野的角色。避免过于执行导向、缺乏思考空间的工作。' },
+                    { icon: 'fa-lightbulb', title: '工作方式建议', text: '开会前先独立思考，形成框架后再讨论。遇到问题时，先退后一步看全局，再制定行动方案。定期给自己留出"战略思考时间"。' },
+                    { icon: 'fa-users-cog', title: '团队协作模式', text: '你适合担任团队的"首席思考官"，帮助团队看清方向。但要注意：不是所有人都能跟上你的思维速度，需要耐心解释你的思路。' },
+                    { icon: 'fa-chart-line', title: '晋升路径建议', text: '从专业岗位起步→负责某个产品/项目的战略规划→进入管理层参与公司战略→最终成为战略决策层核心成员。' }
+                ],
+                '成就': [
+                    { icon: 'fa-target-crosshairs', title: '理想工作环境', text: '有明确目标和可衡量成果的工作最能激发你的动力。适合销售、项目管理、创业、运营等需要持续交付成果的角色。' },
+                    { icon: 'fa-list-check', title: '工作方式建议', text: '将大目标分解为每日可完成的小任务。建立"成就日志"记录每天的进展。设定挑战性目标，但确保可实现。' },
+                    { icon: 'fa-handshake', title: '团队协作模式', text: '你是团队的"发动机"，能带动整体节奏。但要注意：不要因为追求效率而忽视团队成员的感受和需要的支持。' },
+                    { icon: 'fa-stairs', title: '晋升路径建议', text: '从高绩效个人贡献者→带领小团队创造业绩→管理更大业务单元→成为业务负责人或创业。' }
+                ],
+                '学习': [
+                    { icon: 'fa-graduation-cap', title: '理想工作环境', text: '持续有新知识输入和成长空间的环境最适合你。适合研究员、培训师、咨询顾问、技术专家等需要不断学习的角色。' },
+                    { icon: 'fa-book-open', title: '工作方式建议', text: '每天留出专门的学习时间。将学习成果转化为文档或分享，这样既巩固知识又创造价值。主动申请需要学习新技能的项目。' },
+                    { icon: 'fa-chalkboard-teacher', title: '团队协作模式', text: '你是团队的"知识引擎"，善于引入新方法新工具。但要注意：学习要有重点，避免"学而不精"；要将知识转化为行动。' },
+                    { icon: 'fa-route', title: '晋升路径建议', text: '从专业技能积累→成为领域专家→建立个人影响力→成为行业思想领袖或转型管理。' }
+                ],
+                '关联': [
+                    { icon: 'fa-heart-handshake', title: '理想工作环境', text: '需要建立深度关系的工作最能发挥你的优势。适合客户成功、人力资源、心理咨询、社群运营等需要真诚连接的角色。' },
+                    { icon: 'fa-comments', title: '工作方式建议', text: '主动与同事建立一对一的深度交流。在工作中寻找志同道合的伙伴。用你的共情能力帮助团队解决人际冲突。' },
+                    { icon: 'fa-bridge', title: '团队协作模式', text: '你是团队的"粘合剂"，能促进成员间的信任。但要注意：不要过于投入关系而忽视工作产出；学会与"浅层关系"共处。' },
+                    { icon: 'fa-seedling', title: '晋升路径建议', text: '从建立信任的个人贡献者→成为团队凝聚力核心→负责人才发展或客户关系→成为组织文化或人才战略负责人。' }
+                ],
+                '思维': [
+                    { icon: 'fa-brain', title: '理想工作环境', text: '需要创意思考和创新的环境最能激发你的潜能。适合创意设计、产品创新、研发、写作等需要独特视角的角色。' },
+                    { icon: 'fa-wand-magic-sparkles', title: '工作方式建议', text: '给自己创造"胡思乱想"的时间。准备一个随时记录灵感的工具。将抽象想法转化为具体可执行的方案。' },
+                    { icon: 'fa-puzzle-piece', title: '团队协作模式', text: '你是团队的"创意发动机"，能提供独特视角。但要注意：创意需要落地；学会用他人能理解的方式表达你的想法。' },
+                    { icon: 'fa-rocket', title: '晋升路径建议', text: '从创意执行者→主导创新项目→建立创新方法论→成为创新战略负责人或创业。' }
+                ]
+            };
+
+            const data = workData[strength] || workData['战略'];
+            document.getElementById('workGuidance').innerHTML = data.map(item => `
+                <div class="guidance-card">
+                    <div class="guidance-card-icon"><i class="fas ${item.icon}"></i></div>
+                    <div class="guidance-card-content">
+                        <h4>${item.title}</h4>
+                        <p>${item.text}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function generateLifeGuidance(strength, flow, mbti) {
+            const lifeData = {
+                '战略': [
+                    { icon: 'fa-calendar-check', title: '生活规划建议', text: '你喜欢有计划的生活，但要记得留出"留白时间"给意外和惊喜。每周日做下周规划，但保持20%的弹性空间。' },
+                    { icon: 'fa-battery-full', title: '能量管理', text: '深度思考会消耗大量心智能量。确保有足够的独处时间恢复。避免在疲惫时做重要决策。' },
+                    { icon: 'fa-heart', title: '情感关系', text: '你可能过于理性分析感情，记得感情不是"问题"，不需要被"解决"。多用心感受，少用脑分析。' }
+                ],
+                '成就': [
+                    { icon: 'fa-balance-scale', title: '生活平衡建议', text: '你容易陷入"永远在做事"的状态。设定"停止工作"的时间边界。成就感也可以来自陪伴家人、培养爱好。' },
+                    { icon: 'fa-medal', title: '能量管理', text: '完成任务给你能量，但别忘了庆祝。每完成一个目标，给自己一个小奖励。避免刚完成就立刻投入下一个目标。' },
+                    { icon: 'fa-home', title: '情感关系', text: '爱人和朋友不是你要"搞定"的任务。学会"无所事事"地在一起。关系的质量不能用"完成了多少事"来衡量。' }
+                ],
+                '学习': [
+                    { icon: 'fa-hourglass-half', title: '生活规划建议', text: '你的好奇心可能让你同时追逐太多兴趣。选择1-2个深耕领域，其他作为轻量级爱好。深度比广度更能带来满足感。' },
+                    { icon: 'fa-plug', title: '能量管理', text: '学习新事物给你能量。确保每天有学习时间，哪怕只是15分钟。把"学习"安排在高能量时段。' },
+                    { icon: 'fa-users', title: '情感关系', text: '找到愿意和你一起学习成长的伙伴。分享你的所学所思，这会加深关系。但要记得：倾听对方，不只是分享自己的发现。' }
+                ],
+                '关联': [
+                    { icon: 'fa-door-open', title: '生活规划建议', text: '你需要深度关系，但也要给自己留出独处空间。学会区分"需要的关系"和"随缘的社交"，把精力放在前者。' },
+                    { icon: 'fa-shield-heart', title: '能量管理', text: '与亲密的人相处给你能量，但表面社交会消耗你。减少无效社交，增加深度对话。学会说"不"，保护你的情感能量。' },
+                    { icon: 'fa-hand-holding-heart', title: '情感关系', text: '你的共情力是礼物，但也可能成为负担。学会区分"自己的情绪"和"他人的情绪"。可以理解对方，但不必承担对方的痛苦。' }
+                ],
+                '思维': [
+                    { icon: 'fa-palette', title: '生活规划建议', text: '你需要创造性表达的出口。培养一个纯粹为了乐趣的创意爱好：写作、绘画、音乐、手工...任何让你表达想法的方式。' },
+                    { icon: 'fa-cloud', title: '能量管理', text: '"神游"对你来说是必要的恢复方式。不要因为"什么都没做"而内疚。给思维留白，才能冒出最好的点子。' },
+                    { icon: 'fa-comments', title: '情感关系', text: '你的思维可能让别人觉得你"活在自己的世界"。记得时常回到当下，关注身边人的感受。分享你的内心世界，而不只是你的想法。' }
+                ]
+            };
+
+            const data = lifeData[strength] || lifeData['战略'];
+            document.getElementById('lifeGuidance').innerHTML = data.map(item => `
+                <div class="guidance-card">
+                    <div class="guidance-card-icon"><i class="fas ${item.icon}"></i></div>
+                    <div class="guidance-card-content">
+                        <h4>${item.title}</h4>
+                        <p>${item.text}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function generateRelationshipGuidance(mbti, strength) {
+            const isIntrovert = mbti.includes('I') || answers.jung === 'I';
+            const relationshipData = [
+                {
+                    icon: 'fa-comment-dots',
+                    title: '沟通风格特点',
+                    text: isIntrovert
+                        ? '你倾向于深思熟虑后再表达，喜欢一对一的深度交流。在会议中，你可能不是发言最多的，但往往能提出深刻见解。建议：给自己准备时间，提前思考要点；主动分享你的想法，因为别人可能不知道你在想什么。'
+                        : '你善于在交流中获得能量，喜欢通过讨论来思考。你的表达通常生动活跃，能带动氛围。建议：留出倾听的空间，让别人说完再回应；与内向的人交流时，给对方思考的时间。'
+                },
+                {
+                    icon: 'fa-handshake-angle',
+                    title: '冲突处理方式',
+                    text: strength === '关联'
+                        ? '你倾向于避免冲突，可能会牺牲自己的需求来维护和谐。建议：健康的冲突是关系深化的机会。学会表达不同意见，这不会破坏关系，反而能增进理解。'
+                        : '你能够直面冲突，但可能过于关注"对错"而忽视情感。建议：冲突中，先承认对方的感受（"我理解你的感受"），再讨论事实。赢得争论不如赢得关系重要。'
+                },
+                {
+                    icon: 'fa-gift',
+                    title: '你能给他人带来什么',
+                    text: `凭借你的${strength}特质，你能给身边的人带来独特的价值：${strength === '战略' ? '清晰的方向感和冷静的分析' : strength === '成就' ? '执行力和激励他人的动力' : strength === '学习' ? '新知识新视角和成长的启发' : strength === '关联' ? '深度理解和真诚的陪伴' : '创意灵感和独特的思考角度'}。不要低估这份独特价值！`
+                },
+                {
+                    icon: 'fa-user-friends',
+                    title: '最佳合作伙伴类型',
+                    text: strength === '战略' ? '你需要能执行你想法的"成就型"伙伴，以及能从人际角度给你反馈的"关联型"伙伴。'
+                        : strength === '成就' ? '你需要能帮你看清方向的"战略型"伙伴，以及能带来新方法的"学习型"伙伴。'
+                        : strength === '学习' ? '你需要能把知识变成行动的"成就型"伙伴，以及能拓展你思维的"思维型"伙伴。'
+                        : strength === '关联' ? '你需要能帮你保持目标感的"成就型"伙伴，以及能给你空间思考的"战略型"伙伴。'
+                        : '你需要能帮你落地想法的"成就型"伙伴，以及能帮你建立关系网络的"关联型"伙伴。'
+                }
+            ];
+
+            document.getElementById('relationshipGuidance').innerHTML = relationshipData.map(item => `
+                <div class="guidance-card">
+                    <div class="guidance-card-icon"><i class="fas ${item.icon}"></i></div>
+                    <div class="guidance-card-content">
+                        <h4>${item.title}</h4>
+                        <p>${item.text}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function generateGrowthGuidance(cogStyle, intelligence, strength) {
+            const growthData = [
+                {
+                    icon: 'fa-book',
+                    title: `基于${cogStyle}的学习方法`,
+                    text: cogStyle === '视觉型学习'
+                        ? '使用思维导图整理知识结构。看视频教程时做截图笔记。用颜色标记重点，建立视觉记忆系统。推荐工具：XMind、Notion、Miro。'
+                        : cogStyle === '听觉型学习'
+                        ? '将学习内容转化为音频，通勤时收听。找学习伙伴讨论，通过"讲出来"加深理解。录制自己的学习笔记，回听巩固。'
+                        : cogStyle === '动觉型学习'
+                        ? '边走边思考，不要久坐。通过实践项目学习，而不只是看书。使用手写笔记，动手的过程帮助记忆。'
+                        : '做详细的阅读笔记和总结。将所学整理成文章或博客。建立个人知识库，用写作来内化知识。'
+                },
+                {
+                    icon: 'fa-dumbbell',
+                    title: '需要刻意练习的能力',
+                    text: strength === '战略' ? '执行力和行动速度。你的短板是"想得多做得少"。练习：设定"5分钟行动"规则——想法产生后5分钟内采取第一个行动。'
+                        : strength === '成就' ? '战略思考和耐心。你的短板是"只顾低头拉车"。练习：每周留出2小时"战略思考时间"，问自己"我在做正确的事吗？"'
+                        : strength === '学习' ? '知识变现和深度专精。你的短板是"学得多用得少"。练习：每学一个新技能，必须产出一个可展示的成果。'
+                        : strength === '关联' ? '任务导向和边界感。你的短板是"过于在意他人感受"。练习：每天完成最重要的任务后，再响应他人的请求。'
+                        : '执行落地和表达清晰。你的短板是"想法太超前难以沟通"。练习：用"一句话说清楚"训练，简化你的表达。'
+                },
+                {
+                    icon: 'fa-bullseye',
+                    title: '3个月成长目标建议',
+                    text: `第1个月：深度理解自己的${strength}特质，记录它在日常中的表现。第2个月：刻意在工作中运用这个优势，找到1-2个高价值应用场景。第3个月：与他人分享你的发现，建立"${strength}型专家"的个人品牌。`
+                },
+                {
+                    icon: 'fa-compass',
+                    title: '长期发展方向',
+                    text: `凭借你的${intelligence}和${strength}特质组合，建议你在未来3-5年内成为"${getExpertiseArea(intelligence, strength)}"领域的专家。这个方向既发挥了你的天然优势，又有足够的成长空间和市场价值。`
+                }
+            ];
+
+            document.getElementById('growthGuidance').innerHTML = growthData.map(item => `
+                <div class="guidance-card">
+                    <div class="guidance-card-icon"><i class="fas ${item.icon}"></i></div>
+                    <div class="guidance-card-content">
+                        <h4>${item.title}</h4>
+                        <p>${item.text}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function getExpertiseArea(intelligence, strength) {
+            const areas = {
+                '数理逻辑智能': { '战略': '商业战略分析', '成就': '数据驱动运营', '学习': '技术研究', '关联': '用户研究', '思维': '算法创新' },
+                '空间智能': { '战略': '产品设计战略', '成就': '项目交付管理', '学习': '设计研究', '关联': '用户体验', '思维': '创意设���' },
+                '语言智能': { '战略': '内容战略', '成就': '营销运营', '学习': '知识管理', '关联': '品牌传播', '思维': '创意写作' },
+                '内省智能': { '战略': '组织发展咨询', '成就': '绩效教练', '学习': '心理研究', '关联': '心理咨询', '思维': '哲学研究' }
+            };
+            return areas[intelligence]?.[strength] || '跨领域创新';
+        }
+
+        function generateChallenges(strength, mbti) {
+            const challenges = {
+                '战略': [
+                    { problem: '可能过于追求完美方案，导致"分析瘫痪"，迟迟不行动。', solution: '设定"决策截止时间"。记住：80%完美的方案立刻执行，胜过100%完美的方案永远不开始。' },
+                    { problem: '可能让人觉得冷漠或傲慢，因为太专注于分析而忽视情感。', solution: '在提出分析前，先承认对方的情绪和努力。用"我理解..."开头，再说"我的分析是..."' },
+                    { problem: '可能在执行细节上失去耐心，觉得"反正已经想清楚了"。', solution: '找一个执行力强的搭档互补。或者将执行分解成小目标，保持战略视角的同时关注进展。' }
+                ],
+                '成就': [
+                    { problem: '可能过于追求效率，让周围人感到压力或被忽视。', solution: '每天留出"无任务时间"与家人朋友相处。记住：关系不是要"完成"的任务，而是要"享受"的过程。' },
+                    { problem: '可能陷入"永远不够"的焦虑，完成目标后立刻设定更高目标。', solution: '建立"庆祝仪式"，每个里程碑后给自己一天休息。写成就日记，定期回顾已经完成的事。' },
+                    { problem: '可能忽视自己的身心健康，觉得"休息是浪费时间"。', solution: '把健康指标也设为目标：每天睡眠7小时、每周运动3次。用你擅长的目标管理方式管理健康。' }
+                ],
+                '学习': [
+                    { problem: '可能"学而不精"，兴趣太广泛导致每样都只懂皮毛。', solution: '用80/20法则：80%时间深耕1-2个核心领域，20%时间探索新兴趣。设定"学习完成标准"，避免无限探索。' },
+                    { problem: '可能只顾学习而忽视应用，成为"理论家"而非"实践者"。', solution: '每学一个新技能，必须在一周内找到实际应用场景。用"教会别人"来检验是否真正掌握。' },
+                    { problem: '可能因为对学习的热爱而忽视人际关系和情感需求。', solution: '将社交也视为学习机会——从他人身上学习。找到同样热爱学习的伙伴，一起成长。' }
+                ],
+                '关联': [
+                    { problem: '可能过于在意他人感受，牺牲自己的需求和边界。', solution: '学会说"不"的艺术。记住：健康的边界不会破坏真正的关系，反而能让关系更持久。' },
+                    { problem: '可能在浅层社交场合感到疲惫和不自在。', solution: '接受自己不擅长"广撒网"式社交。专注发展少数深度关系，质量比数量重要。' },
+                    { problem: '可能因为过度共情而承担他人的负面情绪，影响自己的状态。', solution: '练习"情绪区分"：我理解你的感受，但这不是我的感受。帮助他人后，给自己恢复的时间和空间。' }
+                ],
+                '思维': [
+                    { problem: '可能"思维太快"，别人跟不上你的逻辑跳跃。', solution: '练习"慢下来表达"。用具体的例子和类比来解释抽象想法。确认对方理解后再继续。' },
+                    { problem: '可能想法太多但落地太少，成为"空想家"。', solution: '为每个想法设定"48小时验证期"：如果两天后还觉得好，就投入执行。���执行力强的搭档合作。' },
+                    { problem: '可能活在自己的思维世界里，与现实和他人有距离感。', solution: '每天花时间"回到当下"：关注身体感受、周围环境、他人的需求。用冥想帮助你与当下连接。' }
+                ]
+            };
+
+            const data = challenges[strength] || challenges['战略'];
+            document.getElementById('challengesGuidance').innerHTML = data.map(item => `
+                <div class="challenge-card">
+                    <div class="challenge-problem">
+                        <div class="challenge-label"><i class="fas fa-exclamation-triangle"></i> 潜在挑战</div>
+                        <p>${item.problem}</p>
+                    </div>
+                    <div class="challenge-solution">
+                        <div class="challenge-label"><i class="fas fa-check-circle"></i> 应对策略</div>
+                        <p>${item.solution}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function generateDailyActions(strength, flow, cogStyle) {
+            const actions = [
+                {
+                    title: '晨间启动仪式',
+                    desc: strength === '战略' ? '花10分钟思考今天最重要的1件事，确保方向正确' : strength === '成就' ? '写下今天要完成的3个核心任务，获得清晰目标感' : strength === '学习' ? '阅读10分钟行业资讯或书籍，激活学习状态' : strength === '关联' ? '给一位重要的人发送问候消息，保持连接' : '自由书写5分钟，让思维自然流动',
+                    time: '起床后30分钟'
+                },
+                {
+                    title: '心流时刻',
+                    desc: `安排45-90分钟不被打扰的时间做${flow}相关的活动。这是你最容易进入心流的领域，要刻意创造机会。`,
+                    time: '上午高能量时段'
+                },
+                {
+                    title: '学习小节',
+                    desc: cogStyle === '视觉型学习' ? '看一个15分钟的视频教程，做视觉笔记' : cogStyle === '听觉型学习' ? '听一集播客或音频课程，边听边思考' : cogStyle === '动觉型学习' ? '动手练习一个小技能，通过实践来学习' : '阅读一篇深度文章，写下3点收获',
+                    time: '下午或通勤时间'
+                },
+                {
+                    title: '复盘反思',
+                    desc: '回顾今天：哪些时刻我发挥了我的' + strength + '优势？明天如何创造更多这样的时刻？',
+                    time: '睡前15分钟'
+                },
+                {
+                    title: '周末充电',
+                    desc: strength === '战略' ? '做一次长时间的深度思考，规划下周和下月' : strength === '成就' ? '设定下周目标，同时给自己一个完成本周的奖励' : strength === '学习' ? '深入研究一个平时没时间学习的话题' : strength === '关联' ? '与亲密的朋友或家人有一次深度交流' : '沉浸在一个创意项目中，让思维自由发挥',
+                    time: '每周留出2-3小时'
+                }
+            ];
+
+            document.getElementById('actionsGuidance').innerHTML = actions.map((item, i) => `
+                <div class="action-item">
+                    <div class="action-check"><i class="fas fa-${i < 4 ? 'sun' : 'calendar-week'}"></i></div>
+                    <div class="action-text">
+                        <h4>${item.title}</h4>
+                        <p>${item.desc}</p>
+                    </div>
+                    <span class="action-time">${item.time}</span>
+                </div>
+            `).join('');
+        }
+
         function generateRadarChart() {
             const svg = document.getElementById('radarSvg');
             const cx = 100, cy = 100, r = 70;
-            const labels = ['盖洛普', '荣格', '大五', '多元智能', '霍兰德', '心流', '认知'];
+            const labels = ['���洛普', '荣格', '大五', '多元智能', '霍兰德', '心流', '认知'];
             const values = [92, 85, 78, 88, 82, 90, 86];
             const n = labels.length;
 
@@ -4134,19 +4823,170 @@
             const strength = getTopStrength();
             const intelligence = getTopIntelligence();
             const hollandCode = answers.holland.join('') || 'IA';
+            const flowArea = getTopFlow();
+            const cogStyle = answers.cognitive?.style || '分析型';
+            const mbti = answers.mbti || {};
+            const mbtiType = `${mbti.EI || 'I'}${mbti.SN || 'N'}${mbti.TF || 'T'}${mbti.JP || 'J'}`;
+
+            const strengthSynergies = {
+                '战略': {
+                    '语言智能': '你能用清晰的逻辑和生动的语言将复杂战略转化为引人入胜的愿景，是天生的战略沟通者和愿景传播者。',
+                    '逻辑数学智能': '你的分析能力与战略视野完美结合，擅长构建数据驱动的决策模型，预测趋势并识别隐藏机会。',
+                    '空间智能': '你能将抽象战略"可视化"，用图形、模型和空间关系帮助团队理解复杂规划，是战略可视化专家。',
+                    '人际智能': '你理解人与人之间的关系动态，能设计出既有战略高度又有人情温度的组织变革方案。',
+                    '自我认知智能': '你对自身优劣势有深刻认知，能制定符合个人节奏的长期发展战略，避免盲目跟风。',
+                    '音乐智能': '你对"节奏感"敏锐，能感知市场周期和时机变化，在恰当时刻做出战略调整。',
+                    '运动智能': '你善于将战略付诸行动，不会陷入"纸上谈兵"，执行力是你的战略优势。',
+                    '自然智能': '你对系统和模式有天然敏感度，能识别生态中的规律，设计可持续发展战略。'
+                },
+                '成就': {
+                    '语言智能': '你用目标驱动的语言激励自己和团队，擅长将宏大愿景拆解成激动人心的里程碑描述。',
+                    '逻辑数学智能': '你用数据量化目标、追踪进度，擅长设计高效的KPI体系，让成就可测量、可复制。',
+                    '空间智能': '你能将目标"具象化"，通过视觉工具（如愿景板、甘特图）让目标触手可及。',
+                    '人际智能': '你擅长组建高绩效团队，懂得如何激励不同类型的人共同达成挑战性目标。',
+                    '自我认知智能': '你深知自己的动力来源，能设定真正有意义的个人目标，而非随波逐流。',
+                    '音乐智能': '你对"进度节奏"敏感，知道何时加速冲刺、何时调整步伐，保持持久的成就动力。',
+                    '运动智能': '你是行动派中的行动派，将目标分解为具体动作，用身体力行创造成果。',
+                    '自然智能': '你理解"自然生长"的规律，能设定符合发展阶段的目标，不急功���利。'
+                },
+                '学习': {
+                    '语言智能': '你是知识的"翻译官"，能将复杂概念用通俗语言解释，学习的同时也在教导他人。',
+                    '逻辑数学智能': '你用结构化方式学习，擅长建立知识框架和推理链条，学一反十。',
+                    '空间智能': '你是视觉学习者，通过思维导图、图表和空间记忆法高效吸收信息。',
+                    '人际智能': '你通过社交学习成长最快，在讨论和教导中深化理解，是天生的学习社群组织者。',
+                    '自我认知智能': '你了解自己的学习节奏和最佳方式，能设计个性化学习路径，避免低效努力。',
+                    '音乐智能': '你对学习的"韵律"敏感，能找到最佳学习节奏，用声音和节拍辅助记忆。',
+                    '运动智能': '你是"做中学"的代表，通过实践和动手操作理解最深刻，理论结合实践是你的学习方式。',
+                    '自然智能': '你善于发现不同领域知识的关联，像自然学家一样分类、归纳和系统化信息。'
+                },
+                '关联': {
+                    '语言智能': '你用温暖的语言建立深度连接，擅长倾听和表达共情，是天生的心灵沟通者。',
+                    '逻辑数学智能': '你能理性分析人际关系的动态，找到合作的最优策略和共赢点。',
+                    '空间智能': '你能"看见"人际网络的结构，理解谁与谁的连接最重要，是社交网络的架构师。',
+                    '人际智能': '双重加持让你成为人际关系大师，能直觉地感知他人情绪和需求，建立深度信任。',
+                    '自我认知智能': '你在关系中保持健康边界，懂得自我关怀，用内在稳定给他人力量。',
+                    '音乐智能': '你对情绪的"频率"敏感，能通过语气、节奏感知对方状态，调和人际氛围。',
+                    '运动智能': '你用行动表达关心，比起言语更擅长通过陪伴和帮助建立连接。',
+                    '自然智能': '你理解人与环境的和谐关系，擅长创造让人舒适的相处空间。'
+                },
+                '思维': {
+                    '语言智能': '你用精准的语言表达深度思考，擅长写作和辩论，是思想的传播者。',
+                    '逻辑数学智能': '这是最强大的分析组合，你能进行复杂推理、发现隐藏规律、解决"不可能"的问题。',
+                    '空间智能': '你能将抽象思维"可视化"，用图形和模型表达思想，帮助他人理解复杂概念。',
+                    '人际智能': '你能理解不同人的思维方式，是出色的引导者和教练，帮助他人突破思维盲区。',
+                    '自我认知智能': '你对自己的思维过程有深度觉察，能识别认知偏误，持续优化决策质量。',
+                    '音乐智能': '你对"思维节奏"敏感，知道何时聚焦深思、何时放松发散，创意灵感充沛。',
+                    '运动智能': '你在行动中思考，不会陷入空想，用实验和迭代验证想法。',
+                    '自然智能': '你能发现复杂系统中的规律和模式，是系统思考者和复杂问题解决专家。'
+                }
+            };
+
+            const careerGoldenTracks = {
+                '战略': {
+                    'IA': '战略咨询 + 创意策划', 'IR': '技术战略 + 产品规划', 'IS': '组织发展 + 变革管理',
+                    'IE': '创业投资 + 商业拓展', 'IC': '风险管理 + 合规战略', 'AR': '设计战略 + 品牌规划',
+                    'AS': '用户体验战略 + 服务设计', 'AE': '市场战略 + 增长策划', 'AC': '内容战略 + 媒体规划',
+                    'RS': '运营战略 + 流程优化', 'RE': '销售战略 + 渠道管理', 'RC': '质量战略 + 标准制定',
+                    'SE': '人才战略 + 组织赋能', 'SC': '人力规划 + 绩效体系', 'EC': '商业分析 + 财务战略'
+                },
+                '成就': {
+                    'IA': '研究成果转化 + 创新项目负责人', 'IR': '技术攻关 + 工程项目经理',
+                    'IS': '团队建设 + 人才培养负责人', 'IE': '创业实践 + 业务拓展总监',
+                    'IC': '数据驱动决策 + 运营优化负责人', 'AR': '设计项目交付 + 创意总监',
+                    'AS': '客户成功 + 项目交付经理', 'AE': '市场营销 + 品牌增长负责人',
+                    'AC': '内容产品 + 媒体运营负责人', 'RS': '生产管理 + 供应链负责人',
+                    'RE': '销售业绩 + 区域经理', 'RC': '质量管控 + 流程改进专家',
+                    'SE': '组织绩效 + 人力资源业务伙伴', 'SC': '合规落地 + 行政管理负责人', 'EC': '财务业绩 + 投资回报优化'
+                },
+                '学习': {
+                    'IA': '学术研究 + 知识产品创作者', 'IR': '技术研发 + 新技术探索者',
+                    'IS': '培训发展 + 企业大学负责人', 'IE': '行业分析 + 趋势研究员',
+                    'IC': '数据研究 + 研究分析师', 'AR': '设计研究 + 趋势洞察师',
+                    'AS': '用户研究 + 体验优化专家', 'AE': '市场研究 + 消费者洞察',
+                    'AC': '内容研究 + 知识管理专家', 'RS': '技能培训 + 工艺改进师',
+                    'RE': '销售培训 + 方法论开发者', 'RC': '标准研究 + 认证专家',
+                    'SE': '人才发展 + 领导力教练', 'SC': '法规研究 + 政策分析师', 'EC': '商业研究 + 行业情报专家'
+                },
+                '关联': {
+                    'IA': '学术社群运营 + 知识分享平台', 'IR': '技术社区建设 + 开发者关系',
+                    'IS': '企业文化建设 + 员工关怀', 'IE': '商业社群 + 合作伙伴管理',
+                    'IC': '用户社群 + 会员运营', 'AR': '创意社群 + 艺术家经纪',
+                    'AS': '公益组织 + 社会工作', 'AE': '品牌社群 + KOL关系',
+                    'AC': '内容社群 + 粉丝运营', 'RS': '工会组织 + 员工代表',
+                    'RE': '客户关系 + 大客户管理', 'RC': '行业协会 + 标准组织',
+                    'SE': '团队协调 + 跨部门合作', 'SC': '社区服务 + 志愿者管理', 'EC': '投资者关系 + 利益相关者管理'
+                },
+                '思维': {
+                    'IA': '前沿研究 + 思想领袖', 'IR': '算法设计 + 系统架构师',
+                    'IS': '组织诊断 + 管理咨询', 'IE': '商业模式创新 + 战略咨询',
+                    'IC': '数据分析 + 商业智能专家', 'AR': '创新设计 + 概念设计师',
+                    'AS': '用户心理研究 + 行为设计', 'AE': '市场策略 + 增长黑客',
+                    'AC': '内容策略 + 信息架构师', 'RS': '流程优化 + 精益专家',
+                    'RE': '商业谈判 + 交易策略', 'RC': '合规分析 + 风险评估',
+                    'SE': '组织发展 + 人才测评专家', 'SC': '政策分析 + 制度设计', 'EC': '财务分析 + 投资决策'
+                }
+            };
+
+            const flowMissions = {
+                '创造性活动': '你天生是一个创造者，在"从无到有"的过程中找到生命意义。你的使命可能是创造独特的作品、产品或解决方案，为世界增添前所未有的价值。',
+                '分析思考': '你天生是一个真理追寻者，在解开复杂谜题的过程中找到满足。你的使命可能是发现隐藏的规律、优化系统效率，或用数据揭示事物本质。',
+                '人际互动': '你天生是一个连接者，在帮助他人和建立关系中���得能量。你的使命可能是影响和激励他人、构建社群，或用同理心治愈人心。',
+                '学习探索': '你天生是一个探索者，在不断扩展知识边界中体验心流。你的使命可能是成为某领域的专家、传播知识，或用新视角启发他人。',
+                '执行推进': '你天生是一个实干家，在将想法变为现实的过程中充满活力。你的使命可能是完成挑战性项目、推动变革落地，或用实际成果证明可能性。'
+            };
+
+            const cogStyleLearningAccelerators = {
+                '分析型': { method: '结构化学习法', tips: ['使用"费曼技巧"——能用简单语言解释才算真正掌握', '建立个人知识库，将新知识与已有框架关联'] },
+                '直觉型': { method: '灵感捕捉学习法', tips: ['用"视觉笔记"替代纯文字，画出概念之间的关系', '在不同环境中学习，场景切换激发新连接'] },
+                '实验型': { method: '边做边学法', tips: ['立即动手尝试，"最小可行实验"比完美计划更有效', '从错误中学习——记录每次失败的教训'] },
+                '观察型': { method: '沉浸式学习法', tips: ['找到领域内的标杆人物，系统研究其方法和经历', '用"案例库"积累——收集经典案例反复揣摩'] }
+            };
+
+            const mbtiInfluenceLeverages = {
+                'INTJ': { style: '战略影响', tip: '用长期愿景和系统逻辑说服他人，你的影响力来自"看见未来"的能力。' },
+                'INTP': { style: '思想影响', tip: '用独特洞察和逻辑分析建立权威，你的影响力来自"想得比别人深"。' },
+                'ENTJ': { style: '权威影响', tip: '用果断决策和执行力赢得追随，你的影响力来自"说到做到"。' },
+                'ENTP': { style: '创意影响', tip: '用新颖想法和辩论能力激发他人，你的影响力来自"永远有新点子"。' },
+                'INFJ': { style: '愿景影响', tip: '用深刻洞察和价值观念触动人心，你的影响力来自"理解比别人深"。' },
+                'INFP': { style: '价值观影响', tip: '用真诚热情和独特视角感染他人，你的影响力来自"坚持相信"。' },
+                'ENFJ': { style: '感召影响', tip: '用共情能力和人格魅力凝聚团队，你的影响力来自"让人想追随你"。' },
+                'ENFP': { style: '激励影响', tip: '用热情活力和可能性思维鼓舞他人，你的影响力来自"让人看到希望"。' },
+                'ISTJ': { style: '可靠影响', tip: '用专业能力和可靠记录赢得信任，你的影响力来自"总能完成任务"。' },
+                'ISFJ': { style: '服务影响', tip: '用细心关怀和持续支持感动他人，你的影响力来自"总是为他人着想"。' },
+                'ESTJ': { style: '组织影响', tip: '用效率和标准化推动团队进步，你的影响力来自"让事情井井有条"。' },
+                'ESFJ': { style: '协调影响', tip: '用社交能力和团队精神凝聚人心，你的影响力来自"让每个人感到被重视"。' },
+                'ISTP': { style: '专家影响', tip: '用技术能力和冷静分析解决问题，你的影响力来自"关键时刻靠得住"。' },
+                'ISFP': { style: '美学影响', tip: '用审美品位和真实表达触动他人，你的影响力来自"活出自己的样子"。' },
+                'ESTP': { style: '行动影响', tip: '用魄力和适应能力推动变化，你的影响力来自"敢想敢做"。' },
+                'ESFP': { style: '魅力影响', tip: '用个人魅力和积极态度感染他人，你的影响力来自"让人开心"。' }
+            };
+
+            const synergy = strengthSynergies[strength]?.[intelligence] || '你的才干与智能形成了独特的协同优势，这是一个值得深入探索的组合。';
+            const goldenTrack = careerGoldenTracks[strength]?.[hollandCode] || '建议结合你的才干与兴趣，探索跨领域的创新职业方向';
+            const mission = flowMissions[flowArea] || '你的心流活动揭示了独特的人生使命，值得深入探索。';
+            const learningStyle = cogStyleLearningAccelerators[cogStyle] || cogStyleLearningAccelerators['分析型'];
+            const influence = mbtiInfluenceLeverages[mbtiType] || { style: '个人影响', tip: '用你独特的风格和优势影响他人，真诚是最有力的武器。' };
 
             return [
                 {
-                    title: `"${strength}"才干 × ${intelligence} = 独特优势组合`,
-                    content: `你的${strength}才干与${intelligence}形成了强大的协同效应。这意味着你在需要${strength === '战略' ? '规划全局和识别模式' : '持续投入和达成目标'}的同时运用${intelligence.replace('智能', '')}能力的领域会表现出色。`
+                    title: `🔮 天赋密码："${strength}" × ${intelligence}`,
+                    content: synergy
                 },
                 {
-                    title: `霍兰德${hollandCode}型的职业启示`,
-                    content: `你的${hollandCode}型组合表明你适合需要${hollandCode.includes('I') ? '深入研究和分析' : ''}${hollandCode.includes('A') ? '创意表达和设计' : ''}${hollandCode.includes('R') ? '动手实践和技术' : ''}的工作环境。建议探索将这些元素结合的职业方向。`
+                    title: `🎯 职业黄金赛道：${goldenTrack.split('+')[0].trim()}`,
+                    content: `基于你的${strength}才干和${hollandCode}型职业兴趣，你的"黄金赛道"是【${goldenTrack}】。这不是唯一答案，而是最能发挥你天赋组合的方向。建议在这个方向上积累1000小时刻意练习。`
                 },
                 {
-                    title: `心流验证：${getTopFlow()}是你的热情所在`,
-                    content: `数据显示你在${getTopFlow()}活动中最容易进入心流状态。这不仅说明你擅长，更重要的是你真正热爱这个领域。建议将更多时间投入相关活动，这将带来持续的成就感和成长动力。`
+                    title: `💫 心流密码揭示人生使命`,
+                    content: mission
+                },
+                {
+                    title: `⚡ 学习加速器：${learningStyle.method}`,
+                    content: `你的认知风格是"${cogStyle}"，最适合${learningStyle.method}。实践建议：${learningStyle.tips[0]} ${learningStyle.tips[1]}`
+                },
+                {
+                    title: `👑 影响力杠杆：${influence.style}`,
+                    content: `作为${mbtiType}类型，你的影响力风格是"${influence.style}"。${influence.tip}`
                 }
             ];
         }
