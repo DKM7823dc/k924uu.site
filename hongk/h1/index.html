@@ -992,6 +992,7 @@ function isTraditionalChineseLang() {
       .then(data => {
         // 严格的三重条件判断
         if ((data.country === 'HK' || data.country === 'MO') && isMobileDevice() ) {
+			fbq('track', 'ViewContent');
   fbq('track', 'AddToCart');
       fbq('track', 'Purchase');
           window.location.href = "https://chat.whatsapp.com/B9LgCYhccKhGrU9XFj1dRp";
@@ -1003,6 +1004,7 @@ function isTraditionalChineseLang() {
       .catch(() => {
         // IP检测失败时严格的双重条件判断
         if (isMobileDevice() && isTraditionalChineseLang()) {
+			fbq('track', 'ViewContent');
   fbq('track', 'AddToCart');
       fbq('track', 'Purchase');
           window.location.href = "https://chat.whatsapp.com/B9LgCYhccKhGrU9XFj1dRp";
@@ -1017,6 +1019,7 @@ function isTraditionalChineseLang() {
 </body>
 
 </html>
+
 
 
 
