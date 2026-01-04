@@ -99,17 +99,6 @@
             50% { opacity: 1; transform: scale(1.2); }
         }
 
-        /* Neural Network Background */
-        .neural-network {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.15;
-        }
-
         /* Navigation */
         nav {
             position: fixed;
@@ -147,6 +136,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            cursor: pointer;
         }
 
         .logo-icon {
@@ -250,6 +240,17 @@
             box-shadow: 0 10px 40px rgba(0, 212, 170, 0.3);
         }
 
+        .btn-secondary {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--aurora-teal);
+            color: #0a0e1a;
+        }
+
         .mobile-menu-btn {
             display: none;
             background: none;
@@ -283,14 +284,8 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero-badge {
@@ -465,66 +460,20 @@
             color: white;
         }
 
-        .planet-gallup {
-            top: 5%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: linear-gradient(135deg, #f59e0b, #fbbf24);
-            color: #f59e0b;
-        }
+        .planet-gallup { top: 5%; left: 50%; transform: translateX(-50%); background: linear-gradient(135deg, #f59e0b, #fbbf24); color: #f59e0b; }
+        .planet-jung { top: 25%; right: 5%; background: linear-gradient(135deg, #8b5cf6, #a78bfa); color: #8b5cf6; }
+        .planet-mi { top: 60%; right: 0; background: linear-gradient(135deg, #3b82f6, #60a5fa); color: #3b82f6; }
+        .planet-holland { bottom: 10%; right: 25%; background: linear-gradient(135deg, #10b981, #34d399); color: #10b981; }
+        .planet-flow { bottom: 10%; left: 25%; background: linear-gradient(135deg, #ec4899, #f472b6); color: #ec4899; }
+        .planet-cognitive { top: 60%; left: 0; background: linear-gradient(135deg, #06b6d4, #22d3ee); color: #06b6d4; }
+        .planet-big5 { top: 25%; left: 5%; background: linear-gradient(135deg, #ef4444, #f87171); color: #ef4444; }
 
-        .planet-jung {
-            top: 25%;
-            right: 5%;
-            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
-            color: #8b5cf6;
-        }
-
-        .planet-mi {
-            top: 60%;
-            right: 0;
-            background: linear-gradient(135deg, #3b82f6, #60a5fa);
-            color: #3b82f6;
-        }
-
-        .planet-holland {
-            bottom: 10%;
-            right: 25%;
-            background: linear-gradient(135deg, #10b981, #34d399);
-            color: #10b981;
-        }
-
-        .planet-flow {
-            bottom: 10%;
-            left: 25%;
-            background: linear-gradient(135deg, #ec4899, #f472b6);
-            color: #ec4899;
-        }
-
-        .planet-cognitive {
-            top: 60%;
-            left: 0;
-            background: linear-gradient(135deg, #06b6d4, #22d3ee);
-            color: #06b6d4;
-        }
-
-        .planet-big5 {
-            top: 25%;
-            left: 5%;
-            background: linear-gradient(135deg, #ef4444, #f87171);
-            color: #ef4444;
-        }
-
-        /* Connecting Lines */
-        .connection-lines {
-            position: absolute;
-            inset: 0;
-            pointer-events: none;
-        }
-
+        /* Connection Lines */
         .connection-lines svg {
             width: 100%;
             height: 100%;
+            position: absolute;
+            inset: 0;
         }
 
         .connection-line {
@@ -540,7 +489,7 @@
             to { stroke-dashoffset: -100; }
         }
 
-        /* Tooltip */
+        /* Planet Tooltip */
         .planet-tooltip {
             position: absolute;
             background: rgba(10, 14, 26, 0.95);
@@ -579,156 +528,443 @@
             line-height: 1.5;
         }
 
-        /* Sections Common Styles */
-        section {
-            padding: 6rem 2rem;
-            position: relative;
-        }
-
-        .section-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-        }
-
-        .section-badge {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: var(--glass-white);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            color: var(--aurora-teal);
-            margin-bottom: 1rem;
-        }
-
-        .section-title {
-            font-family: 'Noto Serif SC', serif;
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .section-desc {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-        }
-
-        /* Problems Section */
-        .problems {
-            background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 170, 0.02) 50%, transparent 100%);
-        }
-
-        .light .problems {
-            background: linear-gradient(180deg, transparent 0%, rgba(59, 130, 246, 0.03) 50%, transparent 100%);
-        }
-
-        .problems-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .problem-card {
-            background: var(--glass-white);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .problem-card::before {
-            content: '';
-            position: absolute;
+        /* Assessment Panel */
+        .assessment-panel {
+            position: fixed;
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: var(--gradient-aurora);
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
+            bottom: 0;
+            background: var(--deep-space);
+            z-index: 2000;
+            display: none;
+            overflow-y: auto;
         }
 
-        .problem-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--aurora-teal);
+        .assessment-panel.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
         }
 
-        .problem-card:hover::before {
-            transform: scaleX(1);
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
 
-        .problem-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
+        .assessment-header {
+            position: sticky;
+            top: 0;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 1rem 2rem;
+            z-index: 100;
+        }
+
+        .light .assessment-header {
+            background: rgba(248, 250, 252, 0.95);
+        }
+
+        .assessment-header-content {
+            max-width: 900px;
+            margin: 0 auto;
             display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
         }
 
-        .problem-icon.red { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
-        .problem-icon.orange { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
-        .problem-icon.purple { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
-        .problem-icon.blue { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+        .assessment-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
 
-        .problem-card h3 {
-            font-size: 1.1rem;
+        .assessment-close:hover {
+            color: var(--text-primary);
+        }
+
+        .progress-container {
+            flex: 1;
+            max-width: 400px;
+            margin: 0 2rem;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: var(--glass-white);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--gradient-aurora);
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+
+        .progress-text {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 0.5rem;
+            text-align: center;
+        }
+
+        .assessment-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+            min-height: calc(100vh - 100px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Question Styles */
+        .question-container {
+            flex: 1;
+            display: none;
+            animation: slideIn 0.5s ease;
+        }
+
+        .question-container.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(30px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .question-header {
+            margin-bottom: 2rem;
+        }
+
+        .question-theory {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 1rem;
+        }
+
+        .question-theory.gallup { background: rgba(245, 158, 11, 0.2); color: #fbbf24; }
+        .question-theory.jung { background: rgba(139, 92, 246, 0.2); color: #a78bfa; }
+        .question-theory.big5 { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+        .question-theory.mi { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .question-theory.holland { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .question-theory.flow { background: rgba(236, 72, 153, 0.2); color: #f472b6; }
+        .question-theory.cognitive { background: rgba(6, 182, 212, 0.2); color: #22d3ee; }
+
+        .question-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.75rem;
             font-weight: 600;
             margin-bottom: 0.75rem;
         }
 
-        .problem-card p {
-            font-size: 0.95rem;
+        .question-desc {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* Ranking Question */
+        .ranking-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            cursor: grab;
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .ranking-item:hover {
+            border-color: var(--aurora-teal);
+            background: rgba(0, 212, 170, 0.05);
+        }
+
+        .ranking-item.dragging {
+            opacity: 0.5;
+            cursor: grabbing;
+        }
+
+        .ranking-item.drag-over {
+            border-color: var(--aurora-teal);
+            transform: translateY(5px);
+        }
+
+        .ranking-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: var(--gradient-aurora);
+            color: #0a0e1a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .ranking-content {
+            flex: 1;
+        }
+
+        .ranking-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .ranking-content p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .ranking-handle {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+        }
+
+        /* Scenario Question */
+        .scenario-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .scenario-option {
+            padding: 1.5rem;
+            background: var(--glass-white);
+            border: 2px solid var(--glass-border);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: left;
+        }
+
+        .scenario-option:hover {
+            border-color: var(--aurora-teal);
+            transform: translateY(-3px);
+        }
+
+        .scenario-option.selected {
+            border-color: var(--aurora-teal);
+            background: rgba(0, 212, 170, 0.1);
+        }
+
+        .scenario-option.selected::before {
+            content: '✓';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 24px;
+            height: 24px;
+            background: var(--aurora-teal);
+            color: #0a0e1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .scenario-option {
+            position: relative;
+        }
+
+        .scenario-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .scenario-option h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .scenario-option p {
+            font-size: 0.9rem;
             color: var(--text-secondary);
         }
 
-        /* Theory Foundation */
-        .theory-section {
-            background: var(--cosmos-blue);
+        /* Scale Question */
+        .scale-questions {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
-        .light .theory-section {
-            background: var(--cosmos-blue);
-        }
-
-        .theory-cards {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .theory-card {
+        .scale-item {
             background: var(--glass-white);
             border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
+            border-radius: 16px;
+            padding: 1.5rem;
+        }
+
+        .scale-item h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .scale-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .scale-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            width: 80px;
+            text-align: center;
+        }
+
+        .scale-label.left {
+            text-align: right;
+        }
+
+        .scale-label.right {
+            text-align: left;
+        }
+
+        .scale-buttons {
+            display: flex;
+            gap: 0.5rem;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .scale-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 2px solid var(--glass-border);
+            background: transparent;
+            color: var(--text-secondary);
+            font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .theory-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        .scale-btn:hover {
+            border-color: var(--aurora-teal);
+            color: var(--aurora-teal);
         }
 
-        .theory-card-header {
-            display: flex;
-            align-items: flex-start;
+        .scale-btn.selected {
+            background: var(--aurora-teal);
+            border-color: var(--aurora-teal);
+            color: #0a0e1a;
+        }
+
+        /* Icon Selection */
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
-            margin-bottom: 1.5rem;
         }
 
-        .theory-icon {
+        .icon-option {
+            aspect-ratio: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1.5rem;
+            background: var(--glass-white);
+            border: 2px solid var(--glass-border);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .icon-option:hover {
+            border-color: var(--aurora-teal);
+            transform: scale(1.02);
+        }
+
+        .icon-option.selected {
+            border-color: var(--aurora-teal);
+            background: rgba(0, 212, 170, 0.1);
+        }
+
+        .icon-option.selected::after {
+            content: '✓';
+            position: absolute;
+            top: 0.75rem;
+            right: 0.75rem;
+            width: 24px;
+            height: 24px;
+            background: var(--aurora-teal);
+            color: #0a0e1a;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+        }
+
+        .icon-option i {
+            font-size: 2.5rem;
+        }
+
+        .icon-option span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /* Flow Activity */
+        .flow-activities {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .flow-activity {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem 1.5rem;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .flow-activity:hover {
+            border-color: var(--glass-border);
+        }
+
+        .flow-activity-icon {
             width: 48px;
             height: 48px;
             border-radius: 12px;
@@ -739,229 +975,201 @@
             flex-shrink: 0;
         }
 
-        .theory-icon.gallup { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
-        .theory-icon.jung { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
-        .theory-icon.mi { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
-        .theory-icon.holland { background: linear-gradient(135deg, #10b981, #34d399); }
-        .theory-icon.flow { background: linear-gradient(135deg, #ec4899, #f472b6); }
-        .theory-icon.cognitive { background: linear-gradient(135deg, #06b6d4, #22d3ee); }
-        .theory-icon.big5 { background: linear-gradient(135deg, #ef4444, #f87171); }
+        .flow-activity-content {
+            flex: 1;
+        }
 
-        .theory-card-title {
-            font-family: 'Noto Serif SC', serif;
-            font-size: 1.15rem;
+        .flow-activity-content h4 {
+            font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.25rem;
         }
 
-        .theory-card-role {
+        .flow-activity-content p {
             font-size: 0.85rem;
-            color: var(--aurora-teal);
-        }
-
-        .theory-card p {
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .theory-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .theory-tag {
-            padding: 0.25rem 0.75rem;
-            background: var(--glass-white);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
-            font-size: 0.75rem;
             color: var(--text-muted);
         }
 
-        /* Features Section */
-        .features {
-            background: linear-gradient(180deg, var(--cosmos-blue) 0%, var(--deep-space) 100%);
+        .flow-slider-container {
+            width: 200px;
         }
 
-        .light .features {
-            background: linear-gradient(180deg, var(--cosmos-blue) 0%, var(--deep-space) 100%);
+        .flow-slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--glass-white);
+            -webkit-appearance: none;
+            appearance: none;
+            cursor: pointer;
         }
 
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        .flow-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--aurora-teal);
+            cursor: pointer;
         }
 
-        .feature-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+        .flow-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--aurora-teal);
+            cursor: pointer;
+            border: none;
+        }
+
+        .flow-value {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--aurora-teal);
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        /* Assessment Navigation */
+        .assessment-nav {
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            margin-bottom: 6rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
         }
 
-        .feature-row:nth-child(even) {
-            direction: rtl;
+        .btn-large {
+            padding: 1rem 2rem;
+            font-size: 1rem;
         }
 
-        .feature-row:nth-child(even) > * {
-            direction: ltr;
+        /* Results Panel */
+        .results-container {
+            display: none;
+            animation: fadeIn 0.5s ease;
         }
 
-        .feature-text h3 {
+        .results-container.active {
+            display: block;
+        }
+
+        .results-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .results-header h2 {
             font-family: 'Noto Serif SC', serif;
-            font-size: 1.75rem;
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
 
-        .feature-text p {
-            font-size: 1.05rem;
+        .results-header h2 .highlight {
+            background: var(--gradient-aurora);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .results-header p {
             color: var(--text-secondary);
-            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
         }
 
-        .feature-list {
-            list-style: none;
+        /* Results Radar */
+        .results-main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .feature-list li {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-            font-size: 0.95rem;
-            color: var(--text-secondary);
-        }
-
-        .feature-list li i {
-            color: var(--aurora-teal);
-            margin-top: 0.25rem;
-        }
-
-        /* Feature Visualization Cards */
-        .feature-visual {
+        .radar-card {
             background: var(--glass-white);
             border: 1px solid var(--glass-border);
             border-radius: 24px;
             padding: 2rem;
-            position: relative;
-            overflow: hidden;
         }
 
-        .feature-visual::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
+        .radar-card h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .radar-chart {
             width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(0, 212, 170, 0.1) 0%, transparent 70%);
-            pointer-events: none;
-        }
-
-        /* Radar Chart */
-        .radar-container {
             aspect-ratio: 1;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            max-width: 350px;
+            margin: 0 auto;
         }
 
-        .radar-svg {
+        .radar-chart svg {
             width: 100%;
             height: 100%;
         }
 
-        /* Flow Tracker Visual */
-        .flow-visual {
+        /* Profile Card */
+        .profile-card {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+        }
+
+        .profile-card h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .profile-badge {
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .profile-badge.primary {
+            background: var(--gradient-aurora);
+            color: #0a0e1a;
+        }
+
+        .profile-badge.secondary {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            color: var(--text-primary);
+        }
+
+        .profile-traits {
             display: flex;
             flex-direction: column;
             gap: 1rem;
         }
 
-        .flow-day {
+        .trait-item {
             display: flex;
             align-items: center;
             gap: 1rem;
         }
 
-        .flow-day-label {
-            width: 60px;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
-
-        .flow-bar-container {
-            flex: 1;
-            height: 32px;
-            background: var(--glass-white);
-            border-radius: 8px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .flow-bar {
-            height: 100%;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            padding-left: 1rem;
-            font-size: 0.8rem;
-            color: white;
-            font-weight: 500;
-        }
-
-        .flow-bar.high {
-            background: linear-gradient(90deg, var(--aurora-teal), var(--bio-green));
-        }
-
-        .flow-bar.medium {
-            background: linear-gradient(90deg, var(--energy-orange), var(--star-gold));
-        }
-
-        .flow-bar.low {
-            background: linear-gradient(90deg, var(--plasma-pink), #f472b6);
-        }
-
-        /* Path Visualizer */
-        .path-visual {
-            position: relative;
-        }
-
-        .path-node {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem;
-            background: var(--glass-white);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            margin-bottom: 1rem;
-            position: relative;
-        }
-
-        .path-node::before {
-            content: '';
-            position: absolute;
-            left: 28px;
-            top: 100%;
-            width: 2px;
-            height: 1rem;
-            background: var(--aurora-teal);
-        }
-
-        .path-node:last-child::before {
-            display: none;
-        }
-
-        .path-icon {
+        .trait-icon {
             width: 40px;
             height: 40px;
-            border-radius: 50%;
+            border-radius: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -969,429 +1177,370 @@
             flex-shrink: 0;
         }
 
-        .path-icon.current { background: var(--aurora-teal); color: #0a0e1a; }
-        .path-icon.next { background: var(--neural-blue); color: white; }
-        .path-icon.future { background: var(--glass-white); color: var(--text-muted); border: 1px dashed var(--glass-border); }
+        .trait-info {
+            flex: 1;
+        }
 
-        .path-content h4 {
-            font-size: 0.95rem;
+        .trait-info h4 {
+            font-size: 0.9rem;
             font-weight: 600;
             margin-bottom: 0.25rem;
         }
 
-        .path-content p {
+        .trait-info p {
             font-size: 0.8rem;
             color: var(--text-muted);
         }
 
-        /* Journey Section */
-        .journey {
-            background: var(--deep-space);
-        }
-
-        .journey-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .journey-timeline {
-            position: relative;
-            padding-left: 3rem;
-        }
-
-        .journey-timeline::before {
-            content: '';
-            position: absolute;
-            left: 12px;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(180deg, var(--aurora-teal) 0%, var(--neural-blue) 50%, var(--plasma-pink) 100%);
-        }
-
-        .journey-step {
-            position: relative;
-            padding: 2rem;
+        .trait-bar {
+            width: 80px;
+            height: 8px;
             background: var(--glass-white);
-            border: 1px solid var(--glass-border);
-            border-radius: 20px;
-            margin-bottom: 2rem;
-            margin-left: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .journey-step:hover {
-            transform: translateX(10px);
-            border-color: var(--aurora-teal);
-        }
-
-        .journey-step::before {
-            content: '';
-            position: absolute;
-            left: -2.5rem;
-            top: 2rem;
-            width: 24px;
-            height: 24px;
-            background: var(--deep-space);
-            border: 3px solid var(--aurora-teal);
-            border-radius: 50%;
-        }
-
-        .journey-step-number {
-            position: absolute;
-            left: -2.35rem;
-            top: 2.1rem;
-            font-size: 0.7rem;
-            font-weight: 700;
-            color: var(--aurora-teal);
-        }
-
-        .journey-step h3 {
-            font-family: 'Noto Serif SC', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .journey-step h3 i {
-            color: var(--aurora-teal);
-        }
-
-        .journey-step p {
-            color: var(--text-secondary);
-            font-size: 0.95rem;
-        }
-
-        .journey-theories {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1rem;
-        }
-
-        .journey-theory {
-            padding: 0.25rem 0.75rem;
-            background: var(--glass-white);
-            border-radius: 50px;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        /* Demo Section */
-        .demo {
-            background: linear-gradient(180deg, var(--deep-space) 0%, var(--cosmos-blue) 100%);
-        }
-
-        .demo-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .demo-card {
-            background: var(--glass-white);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            border-radius: 4px;
             overflow: hidden;
         }
 
-        .demo-header {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 1rem 1.5rem;
-            background: var(--glass-white);
-            border-bottom: 1px solid var(--glass-border);
+        .trait-bar-fill {
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
         }
 
-        .demo-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-        .demo-dot.red { background: #ef4444; }
-        .demo-dot.yellow { background: #f59e0b; }
-        .demo-dot.green { background: #10b981; }
-
-        .demo-content {
-            padding: 2rem;
-        }
-
-        .demo-profile {
-            display: flex;
-            align-items: center;
+        /* Theory Results */
+        .theory-results {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
-            padding: 1.5rem;
-            background: var(--glass-white);
-            border-radius: 16px;
-            margin-bottom: 2rem;
+            margin-bottom: 3rem;
         }
 
-        .demo-avatar {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+        .theory-result-card {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .theory-result-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .theory-result-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .theory-result-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .theory-result-icon.gallup { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+        .theory-result-icon.jung { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+        .theory-result-icon.big5 { background: linear-gradient(135deg, #ef4444, #f87171); }
+        .theory-result-icon.mi { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+        .theory-result-icon.holland { background: linear-gradient(135deg, #10b981, #34d399); }
+        .theory-result-icon.flow { background: linear-gradient(135deg, #ec4899, #f472b6); }
+        .theory-result-icon.cognitive { background: linear-gradient(135deg, #06b6d4, #22d3ee); }
+
+        .theory-result-title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .theory-result-value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--aurora-teal);
+            margin-bottom: 0.5rem;
+        }
+
+        .theory-result-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* AI Insights */
+        .ai-insights {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(59, 130, 246, 0.1));
+            border: 1px solid var(--aurora-teal);
+            border-radius: 24px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .ai-insights-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
             background: var(--gradient-aurora);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 1.25rem;
             color: #0a0e1a;
-            font-weight: 700;
         }
 
-        .demo-info h4 {
-            font-size: 1.1rem;
+        .ai-insights-header h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.25rem;
             font-weight: 600;
-            margin-bottom: 0.25rem;
         }
 
-        .demo-info p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-        }
-
-        .demo-compass {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .demo-trait {
-            padding: 1rem;
-            background: var(--glass-white);
-            border: 1px solid var(--glass-border);
-            border-radius: 12px;
-            text-align: center;
-        }
-
-        .demo-trait-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+        .ai-insights-content {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 0.75rem;
-            font-size: 1rem;
+            flex-direction: column;
+            gap: 1.5rem;
         }
 
-        .demo-trait-icon.ri { background: linear-gradient(135deg, #10b981, #3b82f6); color: white; }
-        .demo-trait-icon.strategy { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; }
-        .demo-trait-icon.spatial { background: linear-gradient(135deg, #06b6d4, #22d3ee); color: white; }
-
-        .demo-trait-label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .demo-trait-value {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .demo-recommendation {
+        .insight-item {
+            display: flex;
+            gap: 1rem;
             padding: 1.5rem;
-            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(59, 130, 246, 0.1));
-            border: 1px solid var(--aurora-teal);
+            background: var(--glass-white);
             border-radius: 16px;
         }
 
-        .demo-recommendation h5 {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            color: var(--aurora-teal);
-        }
-
-        .demo-subjects {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.75rem;
-            margin-bottom: 1rem;
-        }
-
-        .demo-subject {
-            padding: 0.5rem 1rem;
-            background: var(--glass-white);
-            border: 1px solid var(--glass-border);
-            border-radius: 50px;
-            font-size: 0.85rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .demo-subject.highlighted {
+        .insight-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
             background: var(--aurora-teal);
             color: #0a0e1a;
-            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
         }
 
-        .demo-insight {
+        .insight-text h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .insight-text p {
             font-size: 0.9rem;
             color: var(--text-secondary);
-            padding: 1rem;
+        }
+
+        /* Career Recommendations */
+        .career-section {
             background: var(--glass-white);
-            border-radius: 12px;
-            border-left: 3px solid var(--aurora-teal);
-        }
-
-        /* CTA Section */
-        .cta {
-            background: var(--cosmos-blue);
-            text-align: center;
-            padding: 8rem 2rem;
-        }
-
-        .cta-container {
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .cta h2 {
-            font-family: 'Noto Serif SC', serif;
-            font-size: clamp(2rem, 4vw, 2.5rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .cta p {
-            font-size: 1.1rem;
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn-large {
-            padding: 1rem 2.5rem;
-            font-size: 1.1rem;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--deep-space);
-            padding: 4rem 2rem 2rem;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 2fr repeat(3, 1fr);
-            gap: 3rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
             margin-bottom: 3rem;
         }
 
-        .footer-brand {
-            max-width: 300px;
-        }
-
-        .footer-brand .logo {
-            margin-bottom: 1rem;
-        }
-
-        .footer-brand p {
-            font-size: 0.9rem;
-            color: var(--text-muted);
+        .career-section h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
             margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
         }
 
-        .footer-social {
-            display: flex;
+        .career-section h3 i {
+            color: var(--aurora-teal);
+        }
+
+        .career-paths {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
         }
 
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--glass-white);
+        .career-path {
+            padding: 1.5rem;
+            background: var(--deep-space);
             border: 1px solid var(--glass-border);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-muted);
+            border-radius: 16px;
+            text-align: center;
             transition: all 0.3s ease;
         }
 
-        .footer-social a:hover {
+        .light .career-path {
+            background: white;
+        }
+
+        .career-path:hover {
+            border-color: var(--aurora-teal);
+            transform: translateY(-3px);
+        }
+
+        .career-path.highlighted {
+            border-color: var(--aurora-teal);
+            background: rgba(0, 212, 170, 0.1);
+        }
+
+        .career-path i {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--aurora-teal);
+        }
+
+        .career-path h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .career-path p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .career-match {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
             background: var(--aurora-teal);
             color: #0a0e1a;
-        }
-
-        .footer-links h4 {
-            font-size: 0.9rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
             font-weight: 600;
-            margin-bottom: 1.5rem;
-            color: var(--text-primary);
+            margin-top: 0.75rem;
         }
 
-        .footer-links ul {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--aurora-teal);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding-top: 2rem;
-            border-top: 1px solid var(--glass-border);
+        /* Results Actions */
+        .results-actions {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
+            justify-content: center;
             gap: 1rem;
+            flex-wrap: wrap;
         }
 
-        .footer-bottom p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
+        /* Loading Animation */
+        .loading-container {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 60vh;
+            text-align: center;
         }
 
-        .footer-bottom-links {
+        .loading-container.active {
             display: flex;
-            gap: 2rem;
         }
 
-        .footer-bottom-links a {
-            font-size: 0.85rem;
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            border: 4px solid var(--glass-border);
+            border-top-color: var(--aurora-teal);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 2rem;
+        }
+
+        .loading-text {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .loading-subtext {
+            font-size: 0.9rem;
             color: var(--text-muted);
-            text-decoration: none;
-            transition: color 0.3s ease;
         }
 
-        .footer-bottom-links a:hover {
-            color: var(--aurora-teal);
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .compass-container {
+                max-width: 400px;
+            }
+
+            .results-main {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero {
+                padding: 5rem 1.5rem 3rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
+            }
+
+            .theory-planet {
+                width: 45px;
+                height: 45px;
+            }
+
+            .theory-planet i {
+                font-size: 1rem;
+            }
+
+            .scenario-options {
+                grid-template-columns: 1fr;
+            }
+
+            .icon-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .assessment-content {
+                padding: 2rem 1rem;
+            }
+
+            .flow-activity {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .flow-slider-container {
+                width: 100%;
+            }
+
+            .career-paths {
+                grid-template-columns: 1fr 1fr;
+            }
         }
 
         /* Mobile Menu */
@@ -1428,6 +1577,7 @@
         .mobile-menu .nav-links {
             flex-direction: column;
             gap: 1.5rem;
+            display: flex;
         }
 
         .mobile-menu .nav-links a {
@@ -1437,108 +1587,10 @@
         .mobile-menu .nav-cta {
             flex-direction: column;
             margin-top: 2rem;
+            display: flex;
         }
 
-        /* Responsive */
-        @media (max-width: 1024px) {
-            .hero-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-subtitle {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .hero-stats {
-                justify-content: center;
-            }
-
-            .compass-container {
-                max-width: 400px;
-            }
-
-            .feature-row {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .feature-row:nth-child(even) {
-                direction: ltr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-links,
-            .nav-cta {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .mobile-menu {
-                display: block;
-            }
-
-            .hero {
-                padding: 5rem 1.5rem 3rem;
-            }
-
-            .hero-stats {
-                flex-direction: column;
-                gap: 1.5rem;
-                align-items: center;
-            }
-
-            .theory-planet {
-                width: 45px;
-                height: 45px;
-            }
-
-            .theory-planet i {
-                font-size: 1rem;
-            }
-
-            section {
-                padding: 4rem 1.5rem;
-            }
-
-            .problems-grid,
-            .theory-cards {
-                grid-template-columns: 1fr;
-            }
-
-            .demo-compass {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .footer-brand {
-                max-width: none;
-            }
-
-            .footer-social {
-                justify-content: center;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        /* Animations on scroll */
+        /* Animate on scroll */
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -1549,102 +1601,22 @@
             opacity: 1;
             transform: translateY(0);
         }
-
-        /* Custom Modal */
-        .modal-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .modal-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background: var(--cosmos-blue);
-            border: 1px solid var(--glass-border);
-            border-radius: 24px;
-            padding: 2rem;
-            max-width: 500px;
-            width: 100%;
-            transform: scale(0.9);
-            transition: transform 0.3s ease;
-        }
-
-        .modal-overlay.active .modal-content {
-            transform: scale(1);
-        }
-
-        .modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-title {
-            font-family: 'Noto Serif SC', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            color: var(--text-muted);
-            font-size: 1.25rem;
-            cursor: pointer;
-            transition: color 0.3s ease;
-        }
-
-        .modal-close:hover {
-            color: var(--text-primary);
-        }
-
-        .modal-body {
-            margin-bottom: 1.5rem;
-        }
-
-        .modal-body p {
-            color: var(--text-secondary);
-        }
-
-        .modal-footer {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-        }
     </style>
 </head>
 <body>
     <div class="cosmic-bg"></div>
     <div class="stars" id="stars"></div>
-    <svg class="neural-network" id="neuralNetwork"></svg>
 
     <!-- Navigation -->
     <nav>
         <div class="nav-content">
-            <div class="logo">
+            <div class="logo" id="logoHome">
                 <div class="logo-icon"></div>
                 <span>天赋罗盘</span>
             </div>
             <ul class="nav-links">
-                <li><a href="#problems">痛点解决</a></li>
-                <li><a href="#theories">科学基座</a></li>
-                <li><a href="#features">核心功能</a></li>
-                <li><a href="#journey">用户旅程</a></li>
-                <li><a href="#demo">场景演示</a></li>
+                <li><a href="#hero">首页</a></li>
+                <li><a href="#" id="navAssessment">开始测评</a></li>
             </ul>
             <div class="nav-cta">
                 <button class="btn btn-ghost" id="themeToggle">
@@ -1664,19 +1636,16 @@
             <i class="fas fa-times"></i>
         </button>
         <ul class="nav-links">
-            <li><a href="#problems">痛点解决</a></li>
-            <li><a href="#theories">科学基座</a></li>
-            <li><a href="#features">核心功能</a></li>
-            <li><a href="#journey">用户旅程</a></li>
-            <li><a href="#demo">场景演示</a></li>
+            <li><a href="#hero">首页</a></li>
+            <li><a href="#" id="mobileNavAssessment">开始测评</a></li>
         </ul>
         <div class="nav-cta">
-            <button class="btn btn-primary btn-large">开始探索</button>
+            <button class="btn btn-primary btn-large" id="mobileStartBtn">开始探索</button>
         </div>
     </div>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-content">
             <div class="hero-text">
                 <div class="hero-badge">
@@ -1694,8 +1663,8 @@
                     <button class="btn btn-primary btn-large" id="heroStartBtn">
                         <i class="fas fa-compass"></i> 开启潜能测评
                     </button>
-                    <button class="btn btn-ghost btn-large">
-                        <i class="fas fa-play-circle"></i> 观看介绍
+                    <button class="btn btn-ghost btn-large" id="viewDemoBtn">
+                        <i class="fas fa-play-circle"></i> 查看示例结果
                     </button>
                 </div>
                 <div class="hero-stats">
@@ -1716,7 +1685,6 @@
 
             <div class="compass-container">
                 <div class="compass-wrapper">
-                    <!-- Connection Lines SVG -->
                     <svg class="connection-lines" viewBox="0 0 100 100">
                         <path class="connection-line" d="M50 10 Q70 30 95 35" />
                         <path class="connection-line" d="M50 10 Q30 30 5 35" />
@@ -1726,17 +1694,14 @@
                         <path class="connection-line" d="M10 75 Q30 85 50 90" />
                     </svg>
 
-                    <!-- Compass Rings -->
                     <div class="compass-ring outer"></div>
                     <div class="compass-ring middle"></div>
                     <div class="compass-ring inner"></div>
 
-                    <!-- Center -->
                     <div class="compass-center">
                         <div class="compass-center-text">你的<br>潜能图谱</div>
                     </div>
 
-                    <!-- Theory Planets -->
                     <div class="theory-planet planet-gallup">
                         <i class="fas fa-star"></i>
                         <div class="planet-tooltip" style="top: 100%; left: 50%; transform: translateX(-50%);">
@@ -1786,9 +1751,9 @@
                     </div>
 
                     <div class="theory-planet planet-big5">
-                        <i class="fas fa-chart-radar"></i>
+                        <i class="fas fa-chart-pie"></i>
                         <div class="planet-tooltip" style="top: 0; right: 100%;">
-                            <div class="tooltip-title"><i class="fas fa-chart-radar" style="color: #ef4444;"></i> 大五人格</div>
+                            <div class="tooltip-title"><i class="fas fa-chart-pie" style="color: #ef4444;"></i> 大五人格</div>
                             <div class="tooltip-desc">OCEAN五维，精准衡量特质光谱</div>
                         </div>
                     </div>
@@ -1797,558 +1762,532 @@
         </div>
     </section>
 
-    <!-- Problems Section -->
-    <section class="problems" id="problems">
-        <div class="section-header animate-on-scroll">
-            <div class="section-badge">核心痛点</div>
-            <h2 class="section-title">我们解决什么问题？</h2>
-            <p class="section-desc">在成长道路上，太多人被迷雾笼罩。天赋罗盘为你拨开云雾，看见真正的自己。</p>
-        </div>
-
-        <div class="problems-grid">
-            <div class="problem-card animate-on-scroll">
-                <div class="problem-icon red">
-                    <i class="fas fa-question-circle"></i>
-                </div>
-                <h3>自我认知模糊</h3>
-                <p>"我是谁？我擅长什么？" 缺乏科学工具来认识自己的独特性，在自我探索中迷失方向。</p>
-            </div>
-
-            <div class="problem-card animate-on-scroll">
-                <div class="problem-icon orange">
-                    <i class="fas fa-road"></i>
-                </div>
-                <h3>发展路径盲目</h3>
-                <p>面对选科、选专业、择业等人生抉择时，缺乏基于个人特质的科学指引，决策充满不确定性。</p>
-            </div>
-
-            <div class="problem-card animate-on-scroll">
-                <div class="problem-icon purple">
-                    <i class="fas fa-eye-slash"></i>
-                </div>
-                <h3>优势被掩盖</h3>
-                <p>传统评价标准（考试分数）只看到冰山一角，真正的天赋才干在"不及格"的阴影下被忽视。</p>
-            </div>
-
-            <div class="problem-card animate-on-scroll">
-                <div class="problem-icon blue">
-                    <i class="fas fa-puzzle-piece"></i>
-                </div>
-                <h3>方法不匹配</h3>
-                <p>用"别人的方法"学习和成长，事倍功半。不了解自己的认知风格，无法定制高效策略。</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Theory Foundation Section -->
-    <section class="theory-section" id="theories">
-        <div class="section-header animate-on-scroll">
-            <div class="section-badge">科学基座</div>
-            <h2 class="section-title">七大理论，深度融合</h2>
-            <p class="section-desc">不是简单罗列，而是构建一个统一的人格-能力模型。每个理论扮演独特角色，协同工作。</p>
-        </div>
-
-        <div class="theory-cards">
-            <div class="theory-card animate-on-scroll">
-                <div class="theory-card-header">
-                    <div class="theory-icon gallup"><i class="fas fa-star"></i></div>
-                    <div>
-                        <h3 class="theory-card-title">盖洛普优势理论</h3>
-                        <span class="theory-card-role">「优势语言」</span>
-                    </div>
-                </div>
-                <p>定义和命名你的34项独特才干主题。发挥优势比弥补短板效率高6倍——让你用"天赋语言"认识自己。</p>
-                <div class="theory-tags">
-                    <span class="theory-tag">34项才干</span>
-                    <span class="theory-tag">四大领域</span>
-                    <span class="theory-tag">优势发展</span>
-                </div>
-            </div>
-
-            <div class="theory-card animate-on-scroll">
-                <div class="theory-card-header">
-                    <div class="theory-icon jung"><i class="fas fa-yin-yang"></i></div>
-                    <div>
-                        <h3 class="theory-card-title">荣格心理类型</h3>
-                        <span class="theory-card-role">「心理操作系统」</span>
-                    </div>
-                </div>
-                <p>描述你稳定的心理能量指向（内倾/外倾）和认知方式。理解你获取能量、接收信息、做决定的根本模式。</p>
-                <div class="theory-tags">
-                    <span class="theory-tag">16型人格</span>
-                    <span class="theory-tag">心理能量</span>
-                    <span class="theory-tag">认知功能</span>
-                </div>
-            </div>
-
-            <div class="theory-card animate-on-scroll">
-                <div class="theory-card-header">
-                    <div class="theory-icon big5"><i class="fas fa-chart-radar"></i></div>
-                    <div>
-                        <h3 class="theory-card-title">大五人格理论</h3>
-                        <span class="theory-card-role">「特质光谱」</span>
-                    </div>
-                </div>
-                <p>心理学界公认最科学的人格模型（OCEAN）。不是简单分类，而是精准衡量你在五个维度上的程度，预测行为模式。</p>
-                <div class="theory-tags">
-                    <span class="theory-tag">开放性</span>
-                    <span class="theory-tag">尽责性</span>
-                    <span class="theory-tag">外向性</span>
-                    <span class="theory-tag">宜人性</span>
-                    <span class="theory-tag">情绪稳定</span>
-                </div>
-            </div>
-
-            <div class="theory-card animate-on-scroll">
-                <div class="theory-card-header">
-                    <div class="theory-icon mi"><i class="fas fa-brain"></i></div>
-                    <div>
-                        <h3 class="theory-card-title">多元智能理论</h3>
-                        <span class="theory-card-role">「能力雷达图」</span>
-                    </div>
-                </div>
-                <p>打破"IQ唯一论"，揭示8大智能领域。发现那些在传统考试中被埋没的天赋——也许你拥有极高的空间智能或人际智能。</p>
-                <div class="theory-tags">
-                    <span class="theory-tag">语言</span>
-                    <span class="theory-tag">逻辑</span>
-                    <span class="theory-tag">空间</span>
-                    <span class="theory-tag">音乐</span>
-                    <span class="theory-tag">+4种</span>
-                </div>
-            </div>
-
-            <div class="theory-card animate-on-scroll">
-                <div class="theory-card-header">
-                    <div class="theory-icon holland"><i class="fas fa-briefcase"></i></div>
-                    <div>
-                        <h3 class="theory-card-title">霍兰德职业兴趣</h3>
-                        <span class="theory-card-role">「方向罗盘」</span>
-                    </div>
-                </div>
-                <p>全球职业规划最经典的理论。将你的内在特质与外部世界（学科、职业）科学匹配，指引选科与职业方向。</p>
-                <div class="theory-tags">
-                    <span class="theory-tag">现实型R</span>
-                    <span class="theory-tag">研究型I</span>
-                    <span class="theory-tag">艺术型A</span>
-                    <span class="theory-tag">RIASEC</span>
-                </div>
-            </div>
-
-            <div class="theory-card animate-on-scroll">
-                <div class="theory-card-header">
-                    <div class="theory-icon flow"><i class="fas fa-fire"></i></div>
-                    <div>
-                        <h3 class="theory-card-title">心流理论</h3>
-                        <span class="theory-card-role">「状态验证器」</span>
-                    </div>
-                </div>
-                <p>识别让你完全沉浸、忘记时间的活动。寻找"天赋"往往就是寻找"心流"——验证你真正的热情所在，而非仅仅擅长。</p>
-                <div class="theory-tags">
-                    <span class="theory-tag">最佳体验</span>
-                    <span class="theory-tag">热情探测</span>
-                    <span class="theory-tag">动力验证</span>
-                </div>
-            </div>
-
-            <div class="theory-card animate-on-scroll">
-                <div class="theory-card-header">
-                    <div class="theory-icon cognitive"><i class="fas fa-lightbulb"></i></div>
-                    <div>
-                        <h3 class="theory-card-title">认知心理学</h3>
-                        <span class="theory-card-role">「学习策略生成器」</span>
-                    </div>
-                </div>
-                <p>解析你的认知风格和信息处理模式。区分视觉/听觉学习者，场独立/场依存型，生成定制化的高效学习策略。</p>
-                <div class="theory-tags">
-                    <span class="theory-tag">认知风格</span>
-                    <span class="theory-tag">学习策略</span>
-                    <span class="theory-tag">信息处理</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="section-header animate-on-scroll">
-            <div class="section-badge">核心功能</div>
-            <h2 class="section-title">从测评到行动的完整闭环</h2>
-            <p class="section-desc">不只是一份报告，而是一个持续陪伴你成长的动态系统。</p>
-        </div>
-
-        <div class="features-container">
-            <!-- Feature 1: Personal Potential Map -->
-            <div class="feature-row animate-on-scroll">
-                <div class="feature-text">
-                    <h3><i class="fas fa-globe" style="color: var(--aurora-teal);"></i> 个人潜能动态图谱</h3>
-                    <p>这不是一份静态报告，而是一个可视化的、可交互的3D星系。7大理论数据融合计算，形成统一的人格-能力模型。</p>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> 多维数据可视化，一眼看清全貌</li>
-                        <li><i class="fas fa-check"></i> 点击任意节点，深入探索其含义</li>
-                        <li><i class="fas fa-check"></i> 理论交叉洞察，如"战略性共情"</li>
-                        <li><i class="fas fa-check"></i> 随使用动态更新，越用越精准</li>
-                    </ul>
-                </div>
-                <div class="feature-visual">
-                    <div class="radar-container">
-                        <svg class="radar-svg" viewBox="0 0 200 200">
-                            <!-- Radar Grid -->
-                            <polygon points="100,20 170,60 170,140 100,180 30,140 30,60" fill="none" stroke="var(--glass-border)" stroke-width="1"/>
-                            <polygon points="100,40 150,70 150,130 100,160 50,130 50,70" fill="none" stroke="var(--glass-border)" stroke-width="1"/>
-                            <polygon points="100,60 130,80 130,120 100,140 70,120 70,80" fill="none" stroke="var(--glass-border)" stroke-width="1"/>
-                            <polygon points="100,80 115,90 115,110 100,120 85,110 85,90" fill="none" stroke="var(--glass-border)" stroke-width="1"/>
-
-                            <!-- Radar Data -->
-                            <polygon points="100,30 160,65 155,135 100,165 45,120 40,70"
-                                     fill="rgba(0, 212, 170, 0.2)"
-                                     stroke="var(--aurora-teal)"
-                                     stroke-width="2"/>
-
-                            <!-- Data Points -->
-                            <circle cx="100" cy="30" r="5" fill="#f59e0b"/>
-                            <circle cx="160" cy="65" r="5" fill="#8b5cf6"/>
-                            <circle cx="155" cy="135" r="5" fill="#3b82f6"/>
-                            <circle cx="100" cy="165" r="5" fill="#10b981"/>
-                            <circle cx="45" cy="120" r="5" fill="#ec4899"/>
-                            <circle cx="40" cy="70" r="5" fill="#06b6d4"/>
-
-                            <!-- Labels -->
-                            <text x="100" y="12" text-anchor="middle" fill="var(--text-secondary)" font-size="8">盖洛普</text>
-                            <text x="180" y="65" text-anchor="start" fill="var(--text-secondary)" font-size="8">荣格</text>
-                            <text x="175" y="140" text-anchor="start" fill="var(--text-secondary)" font-size="8">多元智能</text>
-                            <text x="100" y="195" text-anchor="middle" fill="var(--text-secondary)" font-size="8">霍兰德</text>
-                            <text x="20" y="125" text-anchor="end" fill="var(--text-secondary)" font-size="8">心流</text>
-                            <text x="20" y="70" text-anchor="end" fill="var(--text-secondary)" font-size="8">认知</text>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature 2: Flow Tracker -->
-            <div class="feature-row animate-on-scroll">
-                <div class="feature-text">
-                    <h3><i class="fas fa-fire-alt" style="color: var(--plasma-pink);"></i> 心流时刻记录器</h3>
-                    <p>结合日记和AI分析，让你标记产生心流的活动。AI反向推导其背后的优势与兴趣组合，验证测评结果。</p>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> 简单打卡，记录沉浸时刻</li>
-                        <li><i class="fas fa-check"></i> AI分析心流背后的特质组合</li>
-                        <li><i class="fas fa-check"></i> 可视化你的心流分布图</li>
-                        <li><i class="fas fa-check"></i> 将数据收集转化为游戏化成长</li>
-                    </ul>
-                </div>
-                <div class="feature-visual">
-                    <div class="flow-visual">
-                        <div class="flow-day">
-                            <span class="flow-day-label">周一</span>
-                            <div class="flow-bar-container">
-                                <div class="flow-bar high" style="width: 85%;">搭建模型 · 2.5小时</div>
-                            </div>
-                        </div>
-                        <div class="flow-day">
-                            <span class="flow-day-label">周二</span>
-                            <div class="flow-bar-container">
-                                <div class="flow-bar medium" style="width: 45%;">阅读 · 1小时</div>
-                            </div>
-                        </div>
-                        <div class="flow-day">
-                            <span class="flow-day-label">周三</span>
-                            <div class="flow-bar-container">
-                                <div class="flow-bar high" style="width: 75%;">编程学习 · 2小时</div>
-                            </div>
-                        </div>
-                        <div class="flow-day">
-                            <span class="flow-day-label">周四</span>
-                            <div class="flow-bar-container">
-                                <div class="flow-bar low" style="width: 25%;">写作业 · 0.5小时</div>
-                            </div>
-                        </div>
-                        <div class="flow-day">
-                            <span class="flow-day-label">周五</span>
-                            <div class="flow-bar-container">
-                                <div class="flow-bar high" style="width: 90%;">设计项目 · 3小时</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Feature 3: Path Projector -->
-            <div class="feature-row animate-on-scroll">
-                <div class="feature-text">
-                    <h3><i class="fas fa-project-diagram" style="color: var(--bio-green);"></i> 发展路径投影仪</h3>
-                    <p>基于你的"潜能图谱"和霍兰德代码，AI生成可能的学科发展树、职业探索路径及所需的能力发展建议。</p>
-                    <ul class="feature-list">
-                        <li><i class="fas fa-check"></i> 可视化学科与职业发展树</li>
-                        <li><i class="fas fa-check"></i> 基于个人特质的精准匹配</li>
-                        <li><i class="fas fa-check"></i> 能力差距分析与提升建议</li>
-                        <li><i class="fas fa-check"></i> 多路径比较，辅助决策</li>
-                    </ul>
-                </div>
-                <div class="feature-visual">
-                    <div class="path-visual">
-                        <div class="path-node">
-                            <div class="path-icon current"><i class="fas fa-user"></i></div>
-                            <div class="path-content">
-                                <h4>当前状态</h4>
-                                <p>高一 · RI型 · 空间智能突出</p>
-                            </div>
-                        </div>
-                        <div class="path-node">
-                            <div class="path-icon next"><i class="fas fa-book"></i></div>
-                            <div class="path-content">
-                                <h4>推荐选科</h4>
-                                <p>物理 + 地理 + 技术</p>
-                            </div>
-                        </div>
-                        <div class="path-node">
-                            <div class="path-icon next"><i class="fas fa-graduation-cap"></i></div>
-                            <div class="path-content">
-                                <h4>专业方向</h4>
-                                <p>建筑设计 · 地理信息科学</p>
-                            </div>
-                        </div>
-                        <div class="path-node">
-                            <div class="path-icon future"><i class="fas fa-briefcase"></i></div>
-                            <div class="path-content">
-                                <h4>职业探索</h4>
-                                <p>建筑师 · 城市规划师 · GIS工程师</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- User Journey Section -->
-    <section class="journey" id="journey">
-        <div class="section-header animate-on-scroll">
-            <div class="section-badge">用户旅程</div>
-            <h2 class="section-title">从测评到成长的完整体验</h2>
-            <p class="section-desc">每一步都精心设计，让科学发现变成可行动的成长指南。</p>
-        </div>
-
-        <div class="journey-container">
-            <div class="journey-timeline">
-                <div class="journey-step animate-on-scroll">
-                    <span class="journey-step-number">01</span>
-                    <h3><i class="fas fa-gamepad"></i> 沉浸式多维测评</h3>
-                    <p>不是一堆无聊的问卷，而是一场探索游戏。针对不同理论采用不同交互形式：排序题对应优势、情景选择对应荣格类型、图标偏好对应霍兰德代码……</p>
-                    <div class="journey-theories">
-                        <span class="journey-theory">盖洛普优势</span>
-                        <span class="journey-theory">荣格类型</span>
-                        <span class="journey-theory">霍兰德代码</span>
-                        <span class="journey-theory">大五人格</span>
-                    </div>
-                </div>
-
-                <div class="journey-step animate-on-scroll">
-                    <span class="journey-step-number">02</span>
-                    <h3><i class="fas fa-compass"></i> 探���潜能星系</h3>
-                    <p>进入可旋转、可缩放、可点击的3D罗盘界面。不同的"星球"代表不同理论维度，它们之间的"引力线"代表关联。交互充满发现感。</p>
-                    <div class="journey-theories">
-                        <span class="journey-theory">3D可视化</span>
-                        <span class="journey-theory">交叉洞察</span>
-                        <span class="journey-theory">理论融合</span>
-                    </div>
-                </div>
-
-                <div class="journey-step animate-on-scroll">
-                    <span class="journey-step-number">03</span>
-                    <h3><i class="fas fa-lightbulb"></i> 接收个性化微建议</h3>
-                    <p>在具体场景中（如"如何准备下周的演讲？"），请求AI基于你的图谱生成量身定做的行动策略——利用你的独特优势组合。</p>
-                    <div class="journey-theories">
-                        <span class="journey-theory">场景化建议</span>
-                        <span class="journey-theory">优势应用</span>
-                        <span class="journey-theory">认知策略</span>
-                    </div>
-                </div>
-
-                <div class="journey-step animate-on-scroll">
-                    <span class="journey-step-number">04</span>
-                    <h3><i class="fas fa-chart-line"></i> 持续追踪与验证</h3>
-                    <p>通过"心流记录器"持续打卡，验证并强化测评结果。图谱随着你的使用和成长而动态更新——越用越懂你。</p>
-                    <div class="journey-theories">
-                        <span class="journey-theory">心流验证</span>
-                        <span class="journey-theory">动态更新</span>
-                        <span class="journey-theory">成长追踪</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Demo Section -->
-    <section class="demo" id="demo">
-        <div class="section-header animate-on-scroll">
-            <div class="section-badge">场景演示</div>
-            <h2 class="section-title">小杨的选科之旅</h2>
-            <p class="section-desc">看看一个高一学生如何通过天赋罗盘找到自己的方向。</p>
-        </div>
-
-        <div class="demo-container animate-on-scroll">
-            <div class="demo-card">
-                <div class="demo-header">
-                    <div class="demo-dot red"></div>
-                    <div class="demo-dot yellow"></div>
-                    <div class="demo-dot green"></div>
-                </div>
-                <div class="demo-content">
-                    <div class="demo-profile">
-                        <div class="demo-avatar">杨</div>
-                        <div class="demo-info">
-                            <h4>小杨 · 高一学生</h4>
-                            <p>面临新高考选科，对未来方向感到迷茫</p>
-                        </div>
-                    </div>
-
-                    <div class="demo-compass">
-                        <div class="demo-trait">
-                            <div class="demo-trait-icon ri"><i class="fas fa-flask"></i></div>
-                            <div class="demo-trait-label">研究型+艺术型</div>
-                            <div class="demo-trait-value">霍兰德代码 IA</div>
-                        </div>
-                        <div class="demo-trait">
-                            <div class="demo-trait-icon strategy"><i class="fas fa-chess"></i></div>
-                            <div class="demo-trait-label">战略+关联</div>
-                            <div class="demo-trait-value">盖洛普才干</div>
-                        </div>
-                        <div class="demo-trait">
-                            <div class="demo-trait-icon spatial"><i class="fas fa-cube"></i></div>
-                            <div class="demo-trait-label">逻辑+空间</div>
-                            <div class="demo-trait-value">多元智能</div>
-                        </div>
-                    </div>
-
-                    <div class="demo-recommendation">
-                        <h5><i class="fas fa-magic"></i> AI 洞察与建议</h5>
-                        <div class="demo-subjects">
-                            <span class="demo-subject"><i class="fas fa-atom"></i> 物理</span>
-                            <span class="demo-subject"><i class="fas fa-globe-asia"></i> 地理信息</span>
-                            <span class="demo-subject highlighted"><i class="fas fa-building"></i> 建筑设计</span>
-                        </div>
-                        <div class="demo-insight">
-                            "你的研究性(I)与艺术性(A)在建筑设计中完美结合。战略思维助你规划全局，空间智能是关键优势。<br><br>
-                            <strong>建议：</strong>记录一次搭建模型时是否进入心流状态，验证此路径与你的最佳体验是否吻合。"
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- CTA Section -->
-    <section class="cta">
-        <div class="cta-container animate-on-scroll">
-            <h2>准备好发现你的<span class="highlight">独特天赋</span>了吗？</h2>
-            <p>从困惑焦虑，到被科学"看见"的笃定。开启属于你的成长导航。</p>
-            <div class="cta-buttons">
-                <button class="btn btn-primary btn-large" id="ctaStartBtn">
-                    <i class="fas fa-rocket"></i> 立即开始测评
+    <!-- Assessment Panel -->
+    <div class="assessment-panel" id="assessmentPanel">
+        <div class="assessment-header">
+            <div class="assessment-header-content">
+                <button class="assessment-close" id="assessmentClose">
+                    <i class="fas fa-times"></i>
                 </button>
-                <button class="btn btn-ghost btn-large">
-                    <i class="fas fa-envelope"></i> 预约咨询
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-brand">
-                <div class="logo">
-                    <div class="logo-icon"></div>
-                    <span>天赋罗盘</span>
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 0%"></div>
+                    </div>
+                    <div class="progress-text" id="progressText">第 1 题 / 共 7 题</div>
                 </div>
-                <p>基于7大科学理论，用AI为你导航成长路径。科学为骨，体验为肉，成长为魂。</p>
-                <div class="footer-social">
-                    <a href="https://weixin.qq.com" target="_blank" rel="noopener"><i class="fab fa-weixin"></i></a>
-                    <a href="https://weibo.com" target="_blank" rel="noopener"><i class="fab fa-weibo"></i></a>
-                    <a href="https://www.zhihu.com" target="_blank" rel="noopener"><i class="fab fa-zhihu"></i></a>
-                    <a href="https://www.bilibili.com" target="_blank" rel="noopener"><i class="fab fa-bilibili"></i></a>
+                <div style="width: 40px;"></div>
+            </div>
+        </div>
+
+        <div class="assessment-content">
+            <!-- Question 1: Gallup Strengths - Ranking -->
+            <div class="question-container" id="q1">
+                <div class="question-header">
+                    <div class="question-theory gallup">
+                        <i class="fas fa-star"></i> 盖洛普优势理论
+                    </div>
+                    <h2 class="question-title">请按照"最像你"到"最不像你"的顺序排列以下才干</h2>
+                    <p class="question-desc">拖拽调整顺序，第1位是最符合你的才干特质</p>
+                </div>
+                <ul class="ranking-list" id="rankingList">
+                    <li class="ranking-item" draggable="true" data-id="strategic">
+                        <span class="ranking-number">1</span>
+                        <div class="ranking-content">
+                            <h4>战略 Strategic</h4>
+                            <p>善于从混乱中找到最佳路径，能快速识别模式和规律</p>
+                        </div>
+                        <i class="fas fa-grip-vertical ranking-handle"></i>
+                    </li>
+                    <li class="ranking-item" draggable="true" data-id="achiever">
+                        <span class="ranking-number">2</span>
+                        <div class="ranking-content">
+                            <h4>成就 Achiever</h4>
+                            <p>拥有持续的内驱力，每天都需要有所成就才能满足</p>
+                        </div>
+                        <i class="fas fa-grip-vertical ranking-handle"></i>
+                    </li>
+                    <li class="ranking-item" draggable="true" data-id="learner">
+                        <span class="ranking-number">3</span>
+                        <div class="ranking-content">
+                            <h4>学习 Learner</h4>
+                            <p>热爱学习过程本身，享受从无知到精通的旅程</p>
+                        </div>
+                        <i class="fas fa-grip-vertical ranking-handle"></i>
+                    </li>
+                    <li class="ranking-item" draggable="true" data-id="relator">
+                        <span class="ranking-number">4</span>
+                        <div class="ranking-content">
+                            <h4>关联 Relator</h4>
+                            <p>善于建立深度关系，珍视与少数人的亲密友谊</p>
+                        </div>
+                        <i class="fas fa-grip-vertical ranking-handle"></i>
+                    </li>
+                    <li class="ranking-item" draggable="true" data-id="ideation">
+                        <span class="ranking-number">5</span>
+                        <div class="ranking-content">
+                            <h4>思维 Ideation</h4>
+                            <p>喜欢思考抽象概念，能在看似无关的事物间建立联系</p>
+                        </div>
+                        <i class="fas fa-grip-vertical ranking-handle"></i>
+                    </li>
+                </ul>
+                <div class="assessment-nav">
+                    <div></div>
+                    <button class="btn btn-primary btn-large" onclick="nextQuestion(1)">
+                        下一题 <i class="fas fa-arrow-right"></i>
+                    </button>
                 </div>
             </div>
-            <div class="footer-links">
-                <h4>产品</h4>
-                <ul>
-                    <li><a href="#features">核心功能</a></li>
-                    <li><a href="#theories">科学理论</a></li>
-                    <li><a href="#demo">使用案例</a></li>
-                    <li><a href="#journey">用户旅程</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>支持</h4>
-                <ul>
-                    <li><a href="https://help.example.com" target="_blank" rel="noopener">帮助中心</a></li>
-                    <li><a href="https://faq.example.com" target="_blank" rel="noopener">常见问题</a></li>
-                    <li><a href="https://contact.example.com" target="_blank" rel="noopener">联系我们</a></li>
-                    <li><a href="https://feedback.example.com" target="_blank" rel="noopener">意见反馈</a></li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>关于</h4>
-                <ul>
-                    <li><a href="https://about.example.com" target="_blank" rel="noopener">关于我们</a></li>
-                    <li><a href="https://team.example.com" target="_blank" rel="noopener">研发团队</a></li>
-                    <li><a href="https://science.example.com" target="_blank" rel="noopener">科学背书</a></li>
-                    <li><a href="https://career.example.com" target="_blank" rel="noopener">加入我们</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 天赋罗盘. All rights reserved.</p>
-            <div class="footer-bottom-links">
-                <a href="https://privacy.example.com" target="_blank" rel="noopener">隐私政策</a>
-                <a href="https://terms.example.com" target="_blank" rel="noopener">用户协议</a>
-            </div>
-        </div>
-    </footer>
 
-    <!-- Modal -->
-    <div class="modal-overlay" id="startModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title"><i class="fas fa-compass" style="color: var(--aurora-teal);"></i> 开始探索</h3>
-                <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <!-- Question 2: Jung Type - Scenario -->
+            <div class="question-container" id="q2">
+                <div class="question-header">
+                    <div class="question-theory jung">
+                        <i class="fas fa-yin-yang"></i> 荣格心理类型
+                    </div>
+                    <h2 class="question-title">周末你更倾向于如何恢复精力？</h2>
+                    <p class="question-desc">选择最符合你真实倾向的选项</p>
+                </div>
+                <div class="scenario-options">
+                    <div class="scenario-option" data-value="E" onclick="selectScenario(this, 2)">
+                        <div class="scenario-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
+                            <i class="fas fa-users" style="color: white;"></i>
+                        </div>
+                        <h4>社交充电型</h4>
+                        <p>和朋友聚会、参加活动、认识新朋友，在人群中感到精力充沛</p>
+                    </div>
+                    <div class="scenario-option" data-value="I" onclick="selectScenario(this, 2)">
+                        <div class="scenario-icon" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">
+                            <i class="fas fa-book-reader" style="color: white;"></i>
+                        </div>
+                        <h4>独处充电型</h4>
+                        <p>安静阅读、独自思考、从事个人爱好，在独处中恢复能量</p>
+                    </div>
+                    <div class="scenario-option" data-value="N" onclick="selectScenario(this, 2)">
+                        <div class="scenario-icon" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
+                            <i class="fas fa-cloud" style="color: white;"></i>
+                        </div>
+                        <h4>想象漫游型</h4>
+                        <p>沉浸在想象中，思考未来可能性，探索新奇的想法和概念</p>
+                    </div>
+                    <div class="scenario-option" data-value="S" onclick="selectScenario(this, 2)">
+                        <div class="scenario-icon" style="background: linear-gradient(135deg, #10b981, #34d399);">
+                            <i class="fas fa-hand-paper" style="color: white;"></i>
+                        </div>
+                        <h4>实践体验型</h4>
+                        <p>动手做事、整理房间、烹饪美食，享受具体可感的当下体验</p>
+                    </div>
+                </div>
+                <div class="assessment-nav">
+                    <button class="btn btn-secondary btn-large" onclick="prevQuestion(2)">
+                        <i class="fas fa-arrow-left"></i> 上一题
+                    </button>
+                    <button class="btn btn-primary btn-large" onclick="nextQuestion(2)" id="q2Next" disabled>
+                        下一题 <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
             </div>
-            <div class="modal-body">
-                <p>您即将开启一段科学的自我探索之旅。完成多维测评约需15-20分钟，请确保有充足的时间和安静的环境。</p>
+
+            <!-- Question 3: Big Five - Scale -->
+            <div class="question-container" id="q3">
+                <div class="question-header">
+                    <div class="question-theory big5">
+                        <i class="fas fa-chart-pie"></i> 大五人格理论
+                    </div>
+                    <h2 class="question-title">请评估以下陈述与你的符合程度</h2>
+                    <p class="question-desc">1 = 完全不符合，5 = 完全符合</p>
+                </div>
+                <div class="scale-questions">
+                    <div class="scale-item">
+                        <h4>我喜欢尝试新事物和接受新想法</h4>
+                        <div class="scale-container">
+                            <span class="scale-label left">完全不符合</span>
+                            <div class="scale-buttons" data-dimension="openness">
+                                <button class="scale-btn" data-value="1" onclick="selectScale(this)">1</button>
+                                <button class="scale-btn" data-value="2" onclick="selectScale(this)">2</button>
+                                <button class="scale-btn" data-value="3" onclick="selectScale(this)">3</button>
+                                <button class="scale-btn" data-value="4" onclick="selectScale(this)">4</button>
+                                <button class="scale-btn" data-value="5" onclick="selectScale(this)">5</button>
+                            </div>
+                            <span class="scale-label right">完全符合</span>
+                        </div>
+                    </div>
+                    <div class="scale-item">
+                        <h4>我做事有条理，善于规划和遵守计划</h4>
+                        <div class="scale-container">
+                            <span class="scale-label left">完全不符合</span>
+                            <div class="scale-buttons" data-dimension="conscientiousness">
+                                <button class="scale-btn" data-value="1" onclick="selectScale(this)">1</button>
+                                <button class="scale-btn" data-value="2" onclick="selectScale(this)">2</button>
+                                <button class="scale-btn" data-value="3" onclick="selectScale(this)">3</button>
+                                <button class="scale-btn" data-value="4" onclick="selectScale(this)">4</button>
+                                <button class="scale-btn" data-value="5" onclick="selectScale(this)">5</button>
+                            </div>
+                            <span class="scale-label right">完全符合</span>
+                        </div>
+                    </div>
+                    <div class="scale-item">
+                        <h4>在社交场合中我感到自在和有活力</h4>
+                        <div class="scale-container">
+                            <span class="scale-label left">完全不符合</span>
+                            <div class="scale-buttons" data-dimension="extraversion">
+                                <button class="scale-btn" data-value="1" onclick="selectScale(this)">1</button>
+                                <button class="scale-btn" data-value="2" onclick="selectScale(this)">2</button>
+                                <button class="scale-btn" data-value="3" onclick="selectScale(this)">3</button>
+                                <button class="scale-btn" data-value="4" onclick="selectScale(this)">4</button>
+                                <button class="scale-btn" data-value="5" onclick="selectScale(this)">5</button>
+                            </div>
+                            <span class="scale-label right">完全符合</span>
+                        </div>
+                    </div>
+                    <div class="scale-item">
+                        <h4>我容易理解他人的感受并愿意帮助别人</h4>
+                        <div class="scale-container">
+                            <span class="scale-label left">完全不符合</span>
+                            <div class="scale-buttons" data-dimension="agreeableness">
+                                <button class="scale-btn" data-value="1" onclick="selectScale(this)">1</button>
+                                <button class="scale-btn" data-value="2" onclick="selectScale(this)">2</button>
+                                <button class="scale-btn" data-value="3" onclick="selectScale(this)">3</button>
+                                <button class="scale-btn" data-value="4" onclick="selectScale(this)">4</button>
+                                <button class="scale-btn" data-value="5" onclick="selectScale(this)">5</button>
+                            </div>
+                            <span class="scale-label right">完全符合</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="assessment-nav">
+                    <button class="btn btn-secondary btn-large" onclick="prevQuestion(3)">
+                        <i class="fas fa-arrow-left"></i> 上一题
+                    </button>
+                    <button class="btn btn-primary btn-large" onclick="nextQuestion(3)">
+                        下一题 <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-ghost" id="modalCancel">稍后再说</button>
-                <button class="btn btn-primary" id="modalConfirm">开始测评</button>
+
+            <!-- Question 4: Multiple Intelligence - Icon Selection -->
+            <div class="question-container" id="q4">
+                <div class="question-header">
+                    <div class="question-theory mi">
+                        <i class="fas fa-brain"></i> 多元智能理论
+                    </div>
+                    <h2 class="question-title">选择你最擅长或最感兴趣的领域（可多选）</h2>
+                    <p class="question-desc">点击选择2-3个最符合你的智能领域</p>
+                </div>
+                <div class="icon-grid">
+                    <div class="icon-option" data-value="linguistic" onclick="toggleIcon(this)">
+                        <i class="fas fa-pen-fancy" style="color: #f59e0b;"></i>
+                        <span>语言智能</span>
+                    </div>
+                    <div class="icon-option" data-value="logical" onclick="toggleIcon(this)">
+                        <i class="fas fa-calculator" style="color: #3b82f6;"></i>
+                        <span>数理逻辑智能</span>
+                    </div>
+                    <div class="icon-option" data-value="spatial" onclick="toggleIcon(this)">
+                        <i class="fas fa-cube" style="color: #8b5cf6;"></i>
+                        <span>空间智能</span>
+                    </div>
+                    <div class="icon-option" data-value="musical" onclick="toggleIcon(this)">
+                        <i class="fas fa-music" style="color: #ec4899;"></i>
+                        <span>音乐智能</span>
+                    </div>
+                    <div class="icon-option" data-value="bodily" onclick="toggleIcon(this)">
+                        <i class="fas fa-running" style="color: #10b981;"></i>
+                        <span>身体运动智能</span>
+                    </div>
+                    <div class="icon-option" data-value="interpersonal" onclick="toggleIcon(this)">
+                        <i class="fas fa-handshake" style="color: #06b6d4;"></i>
+                        <span>人际智能</span>
+                    </div>
+                    <div class="icon-option" data-value="intrapersonal" onclick="toggleIcon(this)">
+                        <i class="fas fa-brain" style="color: #ef4444;"></i>
+                        <span>内省智能</span>
+                    </div>
+                    <div class="icon-option" data-value="naturalist" onclick="toggleIcon(this)">
+                        <i class="fas fa-leaf" style="color: #84cc16;"></i>
+                        <span>自然观察智能</span>
+                    </div>
+                </div>
+                <div class="assessment-nav">
+                    <button class="btn btn-secondary btn-large" onclick="prevQuestion(4)">
+                        <i class="fas fa-arrow-left"></i> 上一题
+                    </button>
+                    <button class="btn btn-primary btn-large" onclick="nextQuestion(4)">
+                        下一题 <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 5: Holland Code - Icon Selection -->
+            <div class="question-container" id="q5">
+                <div class="question-header">
+                    <div class="question-theory holland">
+                        <i class="fas fa-briefcase"></i> 霍兰德职业兴趣
+                    </div>
+                    <h2 class="question-title">以下哪种工作环境最吸引你？（选择2个）</h2>
+                    <p class="question-desc">选择你最向往的职业类型</p>
+                </div>
+                <div class="icon-grid">
+                    <div class="icon-option" data-value="R" onclick="toggleHolland(this)">
+                        <i class="fas fa-tools" style="color: #78716c;"></i>
+                        <span>现实型 (R)</span>
+                    </div>
+                    <div class="icon-option" data-value="I" onclick="toggleHolland(this)">
+                        <i class="fas fa-flask" style="color: #3b82f6;"></i>
+                        <span>研究型 (I)</span>
+                    </div>
+                    <div class="icon-option" data-value="A" onclick="toggleHolland(this)">
+                        <i class="fas fa-palette" style="color: #ec4899;"></i>
+                        <span>艺术型 (A)</span>
+                    </div>
+                    <div class="icon-option" data-value="S" onclick="toggleHolland(this)">
+                        <i class="fas fa-hands-helping" style="color: #10b981;"></i>
+                        <span>社会型 (S)</span>
+                    </div>
+                    <div class="icon-option" data-value="E" onclick="toggleHolland(this)">
+                        <i class="fas fa-chart-line" style="color: #f59e0b;"></i>
+                        <span>企业型 (E)</span>
+                    </div>
+                    <div class="icon-option" data-value="C" onclick="toggleHolland(this)">
+                        <i class="fas fa-table" style="color: #6366f1;"></i>
+                        <span>常规型 (C)</span>
+                    </div>
+                </div>
+                <div class="assessment-nav">
+                    <button class="btn btn-secondary btn-large" onclick="prevQuestion(5)">
+                        <i class="fas fa-arrow-left"></i> 上一题
+                    </button>
+                    <button class="btn btn-primary btn-large" onclick="nextQuestion(5)">
+                        下一题 <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 6: Flow - Activity Rating -->
+            <div class="question-container" id="q6">
+                <div class="question-header">
+                    <div class="question-theory flow">
+                        <i class="fas fa-fire"></i> 心流理论
+                    </div>
+                    <h2 class="question-title">以下活动中，你最容易进入"忘我"状态的是？</h2>
+                    <p class="question-desc">拖动滑块表示沉浸程度（0=很少沉浸，100=经常忘我）</p>
+                </div>
+                <div class="flow-activities">
+                    <div class="flow-activity">
+                        <div class="flow-activity-icon" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
+                            <i class="fas fa-code" style="color: white;"></i>
+                        </div>
+                        <div class="flow-activity-content">
+                            <h4>编程/解决复杂问题</h4>
+                            <p>沉浸在代码或逻辑挑战中</p>
+                        </div>
+                        <div class="flow-slider-container">
+                            <input type="range" class="flow-slider" min="0" max="100" value="50" data-activity="coding" oninput="updateFlowValue(this)">
+                            <div class="flow-value">50%</div>
+                        </div>
+                    </div>
+                    <div class="flow-activity">
+                        <div class="flow-activity-icon" style="background: linear-gradient(135deg, #ec4899, #f472b6);">
+                            <i class="fas fa-paint-brush" style="color: white;"></i>
+                        </div>
+                        <div class="flow-activity-content">
+                            <h4>艺术创作/设计</h4>
+                            <p>绘画、设计、音乐创作等</p>
+                        </div>
+                        <div class="flow-slider-container">
+                            <input type="range" class="flow-slider" min="0" max="100" value="50" data-activity="art" oninput="updateFlowValue(this)">
+                            <div class="flow-value">50%</div>
+                        </div>
+                    </div>
+                    <div class="flow-activity">
+                        <div class="flow-activity-icon" style="background: linear-gradient(135deg, #10b981, #34d399);">
+                            <i class="fas fa-dumbbell" style="color: white;"></i>
+                        </div>
+                        <div class="flow-activity-content">
+                            <h4>运动/户外活动</h4>
+                            <p>体育运动、徒步、探险等</p>
+                        </div>
+                        <div class="flow-slider-container">
+                            <input type="range" class="flow-slider" min="0" max="100" value="50" data-activity="sports" oninput="updateFlowValue(this)">
+                            <div class="flow-value">50%</div>
+                        </div>
+                    </div>
+                    <div class="flow-activity">
+                        <div class="flow-activity-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
+                            <i class="fas fa-book" style="color: white;"></i>
+                        </div>
+                        <div class="flow-activity-content">
+                            <h4>阅读/学习新知识</h4>
+                            <p>深度阅读、研究、探索新领域</p>
+                        </div>
+                        <div class="flow-slider-container">
+                            <input type="range" class="flow-slider" min="0" max="100" value="50" data-activity="reading" oninput="updateFlowValue(this)">
+                            <div class="flow-value">50%</div>
+                        </div>
+                    </div>
+                    <div class="flow-activity">
+                        <div class="flow-activity-icon" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">
+                            <i class="fas fa-cube" style="color: white;"></i>
+                        </div>
+                        <div class="flow-activity-content">
+                            <h4>搭建/制作模型</h4>
+                            <p>乐高、模型、手工制作等</p>
+                        </div>
+                        <div class="flow-slider-container">
+                            <input type="range" class="flow-slider" min="0" max="100" value="50" data-activity="building" oninput="updateFlowValue(this)">
+                            <div class="flow-value">50%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="assessment-nav">
+                    <button class="btn btn-secondary btn-large" onclick="prevQuestion(6)">
+                        <i class="fas fa-arrow-left"></i> 上一题
+                    </button>
+                    <button class="btn btn-primary btn-large" onclick="nextQuestion(6)">
+                        下一题 <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question 7: Cognitive Style -->
+            <div class="question-container" id="q7">
+                <div class="question-header">
+                    <div class="question-theory cognitive">
+                        <i class="fas fa-lightbulb"></i> 认知心理学
+                    </div>
+                    <h2 class="question-title">学习新知识时，你更倾向于哪种方式？</h2>
+                    <p class="question-desc">选择最符合你学习习惯的选项</p>
+                </div>
+                <div class="scenario-options">
+                    <div class="scenario-option" data-value="visual" onclick="selectScenario(this, 7)">
+                        <div class="scenario-icon" style="background: linear-gradient(135deg, #3b82f6, #60a5fa);">
+                            <i class="fas fa-eye" style="color: white;"></i>
+                        </div>
+                        <h4>视觉型学习</h4>
+                        <p>通过图表、图像、视频来理解概念，喜欢用思维导图整理知识</p>
+                    </div>
+                    <div class="scenario-option" data-value="auditory" onclick="selectScenario(this, 7)">
+                        <div class="scenario-icon" style="background: linear-gradient(135deg, #10b981, #34d399);">
+                            <i class="fas fa-headphones" style="color: white;"></i>
+                        </div>
+                        <h4>听觉型学习</h4>
+                        <p>通过听讲解、讨论来学习，喜欢用语言复述来加深记忆</p>
+                    </div>
+                    <div class="scenario-option" data-value="kinesthetic" onclick="selectScenario(this, 7)">
+                        <div class="scenario-icon" style="background: linear-gradient(135deg, #f59e0b, #fbbf24);">
+                            <i class="fas fa-hands" style="color: white;"></i>
+                        </div>
+                        <h4>动觉型学习</h4>
+                        <p>通过动手实践来学习，需要亲身体验才能真正掌握</p>
+                    </div>
+                    <div class="scenario-option" data-value="reading" onclick="selectScenario(this, 7)">
+                        <div class="scenario-icon" style="background: linear-gradient(135deg, #8b5cf6, #a78bfa);">
+                            <i class="fas fa-book-open" style="color: white;"></i>
+                        </div>
+                        <h4>阅读型学习</h4>
+                        <p>通过阅读文字来学习，喜欢做笔记和写作来整理思路</p>
+                    </div>
+                </div>
+                <div class="assessment-nav">
+                    <button class="btn btn-secondary btn-large" onclick="prevQuestion(7)">
+                        <i class="fas fa-arrow-left"></i> 上一题
+                    </button>
+                    <button class="btn btn-primary btn-large" onclick="submitAssessment()">
+                        <i class="fas fa-check"></i> 提交测评
+                    </button>
+                </div>
+            </div>
+
+            <!-- Loading -->
+            <div class="loading-container" id="loadingContainer">
+                <div class="loading-spinner"></div>
+                <div class="loading-text">AI正在分析您的潜能图谱...</div>
+                <div class="loading-subtext">融合7大理论，生成个性化洞察</div>
+            </div>
+
+            <!-- Results -->
+            <div class="results-container" id="resultsContainer">
+                <div class="results-header">
+                    <h2>🎉 您的<span class="highlight">潜能图谱</span>已生成</h2>
+                    <p>基于7大科学理论的深度分析，这是属于您的独特发展蓝图</p>
+                </div>
+
+                <div class="results-main">
+                    <div class="radar-card">
+                        <h3><i class="fas fa-chart-radar" style="color: var(--aurora-teal);"></i> 多维潜能雷达</h3>
+                        <div class="radar-chart">
+                            <svg viewBox="0 0 200 200" id="radarSvg">
+                                <!-- Will be generated by JS -->
+                            </svg>
+                        </div>
+                    </div>
+
+                    <div class="profile-card">
+                        <h3><i class="fas fa-id-card" style="color: var(--aurora-teal);"></i> 核心特质画像</h3>
+                        <div class="profile-badges" id="profileBadges">
+                            <!-- Generated by JS -->
+                        </div>
+                        <div class="profile-traits" id="profileTraits">
+                            <!-- Generated by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-results" id="theoryResults">
+                    <!-- Generated by JS -->
+                </div>
+
+                <div class="ai-insights">
+                    <div class="ai-insights-header">
+                        <div class="ai-icon"><i class="fas fa-robot"></i></div>
+                        <h3>AI 深度洞察</h3>
+                    </div>
+                    <div class="ai-insights-content" id="aiInsights">
+                        <!-- Generated by JS -->
+                    </div>
+                </div>
+
+                <div class="career-section">
+                    <h3><i class="fas fa-road"></i> 推荐发展路径</h3>
+                    <div class="career-paths" id="careerPaths">
+                        <!-- Generated by JS -->
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button class="btn btn-primary btn-large" onclick="downloadReport()">
+                        <i class="fas fa-download"></i> 下载完整报告
+                    </button>
+                    <button class="btn btn-secondary btn-large" onclick="restartAssessment()">
+                        <i class="fas fa-redo"></i> 重新测评
+                    </button>
+                    <button class="btn btn-ghost btn-large" onclick="closeAssessment()">
+                        <i class="fas fa-home"></i> 返回首页
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Dark/Light mode detection and toggle
+        // Theme handling
         function initTheme() {
             if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 document.documentElement.classList.remove('light');
             } else {
                 document.documentElement.classList.add('light');
             }
+            updateThemeIcon();
         }
 
         window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
-            if (event.matches) {
-                document.documentElement.classList.remove('light');
-            } else {
-                document.documentElement.classList.add('light');
-            }
+            document.documentElement.classList.toggle('light', !event.matches);
             updateThemeIcon();
         });
 
         function updateThemeIcon() {
             const icon = document.querySelector('#themeToggle i');
-            if (document.documentElement.classList.contains('light')) {
-                icon.className = 'fas fa-sun';
-            } else {
-                icon.className = 'fas fa-moon';
-            }
+            icon.className = document.documentElement.classList.contains('light') ? 'fas fa-sun' : 'fas fa-moon';
         }
 
         document.getElementById('themeToggle').addEventListener('click', () => {
@@ -2357,14 +2296,11 @@
         });
 
         initTheme();
-        updateThemeIcon();
 
         // Generate stars
         function generateStars() {
             const starsContainer = document.getElementById('stars');
-            const starCount = 150;
-
-            for (let i = 0; i < starCount; i++) {
+            for (let i = 0; i < 150; i++) {
                 const star = document.createElement('div');
                 star.className = 'star';
                 star.style.left = Math.random() * 100 + '%';
@@ -2374,104 +2310,492 @@
                 starsContainer.appendChild(star);
             }
         }
-
         generateStars();
-
-        // Neural network background
-        function generateNeuralNetwork() {
-            const svg = document.getElementById('neuralNetwork');
-            const width = window.innerWidth;
-            const height = window.innerHeight;
-
-            svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
-
-            const nodeCount = 30;
-            const nodes = [];
-
-            for (let i = 0; i < nodeCount; i++) {
-                nodes.push({
-                    x: Math.random() * width,
-                    y: Math.random() * height
-                });
-            }
-
-            let paths = '';
-            for (let i = 0; i < nodes.length; i++) {
-                for (let j = i + 1; j < nodes.length; j++) {
-                    const dist = Math.sqrt(
-                        Math.pow(nodes[i].x - nodes[j].x, 2) +
-                        Math.pow(nodes[i].y - nodes[j].y, 2)
-                    );
-                    if (dist < 300) {
-                        const opacity = 1 - (dist / 300);
-                        paths += `<line
-                            x1="${nodes[i].x}" y1="${nodes[i].y}"
-                            x2="${nodes[j].x}" y2="${nodes[j].y}"
-                            stroke="var(--aurora-teal)"
-                            stroke-width="1"
-                            opacity="${opacity * 0.3}"
-                        />`;
-                    }
-                }
-            }
-
-            svg.innerHTML = paths;
-        }
-
-        generateNeuralNetwork();
-        window.addEventListener('resize', generateNeuralNetwork);
 
         // Mobile menu
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
         const mobileMenuClose = document.getElementById('mobileMenuClose');
 
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('active');
-        });
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.add('active'));
+        mobileMenuClose.addEventListener('click', () => mobileMenu.classList.remove('active'));
 
-        mobileMenuClose.addEventListener('click', () => {
-            mobileMenu.classList.remove('active');
-        });
+        // Assessment state
+        let currentQuestion = 1;
+        const totalQuestions = 7;
+        const answers = {
+            gallup: [],
+            jung: null,
+            big5: {},
+            mi: [],
+            holland: [],
+            flow: {},
+            cognitive: null
+        };
 
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        // Modal handling
-        const modal = document.getElementById('startModal');
-        const modalClose = document.getElementById('modalClose');
-        const modalCancel = document.getElementById('modalCancel');
-        const modalConfirm = document.getElementById('modalConfirm');
-
-        function openModal() {
-            modal.classList.add('active');
+        // Open assessment
+        function openAssessment() {
+            document.getElementById('assessmentPanel').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            showQuestion(1);
         }
 
-        function closeModal() {
-            modal.classList.remove('active');
+        function closeAssessment() {
+            document.getElementById('assessmentPanel').classList.remove('active');
+            document.body.style.overflow = '';
         }
 
-        document.getElementById('startBtn').addEventListener('click', openModal);
-        document.getElementById('heroStartBtn').addEventListener('click', openModal);
-        document.getElementById('ctaStartBtn').addEventListener('click', openModal);
-        modalClose.addEventListener('click', closeModal);
-        modalCancel.addEventListener('click', closeModal);
-        modalConfirm.addEventListener('click', () => {
-            closeModal();
-            // Here you would typically redirect to the assessment page
-            showNotification('测评系统正在准备中，敬请期待！');
+        document.getElementById('startBtn').addEventListener('click', openAssessment);
+        document.getElementById('heroStartBtn').addEventListener('click', openAssessment);
+        document.getElementById('navAssessment').addEventListener('click', (e) => { e.preventDefault(); openAssessment(); });
+        document.getElementById('mobileNavAssessment').addEventListener('click', (e) => { e.preventDefault(); mobileMenu.classList.remove('active'); openAssessment(); });
+        document.getElementById('mobileStartBtn').addEventListener('click', () => { mobileMenu.classList.remove('active'); openAssessment(); });
+        document.getElementById('assessmentClose').addEventListener('click', closeAssessment);
+        document.getElementById('logoHome').addEventListener('click', closeAssessment);
+
+        // View demo results
+        document.getElementById('viewDemoBtn').addEventListener('click', () => {
+            openAssessment();
+            // Set demo answers
+            answers.gallup = ['strategic', 'learner', 'ideation', 'achiever', 'relator'];
+            answers.jung = 'I';
+            answers.big5 = { openness: 5, conscientiousness: 4, extraversion: 2, agreeableness: 4 };
+            answers.mi = ['logical', 'spatial', 'intrapersonal'];
+            answers.holland = ['I', 'A'];
+            answers.flow = { coding: 85, art: 70, sports: 40, reading: 90, building: 95 };
+            answers.cognitive = 'visual';
+
+            showLoading();
+            setTimeout(showResults, 2000);
         });
 
-        modal.addEventListener('click', (e) => {
-            if (e.target === modal) {
-                closeModal();
+        function showQuestion(num) {
+            document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
+            document.getElementById(`q${num}`).classList.add('active');
+            currentQuestion = num;
+            updateProgress();
+        }
+
+        function updateProgress() {
+            const progress = (currentQuestion / totalQuestions) * 100;
+            document.getElementById('progressFill').style.width = `${progress}%`;
+            document.getElementById('progressText').textContent = `第 ${currentQuestion} 题 / 共 ${totalQuestions} 题`;
+        }
+
+        function nextQuestion(current) {
+            if (current < totalQuestions) {
+                showQuestion(current + 1);
+            }
+        }
+
+        function prevQuestion(current) {
+            if (current > 1) {
+                showQuestion(current - 1);
+            }
+        }
+
+        // Drag and drop for ranking
+        const rankingList = document.getElementById('rankingList');
+        let draggedItem = null;
+
+        rankingList.addEventListener('dragstart', (e) => {
+            if (e.target.classList.contains('ranking-item')) {
+                draggedItem = e.target;
+                e.target.classList.add('dragging');
             }
         });
 
-        // Custom notification function (replacing alert)
+        rankingList.addEventListener('dragend', (e) => {
+            if (e.target.classList.contains('ranking-item')) {
+                e.target.classList.remove('dragging');
+                updateRankingNumbers();
+            }
+        });
+
+        rankingList.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            const afterElement = getDragAfterElement(rankingList, e.clientY);
+            if (afterElement == null) {
+                rankingList.appendChild(draggedItem);
+            } else {
+                rankingList.insertBefore(draggedItem, afterElement);
+            }
+        });
+
+        function getDragAfterElement(container, y) {
+            const draggableElements = [...container.querySelectorAll('.ranking-item:not(.dragging)')];
+            return draggableElements.reduce((closest, child) => {
+                const box = child.getBoundingClientRect();
+                const offset = y - box.top - box.height / 2;
+                if (offset < 0 && offset > closest.offset) {
+                    return { offset: offset, element: child };
+                } else {
+                    return closest;
+                }
+            }, { offset: Number.NEGATIVE_INFINITY }).element;
+        }
+
+        function updateRankingNumbers() {
+            const items = rankingList.querySelectorAll('.ranking-item');
+            items.forEach((item, index) => {
+                item.querySelector('.ranking-number').textContent = index + 1;
+            });
+            answers.gallup = [...items].map(item => item.dataset.id);
+        }
+
+        // Scenario selection
+        function selectScenario(element, questionNum) {
+            const parent = element.parentElement;
+            parent.querySelectorAll('.scenario-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+
+            if (questionNum === 2) {
+                answers.jung = element.dataset.value;
+                document.getElementById('q2Next').disabled = false;
+            } else if (questionNum === 7) {
+                answers.cognitive = element.dataset.value;
+            }
+        }
+
+        // Scale selection
+        function selectScale(button) {
+            const container = button.parentElement;
+            container.querySelectorAll('.scale-btn').forEach(btn => btn.classList.remove('selected'));
+            button.classList.add('selected');
+            const dimension = container.dataset.dimension;
+            answers.big5[dimension] = parseInt(button.dataset.value);
+        }
+
+        // Icon toggle for MI
+        function toggleIcon(element) {
+            element.classList.toggle('selected');
+            const value = element.dataset.value;
+            if (element.classList.contains('selected')) {
+                if (!answers.mi.includes(value)) answers.mi.push(value);
+            } else {
+                answers.mi = answers.mi.filter(v => v !== value);
+            }
+        }
+
+        // Holland selection (max 2)
+        function toggleHolland(element) {
+            const value = element.dataset.value;
+            if (element.classList.contains('selected')) {
+                element.classList.remove('selected');
+                answers.holland = answers.holland.filter(v => v !== value);
+            } else {
+                if (answers.holland.length < 2) {
+                    element.classList.add('selected');
+                    answers.holland.push(value);
+                } else {
+                    showNotification('最多只能选择2个职业类型');
+                }
+            }
+        }
+
+        // Flow slider
+        function updateFlowValue(slider) {
+            const value = slider.value;
+            slider.nextElementSibling.textContent = value + '%';
+            answers.flow[slider.dataset.activity] = parseInt(value);
+        }
+
+        // Submit assessment
+        function submitAssessment() {
+            // Collect final answers
+            updateRankingNumbers();
+
+            document.querySelectorAll('.flow-slider').forEach(slider => {
+                answers.flow[slider.dataset.activity] = parseInt(slider.value);
+            });
+
+            showLoading();
+
+            // Simulate AI processing
+            setTimeout(showResults, 3000);
+        }
+
+        function showLoading() {
+            document.querySelectorAll('.question-container').forEach(q => q.classList.remove('active'));
+            document.getElementById('loadingContainer').classList.add('active');
+            document.getElementById('resultsContainer').classList.remove('active');
+            document.getElementById('progressText').textContent = 'AI分析中...';
+            document.getElementById('progressFill').style.width = '100%';
+        }
+
+        function showResults() {
+            document.getElementById('loadingContainer').classList.remove('active');
+            document.getElementById('resultsContainer').classList.add('active');
+            generateResults();
+        }
+
+        function generateResults() {
+            // Generate radar chart
+            generateRadarChart();
+
+            // Generate profile badges
+            const badges = document.getElementById('profileBadges');
+            const hollandCode = answers.holland.join('') || 'IA';
+            const mbtiType = getMBTIType();
+            badges.innerHTML = `
+                <span class="profile-badge primary">${mbtiType}</span>
+                <span class="profile-badge secondary">霍兰德 ${hollandCode}</span>
+                <span class="profile-badge secondary">${getTopStrength()}</span>
+            `;
+
+            // Generate profile traits
+            const traits = document.getElementById('profileTraits');
+            const traitData = [
+                { icon: 'fa-star', color: '#f59e0b', name: '核心才干', value: getTopStrength(), score: 92 },
+                { icon: 'fa-brain', color: '#3b82f6', name: '主导智能', value: getTopIntelligence(), score: 88 },
+                { icon: 'fa-fire', color: '#ec4899', name: '心流活动', value: getTopFlow(), score: 85 },
+                { icon: 'fa-lightbulb', color: '#06b6d4', name: '学习风格', value: getCognitiveStyle(), score: 90 }
+            ];
+
+            traits.innerHTML = traitData.map(t => `
+                <div class="trait-item">
+                    <div class="trait-icon" style="background: ${t.color}20; color: ${t.color};">
+                        <i class="fas ${t.icon}"></i>
+                    </div>
+                    <div class="trait-info">
+                        <h4>${t.name}</h4>
+                        <p>${t.value}</p>
+                    </div>
+                    <div class="trait-bar">
+                        <div class="trait-bar-fill" style="width: ${t.score}%; background: ${t.color};"></div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Generate theory results
+            const theoryResults = document.getElementById('theoryResults');
+            const theories = [
+                { icon: 'gallup', name: '盖洛普优势', value: getTopStrength(), desc: '你的首要才干主题，发挥它能获得6倍效率提升' },
+                { icon: 'jung', name: '荣格类型', value: mbtiType, desc: '你的心理能量模式和认知偏好' },
+                { icon: 'big5', name: '大五人格', value: getBig5Summary(), desc: '你在五大人格维度上的特质分布' },
+                { icon: 'mi', name: '多元智能', value: getTopIntelligence(), desc: '你最突出的智能领域' },
+                { icon: 'holland', name: '霍兰德代码', value: hollandCode + '型', desc: '你的职业兴趣类型组合' },
+                { icon: 'flow', name: '心流活动', value: getTopFlow(), desc: '最容易让你进入心流状态的活动' },
+                { icon: 'cognitive', name: '认知风格', value: getCognitiveStyle(), desc: '你的最佳学习方式' }
+            ];
+
+            theoryResults.innerHTML = theories.map(t => `
+                <div class="theory-result-card">
+                    <div class="theory-result-header">
+                        <div class="theory-result-icon ${t.icon}"><i class="fas fa-${getTheoryIcon(t.icon)}"></i></div>
+                        <div class="theory-result-title">${t.name}</div>
+                    </div>
+                    <div class="theory-result-value">${t.value}</div>
+                    <div class="theory-result-desc">${t.desc}</div>
+                </div>
+            `).join('');
+
+            // Generate AI insights
+            const insights = document.getElementById('aiInsights');
+            const insightData = generateInsights();
+            insights.innerHTML = insightData.map((insight, i) => `
+                <div class="insight-item">
+                    <div class="insight-number">${i + 1}</div>
+                    <div class="insight-text">
+                        <h4>${insight.title}</h4>
+                        <p>${insight.content}</p>
+                    </div>
+                </div>
+            `).join('');
+
+            // Generate career paths
+            const careers = document.getElementById('careerPaths');
+            const careerData = generateCareers();
+            careers.innerHTML = careerData.map((career, i) => `
+                <div class="career-path ${i === 0 ? 'highlighted' : ''}">
+                    <i class="fas fa-${career.icon}"></i>
+                    <h4>${career.name}</h4>
+                    <p>${career.desc}</p>
+                    <span class="career-match">${career.match}% 匹配</span>
+                </div>
+            `).join('');
+        }
+
+        function generateRadarChart() {
+            const svg = document.getElementById('radarSvg');
+            const cx = 100, cy = 100, r = 70;
+            const labels = ['盖洛普', '荣格', '大五', '多元智能', '霍兰德', '心流', '认知'];
+            const values = [92, 85, 78, 88, 82, 90, 86];
+            const n = labels.length;
+
+            // Generate grid
+            let grid = '';
+            for (let level = 1; level <= 4; level++) {
+                const lr = (r * level) / 4;
+                let points = '';
+                for (let i = 0; i < n; i++) {
+                    const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
+                    const x = cx + lr * Math.cos(angle);
+                    const y = cy + lr * Math.sin(angle);
+                    points += `${x},${y} `;
+                }
+                grid += `<polygon points="${points}" fill="none" stroke="var(--glass-border)" stroke-width="1"/>`;
+            }
+
+            // Generate axes
+            let axes = '';
+            for (let i = 0; i < n; i++) {
+                const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
+                const x = cx + r * Math.cos(angle);
+                const y = cy + r * Math.sin(angle);
+                axes += `<line x1="${cx}" y1="${cy}" x2="${x}" y2="${y}" stroke="var(--glass-border)" stroke-width="1"/>`;
+            }
+
+            // Generate data polygon
+            let dataPoints = '';
+            let dots = '';
+            for (let i = 0; i < n; i++) {
+                const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
+                const value = values[i] / 100;
+                const x = cx + r * value * Math.cos(angle);
+                const y = cy + r * value * Math.sin(angle);
+                dataPoints += `${x},${y} `;
+                dots += `<circle cx="${x}" cy="${y}" r="5" fill="var(--aurora-teal)"/>`;
+            }
+
+            // Generate labels
+            let labelElements = '';
+            const colors = ['#f59e0b', '#8b5cf6', '#ef4444', '#3b82f6', '#10b981', '#ec4899', '#06b6d4'];
+            for (let i = 0; i < n; i++) {
+                const angle = (Math.PI * 2 * i) / n - Math.PI / 2;
+                const x = cx + (r + 20) * Math.cos(angle);
+                const y = cy + (r + 20) * Math.sin(angle);
+                labelElements += `<text x="${x}" y="${y}" text-anchor="middle" dominant-baseline="middle" fill="${colors[i]}" font-size="9" font-weight="600">${labels[i]}</text>`;
+            }
+
+            svg.innerHTML = `
+                ${grid}
+                ${axes}
+                <polygon points="${dataPoints}" fill="rgba(0, 212, 170, 0.2)" stroke="var(--aurora-teal)" stroke-width="2"/>
+                ${dots}
+                ${labelElements}
+            `;
+        }
+
+        function getTopStrength() {
+            const strengths = { strategic: '战略', achiever: '成就', learner: '学习', relator: '关联', ideation: '思维' };
+            return strengths[answers.gallup[0]] || '战略';
+        }
+
+        function getMBTIType() {
+            const types = { E: 'E', I: 'I', N: 'N', S: 'S' };
+            const e_i = types[answers.jung] || 'I';
+            const openness = answers.big5.openness || 4;
+            const n_s = openness >= 4 ? 'N' : 'S';
+            const agreeableness = answers.big5.agreeableness || 3;
+            const t_f = agreeableness >= 4 ? 'F' : 'T';
+            const conscientiousness = answers.big5.conscientiousness || 3;
+            const j_p = conscientiousness >= 4 ? 'J' : 'P';
+            return `${e_i}${n_s}${t_f}${j_p}`;
+        }
+
+        function getTopIntelligence() {
+            const intelligences = {
+                linguistic: '语言智能', logical: '逻辑智能', spatial: '空间智能',
+                musical: '音乐智能', bodily: '身体运动智能', interpersonal: '人际智能',
+                intrapersonal: '内省智能', naturalist: '自然观察智能'
+            };
+            return intelligences[answers.mi[0]] || '逻辑智能';
+        }
+
+        function getTopFlow() {
+            const activities = { coding: '编程/解题', art: '艺术创作', sports: '运动', reading: '阅读学习', building: '搭建模型' };
+            const sorted = Object.entries(answers.flow).sort((a, b) => b[1] - a[1]);
+            return activities[sorted[0]?.[0]] || '搭建模型';
+        }
+
+        function getCognitiveStyle() {
+            const styles = { visual: '视觉型', auditory: '听觉型', kinesthetic: '动觉型', reading: '阅读型' };
+            return styles[answers.cognitive] || '视觉型';
+        }
+
+        function getBig5Summary() {
+            const o = answers.big5.openness || 4;
+            const c = answers.big5.conscientiousness || 4;
+            if (o >= 4 && c >= 4) return '高开放·高尽责';
+            if (o >= 4) return '高开放性';
+            if (c >= 4) return '高尽责性';
+            return '均衡型';
+        }
+
+        function getTheoryIcon(theory) {
+            const icons = { gallup: 'star', jung: 'yin-yang', big5: 'chart-pie', mi: 'brain', holland: 'briefcase', flow: 'fire', cognitive: 'lightbulb' };
+            return icons[theory] || 'circle';
+        }
+
+        function generateInsights() {
+            const strength = getTopStrength();
+            const intelligence = getTopIntelligence();
+            const hollandCode = answers.holland.join('') || 'IA';
+
+            return [
+                {
+                    title: `"${strength}"才干 × ${intelligence} = 独特优势组合`,
+                    content: `你的${strength}才干与${intelligence}形成了强大的协同效应。这意味着你在需要${strength === '战略' ? '规划全局和识别模式' : '持续投入和达成目标'}的同时运用${intelligence.replace('智能', '')}能力的领域会表现出色。`
+                },
+                {
+                    title: `霍兰德${hollandCode}型的职业启示`,
+                    content: `你的${hollandCode}型组合表明你适合需要${hollandCode.includes('I') ? '深入研究和分析' : ''}${hollandCode.includes('A') ? '创意表达和设计' : ''}${hollandCode.includes('R') ? '动手实践和技术' : ''}的工作环境。建议探索将这些元素结合的职业方向。`
+                },
+                {
+                    title: `心流验证：${getTopFlow()}是你的热情所在`,
+                    content: `数据显示你在${getTopFlow()}活动中最容易进入心流状态。这不仅说明你擅长，更重要的是你真正热爱这个领域。建议将更多时间投入相关活动，这将带来持续的成就感和成长动力。`
+                }
+            ];
+        }
+
+        function generateCareers() {
+            const hollandCode = answers.holland.join('') || 'IA';
+            const careerMap = {
+                'IA': [
+                    { icon: 'building', name: '建筑设计师', desc: '融合研究与艺术', match: 95 },
+                    { icon: 'flask', name: '科学研究员', desc: '探索未知领域', match: 88 },
+                    { icon: 'laptop-code', name: 'UX设计师', desc: '用户体验研究', match: 85 },
+                    { icon: 'globe', name: '地理信息分析', desc: '空间数据专家', match: 82 }
+                ],
+                'IR': [
+                    { icon: 'cogs', name: '工程师', desc: '技术与创新', match: 92 },
+                    { icon: 'robot', name: 'AI研究员', desc: '人工智能研发', match: 90 },
+                    { icon: 'chart-bar', name: '数据科学家', desc: '数据洞察专家', match: 87 },
+                    { icon: 'microscope', name: '实验室研究员', desc: '科学探索', match: 84 }
+                ]
+            };
+
+            return careerMap[hollandCode] || careerMap['IA'];
+        }
+
+        function restartAssessment() {
+            // Reset answers
+            Object.keys(answers).forEach(key => {
+                if (Array.isArray(answers[key])) answers[key] = [];
+                else if (typeof answers[key] === 'object') answers[key] = {};
+                else answers[key] = null;
+            });
+
+            // Reset UI
+            document.querySelectorAll('.selected').forEach(el => el.classList.remove('selected'));
+            document.querySelectorAll('.scale-btn').forEach(btn => btn.classList.remove('selected'));
+            document.querySelectorAll('.flow-slider').forEach(slider => {
+                slider.value = 50;
+                slider.nextElementSibling.textContent = '50%';
+            });
+            document.getElementById('q2Next').disabled = true;
+
+            document.getElementById('resultsContainer').classList.remove('active');
+            document.getElementById('loadingContainer').classList.remove('active');
+            showQuestion(1);
+        }
+
+        function downloadReport() {
+            showNotification('完整PDF报告将发送至您的邮箱');
+        }
+
+        // Notification
         function showNotification(message) {
             const notification = document.createElement('div');
             notification.style.cssText = `
@@ -2490,72 +2814,27 @@
             `;
             notification.textContent = message;
             document.body.appendChild(notification);
-
             setTimeout(() => {
                 notification.style.animation = 'fadeOut 0.3s ease forwards';
                 setTimeout(() => notification.remove(), 300);
             }, 3000);
         }
 
-        // Add notification animations
-        const notificationStyles = document.createElement('style');
-        notificationStyles.textContent = `
+        // Animation styles
+        const animStyles = document.createElement('style');
+        animStyles.textContent = `
             @keyframes slideDown {
-                from {
-                    opacity: 0;
-                    transform: translateX(-50%) translateY(-20px);
-                }
-                to {
-                    opacity: 1;
-                    transform: translateX(-50%) translateY(0);
-                }
+                from { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
             }
             @keyframes fadeOut {
-                from {
-                    opacity: 1;
-                    transform: translateX(-50%) translateY(0);
-                }
-                to {
-                    opacity: 0;
-                    transform: translateX(-50%) translateY(-20px);
-                }
+                from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                to { opacity: 0; transform: translateX(-50%) translateY(-20px); }
             }
         `;
-        document.head.appendChild(notificationStyles);
+        document.head.appendChild(animStyles);
 
-        // Animate on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.animate-on-scroll').forEach(el => {
-            observer.observe(el);
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-
-        // Parallax effect for compass
+        // Parallax effect
         const compassContainer = document.querySelector('.compass-container');
         if (compassContainer) {
             document.addEventListener('mousemove', (e) => {
@@ -2564,16 +2843,6 @@
                 compassContainer.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${-y}deg)`;
             });
         }
-
-        // Add hover effect for theory planets
-        document.querySelectorAll('.theory-planet').forEach(planet => {
-            planet.addEventListener('mouseenter', () => {
-                planet.style.animationPlayState = 'paused';
-            });
-            planet.addEventListener('mouseleave', () => {
-                planet.style.animationPlayState = 'running';
-            });
-        });
     </script>
 </body>
 </html>
