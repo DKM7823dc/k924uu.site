@@ -1594,12 +1594,179 @@
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.6s ease-out;
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
 
         .animate-on-scroll.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        /* Staggered animation delays for grid items */
+        .animate-on-scroll:nth-child(2) { transition-delay: 0.1s; }
+        .animate-on-scroll:nth-child(3) { transition-delay: 0.2s; }
+        .animate-on-scroll:nth-child(4) { transition-delay: 0.3s; }
+        .animate-on-scroll:nth-child(5) { transition-delay: 0.4s; }
+        .animate-on-scroll:nth-child(6) { transition-delay: 0.5s; }
+        .animate-on-scroll:nth-child(7) { transition-delay: 0.6s; }
+
+        /* Sections Common */
+        section { padding: 6rem 2rem; position: relative; }
+        .section-header { text-align: center; max-width: 700px; margin: 0 auto 4rem; }
+        .section-badge { display: inline-block; padding: 0.5rem 1rem; background: var(--glass-white); border: 1px solid var(--glass-border); border-radius: 50px; font-size: 0.85rem; color: var(--aurora-teal); margin-bottom: 1rem; }
+        .section-title { font-family: 'Noto Serif SC', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; margin-bottom: 1rem; }
+        .section-desc { font-size: 1.1rem; color: var(--text-secondary); }
+
+        /* Problems Section */
+        .problems { background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 170, 0.02) 50%, transparent 100%); }
+        .problems-grid { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .problem-card { background: var(--glass-white); border: 1px solid var(--glass-border); border-radius: 20px; padding: 2rem; transition: all 0.3s ease; position: relative; overflow: hidden; }
+        .problem-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--gradient-aurora); transform: scaleX(0); transition: transform 0.3s ease; }
+        .problem-card:hover { transform: translateY(-5px); border-color: var(--aurora-teal); }
+        .problem-card:hover::before { transform: scaleX(1); }
+        .problem-icon { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; margin-bottom: 1.5rem; }
+        .problem-icon.red { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+        .problem-icon.orange { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+        .problem-icon.purple { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+        .problem-icon.blue { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+        .problem-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.75rem; }
+        .problem-card p { font-size: 0.95rem; color: var(--text-secondary); }
+
+        /* Theory Section */
+        .theory-section { background: var(--cosmos-blue); }
+        .theory-cards { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; }
+        .theory-card { background: var(--glass-white); border: 1px solid var(--glass-border); border-radius: 20px; padding: 2rem; transition: all 0.3s ease; }
+        .theory-card:hover { transform: translateY(-5px); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2); }
+        .theory-card-header { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.5rem; }
+        .theory-icon { width: 48px; height: 48px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.25rem; flex-shrink: 0; color: white; }
+        .theory-icon.gallup { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+        .theory-icon.jung { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+        .theory-icon.big5 { background: linear-gradient(135deg, #ef4444, #f87171); }
+        .theory-icon.mi { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+        .theory-icon.holland { background: linear-gradient(135deg, #10b981, #34d399); }
+        .theory-icon.flow { background: linear-gradient(135deg, #ec4899, #f472b6); }
+        .theory-icon.cognitive { background: linear-gradient(135deg, #06b6d4, #22d3ee); }
+        .theory-card-title { font-family: 'Noto Serif SC', serif; font-size: 1.15rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .theory-card-role { font-size: 0.85rem; color: var(--aurora-teal); }
+        .theory-card p { font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1rem; }
+        .theory-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .theory-tag { padding: 0.25rem 0.75rem; background: var(--glass-white); border: 1px solid var(--glass-border); border-radius: 50px; font-size: 0.75rem; color: var(--text-muted); }
+
+        /* Features Section */
+        .features { background: linear-gradient(180deg, var(--cosmos-blue) 0%, var(--deep-space) 100%); }
+        .features-container { max-width: 1200px; margin: 0 auto; }
+        .feature-row { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; margin-bottom: 6rem; }
+        .feature-row:nth-child(even) { direction: rtl; }
+        .feature-row:nth-child(even) > * { direction: ltr; }
+        .feature-text h3 { font-family: 'Noto Serif SC', serif; font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; }
+        .feature-text p { font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
+        .feature-list { list-style: none; }
+        .feature-list li { display: flex; align-items: flex-start; gap: 0.75rem; margin-bottom: 1rem; font-size: 0.95rem; color: var(--text-secondary); }
+        .feature-list li i { color: var(--aurora-teal); margin-top: 0.25rem; }
+        .feature-visual { background: var(--glass-white); border: 1px solid var(--glass-border); border-radius: 24px; padding: 2rem; position: relative; overflow: hidden; }
+        .feature-visual::before { content: ''; position: absolute; top: -50%; right: -50%; width: 100%; height: 100%; background: radial-gradient(circle, rgba(0, 212, 170, 0.1) 0%, transparent 70%); pointer-events: none; }
+        .radar-preview { aspect-ratio: 1; display: flex; align-items: center; justify-content: center; }
+        .radar-preview-svg { width: 100%; height: 100%; max-width: 300px; }
+        .flow-preview { display: flex; flex-direction: column; gap: 1rem; }
+        .flow-day-preview { display: flex; align-items: center; gap: 1rem; }
+        .flow-day-preview span { width: 40px; font-size: 0.85rem; color: var(--text-muted); }
+        .flow-bar-preview { height: 32px; border-radius: 8px; display: flex; align-items: center; padding-left: 1rem; font-size: 0.8rem; color: white; font-weight: 500; }
+        .flow-bar-preview.high { background: linear-gradient(90deg, var(--aurora-teal), var(--bio-green)); }
+        .flow-bar-preview.medium { background: linear-gradient(90deg, var(--energy-orange), var(--star-gold)); }
+        .flow-bar-preview.low { background: linear-gradient(90deg, var(--plasma-pink), #f472b6); }
+        .path-preview { display: flex; flex-direction: column; gap: 1rem; }
+        .path-node-preview { display: flex; align-items: center; gap: 1rem; padding: 1rem; background: var(--glass-white); border: 1px solid var(--glass-border); border-radius: 12px; position: relative; }
+        .path-node-preview::before { content: ''; position: absolute; left: 28px; top: 100%; width: 2px; height: 1rem; background: var(--aurora-teal); }
+        .path-node-preview:last-child::before { display: none; }
+        .path-icon-preview { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; color: white; }
+        .path-icon-preview.current { background: var(--aurora-teal); }
+        .path-icon-preview.next { background: var(--neural-blue); }
+        .path-icon-preview.future { background: var(--glass-white); color: var(--text-muted); border: 1px dashed var(--glass-border); }
+
+        /* Journey Section */
+        .journey { background: var(--deep-space); }
+        .journey-container { max-width: 1000px; margin: 0 auto; }
+        .journey-timeline { position: relative; padding-left: 3rem; }
+        .journey-timeline::before { content: ''; position: absolute; left: 12px; top: 0; bottom: 0; width: 2px; background: linear-gradient(180deg, var(--aurora-teal) 0%, var(--neural-blue) 50%, var(--plasma-pink) 100%); }
+        .journey-step { position: relative; padding: 2rem; background: var(--glass-white); border: 1px solid var(--glass-border); border-radius: 20px; margin-bottom: 2rem; margin-left: 2rem; transition: all 0.3s ease; }
+        .journey-step:hover { transform: translateX(10px); border-color: var(--aurora-teal); }
+        .journey-step::before { content: ''; position: absolute; left: -2.5rem; top: 2rem; width: 24px; height: 24px; background: var(--deep-space); border: 3px solid var(--aurora-teal); border-radius: 50%; }
+        .journey-step-number { position: absolute; left: -2.35rem; top: 2.1rem; font-size: 0.7rem; font-weight: 700; color: var(--aurora-teal); }
+        .journey-step h3 { font-family: 'Noto Serif SC', serif; font-size: 1.25rem; font-weight: 600; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.75rem; }
+        .journey-step h3 i { color: var(--aurora-teal); }
+        .journey-step p { color: var(--text-secondary); font-size: 0.95rem; }
+        .journey-theories { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1rem; }
+        .journey-theory { padding: 0.25rem 0.75rem; background: var(--glass-white); border-radius: 50px; font-size: 0.75rem; color: var(--text-muted); }
+
+        /* Demo Section */
+        .demo { background: linear-gradient(180deg, var(--deep-space) 0%, var(--cosmos-blue) 100%); }
+        .demo-container { max-width: 800px; margin: 0 auto; }
+        .demo-card { background: var(--glass-white); border: 1px solid var(--glass-border); border-radius: 24px; overflow: hidden; }
+        .demo-header { display: flex; align-items: center; gap: 0.5rem; padding: 1rem 1.5rem; background: var(--glass-white); border-bottom: 1px solid var(--glass-border); }
+        .demo-dot { width: 12px; height: 12px; border-radius: 50%; }
+        .demo-dot.red { background: #ef4444; }
+        .demo-dot.yellow { background: #f59e0b; }
+        .demo-dot.green { background: #10b981; }
+        .demo-content { padding: 2rem; }
+        .demo-profile { display: flex; align-items: center; gap: 1.5rem; padding: 1.5rem; background: var(--glass-white); border-radius: 16px; margin-bottom: 2rem; }
+        .demo-avatar { width: 60px; height: 60px; border-radius: 50%; background: var(--gradient-aurora); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #0a0e1a; font-weight: 700; }
+        .demo-info h4 { font-size: 1.1rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .demo-info p { font-size: 0.9rem; color: var(--text-muted); }
+        .demo-compass { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+        .demo-trait { padding: 1rem; background: var(--glass-white); border: 1px solid var(--glass-border); border-radius: 12px; text-align: center; }
+        .demo-trait-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 0.75rem; font-size: 1rem; color: white; }
+        .demo-trait-icon.ri { background: linear-gradient(135deg, #10b981, #3b82f6); }
+        .demo-trait-icon.strategy { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+        .demo-trait-icon.spatial { background: linear-gradient(135deg, #06b6d4, #22d3ee); }
+        .demo-trait-label { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.25rem; }
+        .demo-trait-value { font-size: 0.75rem; color: var(--text-muted); }
+        .demo-recommendation { padding: 1.5rem; background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(59, 130, 246, 0.1)); border: 1px solid var(--aurora-teal); border-radius: 16px; }
+        .demo-recommendation h5 { display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem; color: var(--aurora-teal); }
+        .demo-subjects { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem; }
+        .demo-subject { padding: 0.5rem 1rem; background: var(--glass-white); border: 1px solid var(--glass-border); border-radius: 50px; font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; }
+        .demo-subject.highlighted { background: var(--aurora-teal); color: #0a0e1a; font-weight: 600; }
+        .demo-insight { font-size: 0.9rem; color: var(--text-secondary); padding: 1rem; background: var(--glass-white); border-radius: 12px; border-left: 3px solid var(--aurora-teal); }
+
+        /* CTA Section */
+        .cta { background: var(--cosmos-blue); text-align: center; padding: 8rem 2rem; }
+        .cta-container { max-width: 700px; margin: 0 auto; }
+        .cta h2 { font-family: 'Noto Serif SC', serif; font-size: clamp(2rem, 4vw, 2.5rem); font-weight: 700; margin-bottom: 1rem; }
+        .cta p { font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem; }
+        .cta-buttons { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+        /* Footer */
+        footer { background: var(--deep-space); padding: 4rem 2rem 2rem; border-top: 1px solid var(--glass-border); }
+        .footer-content { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand { max-width: 300px; }
+        .footer-brand .logo { margin-bottom: 1rem; }
+        .footer-brand p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+        .footer-social { display: flex; gap: 1rem; }
+        .footer-social a { width: 40px; height: 40px; border-radius: 50%; background: var(--glass-white); border: 1px solid var(--glass-border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: all 0.3s ease; text-decoration: none; }
+        .footer-social a:hover { background: var(--aurora-teal); color: #0a0e1a; }
+        .footer-links h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--text-primary); }
+        .footer-links ul { list-style: none; }
+        .footer-links li { margin-bottom: 0.75rem; }
+        .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.3s ease; }
+        .footer-links a:hover { color: var(--aurora-teal); }
+        .footer-bottom { max-width: 1200px; margin: 0 auto; padding-top: 2rem; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+        .footer-bottom p { font-size: 0.85rem; color: var(--text-muted); }
+        .footer-bottom-links { display: flex; gap: 2rem; }
+        .footer-bottom-links a { font-size: 0.85rem; color: var(--text-muted); text-decoration: none; transition: color 0.3s ease; }
+        .footer-bottom-links a:hover { color: var(--aurora-teal); }
+
+        @media (max-width: 1024px) {
+            .feature-row { grid-template-columns: 1fr; gap: 2rem; }
+            .feature-row:nth-child(even) { direction: ltr; }
+            .footer-content { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            section { padding: 4rem 1.5rem; }
+            .problems-grid, .theory-cards { grid-template-columns: 1fr; }
+            .demo-compass { grid-template-columns: 1fr; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+            .footer-brand { max-width: none; }
+            .footer-social { justify-content: center; }
+            .footer-bottom { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
@@ -1761,6 +1928,401 @@
             </div>
         </div>
     </section>
+
+    <!-- Problems Section -->
+    <section class="problems" id="problems">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">核心痛点</div>
+            <h2 class="section-title">我们解决什么问题？</h2>
+            <p class="section-desc">在成长道路上，太多人被迷雾笼罩。天赋罗盘为你拨开云雾，看见真正的自己。</p>
+        </div>
+        <div class="problems-grid">
+            <div class="problem-card animate-on-scroll">
+                <div class="problem-icon red"><i class="fas fa-question-circle"></i></div>
+                <h3>自我认知模糊</h3>
+                <p>"我是谁？我擅长什么？" 缺乏科学工具来认识自己的独特性，在自我探索中迷失方向。</p>
+            </div>
+            <div class="problem-card animate-on-scroll">
+                <div class="problem-icon orange"><i class="fas fa-road"></i></div>
+                <h3>发展路径盲目</h3>
+                <p>面对选科、选专业、择业等人生抉择时，缺乏基于个人特质的科学指引，决策充满不确定性。</p>
+            </div>
+            <div class="problem-card animate-on-scroll">
+                <div class="problem-icon purple"><i class="fas fa-eye-slash"></i></div>
+                <h3>优势被掩盖</h3>
+                <p>传统评价标准（考试分数）只看到冰山一角，真正的天赋才干���"不及格"的阴影下被忽视。</p>
+            </div>
+            <div class="problem-card animate-on-scroll">
+                <div class="problem-icon blue"><i class="fas fa-puzzle-piece"></i></div>
+                <h3>方法不匹配</h3>
+                <p>用"别人的方法"学习和成长，事倍功半。不了解自己的认知风格，无法定制高效策略。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theory Section -->
+    <section class="theory-section" id="theories">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">科学基座</div>
+            <h2 class="section-title">七大理论，深度融合</h2>
+            <p class="section-desc">不是简单罗列，而是构建一个统一的人格-能力模型。每个理论扮演独特角色，协同工作。</p>
+        </div>
+        <div class="theory-cards">
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon gallup"><i class="fas fa-star"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">盖洛普优势理论</h3>
+                        <span class="theory-card-role">「优势语言」</span>
+                    </div>
+                </div>
+                <p>定义和命名你的34项独特才干主题。发挥优势比弥补短板效率高6倍——让你用"天赋语言"认识自己。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">34项才干</span>
+                    <span class="theory-tag">四大领域</span>
+                    <span class="theory-tag">优势发展</span>
+                </div>
+            </div>
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon jung"><i class="fas fa-yin-yang"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">荣格心理类型</h3>
+                        <span class="theory-card-role">「心理操作系统」</span>
+                    </div>
+                </div>
+                <p>描述你稳定的心理能量指向（内倾/外倾）和认知方式。理解你获取能量、接收信息、做决定的根本模式。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">16型人格</span>
+                    <span class="theory-tag">心理能量</span>
+                    <span class="theory-tag">认知功能</span>
+                </div>
+            </div>
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon big5"><i class="fas fa-chart-pie"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">大五人格理论</h3>
+                        <span class="theory-card-role">「特质光谱」</span>
+                    </div>
+                </div>
+                <p>心理学界公认最科学的人格模型（OCEAN）。不是简单分类，而是精准衡量你在五个维度上的程度，预测行为模式。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">开放性</span>
+                    <span class="theory-tag">尽责性</span>
+                    <span class="theory-tag">外向性</span>
+                    <span class="theory-tag">宜人性</span>
+                </div>
+            </div>
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon mi"><i class="fas fa-brain"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">多元智能理论</h3>
+                        <span class="theory-card-role">「能力雷达图」</span>
+                    </div>
+                </div>
+                <p>打破"IQ唯一论"，揭示8大智能领域。发现那些在传统考试中被埋没的天赋——也许你拥有极高的空间智能或人际智能。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">语言</span>
+                    <span class="theory-tag">逻辑</span>
+                    <span class="theory-tag">空间</span>
+                    <span class="theory-tag">+5种</span>
+                </div>
+            </div>
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon holland"><i class="fas fa-briefcase"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">霍兰德职业兴趣</h3>
+                        <span class="theory-card-role">「方向罗盘」</span>
+                    </div>
+                </div>
+                <p>全球职业规划最经典的理论。将你的内在特质与外部世界（学科、职业）科学匹配，指引选科与职业方向。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">现实型R</span>
+                    <span class="theory-tag">研究型I</span>
+                    <span class="theory-tag">艺术型A</span>
+                    <span class="theory-tag">RIASEC</span>
+                </div>
+            </div>
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon flow"><i class="fas fa-fire"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">心流理论</h3>
+                        <span class="theory-card-role">「状态验证器」</span>
+                    </div>
+                </div>
+                <p>识别让你完全沉浸、忘记时间的活动。寻找"天赋"往往就是寻找"心流"——验证你真正的热情所在，而非仅仅擅长。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">最佳体验</span>
+                    <span class="theory-tag">热情探测</span>
+                    <span class="theory-tag">动力验证</span>
+                </div>
+            </div>
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon cognitive"><i class="fas fa-lightbulb"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">认知心理学</h3>
+                        <span class="theory-card-role">「学习策略生成器」</span>
+                    </div>
+                </div>
+                <p>解析你的认知风格和信息处理模式。区分视觉/听觉学习者，场独立/场依存型，生成定制化的高效学习策略。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">认知风格</span>
+                    <span class="theory-tag">学习策略</span>
+                    <span class="theory-tag">信息处理</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">核心功能</div>
+            <h2 class="section-title">从测评到行动的完整闭环</h2>
+            <p class="section-desc">不只是一份报告，而是一个持续陪伴你成长的动态系统。</p>
+        </div>
+        <div class="features-container">
+            <div class="feature-row animate-on-scroll">
+                <div class="feature-text">
+                    <h3><i class="fas fa-globe" style="color: var(--aurora-teal);"></i> 个���潜能动态图谱</h3>
+                    <p>这不是一份静态报告，而是一个可视化的、可交互的3D星系。7大理论数据融合计算，形成统一的人格-能力模型。</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 多维数据可视化，一眼看清全貌</li>
+                        <li><i class="fas fa-check"></i> 点击任意节点，深入探索其含义</li>
+                        <li><i class="fas fa-check"></i> 理论交叉洞察，如"战略性共情"</li>
+                        <li><i class="fas fa-check"></i> 随使用动态更新，越用越精准</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="radar-preview">
+                        <svg viewBox="0 0 200 200" class="radar-preview-svg">
+                            <polygon points="100,20 170,60 170,140 100,180 30,140 30,60" fill="none" stroke="var(--glass-border)" stroke-width="1"/>
+                            <polygon points="100,40 150,70 150,130 100,160 50,130 50,70" fill="none" stroke="var(--glass-border)" stroke-width="1"/>
+                            <polygon points="100,60 130,80 130,120 100,140 70,120 70,80" fill="none" stroke="var(--glass-border)" stroke-width="1"/>
+                            <polygon points="100,30 160,65 155,135 100,165 45,120 40,70" fill="rgba(0, 212, 170, 0.2)" stroke="var(--aurora-teal)" stroke-width="2"/>
+                            <circle cx="100" cy="30" r="5" fill="#f59e0b"/>
+                            <circle cx="160" cy="65" r="5" fill="#8b5cf6"/>
+                            <circle cx="155" cy="135" r="5" fill="#3b82f6"/>
+                            <circle cx="100" cy="165" r="5" fill="#10b981"/>
+                            <circle cx="45" cy="120" r="5" fill="#ec4899"/>
+                            <circle cx="40" cy="70" r="5" fill="#06b6d4"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-row animate-on-scroll">
+                <div class="feature-text">
+                    <h3><i class="fas fa-fire-alt" style="color: var(--plasma-pink);"></i> 心流时刻记录器</h3>
+                    <p>结合日记和AI分析，让你标记产生心流的活动。AI反向推导其背后的优势与兴趣组合，验证测评结果。</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 简单打卡，记录沉浸时刻</li>
+                        <li><i class="fas fa-check"></i> AI分析心流背后的特质组合</li>
+                        <li><i class="fas fa-check"></i> 可视化你的心流分布图</li>
+                        <li><i class="fas fa-check"></i> 将数据收集转化为游戏化成长</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="flow-preview">
+                        <div class="flow-day-preview"><span>周一</span><div class="flow-bar-preview high" style="width: 85%;">搭建模型 · 2.5h</div></div>
+                        <div class="flow-day-preview"><span>周二</span><div class="flow-bar-preview medium" style="width: 45%;">阅读 · 1h</div></div>
+                        <div class="flow-day-preview"><span>周三</span><div class="flow-bar-preview high" style="width: 75%;">编程 · 2h</div></div>
+                        <div class="flow-day-preview"><span>周四</span><div class="flow-bar-preview low" style="width: 25%;">作业 · 0.5h</div></div>
+                        <div class="flow-day-preview"><span>周五</span><div class="flow-bar-preview high" style="width: 90%;">设计 · 3h</div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="feature-row animate-on-scroll">
+                <div class="feature-text">
+                    <h3><i class="fas fa-project-diagram" style="color: var(--bio-green);"></i> 发展路径投影仪</h3>
+                    <p>基于你的"潜能图谱"和霍兰德代码，AI生成可能的学科发展树、职业探索路径及所需的能力发展建议。</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 可视化学科与职业发展树</li>
+                        <li><i class="fas fa-check"></i> 基于个人特质的精准匹配</li>
+                        <li><i class="fas fa-check"></i> 能力差距分析与提升建议</li>
+                        <li><i class="fas fa-check"></i> 多路径比较，辅助决策</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="path-preview">
+                        <div class="path-node-preview"><div class="path-icon-preview current"><i class="fas fa-user"></i></div><div><strong>当前</strong><br>高一 · RI型</div></div>
+                        <div class="path-node-preview"><div class="path-icon-preview next"><i class="fas fa-book"></i></div><div><strong>选科</strong><br>物理+地理+技术</div></div>
+                        <div class="path-node-preview"><div class="path-icon-preview next"><i class="fas fa-graduation-cap"></i></div><div><strong>专业</strong><br>建筑设计</div></div>
+                        <div class="path-node-preview"><div class="path-icon-preview future"><i class="fas fa-briefcase"></i></div><div><strong>职业</strong><br>建筑师</div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Section -->
+    <section class="journey" id="journey">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">用户旅程</div>
+            <h2 class="section-title">从测评到成长的完整体验</h2>
+            <p class="section-desc">每一步都精心设计，让科学发现变成可行动的成长指南。</p>
+        </div>
+        <div class="journey-container">
+            <div class="journey-timeline">
+                <div class="journey-step animate-on-scroll">
+                    <span class="journey-step-number">01</span>
+                    <h3><i class="fas fa-gamepad"></i> 沉浸式多维测评</h3>
+                    <p>不是一堆无聊的问卷，而是一场探索游戏。针对不同理论采用不同交互形式：排序题对应优势、情景选择对应荣格类型、图标偏好对应霍兰德代码……</p>
+                    <div class="journey-theories">
+                        <span class="journey-theory">盖洛普优势</span>
+                        <span class="journey-theory">荣格类型</span>
+                        <span class="journey-theory">霍兰德代码</span>
+                        <span class="journey-theory">大五人格</span>
+                    </div>
+                </div>
+                <div class="journey-step animate-on-scroll">
+                    <span class="journey-step-number">02</span>
+                    <h3><i class="fas fa-compass"></i> 探索潜能星系</h3>
+                    <p>进入可旋转、可缩放、可点击的3D罗盘界面。不同的"星球"代表不同理论维度，它们之间的"引力线"代表关联。交互充满发现感。</p>
+                    <div class="journey-theories">
+                        <span class="journey-theory">3D可视化</span>
+                        <span class="journey-theory">交叉洞察</span>
+                        <span class="journey-theory">理论融合</span>
+                    </div>
+                </div>
+                <div class="journey-step animate-on-scroll">
+                    <span class="journey-step-number">03</span>
+                    <h3><i class="fas fa-lightbulb"></i> 接收个性化微建议</h3>
+                    <p>在具体场景中（如"如何准备下周的演讲？"），请求AI基于你的图谱生成量身定做的行动策略——利用你的独特优势组合。</p>
+                    <div class="journey-theories">
+                        <span class="journey-theory">场景化建议</span>
+                        <span class="journey-theory">优势应用</span>
+                        <span class="journey-theory">认知策略</span>
+                    </div>
+                </div>
+                <div class="journey-step animate-on-scroll">
+                    <span class="journey-step-number">04</span>
+                    <h3><i class="fas fa-chart-line"></i> 持续追踪与验证</h3>
+                    <p>通过"心流记录器"持续打卡，验证并强化测评结果。图谱随着你的使用和成长而动态更新——越用越懂你。</p>
+                    <div class="journey-theories">
+                        <span class="journey-theory">心流验证</span>
+                        <span class="journey-theory">动态更新</span>
+                        <span class="journey-theory">成长追踪</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo" id="demo">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">场景演示</div>
+            <h2 class="section-title">小杨的选科之旅</h2>
+            <p class="section-desc">看看一个高一学生如何通过天赋罗盘找到自己的方向。</p>
+        </div>
+        <div class="demo-container animate-on-scroll">
+            <div class="demo-card">
+                <div class="demo-header">
+                    <div class="demo-dot red"></div>
+                    <div class="demo-dot yellow"></div>
+                    <div class="demo-dot green"></div>
+                </div>
+                <div class="demo-content">
+                    <div class="demo-profile">
+                        <div class="demo-avatar">杨</div>
+                        <div class="demo-info">
+                            <h4>小杨 · 高一学生</h4>
+                            <p>面临新高考选科，对未来方向感到迷茫</p>
+                        </div>
+                    </div>
+                    <div class="demo-compass">
+                        <div class="demo-trait">
+                            <div class="demo-trait-icon ri"><i class="fas fa-flask"></i></div>
+                            <div class="demo-trait-label">研究型+艺术型</div>
+                            <div class="demo-trait-value">霍兰德代码 IA</div>
+                        </div>
+                        <div class="demo-trait">
+                            <div class="demo-trait-icon strategy"><i class="fas fa-chess"></i></div>
+                            <div class="demo-trait-label">战略+关联</div>
+                            <div class="demo-trait-value">盖洛普才干</div>
+                        </div>
+                        <div class="demo-trait">
+                            <div class="demo-trait-icon spatial"><i class="fas fa-cube"></i></div>
+                            <div class="demo-trait-label">逻辑+空间</div>
+                            <div class="demo-trait-value">多元智能</div>
+                        </div>
+                    </div>
+                    <div class="demo-recommendation">
+                        <h5><i class="fas fa-magic"></i> AI 洞察与建议</h5>
+                        <div class="demo-subjects">
+                            <span class="demo-subject"><i class="fas fa-atom"></i> 物理</span>
+                            <span class="demo-subject"><i class="fas fa-globe-asia"></i> 地理信息</span>
+                            <span class="demo-subject highlighted"><i class="fas fa-building"></i> 建筑设计</span>
+                        </div>
+                        <div class="demo-insight">"你的研究性(I)与艺术性(A)在建筑设计中完美结合。战略思维助你规划全局，空间智能是关键优势。<br><br><strong>建议：</strong>记录一次搭建模型时是否进入心流状态，验证此路径与你的最佳体验是否吻合。"</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-container animate-on-scroll">
+            <h2>准备好发现你的<span class="highlight">独特天赋</span>了吗？</h2>
+            <p>从困惑焦虑，到被科学"看见"的笃定。开启属于你的成长导航。</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary btn-large" id="ctaStartBtn"><i class="fas fa-rocket"></i> 立即开始测评</button>
+                <button class="btn btn-ghost btn-large"><i class="fas fa-envelope"></i> 预约咨询</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo"><div class="logo-icon"></div><span>天赋罗盘</span></div>
+                <p>基于7大科学理论，用AI为你导航成长路径。科学为骨，体验为肉，成长为魂。</p>
+                <div class="footer-social">
+                    <a href="https://weixin.qq.com" target="_blank" rel="noopener"><i class="fab fa-weixin"></i></a>
+                    <a href="https://weibo.com" target="_blank" rel="noopener"><i class="fab fa-weibo"></i></a>
+                    <a href="https://www.zhihu.com" target="_blank" rel="noopener"><i class="fab fa-zhihu"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>产品</h4>
+                <ul>
+                    <li><a href="#features">核心功能</a></li>
+                    <li><a href="#theories">科学理论</a></li>
+                    <li><a href="#demo">使用案例</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>支持</h4>
+                <ul>
+                    <li><a href="https://help.example.com" target="_blank" rel="noopener">帮助中心</a></li>
+                    <li><a href="https://faq.example.com" target="_blank" rel="noopener">常见问题</a></li>
+                    <li><a href="https://contact.example.com" target="_blank" rel="noopener">联系我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>关于</h4>
+                <ul>
+                    <li><a href="https://about.example.com" target="_blank" rel="noopener">关于我们</a></li>
+                    <li><a href="https://team.example.com" target="_blank" rel="noopener">研发团队</a></li>
+                    <li><a href="https://science.example.com" target="_blank" rel="noopener">科学背书</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 天赋罗盘. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="https://privacy.example.com" target="_blank" rel="noopener">隐私政策</a>
+                <a href="https://terms.example.com" target="_blank" rel="noopener">用户协议</a>
+            </div>
+        </div>
+    </footer>
 
     <!-- Assessment Panel -->
     <div class="assessment-panel" id="assessmentPanel">
@@ -2347,11 +2909,25 @@
 
         document.getElementById('startBtn').addEventListener('click', openAssessment);
         document.getElementById('heroStartBtn').addEventListener('click', openAssessment);
+        document.getElementById('ctaStartBtn').addEventListener('click', openAssessment);
         document.getElementById('navAssessment').addEventListener('click', (e) => { e.preventDefault(); openAssessment(); });
         document.getElementById('mobileNavAssessment').addEventListener('click', (e) => { e.preventDefault(); mobileMenu.classList.remove('active'); openAssessment(); });
         document.getElementById('mobileStartBtn').addEventListener('click', () => { mobileMenu.classList.remove('active'); openAssessment(); });
         document.getElementById('assessmentClose').addEventListener('click', closeAssessment);
         document.getElementById('logoHome').addEventListener('click', closeAssessment);
+
+        // Scroll animation observer
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            scrollObserver.observe(el);
+        });
 
         // View demo results
         document.getElementById('viewDemoBtn').addEventListener('click', () => {
@@ -2572,7 +3148,7 @@
             const theories = [
                 { icon: 'gallup', name: '盖洛普优势', value: getTopStrength(), desc: '你的首要才干主题，发挥它能获得6倍效率提升' },
                 { icon: 'jung', name: '荣格类型', value: mbtiType, desc: '你的心理能量模式和认知偏好' },
-                { icon: 'big5', name: '大五人格', value: getBig5Summary(), desc: '你在五大人格维度上的特质分布' },
+                { icon: 'big5', name: '大五人格', value: getBig5Summary(), desc: '你在五大人格维���上的特质分布' },
                 { icon: 'mi', name: '多元智能', value: getTopIntelligence(), desc: '你最突出的智能领域' },
                 { icon: 'holland', name: '霍兰德代码', value: hollandCode + '型', desc: '你的职业兴趣类型组合' },
                 { icon: 'flow', name: '心流活动', value: getTopFlow(), desc: '最容易让你进入心流状态的活动' },
@@ -2736,7 +3312,7 @@
             return [
                 {
                     title: `"${strength}"才干 × ${intelligence} = 独特优势组合`,
-                    content: `你的${strength}才干与${intelligence}形成了强大的协同效应。这意味着你在需要${strength === '战略' ? '规划全局和识别模式' : '持续投入和达成目标'}的同时运用${intelligence.replace('智能', '')}能力的领域会表现出色。`
+                    content: `你的${strength}才干与${intelligence}形成了强大的协同效应。这意味着你在需要${strength === '战略' ? '规划全局���识别模式' : '持续投入和达成目标'}的同时运用${intelligence.replace('智能', '')}能力的领域会表现出色。`
                 },
                 {
                     title: `霍兰德${hollandCode}型的职业启示`,
