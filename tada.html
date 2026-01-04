@@ -3,361 +3,2577 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>天赋罗盘 - AI + 心理学深度融合</title>
-    <!-- 引入 Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- 引入 Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <title>天赋罗盘 - 个人潜能发展导航系统</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body {
-            font-family: 'Noto Sans SC', sans-serif;
+        :root {
+            --deep-space: #0a0e1a;
+            --cosmos-blue: #0d1b2a;
+            --nebula-purple: #1b263b;
+            --aurora-teal: #00d4aa;
+            --bio-green: #4ade80;
+            --energy-orange: #f59e0b;
+            --plasma-pink: #ec4899;
+            --data-white: #f0f4f8;
+            --star-gold: #fbbf24;
+            --neural-blue: #3b82f6;
+            --glass-white: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-primary: #e2e8f0;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --gradient-aurora: linear-gradient(135deg, #00d4aa 0%, #3b82f6 50%, #ec4899 100%);
+            --gradient-cosmos: radial-gradient(ellipse at center, #1b263b 0%, #0a0e1a 100%);
+        }
+
+        .light {
+            --deep-space: #f8fafc;
+            --cosmos-blue: #e2e8f0;
+            --nebula-purple: #cbd5e1;
+            --glass-white: rgba(0, 0, 0, 0.03);
+            --glass-border: rgba(0, 0, 0, 0.08);
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --gradient-cosmos: radial-gradient(ellipse at center, #e2e8f0 0%, #f8fafc 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
-        .hero-bg {
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4c1d95 100%);
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: var(--deep-space);
+            color: var(--text-primary);
+            overflow-x: hidden;
+            line-height: 1.7;
         }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+
+        /* Cosmic Background */
+        .cosmic-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-cosmos);
+            z-index: -2;
         }
-        .compass-spin {
-            animation: spin-slow 20s linear infinite;
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
         }
-        @keyframes spin-slow {
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        .light .star {
+            background: var(--neural-blue);
+            opacity: 0.3;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Neural Network Background */
+        .neural-network {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(10, 14, 26, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: all 0.3s ease;
+        }
+
+        .light nav {
+            background: rgba(248, 250, 252, 0.9);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-aurora);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            position: relative;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 2px solid var(--aurora-teal);
+            border-radius: 50%;
+            animation: pulse-ring 2s infinite;
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            background: var(--gradient-aurora);
+            border-radius: 50%;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.5; }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--aurora-teal);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--aurora-teal);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-family: inherit;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-secondary);
+            border: 1px solid var(--glass-border);
+        }
+
+        .btn-ghost:hover {
+            background: var(--glass-white);
+            color: var(--text-primary);
+        }
+
+        .btn-primary {
+            background: var(--gradient-aurora);
+            color: #0a0e1a;
+            font-weight: 600;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0, 212, 170, 0.3);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--aurora-teal);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge i {
+            animation: spin 10s linear infinite;
+        }
+
+        @keyframes spin {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
+
+        .hero-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-title .highlight {
+            background: var(--gradient-aurora);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--aurora-teal);
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Compass Visualization */
+        .compass-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1;
+            max-width: 550px;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease-out 0.3s backwards;
+        }
+
+        .compass-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .compass-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid var(--glass-border);
+            animation: rotate 60s linear infinite;
+        }
+
+        .compass-ring.outer {
+            inset: 0;
+            border-width: 2px;
+            border-style: dashed;
+            animation-duration: 120s;
+        }
+
+        .compass-ring.middle {
+            inset: 15%;
+            animation-direction: reverse;
+            animation-duration: 90s;
+        }
+
+        .compass-ring.inner {
+            inset: 30%;
+            animation-duration: 60s;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .compass-center {
+            position: absolute;
+            inset: 40%;
+            background: var(--gradient-aurora);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 60px rgba(0, 212, 170, 0.4);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 60px rgba(0, 212, 170, 0.4); }
+            50% { box-shadow: 0 0 100px rgba(0, 212, 170, 0.6); }
+        }
+
+        .compass-center-text {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0a0e1a;
+            text-align: center;
+        }
+
+        /* Theory Planets */
+        .theory-planet {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        .theory-planet:hover {
+            transform: scale(1.2);
+            z-index: 20;
+        }
+
+        .theory-planet::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            border: 2px solid currentColor;
+            opacity: 0.3;
+        }
+
+        .theory-planet i {
+            font-size: 1.25rem;
+            color: white;
+        }
+
+        .planet-gallup {
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #f59e0b, #fbbf24);
+            color: #f59e0b;
+        }
+
+        .planet-jung {
+            top: 25%;
+            right: 5%;
+            background: linear-gradient(135deg, #8b5cf6, #a78bfa);
+            color: #8b5cf6;
+        }
+
+        .planet-mi {
+            top: 60%;
+            right: 0;
+            background: linear-gradient(135deg, #3b82f6, #60a5fa);
+            color: #3b82f6;
+        }
+
+        .planet-holland {
+            bottom: 10%;
+            right: 25%;
+            background: linear-gradient(135deg, #10b981, #34d399);
+            color: #10b981;
+        }
+
+        .planet-flow {
+            bottom: 10%;
+            left: 25%;
+            background: linear-gradient(135deg, #ec4899, #f472b6);
+            color: #ec4899;
+        }
+
+        .planet-cognitive {
+            top: 60%;
+            left: 0;
+            background: linear-gradient(135deg, #06b6d4, #22d3ee);
+            color: #06b6d4;
+        }
+
+        .planet-big5 {
+            top: 25%;
+            left: 5%;
+            background: linear-gradient(135deg, #ef4444, #f87171);
+            color: #ef4444;
+        }
+
+        /* Connecting Lines */
+        .connection-lines {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .connection-lines svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .connection-line {
+            stroke: var(--aurora-teal);
+            stroke-width: 1;
+            fill: none;
+            opacity: 0.2;
+            stroke-dasharray: 5 5;
+            animation: dash 20s linear infinite;
+        }
+
+        @keyframes dash {
+            to { stroke-dashoffset: -100; }
+        }
+
+        /* Tooltip */
+        .planet-tooltip {
+            position: absolute;
+            background: rgba(10, 14, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1rem;
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        .light .planet-tooltip {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .theory-planet:hover .planet-tooltip {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .tooltip-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tooltip-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Sections Common Styles */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            color: var(--aurora-teal);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+        }
+
+        /* Problems Section */
+        .problems {
+            background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 170, 0.02) 50%, transparent 100%);
+        }
+
+        .light .problems {
+            background: linear-gradient(180deg, transparent 0%, rgba(59, 130, 246, 0.03) 50%, transparent 100%);
+        }
+
+        .problems-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .problem-card {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--gradient-aurora);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--aurora-teal);
+        }
+
+        .problem-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .problem-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .problem-icon.red { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+        .problem-icon.orange { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+        .problem-icon.purple { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+        .problem-icon.blue { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+
+        .problem-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .problem-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        /* Theory Foundation */
+        .theory-section {
+            background: var(--cosmos-blue);
+        }
+
+        .light .theory-section {
+            background: var(--cosmos-blue);
+        }
+
+        .theory-cards {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .theory-card {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .theory-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .theory-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .theory-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .theory-icon.gallup { background: linear-gradient(135deg, #f59e0b, #fbbf24); }
+        .theory-icon.jung { background: linear-gradient(135deg, #8b5cf6, #a78bfa); }
+        .theory-icon.mi { background: linear-gradient(135deg, #3b82f6, #60a5fa); }
+        .theory-icon.holland { background: linear-gradient(135deg, #10b981, #34d399); }
+        .theory-icon.flow { background: linear-gradient(135deg, #ec4899, #f472b6); }
+        .theory-icon.cognitive { background: linear-gradient(135deg, #06b6d4, #22d3ee); }
+        .theory-icon.big5 { background: linear-gradient(135deg, #ef4444, #f87171); }
+
+        .theory-card-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .theory-card-role {
+            font-size: 0.85rem;
+            color: var(--aurora-teal);
+        }
+
+        .theory-card p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .theory-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .theory-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(180deg, var(--cosmos-blue) 0%, var(--deep-space) 100%);
+        }
+
+        .light .features {
+            background: linear-gradient(180deg, var(--cosmos-blue) 0%, var(--deep-space) 100%);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 6rem;
+        }
+
+        .feature-row:nth-child(even) {
+            direction: rtl;
+        }
+
+        .feature-row:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .feature-text h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .feature-text p {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li i {
+            color: var(--aurora-teal);
+            margin-top: 0.25rem;
+        }
+
+        /* Feature Visualization Cards */
+        .feature-visual {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-visual::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 212, 170, 0.1) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Radar Chart */
+        .radar-container {
+            aspect-ratio: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .radar-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Flow Tracker Visual */
+        .flow-visual {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .flow-day {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .flow-day-label {
+            width: 60px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .flow-bar-container {
+            flex: 1;
+            height: 32px;
+            background: var(--glass-white);
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .flow-bar {
+            height: 100%;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            padding-left: 1rem;
+            font-size: 0.8rem;
+            color: white;
+            font-weight: 500;
+        }
+
+        .flow-bar.high {
+            background: linear-gradient(90deg, var(--aurora-teal), var(--bio-green));
+        }
+
+        .flow-bar.medium {
+            background: linear-gradient(90deg, var(--energy-orange), var(--star-gold));
+        }
+
+        .flow-bar.low {
+            background: linear-gradient(90deg, var(--plasma-pink), #f472b6);
+        }
+
+        /* Path Visualizer */
+        .path-visual {
+            position: relative;
+        }
+
+        .path-node {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .path-node::before {
+            content: '';
+            position: absolute;
+            left: 28px;
+            top: 100%;
+            width: 2px;
+            height: 1rem;
+            background: var(--aurora-teal);
+        }
+
+        .path-node:last-child::before {
+            display: none;
+        }
+
+        .path-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .path-icon.current { background: var(--aurora-teal); color: #0a0e1a; }
+        .path-icon.next { background: var(--neural-blue); color: white; }
+        .path-icon.future { background: var(--glass-white); color: var(--text-muted); border: 1px dashed var(--glass-border); }
+
+        .path-content h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .path-content p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Journey Section */
+        .journey {
+            background: var(--deep-space);
+        }
+
+        .journey-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .journey-timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .journey-timeline::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--aurora-teal) 0%, var(--neural-blue) 50%, var(--plasma-pink) 100%);
+        }
+
+        .journey-step {
+            position: relative;
+            padding: 2rem;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            margin-left: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .journey-step:hover {
+            transform: translateX(10px);
+            border-color: var(--aurora-teal);
+        }
+
+        .journey-step::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 2rem;
+            width: 24px;
+            height: 24px;
+            background: var(--deep-space);
+            border: 3px solid var(--aurora-teal);
+            border-radius: 50%;
+        }
+
+        .journey-step-number {
+            position: absolute;
+            left: -2.35rem;
+            top: 2.1rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--aurora-teal);
+        }
+
+        .journey-step h3 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .journey-step h3 i {
+            color: var(--aurora-teal);
+        }
+
+        .journey-step p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .journey-theories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .journey-theory {
+            padding: 0.25rem 0.75rem;
+            background: var(--glass-white);
+            border-radius: 50px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* Demo Section */
+        .demo {
+            background: linear-gradient(180deg, var(--deep-space) 0%, var(--cosmos-blue) 100%);
+        }
+
+        .demo-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .demo-card {
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .demo-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--glass-white);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .demo-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .demo-dot.red { background: #ef4444; }
+        .demo-dot.yellow { background: #f59e0b; }
+        .demo-dot.green { background: #10b981; }
+
+        .demo-content {
+            padding: 2rem;
+        }
+
+        .demo-profile {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem;
+            background: var(--glass-white);
+            border-radius: 16px;
+            margin-bottom: 2rem;
+        }
+
+        .demo-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-aurora);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #0a0e1a;
+            font-weight: 700;
+        }
+
+        .demo-info h4 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .demo-info p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .demo-compass {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .demo-trait {
+            padding: 1rem;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .demo-trait-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.75rem;
+            font-size: 1rem;
+        }
+
+        .demo-trait-icon.ri { background: linear-gradient(135deg, #10b981, #3b82f6); color: white; }
+        .demo-trait-icon.strategy { background: linear-gradient(135deg, #f59e0b, #fbbf24); color: white; }
+        .demo-trait-icon.spatial { background: linear-gradient(135deg, #06b6d4, #22d3ee); color: white; }
+
+        .demo-trait-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .demo-trait-value {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .demo-recommendation {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.1), rgba(59, 130, 246, 0.1));
+            border: 1px solid var(--aurora-teal);
+            border-radius: 16px;
+        }
+
+        .demo-recommendation h5 {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--aurora-teal);
+        }
+
+        .demo-subjects {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .demo-subject {
+            padding: 0.5rem 1rem;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .demo-subject.highlighted {
+            background: var(--aurora-teal);
+            color: #0a0e1a;
+            font-weight: 600;
+        }
+
+        .demo-insight {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            padding: 1rem;
+            background: var(--glass-white);
+            border-radius: 12px;
+            border-left: 3px solid var(--aurora-teal);
+        }
+
+        /* CTA Section */
+        .cta {
+            background: var(--cosmos-blue);
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-family: 'Noto Serif SC', serif;
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .cta p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-large {
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--deep-space);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 1rem;
+        }
+
+        .footer-brand p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--glass-white);
+            border: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            background: var(--aurora-teal);
+            color: #0a0e1a;
+        }
+
+        .footer-links h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--aurora-teal);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 2rem;
+            border-top: 1px solid var(--glass-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-bottom p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .footer-bottom-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-bottom-links a {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-bottom-links a:hover {
+            color: var(--aurora-teal);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 14, 26, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 999;
+            padding: 6rem 2rem 2rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+        }
+
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .mobile-menu .nav-links {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .mobile-menu .nav-links a {
+            font-size: 1.25rem;
+        }
+
+        .mobile-menu .nav-cta {
+            flex-direction: column;
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .compass-container {
+                max-width: 400px;
+            }
+
+            .feature-row {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .feature-row:nth-child(even) {
+                direction: ltr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links,
+            .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero {
+                padding: 5rem 1.5rem 3rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+                align-items: center;
+            }
+
+            .theory-planet {
+                width: 45px;
+                height: 45px;
+            }
+
+            .theory-planet i {
+                font-size: 1rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            .problems-grid,
+            .theory-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-compass {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand {
+                max-width: none;
+            }
+
+            .footer-social {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        /* Animations on scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Modal */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--cosmos-blue);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            max-width: 500px;
+            width: 100%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-family: 'Noto Serif SC', serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: var(--text-primary);
+        }
+
+        .modal-body {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-body p {
+            color: var(--text-secondary);
+        }
+
+        .modal-footer {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800">
+<body>
+    <div class="cosmic-bg"></div>
+    <div class="stars" id="stars"></div>
+    <svg class="neural-network" id="neuralNetwork"></svg>
 
-    <!-- 导航栏 -->
-    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center gap-2">
-                    <!-- 简单的罗盘图标 -->
-                    <svg class="w-8 h-8 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                    </svg>
-                    <span class="font-bold text-xl text-slate-900">天赋罗盘</span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#why" class="text-slate-600 hover:text-indigo-600 transition">为什么测</a>
-                    <a href="#science" class="text-slate-600 hover:text-indigo-600 transition">科学理论</a>
-                    <a href="#report" class="text-slate-600 hover:text-indigo-600 transition">报告价值</a>
-                </div>
-                <button class="bg-indigo-600 text-white px-6 py-2 rounded-full font-medium hover:bg-indigo-700 transition shadow-lg shadow-indigo-200">
-                    立即测评
-                </button>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-content">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <span>天赋罗盘</span>
             </div>
+            <ul class="nav-links">
+                <li><a href="#problems">痛点解决</a></li>
+                <li><a href="#theories">科学基座</a></li>
+                <li><a href="#features">核心功能</a></li>
+                <li><a href="#journey">用户旅程</a></li>
+                <li><a href="#demo">场景演示</a></li>
+            </ul>
+            <div class="nav-cta">
+                <button class="btn btn-ghost" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="btn btn-primary" id="startBtn">开始探索</button>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
-    <!-- Hero 区域 -->
-    <header class="hero-bg text-white pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden relative">
-        <!-- 装饰背景圆 -->
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-indigo-500 opacity-20 blur-3xl"></div>
-        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-purple-500 opacity-20 blur-3xl"></div>
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" id="mobileMenuClose">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="nav-links">
+            <li><a href="#problems">痛点解决</a></li>
+            <li><a href="#theories">科学基座</a></li>
+            <li><a href="#features">核心功能</a></li>
+            <li><a href="#journey">用户旅程</a></li>
+            <li><a href="#demo">场景演示</a></li>
+        </ul>
+        <div class="nav-cta">
+            <button class="btn btn-primary btn-large">开始探索</button>
+        </div>
+    </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card mb-8 text-indigo-100 text-sm font-medium">
-                <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
-                AI + 心理学 深度融合
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i class="fas fa-atom"></i>
+                    AI + 心理学深度融合
+                </div>
+                <h1 class="hero-title">
+                    发现你的<span class="highlight">独特天赋</span><br>
+                    导航你的<span class="highlight">成长路径</span>
+                </h1>
+                <p class="hero-subtitle">
+                    基于7大科学理论组合，为您生成一本动态的、可行动的"个人潜能发展说明书"。从困惑焦虑，到被看见的笃定，获得自我掌控的成长愉悦。
+                </p>
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <button class="btn btn-primary btn-large" id="heroStartBtn">
+                        <i class="fas fa-compass"></i> 开启潜能测评
+                    </button>
+                    <button class="btn btn-ghost btn-large">
+                        <i class="fas fa-play-circle"></i> 观看介绍
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">7</div>
+                        <div class="stat-label">核心科学理论</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">34+</div>
+                        <div class="stat-label">才干主题识别</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">6x</div>
+                        <div class="stat-label">发挥优势效率提升</div>
+                    </div>
+                </div>
             </div>
-            <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-6 leading-tight">
-                每个孩子都有<br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 to-purple-200">独特天赋密码</span>
-            </h1>
-            <p class="text-lg md:text-xl text-indigo-100 max-w-2xl mx-auto mb-10 leading-relaxed">
-                融合盖洛普优势理论、荣格心理类型、霍兰德职业兴趣等权威体系，<br class="hidden md:block">科学解码孩子的天赋基因，找到成长的最佳路径。
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button class="bg-white text-indigo-900 px-8 py-4 rounded-full font-bold text-lg hover:bg-indigo-50 transition shadow-xl">
-                    开启探索之旅
+
+            <div class="compass-container">
+                <div class="compass-wrapper">
+                    <!-- Connection Lines SVG -->
+                    <svg class="connection-lines" viewBox="0 0 100 100">
+                        <path class="connection-line" d="M50 10 Q70 30 95 35" />
+                        <path class="connection-line" d="M50 10 Q30 30 5 35" />
+                        <path class="connection-line" d="M95 35 Q85 55 90 75" />
+                        <path class="connection-line" d="M5 35 Q15 55 10 75" />
+                        <path class="connection-line" d="M90 75 Q70 85 50 90" />
+                        <path class="connection-line" d="M10 75 Q30 85 50 90" />
+                    </svg>
+
+                    <!-- Compass Rings -->
+                    <div class="compass-ring outer"></div>
+                    <div class="compass-ring middle"></div>
+                    <div class="compass-ring inner"></div>
+
+                    <!-- Center -->
+                    <div class="compass-center">
+                        <div class="compass-center-text">你的<br>潜能图谱</div>
+                    </div>
+
+                    <!-- Theory Planets -->
+                    <div class="theory-planet planet-gallup">
+                        <i class="fas fa-star"></i>
+                        <div class="planet-tooltip" style="top: 100%; left: 50%; transform: translateX(-50%);">
+                            <div class="tooltip-title"><i class="fas fa-star" style="color: #f59e0b;"></i> 盖洛普优势</div>
+                            <div class="tooltip-desc">34项才干主题，定义你的独特优势语言</div>
+                        </div>
+                    </div>
+
+                    <div class="theory-planet planet-jung">
+                        <i class="fas fa-yin-yang"></i>
+                        <div class="planet-tooltip" style="top: 0; left: 100%;">
+                            <div class="tooltip-title"><i class="fas fa-yin-yang" style="color: #8b5cf6;"></i> 荣格类型</div>
+                            <div class="tooltip-desc">16型人格，解析心理能量与认知方式</div>
+                        </div>
+                    </div>
+
+                    <div class="theory-planet planet-mi">
+                        <i class="fas fa-brain"></i>
+                        <div class="planet-tooltip" style="top: 50%; left: 100%; transform: translateY(-50%);">
+                            <div class="tooltip-title"><i class="fas fa-brain" style="color: #3b82f6;"></i> 多元智能</div>
+                            <div class="tooltip-desc">8大智能领域，发现被忽视的潜能</div>
+                        </div>
+                    </div>
+
+                    <div class="theory-planet planet-holland">
+                        <i class="fas fa-briefcase"></i>
+                        <div class="planet-tooltip" style="bottom: 100%; right: 0;">
+                            <div class="tooltip-title"><i class="fas fa-briefcase" style="color: #10b981;"></i> 霍兰德代码</div>
+                            <div class="tooltip-desc">RIASEC六型，连接内在与职业方向</div>
+                        </div>
+                    </div>
+
+                    <div class="theory-planet planet-flow">
+                        <i class="fas fa-fire"></i>
+                        <div class="planet-tooltip" style="bottom: 100%; left: 0;">
+                            <div class="tooltip-title"><i class="fas fa-fire" style="color: #ec4899;"></i> 心流理论</div>
+                            <div class="tooltip-desc">最佳体验状态，验证热情与投入</div>
+                        </div>
+                    </div>
+
+                    <div class="theory-planet planet-cognitive">
+                        <i class="fas fa-lightbulb"></i>
+                        <div class="planet-tooltip" style="top: 50%; right: 100%; transform: translateY(-50%);">
+                            <div class="tooltip-title"><i class="fas fa-lightbulb" style="color: #06b6d4;"></i> 认知心理学</div>
+                            <div class="tooltip-desc">解析学习风格，生成个性化策略</div>
+                        </div>
+                    </div>
+
+                    <div class="theory-planet planet-big5">
+                        <i class="fas fa-chart-radar"></i>
+                        <div class="planet-tooltip" style="top: 0; right: 100%;">
+                            <div class="tooltip-title"><i class="fas fa-chart-radar" style="color: #ef4444;"></i> 大五人格</div>
+                            <div class="tooltip-desc">OCEAN五维，精准衡量特质光谱</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problems Section -->
+    <section class="problems" id="problems">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">核心痛点</div>
+            <h2 class="section-title">我们解决什么问题？</h2>
+            <p class="section-desc">在成长道路上，太多人被迷雾笼罩。天赋罗盘为你拨开云雾，看见真正的自己。</p>
+        </div>
+
+        <div class="problems-grid">
+            <div class="problem-card animate-on-scroll">
+                <div class="problem-icon red">
+                    <i class="fas fa-question-circle"></i>
+                </div>
+                <h3>自我认知模糊</h3>
+                <p>"我是谁？我擅长什么？" 缺乏科学工具来认识自己的独特性，在自我探索中迷失方向。</p>
+            </div>
+
+            <div class="problem-card animate-on-scroll">
+                <div class="problem-icon orange">
+                    <i class="fas fa-road"></i>
+                </div>
+                <h3>发展路径盲目</h3>
+                <p>面对选科、选专业、择业等人生抉择时，缺乏基于个人特质的科学指引，决策充满不确定性。</p>
+            </div>
+
+            <div class="problem-card animate-on-scroll">
+                <div class="problem-icon purple">
+                    <i class="fas fa-eye-slash"></i>
+                </div>
+                <h3>优势被掩盖</h3>
+                <p>传统评价标准（考试分数）只看到冰山一角，真正的天赋才干在"不及格"的阴影下被忽视。</p>
+            </div>
+
+            <div class="problem-card animate-on-scroll">
+                <div class="problem-icon blue">
+                    <i class="fas fa-puzzle-piece"></i>
+                </div>
+                <h3>方法不匹配</h3>
+                <p>用"别人的方法"学习和成长，事倍功半。不了解自己的认知风格，无法定制高效策略。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Theory Foundation Section -->
+    <section class="theory-section" id="theories">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">科学基座</div>
+            <h2 class="section-title">七大理论，深度融合</h2>
+            <p class="section-desc">不是简单罗列，而是构建一个统一的人格-能力模型。每个理论扮演独特角色，协同工作。</p>
+        </div>
+
+        <div class="theory-cards">
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon gallup"><i class="fas fa-star"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">盖洛普优势理论</h3>
+                        <span class="theory-card-role">「优势语言」</span>
+                    </div>
+                </div>
+                <p>定义和命名你的34项独特才干主题。发挥优势比弥补短板效率高6倍——让你用"天赋语言"认识自己。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">34项才干</span>
+                    <span class="theory-tag">四大领域</span>
+                    <span class="theory-tag">优势发展</span>
+                </div>
+            </div>
+
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon jung"><i class="fas fa-yin-yang"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">荣格心理类型</h3>
+                        <span class="theory-card-role">「心理操作系统」</span>
+                    </div>
+                </div>
+                <p>描述你稳定的心理能量指向（内倾/外倾）和认知方式。理解你获取能量、接收信息、做决定的根本模式。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">16型人格</span>
+                    <span class="theory-tag">心理能量</span>
+                    <span class="theory-tag">认知功能</span>
+                </div>
+            </div>
+
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon big5"><i class="fas fa-chart-radar"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">大五人格理论</h3>
+                        <span class="theory-card-role">「特质光谱」</span>
+                    </div>
+                </div>
+                <p>心理学界公认最科学的人格模型（OCEAN）。不是简单分类，而是精准衡量你在五个维度上的程度，预测行为模式。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">开放性</span>
+                    <span class="theory-tag">尽责性</span>
+                    <span class="theory-tag">外向性</span>
+                    <span class="theory-tag">宜人性</span>
+                    <span class="theory-tag">情绪稳定</span>
+                </div>
+            </div>
+
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon mi"><i class="fas fa-brain"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">多元智能理论</h3>
+                        <span class="theory-card-role">「能力雷达图」</span>
+                    </div>
+                </div>
+                <p>打破"IQ唯一论"，揭示8大智能领域。发现那些在传统考试中被埋没的天赋——也许你拥有极高的空间智能或人际智能。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">语言</span>
+                    <span class="theory-tag">逻辑</span>
+                    <span class="theory-tag">空间</span>
+                    <span class="theory-tag">音乐</span>
+                    <span class="theory-tag">+4种</span>
+                </div>
+            </div>
+
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon holland"><i class="fas fa-briefcase"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">霍兰德职业兴趣</h3>
+                        <span class="theory-card-role">「方向罗盘」</span>
+                    </div>
+                </div>
+                <p>全球职业规划最经典的理论。将你的内在特质与外部世界（学科、职业）科学匹配，指引选科与职业方向。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">现实型R</span>
+                    <span class="theory-tag">研究型I</span>
+                    <span class="theory-tag">艺术型A</span>
+                    <span class="theory-tag">RIASEC</span>
+                </div>
+            </div>
+
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon flow"><i class="fas fa-fire"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">心流理论</h3>
+                        <span class="theory-card-role">「状态验证器」</span>
+                    </div>
+                </div>
+                <p>识别让你完全沉浸、忘记时间的活动。寻找"天赋"往往就是寻找"心流"——验证你真正的热情所在，而非仅仅擅长。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">最佳体验</span>
+                    <span class="theory-tag">热情探测</span>
+                    <span class="theory-tag">动力验证</span>
+                </div>
+            </div>
+
+            <div class="theory-card animate-on-scroll">
+                <div class="theory-card-header">
+                    <div class="theory-icon cognitive"><i class="fas fa-lightbulb"></i></div>
+                    <div>
+                        <h3 class="theory-card-title">认知心理学</h3>
+                        <span class="theory-card-role">「学习策略生成器」</span>
+                    </div>
+                </div>
+                <p>解析你的认知风格和信息处理模式。区分视觉/听觉学习者，场独立/场依存型，生成定制化的高效学习策略。</p>
+                <div class="theory-tags">
+                    <span class="theory-tag">认知风格</span>
+                    <span class="theory-tag">学习策略</span>
+                    <span class="theory-tag">信息处理</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">核心功能</div>
+            <h2 class="section-title">从测评到行动的完整闭环</h2>
+            <p class="section-desc">不只是一份报告，而是一个持续陪伴你成长的动态系统。</p>
+        </div>
+
+        <div class="features-container">
+            <!-- Feature 1: Personal Potential Map -->
+            <div class="feature-row animate-on-scroll">
+                <div class="feature-text">
+                    <h3><i class="fas fa-globe" style="color: var(--aurora-teal);"></i> 个人潜能动态图谱</h3>
+                    <p>这不是一份静态报告，而是一个可视化的、可交互的3D星系。7大理论数据融合计算，形成统一的人格-能力模型。</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 多维数据可视化，一眼看清全貌</li>
+                        <li><i class="fas fa-check"></i> 点击任意节点，深入探索其含义</li>
+                        <li><i class="fas fa-check"></i> 理论交叉洞察，如"战略性共情"</li>
+                        <li><i class="fas fa-check"></i> 随使用动态更新，越用越精准</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="radar-container">
+                        <svg class="radar-svg" viewBox="0 0 200 200">
+                            <!-- Radar Grid -->
+                            <polygon points="100,20 170,60 170,140 100,180 30,140 30,60" fill="none" stroke="var(--glass-border)" stroke-width="1"/>
+                            <polygon points="100,40 150,70 150,130 100,160 50,130 50,70" fill="none" stroke="var(--glass-border)" stroke-width="1"/>
+                            <polygon points="100,60 130,80 130,120 100,140 70,120 70,80" fill="none" stroke="var(--glass-border)" stroke-width="1"/>
+                            <polygon points="100,80 115,90 115,110 100,120 85,110 85,90" fill="none" stroke="var(--glass-border)" stroke-width="1"/>
+
+                            <!-- Radar Data -->
+                            <polygon points="100,30 160,65 155,135 100,165 45,120 40,70"
+                                     fill="rgba(0, 212, 170, 0.2)"
+                                     stroke="var(--aurora-teal)"
+                                     stroke-width="2"/>
+
+                            <!-- Data Points -->
+                            <circle cx="100" cy="30" r="5" fill="#f59e0b"/>
+                            <circle cx="160" cy="65" r="5" fill="#8b5cf6"/>
+                            <circle cx="155" cy="135" r="5" fill="#3b82f6"/>
+                            <circle cx="100" cy="165" r="5" fill="#10b981"/>
+                            <circle cx="45" cy="120" r="5" fill="#ec4899"/>
+                            <circle cx="40" cy="70" r="5" fill="#06b6d4"/>
+
+                            <!-- Labels -->
+                            <text x="100" y="12" text-anchor="middle" fill="var(--text-secondary)" font-size="8">盖洛普</text>
+                            <text x="180" y="65" text-anchor="start" fill="var(--text-secondary)" font-size="8">荣格</text>
+                            <text x="175" y="140" text-anchor="start" fill="var(--text-secondary)" font-size="8">多元智能</text>
+                            <text x="100" y="195" text-anchor="middle" fill="var(--text-secondary)" font-size="8">霍兰德</text>
+                            <text x="20" y="125" text-anchor="end" fill="var(--text-secondary)" font-size="8">心流</text>
+                            <text x="20" y="70" text-anchor="end" fill="var(--text-secondary)" font-size="8">认知</text>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 2: Flow Tracker -->
+            <div class="feature-row animate-on-scroll">
+                <div class="feature-text">
+                    <h3><i class="fas fa-fire-alt" style="color: var(--plasma-pink);"></i> 心流时刻记录器</h3>
+                    <p>结合日记和AI分析，让你标记产生心流的活动。AI反向推导其背后的优势与兴趣组合，验证测评结果。</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 简单打卡，记录沉浸时刻</li>
+                        <li><i class="fas fa-check"></i> AI分析心流背后的特质组合</li>
+                        <li><i class="fas fa-check"></i> 可视化你的心流分布图</li>
+                        <li><i class="fas fa-check"></i> 将数据收集转化为游戏化成长</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="flow-visual">
+                        <div class="flow-day">
+                            <span class="flow-day-label">周一</span>
+                            <div class="flow-bar-container">
+                                <div class="flow-bar high" style="width: 85%;">搭建模型 · 2.5小时</div>
+                            </div>
+                        </div>
+                        <div class="flow-day">
+                            <span class="flow-day-label">周二</span>
+                            <div class="flow-bar-container">
+                                <div class="flow-bar medium" style="width: 45%;">阅读 · 1小时</div>
+                            </div>
+                        </div>
+                        <div class="flow-day">
+                            <span class="flow-day-label">周三</span>
+                            <div class="flow-bar-container">
+                                <div class="flow-bar high" style="width: 75%;">编程学习 · 2小时</div>
+                            </div>
+                        </div>
+                        <div class="flow-day">
+                            <span class="flow-day-label">周四</span>
+                            <div class="flow-bar-container">
+                                <div class="flow-bar low" style="width: 25%;">写作业 · 0.5小时</div>
+                            </div>
+                        </div>
+                        <div class="flow-day">
+                            <span class="flow-day-label">周五</span>
+                            <div class="flow-bar-container">
+                                <div class="flow-bar high" style="width: 90%;">设计项目 · 3小时</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Feature 3: Path Projector -->
+            <div class="feature-row animate-on-scroll">
+                <div class="feature-text">
+                    <h3><i class="fas fa-project-diagram" style="color: var(--bio-green);"></i> 发展路径投影仪</h3>
+                    <p>基于你的"潜能图谱"和霍兰德代码，AI生成可能的学科发展树、职业探索路径及所需的能力发展建议。</p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-check"></i> 可视化学科与职业发展树</li>
+                        <li><i class="fas fa-check"></i> 基于个人特质的精准匹配</li>
+                        <li><i class="fas fa-check"></i> 能力差距分析与提升建议</li>
+                        <li><i class="fas fa-check"></i> 多路径比较，辅助决策</li>
+                    </ul>
+                </div>
+                <div class="feature-visual">
+                    <div class="path-visual">
+                        <div class="path-node">
+                            <div class="path-icon current"><i class="fas fa-user"></i></div>
+                            <div class="path-content">
+                                <h4>当前状态</h4>
+                                <p>高一 · RI型 · 空间智能突出</p>
+                            </div>
+                        </div>
+                        <div class="path-node">
+                            <div class="path-icon next"><i class="fas fa-book"></i></div>
+                            <div class="path-content">
+                                <h4>推荐选科</h4>
+                                <p>物理 + 地理 + 技术</p>
+                            </div>
+                        </div>
+                        <div class="path-node">
+                            <div class="path-icon next"><i class="fas fa-graduation-cap"></i></div>
+                            <div class="path-content">
+                                <h4>专业方向</h4>
+                                <p>建筑设计 · 地理信息科学</p>
+                            </div>
+                        </div>
+                        <div class="path-node">
+                            <div class="path-icon future"><i class="fas fa-briefcase"></i></div>
+                            <div class="path-content">
+                                <h4>职业探索</h4>
+                                <p>建筑师 · 城市规划师 · GIS工程师</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Journey Section -->
+    <section class="journey" id="journey">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">用户旅程</div>
+            <h2 class="section-title">从测评到成长的完整体验</h2>
+            <p class="section-desc">每一步都精心设计，让科学发现变成可行动的成长指南。</p>
+        </div>
+
+        <div class="journey-container">
+            <div class="journey-timeline">
+                <div class="journey-step animate-on-scroll">
+                    <span class="journey-step-number">01</span>
+                    <h3><i class="fas fa-gamepad"></i> 沉浸式多维测评</h3>
+                    <p>不是一堆无聊的问卷，而是一场探索游戏。针对不同理论采用不同交互形式：排序题对应优势、情景选择对应荣格类型、图标偏好对应霍兰德代码……</p>
+                    <div class="journey-theories">
+                        <span class="journey-theory">盖洛普优势</span>
+                        <span class="journey-theory">荣格类型</span>
+                        <span class="journey-theory">霍兰德代码</span>
+                        <span class="journey-theory">大五人格</span>
+                    </div>
+                </div>
+
+                <div class="journey-step animate-on-scroll">
+                    <span class="journey-step-number">02</span>
+                    <h3><i class="fas fa-compass"></i> 探���潜能星系</h3>
+                    <p>进入可旋转、可缩放、可点击的3D罗盘界面。不同的"星球"代表不同理论维度，它们之间的"引力线"代表关联。交互充满发现感。</p>
+                    <div class="journey-theories">
+                        <span class="journey-theory">3D可视化</span>
+                        <span class="journey-theory">交叉洞察</span>
+                        <span class="journey-theory">理论融合</span>
+                    </div>
+                </div>
+
+                <div class="journey-step animate-on-scroll">
+                    <span class="journey-step-number">03</span>
+                    <h3><i class="fas fa-lightbulb"></i> 接收个性化微建议</h3>
+                    <p>在具体场景中（如"如何准备下周的演讲？"），请求AI基于你的图谱生成量身定做的行动策略——利用你的独特优势组合。</p>
+                    <div class="journey-theories">
+                        <span class="journey-theory">场景化建议</span>
+                        <span class="journey-theory">优势应用</span>
+                        <span class="journey-theory">认知策略</span>
+                    </div>
+                </div>
+
+                <div class="journey-step animate-on-scroll">
+                    <span class="journey-step-number">04</span>
+                    <h3><i class="fas fa-chart-line"></i> 持续追踪与验证</h3>
+                    <p>通过"心流记录器"持续打卡，验证并强化测评结果。图谱随着你的使用和成长而动态更新——越用越懂你。</p>
+                    <div class="journey-theories">
+                        <span class="journey-theory">心流验证</span>
+                        <span class="journey-theory">动态更新</span>
+                        <span class="journey-theory">成长追踪</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section class="demo" id="demo">
+        <div class="section-header animate-on-scroll">
+            <div class="section-badge">场景演示</div>
+            <h2 class="section-title">小杨的选科之旅</h2>
+            <p class="section-desc">看看一个高一学生如何通过天赋罗盘找到自己的方向。</p>
+        </div>
+
+        <div class="demo-container animate-on-scroll">
+            <div class="demo-card">
+                <div class="demo-header">
+                    <div class="demo-dot red"></div>
+                    <div class="demo-dot yellow"></div>
+                    <div class="demo-dot green"></div>
+                </div>
+                <div class="demo-content">
+                    <div class="demo-profile">
+                        <div class="demo-avatar">杨</div>
+                        <div class="demo-info">
+                            <h4>小杨 · 高一学生</h4>
+                            <p>面临新高考选科，对未来方向感到迷茫</p>
+                        </div>
+                    </div>
+
+                    <div class="demo-compass">
+                        <div class="demo-trait">
+                            <div class="demo-trait-icon ri"><i class="fas fa-flask"></i></div>
+                            <div class="demo-trait-label">研究型+艺术型</div>
+                            <div class="demo-trait-value">霍兰德代码 IA</div>
+                        </div>
+                        <div class="demo-trait">
+                            <div class="demo-trait-icon strategy"><i class="fas fa-chess"></i></div>
+                            <div class="demo-trait-label">战略+关联</div>
+                            <div class="demo-trait-value">盖洛普才干</div>
+                        </div>
+                        <div class="demo-trait">
+                            <div class="demo-trait-icon spatial"><i class="fas fa-cube"></i></div>
+                            <div class="demo-trait-label">逻辑+空间</div>
+                            <div class="demo-trait-value">多元智能</div>
+                        </div>
+                    </div>
+
+                    <div class="demo-recommendation">
+                        <h5><i class="fas fa-magic"></i> AI 洞察与建议</h5>
+                        <div class="demo-subjects">
+                            <span class="demo-subject"><i class="fas fa-atom"></i> 物理</span>
+                            <span class="demo-subject"><i class="fas fa-globe-asia"></i> 地理信息</span>
+                            <span class="demo-subject highlighted"><i class="fas fa-building"></i> 建筑设计</span>
+                        </div>
+                        <div class="demo-insight">
+                            "你的研究性(I)与艺术性(A)在建筑设计中完美结合。战略思维助你规划全局，空间智能是关键优势。<br><br>
+                            <strong>建议：</strong>记录一次搭建模型时是否进入心流状态，验证此路径与你的最佳体验是否吻合。"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="cta-container animate-on-scroll">
+            <h2>准备好发现你的<span class="highlight">独特天赋</span>了吗？</h2>
+            <p>从困惑焦虑，到被科学"看见"的笃定。开启属于你的成长导航。</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary btn-large" id="ctaStartBtn">
+                    <i class="fas fa-rocket"></i> 立即开始测评
                 </button>
-                <button class="px-8 py-4 rounded-full font-medium text-white border border-white/30 hover:bg-white/10 transition">
-                    查看样本报告
+                <button class="btn btn-ghost btn-large">
+                    <i class="fas fa-envelope"></i> 预约咨询
                 </button>
-            </div>
-        </div>
-    </header>
-
-    <!-- 为什么要探寻天赋 (Why Section) -->
-    <section id="why" class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900 mb-4">为什么要探寻天赋？</h2>
-                <p class="text-lg text-slate-600">在正确的方向上努力，才能事半功倍</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Card 1 -->
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition duration-300 group">
-                    <div class="w-14 h-14 bg-red-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <svg class="w-8 h-8 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">避免盲目试错</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        70%的学生在选科和专业选择上存在迷茫，天赋测评帮助精准定位，减少无效的时间成本。
-                    </p>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition duration-300 group">
-                    <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">放大优势效应</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        研究表明，发挥优势比弥补短板效率高 <span class="font-bold text-green-600">6倍</span>。找到孩子的长板，让优秀成为习惯。
-                    </p>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="p-8 rounded-2xl bg-slate-50 border border-slate-100 hover:shadow-xl transition duration-300 group">
-                    <div class="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
-                        <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    </div>
-                    <h3 class="text-xl font-bold text-slate-900 mb-3">建立自信根基</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        了解自己的独特价值，是心理健康和持续成长的基石，让孩子从内心深处认可自己。
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 科学理论基础 (Science Section) -->
-    <section id="science" class="py-20 bg-slate-900 text-white relative overflow-hidden">
-        <!-- 背景装饰 -->
-        <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#4f46e5 1px, transparent 1px); background-size: 30px 30px;"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-16">
-                <span class="text-indigo-400 font-bold tracking-wider uppercase text-sm">Science Foundation</span>
-                <h2 class="text-3xl md:text-4xl font-bold mt-2">科学理论基础</h2>
-                <p class="text-slate-400 mt-4">融合全球顶尖心理学研究成果，打造多维测评模型</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Theory 1 -->
-                <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-xl hover:bg-slate-800 transition">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-lg font-bold text-white">盖洛普优势</h3>
-                        <span class="text-xs font-mono bg-indigo-900 text-indigo-300 px-2 py-1 rounded">CliftonStrengths</span>
-                    </div>
-                    <p class="text-slate-400 text-sm mb-4">基于34项才干主题，识别孩子与生俱来的思维、感受和行为模式。</p>
-                </div>
-
-                <!-- Theory 2 -->
-                <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-xl hover:bg-slate-800 transition">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-lg font-bold text-white">荣格心理类型</h3>
-                        <span class="text-xs font-mono bg-indigo-900 text-indigo-300 px-2 py-1 rounded">Jungian Types</span>
-                    </div>
-                    <p class="text-slate-400 text-sm mb-4">深度解析16型人格，理解能量来源与认知世界的底层逻辑。</p>
-                </div>
-
-                <!-- Theory 3 -->
-                <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-xl hover:bg-slate-800 transition">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-lg font-bold text-white">霍兰德理论</h3>
-                        <span class="text-xs font-mono bg-indigo-900 text-indigo-300 px-2 py-1 rounded">RIASEC</span>
-                    </div>
-                    <p class="text-slate-400 text-sm mb-4">职业兴趣匹配的黄金标准，为学科选择和职业规划提供科学依据。</p>
-                </div>
-
-                <!-- Theory 4 -->
-                <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-xl hover:bg-slate-800 transition">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-lg font-bold text-white">大五人格</h3>
-                        <span class="text-xs font-mono bg-indigo-900 text-indigo-300 px-2 py-1 rounded">Big Five</span>
-                    </div>
-                    <p class="text-slate-400 text-sm mb-4">特质科学测量，从开放性、尽责性等维度全面扫描个性特征。</p>
-                </div>
-
-                <!-- Theory 5 -->
-                <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-xl hover:bg-slate-800 transition">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-lg font-bold text-white">多元智能</h3>
-                        <span class="text-xs font-mono bg-indigo-900 text-indigo-300 px-2 py-1 rounded">Multiple Intelligences</span>
-                    </div>
-                    <p class="text-slate-400 text-sm mb-4">覆盖8大智能领域，发现传统考试之外的潜能亮点。</p>
-                </div>
-
-                <!-- Theory 6 -->
-                <div class="bg-slate-800/50 border border-slate-700 p-6 rounded-xl hover:bg-slate-800 transition">
-                    <div class="flex items-center justify-between mb-4">
-                        <h3 class="text-lg font-bold text-white">心流理论</h3>
-                        <span class="text-xs font-mono bg-indigo-900 text-indigo-300 px-2 py-1 rounded">Flow</span>
-                    </div>
-                    <p class="text-slate-400 text-sm mb-4">寻找最佳体验状态，定位让孩子废寝忘食的热爱所在。</p>
-                </div>
-            </div>
-
-            <!-- 数据统计栏 -->
-            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-slate-700 pt-10">
-                <div class="text-center">
-                    <div class="text-4xl font-black text-indigo-400 mb-2">7<span class="text-lg text-slate-500 ml-1">大</span></div>
-                    <div class="text-sm text-slate-400">测评维度</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl font-black text-indigo-400 mb-2">50<span class="text-lg text-slate-500 ml-1">+</span></div>
-                    <div class="text-sm text-slate-400">分析指标</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl font-black text-indigo-400 mb-2">20<span class="text-lg text-slate-500 ml-1">页</span></div>
-                    <div class="text-sm text-slate-400">深度报告</div>
-                </div>
-                <div class="text-center">
-                    <div class="text-4xl font-black text-indigo-400 mb-2">AI<span class="text-lg text-slate-500 ml-1">驱动</span></div>
-                    <div class="text-sm text-slate-400">个性化生成</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 报告核心价值 (Report Value) -->
-    <section id="report" class="py-20 bg-indigo-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-slate-900">报告核心价值</h2>
-                <p class="text-lg text-slate-600 mt-2">不只是测评，更是成长指南</p>
-            </div>
-
-            <div class="space-y-6">
-                <!-- Feature 1 -->
-                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-full md:w-1/3 flex justify-center">
-                        <div class="w-24 h-24 bg-indigo-100 rounded-full flex items-center justify-center">
-                            <svg class="w-12 h-12 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-2/3 text-center md:text-left">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-2">大脑使用说明书</h3>
-                        <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
-                            <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-medium">认知优势</span>
-                            <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-medium">学习策略</span>
-                        </div>
-                        <p class="text-slate-600">解析认知风格、学习偏好、信息处理模式，让孩子学会"用对的方式学习"，告别死记硬背。</p>
-                    </div>
-                </div>
-
-                <!-- Feature 2 -->
-                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition flex flex-col md:flex-row-reverse gap-8 items-center">
-                    <div class="w-full md:w-1/3 flex justify-center">
-                        <div class="w-24 h-24 bg-purple-100 rounded-full flex items-center justify-center">
-                            <svg class="w-12 h-12 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-2/3 text-center md:text-left">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-2">核心超能力</h3>
-                        <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
-                            <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-medium">优势识别</span>
-                            <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-medium">应用场景</span>
-                        </div>
-                        <p class="text-slate-600">发现孩子的3大核心优势，提供具体的发挥场景和提升路径，让天赋转化为真正的能力。</p>
-                    </div>
-                </div>
-
-                <!-- Feature 3 -->
-                <div class="bg-white rounded-2xl p-8 shadow-sm hover:shadow-md transition flex flex-col md:flex-row gap-8 items-center">
-                    <div class="w-full md:w-1/3 flex justify-center">
-                        <div class="w-24 h-24 bg-teal-100 rounded-full flex items-center justify-center">
-                            <svg class="w-12 h-12 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 7m0 13V7"></path></svg>
-                        </div>
-                    </div>
-                    <div class="w-full md:w-2/3 text-center md:text-left">
-                        <h3 class="text-2xl font-bold text-slate-900 mb-2">选科罗盘 & 未来航道</h3>
-                        <div class="flex flex-wrap gap-2 justify-center md:justify-start mb-4">
-                            <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-medium">学科匹配</span>
-                            <span class="bg-slate-100 text-slate-600 px-3 py-1 rounded-full text-xs font-medium">AI时代职业</span>
-                        </div>
-                        <p class="text-slate-600">基于天赋特质的学科匹配分析，为新高考选科提供科学依据。结合AI时代趋势，规划适合孩子天赋的职业发展方向。</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 我们的不同 (Differentiation) -->
-    <section class="py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-slate-900 mb-6">我们的不同：<br>不是简单的性格测试</h2>
-                    <p class="text-lg text-slate-600 mb-8">传统测试往往只给标签，我们提供的是成长的动态解决方案。</p>
-                    
-                    <div class="space-y-6">
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-bold text-slate-900">多维度融合</h4>
-                                <p class="text-slate-600 text-sm">7大测评维度交叉分析，而非单一量表，画像更立体。</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-bold text-slate-900">AI深度解读</h4>
-                                <p class="text-slate-600 text-sm">基于大模型的个性化内容生成，拒绝千篇一律的模板化报告。</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0 w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                            </div>
-                            <div>
-                                <h4 class="text-lg font-bold text-slate-900">行动导向</h4>
-                                <p class="text-slate-600 text-sm">每个洞察都配有具体可执行的行动建议，家长拿来就能用。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="relative">
-                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-2xl transform rotate-3 opacity-20"></div>
-                    <div class="relative bg-white border border-slate-200 rounded-2xl p-8 shadow-xl">
-                        <div class="flex items-center justify-between mb-6 border-b border-slate-100 pb-4">
-                            <h3 class="font-bold text-slate-800">家长指南示例</h3>
-                            <span class="text-xs bg-green-100 text-green-700 px-2 py-1 rounded">个性化建议</span>
-                        </div>
-                        <div class="space-y-4">
-                            <div class="p-4 bg-slate-50 rounded-lg">
-                                <div class="text-sm font-bold text-indigo-600 mb-1">沟通策略</div>
-                                <p class="text-sm text-slate-600">您的孩子是"逻辑分析型"，沟通时请多用数据和事实，避免情绪化表达，给他思考的时间。</p>
-                            </div>
-                            <div class="p-4 bg-slate-50 rounded-lg">
-                                <div class="text-sm font-bold text-indigo-600 mb-1">环境配置</div>
-                                <p class="text-sm text-slate-600">他在"视觉空间"智能上有优势，建议在书房配置白板或思维导图工具，帮助他可视化思考。</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex justify-center items-center gap-2 mb-4">
-                <svg class="w-6 h-6 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
-                </svg>
-                <span class="text-xl font-bold text-white">天赋罗盘</span>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <span>天赋罗盘</span>
+                </div>
+                <p>基于7大科学理论，用AI为你导航成长路径。科学为骨，体验为肉，成长为魂。</p>
+                <div class="footer-social">
+                    <a href="https://weixin.qq.com" target="_blank" rel="noopener"><i class="fab fa-weixin"></i></a>
+                    <a href="https://weibo.com" target="_blank" rel="noopener"><i class="fab fa-weibo"></i></a>
+                    <a href="https://www.zhihu.com" target="_blank" rel="noopener"><i class="fab fa-zhihu"></i></a>
+                    <a href="https://www.bilibili.com" target="_blank" rel="noopener"><i class="fab fa-bilibili"></i></a>
+                </div>
             </div>
-            <p class="mb-8 text-sm">科学解码天赋，成就孩子未来。</p>
-            <div class="border-t border-slate-800 pt-8 text-sm">
-                &copy; 2024 天赋罗盘. All rights reserved.
+            <div class="footer-links">
+                <h4>产品</h4>
+                <ul>
+                    <li><a href="#features">核心功能</a></li>
+                    <li><a href="#theories">科学理论</a></li>
+                    <li><a href="#demo">使用案例</a></li>
+                    <li><a href="#journey">用户旅程</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>支持</h4>
+                <ul>
+                    <li><a href="https://help.example.com" target="_blank" rel="noopener">帮助中心</a></li>
+                    <li><a href="https://faq.example.com" target="_blank" rel="noopener">常见问题</a></li>
+                    <li><a href="https://contact.example.com" target="_blank" rel="noopener">联系我们</a></li>
+                    <li><a href="https://feedback.example.com" target="_blank" rel="noopener">意见反馈</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>关于</h4>
+                <ul>
+                    <li><a href="https://about.example.com" target="_blank" rel="noopener">关于我们</a></li>
+                    <li><a href="https://team.example.com" target="_blank" rel="noopener">研发团队</a></li>
+                    <li><a href="https://science.example.com" target="_blank" rel="noopener">科学背书</a></li>
+                    <li><a href="https://career.example.com" target="_blank" rel="noopener">加入我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 天赋罗盘. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="https://privacy.example.com" target="_blank" rel="noopener">隐私政策</a>
+                <a href="https://terms.example.com" target="_blank" rel="noopener">用户协议</a>
             </div>
         </div>
     </footer>
 
+    <!-- Modal -->
+    <div class="modal-overlay" id="startModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title"><i class="fas fa-compass" style="color: var(--aurora-teal);"></i> 开始探索</h3>
+                <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <p>您即将开启一段科学的自我探索之旅。完成多维测评约需15-20分钟，请确保有充足的时间和安静的环境。</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" id="modalCancel">稍后再说</button>
+                <button class="btn btn-primary" id="modalConfirm">开始测评</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark/Light mode detection and toggle
+        function initTheme() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.documentElement.classList.remove('light');
+            } else {
+                document.documentElement.classList.add('light');
+            }
+        }
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.remove('light');
+            } else {
+                document.documentElement.classList.add('light');
+            }
+            updateThemeIcon();
+        });
+
+        function updateThemeIcon() {
+            const icon = document.querySelector('#themeToggle i');
+            if (document.documentElement.classList.contains('light')) {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        }
+
+        document.getElementById('themeToggle').addEventListener('click', () => {
+            document.documentElement.classList.toggle('light');
+            updateThemeIcon();
+        });
+
+        initTheme();
+        updateThemeIcon();
+
+        // Generate stars
+        function generateStars() {
+            const starsContainer = document.getElementById('stars');
+            const starCount = 150;
+
+            for (let i = 0; i < starCount; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.opacity = Math.random() * 0.5 + 0.3;
+                starsContainer.appendChild(star);
+            }
+        }
+
+        generateStars();
+
+        // Neural network background
+        function generateNeuralNetwork() {
+            const svg = document.getElementById('neuralNetwork');
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+
+            svg.setAttribute('viewBox', `0 0 ${width} ${height}`);
+
+            const nodeCount = 30;
+            const nodes = [];
+
+            for (let i = 0; i < nodeCount; i++) {
+                nodes.push({
+                    x: Math.random() * width,
+                    y: Math.random() * height
+                });
+            }
+
+            let paths = '';
+            for (let i = 0; i < nodes.length; i++) {
+                for (let j = i + 1; j < nodes.length; j++) {
+                    const dist = Math.sqrt(
+                        Math.pow(nodes[i].x - nodes[j].x, 2) +
+                        Math.pow(nodes[i].y - nodes[j].y, 2)
+                    );
+                    if (dist < 300) {
+                        const opacity = 1 - (dist / 300);
+                        paths += `<line
+                            x1="${nodes[i].x}" y1="${nodes[i].y}"
+                            x2="${nodes[j].x}" y2="${nodes[j].y}"
+                            stroke="var(--aurora-teal)"
+                            stroke-width="1"
+                            opacity="${opacity * 0.3}"
+                        />`;
+                    }
+                }
+            }
+
+            svg.innerHTML = paths;
+        }
+
+        generateNeuralNetwork();
+        window.addEventListener('resize', generateNeuralNetwork);
+
+        // Mobile menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuClose = document.getElementById('mobileMenuClose');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('active');
+        });
+
+        mobileMenuClose.addEventListener('click', () => {
+            mobileMenu.classList.remove('active');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        // Modal handling
+        const modal = document.getElementById('startModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalCancel = document.getElementById('modalCancel');
+        const modalConfirm = document.getElementById('modalConfirm');
+
+        function openModal() {
+            modal.classList.add('active');
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+        }
+
+        document.getElementById('startBtn').addEventListener('click', openModal);
+        document.getElementById('heroStartBtn').addEventListener('click', openModal);
+        document.getElementById('ctaStartBtn').addEventListener('click', openModal);
+        modalClose.addEventListener('click', closeModal);
+        modalCancel.addEventListener('click', closeModal);
+        modalConfirm.addEventListener('click', () => {
+            closeModal();
+            // Here you would typically redirect to the assessment page
+            showNotification('测评系统正在准备中，敬请期待！');
+        });
+
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Custom notification function (replacing alert)
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 100px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--aurora-teal);
+                color: #0a0e1a;
+                padding: 1rem 2rem;
+                border-radius: 12px;
+                font-weight: 600;
+                z-index: 3000;
+                animation: slideDown 0.3s ease;
+                box-shadow: 0 10px 40px rgba(0, 212, 170, 0.4);
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.style.animation = 'fadeOut 0.3s ease forwards';
+                setTimeout(() => notification.remove(), 300);
+            }, 3000);
+        }
+
+        // Add notification animations
+        const notificationStyles = document.createElement('style');
+        notificationStyles.textContent = `
+            @keyframes slideDown {
+                from {
+                    opacity: 0;
+                    transform: translateX(-50%) translateY(-20px);
+                }
+                to {
+                    opacity: 1;
+                    transform: translateX(-50%) translateY(0);
+                }
+            }
+            @keyframes fadeOut {
+                from {
+                    opacity: 1;
+                    transform: translateX(-50%) translateY(0);
+                }
+                to {
+                    opacity: 0;
+                    transform: translateX(-50%) translateY(-20px);
+                }
+            }
+        `;
+        document.head.appendChild(notificationStyles);
+
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Parallax effect for compass
+        const compassContainer = document.querySelector('.compass-container');
+        if (compassContainer) {
+            document.addEventListener('mousemove', (e) => {
+                const x = (e.clientX / window.innerWidth - 0.5) * 10;
+                const y = (e.clientY / window.innerHeight - 0.5) * 10;
+                compassContainer.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${-y}deg)`;
+            });
+        }
+
+        // Add hover effect for theory planets
+        document.querySelectorAll('.theory-planet').forEach(planet => {
+            planet.addEventListener('mouseenter', () => {
+                planet.style.animationPlayState = 'paused';
+            });
+            planet.addEventListener('mouseleave', () => {
+                planet.style.animationPlayState = 'running';
+            });
+        });
+    </script>
 </body>
 </html>
