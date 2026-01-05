@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>モッピー - ポイント交換サービス</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-teal': '#0F766E',
+                        'bg-mint': '#E5FAF8',
+                        'bg-cream': '#FFFFE5',
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica Neue', 'Arial', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #E5FAF8 0%, #FFFFE5 50%, #E5FAF8 100%);
+        }
+        .feature-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+        }
+        .cta-btn {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .cta-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        .animate-delay-1 { animation-delay: 0.1s; }
+        .animate-delay-2 { animation-delay: 0.2s; }
+        .animate-delay-3 { animation-delay: 0.3s; }
+
+        /* Breathing animation for mobile floating button */
+        @keyframes breathing {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 4px 20px rgba(249, 115, 22, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 6px 30px rgba(249, 115, 22, 0.6);
+            }
+        }
+        .breathing-btn {
+            animation: breathing 2s ease-in-out infinite;
+        }
+
+        /* Add padding to body on mobile to account for floating button */
+        @media (max-width: 768px) {
+            body {
+                padding-bottom: 80px;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 bg-white">
+
+    <!-- Hero Section -->
+    <header class="hero-gradient border-b border-teal-100">
+        <div class="max-w-7xl mx-auto px-4 py-16 flex flex-col md:flex-row items-center gap-12">
+
+            <!-- Text -->
+            <div class="w-full md:w-1/2 space-y-6">
+                <h1 class="text-3xl md:text-5xl font-extrabold leading-tight text-teal-900">
+                    貯まったポイントは、<br>
+                    <span class="text-teal-600">現金</span> や <span class="text-orange-500">いつものポイント</span>
+                    <br>
+                    に交換
+                </h1>
+
+                <!-- Mobile Image - shown only on mobile, right after title -->
+                <div class="block md:hidden w-full">
+                    <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                        <img src="img/1.png" alt="Main Visual" class="w-full h-auto block">
+                    </div>
+                </div>
+
+                <div class="space-y-4 pt-4">
+                    <!-- Feature 1 -->
+                    <div class="bg-white p-4 rounded-xl border border-teal-100 shadow-sm flex items-center feature-card">
+                        <div class="text-teal-600 mr-4 flex-shrink-0">
+                            <i data-lucide="coins" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-teal-900">分かりやすい1P＝1円</h3>
+                            <p class="text-sm text-gray-500">複雑な計算は不要。貯めた分だけそのまま使えます。</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 2 -->
+                    <div class="bg-white p-4 rounded-xl border border-orange-100 shadow-sm flex items-center feature-card">
+                        <div class="text-orange-500 mr-4 flex-shrink-0">
+                            <i data-lucide="gift" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-teal-900">約60種類以上の豊富な交換先</h3>
+                            <p class="text-sm text-gray-500">現金・電子マネー・ギフト券など選び放題。</p>
+                        </div>
+                    </div>
+
+                    <!-- Feature 3 -->
+                    <div class="bg-white p-4 rounded-xl border border-teal-100 shadow-sm flex items-center feature-card">
+                        <div class="text-teal-600 mr-4 flex-shrink-0">
+                            <i data-lucide="zap" class="w-6 h-6"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-teal-900">手数料無料＆リアルタイムで即金も可能</h3>
+                            <p class="text-sm text-gray-500">待つ必要なし。すぐにお金に変えられます。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-4">
+                    <button onclick="k2()" class="cta-btn bg-teal-600 text-white font-bold py-4 px-10 rounded-full shadow-md flex items-center justify-center text-lg">
+                        今すぐ始める <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Desktop Image - hidden on mobile -->
+            <div class="hidden md:block w-full md:w-1/2">
+                <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+                    <img src="img/1.png" alt="Main Visual" class="w-full h-auto block">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Standalone Image Section -->
+    <section class="py-12 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="rounded-2xl overflow-hidden shadow-lg">
+                <img src="img/2.png" alt="ポイント交換イメージ" class="w-full h-auto block">
+            </div>
+        </div>
+    </section>
+
+    <!-- User Reviews Section -->
+    <section class="py-16 bg-bg-cream">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-teal-900">モッピーをご利用中のユーザー様の声</h2>
+                <p class="text-gray-500 mt-2">実際にご利用いただいているお客様の声をご紹介</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Review 1 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 feature-card">
+                    <div class="overflow-hidden">
+                        <img src="img/3.png" alt="ユーザーレビュー 1" class="w-full h-auto block">
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 feature-card">
+                    <div class="overflow-hidden">
+                        <img src="img/4.png" alt="ユーザーレビュー 2" class="w-full h-auto block">
+                    </div>
+                </div>
+
+                <!-- Review 3 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 feature-card">
+                    <div class="overflow-hidden">
+                        <img src="img/5.png" alt="ユーザーレビュー 3" class="w-full h-auto block">
+                    </div>
+                </div>
+
+                <!-- Review 4 -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-sm border border-gray-100 feature-card">
+                    <div class="overflow-hidden">
+                        <img src="img/6.png" alt="ユーザーレビュー 4" class="w-full h-auto block">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Media Section -->
+    <section class="py-16 bg-white border-t border-gray-100">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-teal-900">メディア掲載情報</h2>
+                <p class="text-gray-500 mt-2">モッピーは、多くのメディアに取り上げられています！</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <!-- Media 1 -->
+                <div class="bg-white rounded-lg border border-gray-200 p-3 shadow-sm feature-card">
+                    <div class="w-full overflow-hidden rounded">
+                        <img src="img/7.png" alt="メディア掲載 1" class="w-full h-auto block">
+                    </div>
+                </div>
+
+                <!-- Media 2 -->
+                <div class="bg-white rounded-lg border border-gray-200 p-3 shadow-sm feature-card">
+                    <div class="w-full overflow-hidden rounded">
+                        <img src="img/8.png" alt="メディア掲載 2" class="w-full h-auto block">
+                    </div>
+                </div>
+
+                <!-- Media 3 -->
+                <div class="bg-white rounded-lg border border-gray-200 p-3 shadow-sm feature-card">
+                    <div class="w-full overflow-hidden rounded">
+                        <img src="img/9.png" alt="メディア掲載 3" class="w-full h-auto block">
+                    </div>
+                </div>
+
+                <!-- Media 4 -->
+                <div class="bg-white rounded-lg border border-gray-200 p-3 shadow-sm feature-card">
+                    <div class="w-full overflow-hidden rounded">
+                        <img src="img/10.png" alt="メディア掲載 4" class="w-full h-auto block">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Footer -->
+    <section class="py-20 bg-teal-900 text-white text-center">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-bg-mint">
+                今すぐ参加して、<br class="md:hidden">賢くポイント生活。
+            </h2>
+            <p class="text-lg text-teal-100 mb-10 max-w-2xl mx-auto">
+                登録は無料。1分で完了します。<br>
+                あなたも今日からお得な体験を始めましょう。
+            </p>
+
+            <button onclick="k2()" class="cta-btn bg-orange-500 text-white font-bold py-5 px-14 rounded-full shadow-lg text-xl flex items-center justify-center mx-auto">
+                今すぐ参加する <i data-lucide="arrow-right" class="ml-3 w-6 h-6"></i>
+            </button>
+        </div>
+    </section>
+
+    <footer class="bg-teal-950 text-teal-400 py-6 text-center text-sm">
+        <p>&copy; 2025 モッピー Point Service. All rights reserved.</p>
+    </footer>
+
+    <!-- Mobile Floating Button -->
+    <div class="fixed bottom-0 left-0 right-0 p-4 md:hidden z-50 bg-gradient-to-t from-white via-white to-transparent">
+        <button onclick="k2()" class="breathing-btn w-full bg-orange-500 text-white font-bold py-4 rounded-full shadow-lg text-lg flex items-center justify-center">
+            今すぐ無料登録 <i data-lucide="arrow-right" class="ml-2 h-5 w-5"></i>
+        </button>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // k2 function - redirect to www.qq.com
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+    </script>
+</body>
+</html>
