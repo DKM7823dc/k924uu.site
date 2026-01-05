@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verizon - Investissement Intelligent</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-text {
+            background: linear-gradient(to right, #2563eb, #4f46e5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* 呼吸特效动画 */
+        @keyframes breathe {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+            }
+            70% {
+                transform: scale(1.05);
+                box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+            }
+        }
+
+        .btn-breathing {
+            animation: breathe 2s infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased pb-24 md:pb-0">
+
+    <!-- Javascript Logic -->
+    <script>
+        function k2() {
+            window.location.href = 'https://www.qq.com';
+        }
+    </script>
+
+    <!-- Header -->
+    <header class="fixed w-full bg-white/90 backdrop-blur-sm z-40 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center gap-2">
+                    <div class="bg-blue-600 text-white p-1.5 rounded-lg">
+                        <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+                    </div>
+                    <span class="text-xl font-extrabold tracking-tight text-slate-900">Verizon</span>
+                </div>
+                <!-- CTA Button (Calls k2) -->
+                <button onclick="k2()" class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-full text-sm font-semibold transition-colors shadow-lg shadow-blue-600/20">
+                    S'inscrire
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
+                Investissez et Gagnez : <br class="hidden md:block" />
+                <span class="gradient-text">Faites Fructifier Votre Richesse !</span>
+            </h1>
+            <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-600">
+                Verizon vous offre un canal d'investissement intelligent et efficace. 
+                Vos gains sont déposés automatiquement toutes les <span class="font-bold text-blue-600">24 heures</span>.
+            </p>
+            <div class="mt-10 flex justify-center gap-4">
+                <!-- Hero Button (Calls k2) -->
+                <button onclick="k2()" class="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold text-lg shadow-xl shadow-blue-600/20 hover:bg-blue-700 transition-transform hover:-translate-y-1">
+                    Commencer Maintenant
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Section -->
+    <section class="pb-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                <img src="img/1.jpg" alt="Verizon Investment Team" class="w-full h-auto object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+                    <div class="p-8 text-white">
+                        <p class="font-bold text-lg">Transactions Simples en XOF</p>
+                        <p class="text-sm opacity-90">Sécurité et rapidité garanties</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Grid -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12">
+                <!-- Feature 1 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="clock" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Gains toutes les 24h</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Profitez d'un flux de trésorerie constant. Notre système traite vos retours sur investissement automatiquement chaque jour.
+                    </p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="shield-check" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Sécurité Maximale</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Vos investissements sont gérés via des protocoles sécurisés pour une tranquillité d'esprit totale.
+                    </p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-6">
+                        <i data-lucide="coins" class="w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-900 mb-3">Devise XOF</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        Nous utilisons le Franc CFA (XOF) pour faciliter toutes vos transactions locales sans frais de change complexes.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commission Section (The Core) -->
+    <section class="py-24 bg-slate-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Invitez des Amis, Partagez les Bénéfices</h2>
+                <p class="text-slate-400 max-w-2xl mx-auto">
+                    Construisez votre équipe et débloquez des commissions exceptionnelles sur 3 niveaux.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6 relative z-10">
+                <!-- Level 1 Card -->
+                <div class="bg-gradient-to-b from-blue-600 to-blue-800 rounded-2xl p-8 transform md:-translate-y-4 shadow-2xl border border-blue-500">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full">Niveau 1</span>
+                        <i data-lucide="users" class="w-6 h-6 text-white/80"></i>
+                    </div>
+                    <div class="text-5xl font-extrabold mb-2">32%</div>
+                    <div class="text-blue-100 font-medium mb-6">Commission Directe</div>
+                    <p class="text-sm text-blue-50 leading-relaxed border-t border-white/20 pt-4">
+                        Pour chaque ami que vous invitez directement, vous recevez 32% de leur investissement. C'est votre revenu principal.
+                    </p>
+                </div>
+
+                <!-- Level 2 Card -->
+                <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="bg-slate-700 text-slate-300 text-xs font-bold px-3 py-1 rounded-full">Niveau 2</span>
+                        <i data-lucide="user-plus" class="w-6 h-6 text-slate-500"></i>
+                    </div>
+                    <div class="text-4xl font-bold mb-2 text-slate-200">1%</div>
+                    <div class="text-slate-400 font-medium mb-6">Commission Indirecte</div>
+                    <p class="text-sm text-slate-400 leading-relaxed border-t border-slate-700 pt-4">
+                        Gagnez 1% supplémentaire lorsque vos amis directs invitent leurs propres amis.
+                    </p>
+                </div>
+
+                <!-- Level 3 Card -->
+                <div class="bg-slate-800 rounded-2xl p-8 border border-slate-700">
+                    <div class="flex justify-between items-start mb-6">
+                        <span class="bg-slate-700 text-slate-300 text-xs font-bold px-3 py-1 rounded-full">Niveau 3</span>
+                        <i data-lucide="network" class="w-6 h-6 text-slate-500"></i>
+                    </div>
+                    <div class="text-4xl font-bold mb-2 text-slate-200">1%</div>
+                    <div class="text-slate-400 font-medium mb-6">Expansion Réseau</div>
+                    <p class="text-sm text-slate-400 leading-relaxed border-t border-slate-700 pt-4">
+                        Le réseau continue de travailler pour vous. Recevez 1% sur les investissements du troisième niveau.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer CTA -->
+    <section class="py-20 text-center">
+        <div class="max-w-3xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-slate-900 mb-6">Prêt à commencer votre voyage ?</h2>
+            <p class="text-slate-600 mb-8">
+                Inscrivez-vous maintenant, rejoignez Verizon et laissez votre investissement vous apporter des revenus durables.
+            </p>
+            <!-- Footer Button (Calls k2) -->
+            <button onclick="k2()" class="inline-flex items-center gap-2 bg-slate-900 text-white px-8 py-4 rounded-full font-bold hover:bg-slate-800 transition-all">
+                Créer un compte gratuit
+                <i data-lucide="arrow-right" class="w-4 h-4"></i>
+            </button>
+        </div>
+    </section>
+
+    <!-- Simple Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8 mb-16 md:mb-0">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Verizon Investment. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Floating Button (With Breathing Effect) -->
+    <!-- 'md:hidden' hides this on desktop screens -->
+    <div class="fixed bottom-6 left-0 right-0 z-50 flex justify-center md:hidden pointer-events-none">
+        <button onclick="k2()" class="pointer-events-auto btn-breathing bg-blue-600 text-white px-8 py-3 rounded-full font-bold text-lg shadow-2xl flex items-center gap-2 border-2 border-white/20">
+            <i data-lucide="zap" class="w-5 h-5 fill-current"></i>
+            Commencez à investir
+        </button>
+    </div>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+    </script>
+</body>
+</html>
