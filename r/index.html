@@ -12,9 +12,14 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-
-    <script src="https://assets.salesmartly.com/js/project_49099_51406_1711857479.js"></script>
-    
+	
+	  <script src="https://assets.salesmartly.com/js/project_49099_51406_1711857479.js"></script>
+	  
+	  <script>
+	  setTimeout(function() {
+    ssq.push('chatOpen');
+}, 4000);
+	  </script>
     <script>
         tailwind.config = {
             theme: {
@@ -70,6 +75,19 @@
             display: block;
         }
 
+        .profile-card {
+            display: none;
+            width: 100%;
+        }
+        .profile-card.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateX(10px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
         @keyframes pulse-orange {
             0% { box-shadow: 0 0 0 0 rgba(255, 110, 58, 0.7); }
             70% { box-shadow: 0 0 0 12px rgba(255, 110, 58, 0); }
@@ -103,7 +121,7 @@
             </h1>
             <p class="text-slate-600 text-sm mb-5 font-medium leading-7 px-2">
                 元農林中央金庫ポートフォリオマネージャーが教える、<br>
-                機関投資家の<span class="text-accent font-bold border-b-2 border-accent/30">「勝てる投資の極意」</span>をあなた���。
+                機関投資家の<span class="text-accent font-bold border-b-2 border-accent/30">「勝てる投資の極意」</span>をあなたに。
             </p>
 
             <!-- Carousel -->
@@ -398,59 +416,105 @@
             </div>
         </section>
 
-        <!-- Profile Section -->
-        <section class="bg-white rounded-3xl shadow-soft border border-slate-100 p-7 mb-10 relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-blue-50 to-transparent rounded-bl-full -mr-4 -mt-4 z-0"></div>
-            <div class="absolute bottom-0 left-0 w-24 h-24 bg-gradient-to-tr from-orange-50 to-transparent rounded-tr-full -ml-4 -mb-4 z-0"></div>
+        <!-- Profile Section - Card Carousel -->
+        <section class="mb-10">
+            <div class="text-center mb-6">
+                <span class="text-primary font-bold text-xs tracking-widest">講師紹介</span>
+                <h2 class="text-xl font-bold text-slate-800 mt-1 font-heading">
+                    <span class="text-primary">清水直樹</span>先生について
+                </h2>
+            </div>
 
-            <div class="relative z-10">
-                <!-- Profile Header with Circular Image -->
-                <div class="flex flex-col items-center text-center mb-6">
-                    <div class="w-28 h-28 rounded-full overflow-hidden border-4 border-white shadow-xl mb-4 ring-4 ring-primary/20">
-                        <img src="img/s1.jpg" alt="清水直樹" class="w-full h-full object-cover">
+            <div class="relative">
+                <!-- Profile Card Carousel -->
+                <div class="overflow-hidden rounded-3xl shadow-xl">
+                    <!-- Card 1 -->
+                    <div class="profile-card active">
+                        <div class="relative">
+                            <img src="img/s1.jpg" alt="清水直樹 - 経歴" class="w-full h-52 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <span class="bg-primary text-white text-[10px] font-bold px-2 py-1 rounded-full">経歴・実績</span>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2 font-heading flex items-center">
+                                <i data-lucide="award" class="w-5 h-5 mr-2 text-primary"></i>
+                                圧倒的な実績と経歴
+                            </h3>
+                            <p class="text-sm text-slate-600 leading-7 text-justify-custom">
+                                東京大学経済学部卒業後、日本最大級の機関投資家<span class="font-bold text-slate-800">農林中央金庫</span>でポートフォリオマネージャーとして活躍。巨額の資金運用を指揮し、数々の実績を残す。
+                            </p>
+                            <div class="flex items-center mt-3 space-x-2">
+                                <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-full">東京大学卒</span>
+                                <span class="bg-accent/10 text-accent text-[10px] font-bold px-2 py-1 rounded-full">運用実績30年</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="flex items-center mb-1">
-                        <span class="font-black text-slate-900 text-xl mr-2 font-heading">清水 直樹</span>
+
+                    <!-- Card 2 -->
+                    <div class="profile-card">
+                        <div class="relative">
+                            <img src="img/2.jpg" alt="清水直樹 - 資格" class="w-full h-52 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <span class="bg-accent text-white text-[10px] font-bold px-2 py-1 rounded-full">資格・専門性</span>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2 font-heading flex items-center">
+                                <i data-lucide="badge-check" class="w-5 h-5 mr-2 text-accent"></i>
+                                世界最高峰の資格保有
+                            </h3>
+                            <p class="text-sm text-slate-600 leading-7 text-justify-custom">
+                                米国<span class="font-bold text-slate-800">デューク大学MBA</span>を取得。さらに金融業界で最高峰の資格<span class="font-bold text-slate-800">CFA協会認定証券アナリスト</span>を保有し、世界水準の投資知識を提供。
+                            </p>
+                            <div class="flex items-center mt-3 space-x-2">
+                                <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-full">CFA認定</span>
+                                <span class="bg-accent/10 text-accent text-[10px] font-bold px-2 py-1 rounded-full">MBA取得</span>
+                            </div>
+                        </div>
                     </div>
-                    <span class="text-slate-400 text-xs font-medium">しみず なおき</span>
-                    <div class="flex items-center mt-2 space-x-2">
-                        <span class="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-full">CFA認定アナリスト</span>
-                        <span class="bg-accent/10 text-accent text-[10px] font-bold px-2 py-1 rounded-full">MBA取得</span>
+
+                    <!-- Card 3 -->
+                    <div class="profile-card">
+                        <div class="relative">
+                            <img src="img/3.jpg" alt="清水直樹 - 投資哲学" class="w-full h-52 object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                            <div class="absolute bottom-4 left-4 right-4">
+                                <span class="bg-green-500 text-white text-[10px] font-bold px-2 py-1 rounded-full">投資哲学</span>
+                            </div>
+                        </div>
+                        <div class="bg-white p-5">
+                            <h3 class="font-bold text-lg text-slate-900 mb-2 font-heading flex items-center">
+                                <i data-lucide="lightbulb" class="w-5 h-5 mr-2 text-green-500"></i>
+                                独自の投資メソッド
+                            </h3>
+                            <p class="text-sm text-slate-600 leading-7 text-justify-custom">
+                                機関投資家ならではの「<span class="font-bold text-slate-800">マクロ経済分析</span>」と「<span class="font-bold text-slate-800">企業分析</span>」を融合させた独自手法を、初心者にも分かりやすく伝授いたします。
+                            </p>
+                            <div class="flex items-center mt-3 space-x-2">
+                                <span class="bg-green-100 text-green-600 text-[10px] font-bold px-2 py-1 rounded-full">初心者歓迎</span>
+                                <span class="bg-purple-100 text-purple-600 text-[10px] font-bold px-2 py-1 rounded-full">独自メソッド</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="flex items-center mb-4 pb-3 border-b border-slate-100">
-                    <div class="bg-primary/10 p-2 rounded-lg mr-3">
-                        <i data-lucide="user-check" class="w-5 h-5 text-primary"></i>
-                    </div>
-                    <h2 class="text-lg font-bold text-slate-800 font-heading">講師プロフィール</h2>
+                <!-- Carousel Indicators -->
+                <div class="flex justify-center mt-4 space-x-2" id="profile-indicators">
+                    <div class="h-1.5 w-6 bg-primary rounded-full transition-all cursor-pointer" onclick="showProfileSlide(0)"></div>
+                    <div class="h-1.5 w-1.5 bg-slate-300 rounded-full transition-all cursor-pointer" onclick="showProfileSlide(1)"></div>
+                    <div class="h-1.5 w-1.5 bg-slate-300 rounded-full transition-all cursor-pointer" onclick="showProfileSlide(2)"></div>
                 </div>
+            </div>
 
-                <div class="space-y-4 text-sm text-slate-600">
-                    <p class="leading-7 text-justify-custom">
-                        1986年、<span class="font-bold text-slate-800">東京大学経済学部</span>卒業。その後、日本最大級の機関投資家である<span class="font-bold text-slate-800">農林中央金庫</span>に入庫。債券・株式投資の最前線で長年にわたりポートフォリオマネージャーとして活躍し、巨額の資金運用を指揮。
-                    </p>
-                    <p class="leading-7 text-justify-custom">
-                        在職中に米国<span class="font-bold text-slate-800">デューク大学MBA</span>（経営学修士）を取得。さらに、金融業界で最高峰の資格とされる<span class="font-bold text-slate-800">CFA協会認定証券アナリスト</span>の資格を保有。
-                    </p>
-                    <p class="leading-7 text-justify-custom">
-                        現在は、機関投資家ならではの「マクロ経済分析」と「企業分析」を融合させた独自の手法を、個人投資家向けに分かりやすく伝授している。
-                    </p>
-
-                    <div class="bg-gradient-to-r from-slate-50 to-blue-50 border-l-4 border-primary p-4 rounded-r-lg mt-4">
-                        <p class="text-primary text-xs font-bold leading-relaxed italic">
-                            「投資はギャンブルではありません。正しい知識と戦略があれば、誰でも資産を築くことができます。」
-                        </p>
-                    </div>
-                </div>
-
-                <div class="mt-6">
-                     <button onclick="k2()" class="w-full bg-gradient-to-r from-slate-800 to-slate-900 text-white py-3.5 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all flex justify-center items-center tracking-wide group">
-                       <i data-lucide="message-circle" class="w-4 h-4 mr-2"></i>
-                       清水先生に相談する
-                       <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                     </button>
-                </div>
+            <div class="mt-6">
+                <button onclick="k2()" class="w-full bg-gradient-to-r from-slate-800 to-slate-900 text-white py-3.5 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all flex justify-center items-center tracking-wide group">
+                    <i data-lucide="message-circle" class="w-4 h-4 mr-2"></i>
+                    清水先生に相談する
+                    <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                </button>
             </div>
         </section>
 
@@ -508,7 +572,7 @@
                     </div>
                 </div>
                 <p class="text-sm text-slate-600 leading-7 font-medium text-justify-custom">
-                    「数年前に株式投資を試みましたが、効果的な戦略がなかったため、ほとんどすべてを失いました。このサービスに参加してから最も嬉しかったのは、分析チームが毎週個別の投資アドバイスを提供してくれることで、株式市場についてより深い理解と把握ができるようになったことです。推奨された銘柄を通じて、以前の損失を徐々に取り戻しただけでなく、安定した利益も実現できました。今では自信に満ち、毎月安定したリターンを得ています。本当に感謝しています！」
+                    「数年前に株式投資を試みましたが、効果的な戦略がなかったため、ほとんどすべてを失いました。このサービスに参加してから最も嬉しかったのは、分析チームが毎週個別の投資アドバイスを提供してくれることで���株式市場についてより深い理解と把握ができるようになったことです。推奨された銘柄を通じて、以前の損失を徐々に取り戻しただけでなく、安定した利益も実現できました。今では自信に満ち、毎月安定したリターンを得ています。本当に感謝しています！」
                 </p>
             </div>
 
@@ -639,7 +703,7 @@
         lucide.createIcons();
 
         function k2() {
-           ssq.push('chatOpen');
+            ssq.push('chatOpen');
         }
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -673,7 +737,38 @@
                 showSlide(currentIndex);
             }, 3000);
         });
+
+        // Profile Card Carousel
+        let profileIndex = 0;
+        const profileCards = document.querySelectorAll('.profile-card');
+        const profileIndicators = document.querySelectorAll('#profile-indicators div');
+        const totalProfileCards = profileCards.length;
+
+        function showProfileSlide(index) {
+            profileIndex = index;
+            profileCards.forEach((card, i) => {
+                if (i === index) {
+                    card.classList.add('active');
+                } else {
+                    card.classList.remove('active');
+                }
+            });
+
+            profileIndicators.forEach((dot, i) => {
+                if (i === index) {
+                    dot.classList.remove('bg-slate-300', 'w-1.5');
+                    dot.classList.add('bg-primary', 'w-6');
+                } else {
+                    dot.classList.remove('bg-primary', 'w-6');
+                    dot.classList.add('bg-slate-300', 'w-1.5');
+                }
+            });
+        }
+
+        setInterval(() => {
+            profileIndex = (profileIndex + 1) % totalProfileCards;
+            showProfileSlide(profileIndex);
+        }, 4000);
     </script>
 </body>
-
 </html>
