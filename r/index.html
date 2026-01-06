@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>清水直樹 - 投資スクール</title>
+    <!-- 引入 Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 引入 Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* 自定义呼吸动画 */
+        @keyframes pulse-custom {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+                box-shadow: 0 10px 15px -3px rgba(220, 38, 38, 0.5), 0 4px 6px -2px rgba(220, 38, 38, 0.3);
+            }
+            50% {
+                opacity: .95;
+                transform: scale(1.02);
+                box-shadow: 0 20px 25px -5px rgba(220, 38, 38, 0.6), 0 10px 10px -5px rgba(220, 38, 38, 0.4);
+            }
+        }
+        
+        .animate-pulse-custom {
+            animation: pulse-custom 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        /* 轮播图样式 */
+        .carousel-slide {
+            display: none; 
+            width: 100%;
+            height: auto;
+        }
+        .carousel-slide.active {
+            display: block; 
+        }
+        
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 pb-24">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm py-3 sticky top-0 z-50">
+        <div class="container mx-auto px-4 flex justify-between items-center max-w-lg">
+            <div class="flex items-center space-x-2">
+                <div class="w-8 h-8 bg-blue-900 rounded flex items-center justify-center text-white font-bold font-serif">S</div>
+                <div class="flex flex-col">
+                    <span class="font-bold text-blue-900 text-sm leading-none">清水直樹</span>
+                    <span class="text-[10px] text-slate-500 leading-none mt-1">投資スクール</span>
+                </div>
+            </div>
+            <button onclick="k2()" class="bg-amber-500 hover:bg-amber-600 text-white text-xs px-4 py-2 rounded-full font-bold transition-colors shadow-sm">
+                今すぐ相談
+            </button>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 max-w-lg">
+        
+        <!-- Hero Section -->
+        <section class="py-6 text-center">
+            <div>
+                <span class="inline-block py-1 px-3 rounded-full bg-blue-100 text-blue-800 text-xs font-bold mb-3">
+                    プロフェッショナルな指導
+                </span>
+                <h1 class="text-2xl font-extrabold text-slate-900 leading-tight mb-4">
+                    <span class="text-blue-900">清水直樹</span>先生と共に、<br/>
+                    あなたの<span class="text-amber-600">投資の旅</span>を始めましょう！
+                </h1>
+            </div>
+            
+            <p class="text-slate-600 text-sm leading-relaxed text-justify px-1">
+                業界経験38年の清水直樹先生は、農林中央金庫でポートフォリオマネージャーを務め、株式と債券の投資戦略に精通しています。
+            </p>
+
+            <!-- Carousel (Banner) -->
+            <div class="relative w-full rounded-xl shadow-lg mt-6 mb-6 bg-slate-200 group overflow-hidden">
+                <div id="carousel-container" class="w-full relative">
+                    <img src="img/1.png" alt="Slide 1" class="carousel-slide active">
+                    <img src="https://wetna901e.site/deg2/img/1.jpg" alt="Slide 2" class="carousel-slide">
+                    <img src="https://wetna901e.site/deg2/img/1.jpg" alt="Slide 3" class="carousel-slide">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent pointer-events-none"></div>
+                </div>
+                <!-- Indicators -->
+                <div class="absolute bottom-3 left-0 right-0 flex justify-center space-x-2 z-10" id="carousel-indicators">
+                    <div class="h-2 w-4 bg-white rounded-full transition-all duration-300"></div>
+                    <div class="h-2 w-2 bg-white/60 rounded-full transition-all duration-300"></div>
+                    <div class="h-2 w-2 bg-white/60 rounded-full transition-all duration-300"></div>
+                </div>
+            </div>
+
+            <!-- 四宫格功能区 -->
+            <div class="grid grid-cols-2 gap-3 mb-8">
+                <!-- 1. 交易分析 (市場分析) -->
+                <div onclick="k2()" class="bg-white border border-slate-200 rounded-xl p-4 flex flex-col items-center justify-center shadow-sm active:scale-95 transition-transform cursor-pointer">
+                    <div class="w-10 h-10 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 mb-2">
+                        <i data-lucide="line-chart" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-sm text-slate-700">市場分析</span>
+                </div>
+
+                <!-- 2. 股市行情 (株式市況) -->
+                <div onclick="k2()" class="bg-white border border-slate-200 rounded-xl p-4 flex flex-col items-center justify-center shadow-sm active:scale-95 transition-transform cursor-pointer">
+                    <div class="w-10 h-10 bg-red-50 rounded-full flex items-center justify-center text-red-600 mb-2">
+                        <i data-lucide="bar-chart-4" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-sm text-slate-700">株式市況</span>
+                </div>
+
+                <!-- 3. 财经资讯 (経済ニュース) -->
+                <div onclick="k2()" class="bg-white border border-slate-200 rounded-xl p-4 flex flex-col items-center justify-center shadow-sm active:scale-95 transition-transform cursor-pointer">
+                    <div class="w-10 h-10 bg-green-50 rounded-full flex items-center justify-center text-green-600 mb-2">
+                        <i data-lucide="newspaper" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-sm text-slate-700">経済ニュース</span>
+                </div>
+
+                <!-- 4. 老师课程 (投資講座) -->
+                <div onclick="k2()" class="bg-white border border-slate-200 rounded-xl p-4 flex flex-col items-center justify-center shadow-sm active:scale-95 transition-transform cursor-pointer">
+                    <div class="w-10 h-10 bg-amber-50 rounded-full flex items-center justify-center text-amber-600 mb-2">
+                        <i data-lucide="graduation-cap" class="w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-sm text-slate-700">投資講座</span>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Profile Section -->
+        <section class="bg-white rounded-2xl shadow-sm p-6 mb-8 border border-slate-100">
+            <div class="flex items-center mb-4 pb-2 border-b border-slate-100">
+                <i data-lucide="award" class="w-6 h-6 text-amber-500 mr-2"></i>
+                <h2 class="text-lg font-bold text-slate-800">専門的背景</h2>
+            </div>
+            <ul class="space-y-3 text-sm text-slate-700">
+                <li class="flex items-start">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-blue-900 mr-2 mt-1 flex-shrink-0"></i>
+                    東京大学経済学部 卒業
+                </li>
+                <li class="flex items-start">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-blue-900 mr-2 mt-1 flex-shrink-0"></i>
+                    米国デューク大学フクア・スクール・オブ・ビジネス MBA取得
+                </li>
+                <li class="flex items-start">
+                    <i data-lucide="check-circle-2" class="w-4 h-4 text-blue-900 mr-2 mt-1 flex-shrink-0"></i>
+                    CFA協会認定証券アナリスト（CFA）資格保有
+                </li>
+            </ul>
+            <div class="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-100 relative overflow-hidden">
+                <div class="absolute top-0 right-0 -mt-2 -mr-2 w-12 h-12 bg-blue-200 rounded-full opacity-50 blur-xl"></div>
+                <p class="text-sm text-blue-900 leading-relaxed relative z-10">
+                    清水先生率いるアナリストチームは、強力なデータ支援と長年蓄積された選定戦略を基に、<span class="font-bold text-red-600 bg-white px-1 rounded shadow-sm mx-1">上昇率95%超</span>の優良銘柄を厳選。投資家が市場動向を的確に把握し、あらゆる投資機会を逃さないようサポートします。
+                </p>
+            </div>
+            <div class="mt-6 text-center">
+                 <button onclick="k2()" class="w-full bg-blue-900 text-white py-3 rounded-lg font-bold shadow-lg hover:bg-blue-800 transition-all flex justify-center items-center group">
+                   無料相談を申し込む <i data-lucide="arrow-right" class="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                 </button>
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section class="mb-10">
+            <h2 class="text-lg font-bold text-center mb-6 text-slate-800 flex items-center justify-center">
+                <span class="w-8 h-[1px] bg-slate-300 mr-3"></span>
+                選ばれる理由
+                <span class="w-8 h-[1px] bg-slate-300 ml-3"></span>
+            </h2>
+            <div class="grid gap-4">
+                <div class="bg-white p-5 rounded-xl shadow-sm flex items-start hover:shadow-md transition-shadow">
+                    <div class="bg-amber-100 p-3 rounded-lg mr-4 text-amber-600 flex-shrink-0">
+                        <i data-lucide="award" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 mb-1">経験豊富なエキスパート</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">清水先生の38年にわたる経験と深い背景が、あなたの投資を守ります。</p>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm flex items-start hover:shadow-md transition-shadow">
+                    <div class="bg-blue-100 p-3 rounded-lg mr-4 text-blue-600 flex-shrink-0">
+                        <i data-lucide="bar-chart-2" class="w-6 h-6"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-slate-900 mb-1">精密な分析</h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">市場動向と独自の選定戦略を組み合わせ、優良銘柄を厳選します。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="bg-slate-900 text-white rounded-2xl p-6 mb-10 shadow-xl overflow-hidden relative">
+            <!-- Decorative background elements -->
+            <div class="absolute top-0 right-0 w-48 h-48 bg-blue-600 rounded-full blur-3xl opacity-20 -mr-10 -mt-10"></div>
+            <div class="absolute bottom-0 left-0 w-32 h-32 bg-amber-500 rounded-full blur-3xl opacity-10 -ml-10 -mb-10"></div>
+            
+            <h2 class="text-lg font-bold mb-6 relative z-10 text-center">当社の専属投資サービス</h2>
+            <div class="space-y-5 relative z-10">
+                <div class="flex items-start group">
+                    <div class="mt-1 mr-3 text-amber-400 bg-slate-800 p-1.5 rounded group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                        <i data-lucide="trending-up" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-100 mb-1">無料銘柄推奨</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">有望株をリアルタイムで推奨し、投資機会の発掘を支援。</p>
+                    </div>
+                </div>
+                <div class="flex items-start group">
+                    <div class="mt-1 mr-3 text-amber-400 bg-slate-800 p-1.5 rounded group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                        <i data-lucide="book-open" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-100 mb-1">選定スキルの無料学習</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">専門家の指導の下、選定の核心戦略を学び、投資能力を向上。</p>
+                    </div>
+                </div>
+                <div class="flex items-start group">
+                    <div class="mt-1 mr-3 text-amber-400 bg-slate-800 p-1.5 rounded group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                        <i data-lucide="bar-chart-2" class="w-5 h-5"></i>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-slate-100 mb-1">精密な分析</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">強力なデータ支援を利用し、市場動向を迅速に把握。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-slate-700">
+                 <p class="text-center font-bold text-amber-400 mb-4 text-sm">今すぐ参加して、一歩リードしましょう！</p>
+                 <button onclick="k2()" class="w-full bg-amber-500 text-white py-3 rounded-lg font-bold shadow-lg hover:bg-amber-600 transition-all transform active:scale-95">
+                   お問い合わせはこちら
+                 </button>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section class="mb-10">
+            <h2 class="text-xl font-bold text-center mb-8 text-slate-800">受講生のサクセスストーリー</h2>
+            
+            <!-- Card 1 -->
+            <div class="bg-white p-6 rounded-xl shadow-md mb-4 border-l-4 border-amber-500">
+                <div class="flex items-center mb-3">
+                    <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="Aさん" class="w-12 h-12 rounded-full mr-3 border-2 border-slate-100 object-cover">
+                    <div>
+                        <h4 class="font-bold text-slate-800">Aさん</h4>
+                        <p class="text-xs text-slate-500">初心者から投資のプロへ</p>
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed mb-3 text-justify">株式市場に全く触れたことがなく、最初は不安でいっぱいでした。しかし、専属サービスに参加してからは体系的な指導を受けることができました。毎日正確な銘柄推奨を受け取り、実践的な選定スキルを学びました。</p>
+                <div class="bg-amber-50 text-amber-700 text-xs font-bold p-2 rounded inline-block">
+                    3ヶ月で20%のリターン達成
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white p-6 rounded-xl shadow-md mb-4 border-l-4 border-amber-500">
+                <div class="flex items-center mb-3">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Bさん" class="w-12 h-12 rounded-full mr-3 border-2 border-slate-100 object-cover">
+                    <div>
+                        <h4 class="font-bold text-slate-800">Bさん</h4>
+                        <p class="text-xs text-slate-500">損失から安定した利益へ</p>
+                    </div>
+                </div>
+                <p class="text-slate-600 text-sm leading-relaxed mb-3 text-justify">数年前から株式投資を試みていましたが、効果的な戦略がなく、ほとんど資金を失いかけていました。サービスに参加して一番驚いたのは、アナリストチームが毎週パーソナライズされた投資アドバイスを提供してくれたことです。</p>
+                <div class="bg-amber-50 text-amber-700 text-xs font-bold p-2 rounded inline-block">
+                    損失を回収し安定収益化
+                </div>
+            </div>
+        </section>
+
+        <!-- Bottom Text -->
+        <section class="text-center py-8 px-4">
+            <h2 class="text-lg font-bold text-slate-900 mb-3">もう利益のチャンスを逃さない</h2>
+            <p class="text-slate-600 text-sm mb-6 leading-relaxed">
+                あなただけの投資の未来を掴みましょう！<br/>
+                業界の巨匠、清水直樹先生と共に成功を迎えましょう！
+            </p>
+        </section>
+
+    </main>
+
+    <!-- Sticky Bottom Bar -->
+    <div class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-slate-200 p-3 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-50">
+        <div class="container mx-auto max-w-lg flex justify-center">
+            <!-- 呼吸效果按钮 -->
+            <button 
+                onclick="k2()"
+                class="w-full bg-red-600 text-white py-3 rounded-full font-bold shadow-lg hover:bg-red-700 transition-colors flex justify-center items-center animate-pulse-custom"
+            >
+                <!-- 电话图标已删除 -->
+                今すぐ相談する
+                <i data-lucide="chevron-right" class="w-4 h-4 ml-1 opacity-70"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // k2 Function for Navigation
+        function k2() {
+            window.location.href = "https://www.qq.com";
+        }
+
+        // Carousel Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const slides = document.querySelectorAll('.carousel-slide');
+            const indicators = document.querySelectorAll('#carousel-indicators div');
+            let currentIndex = 0;
+            const totalSlides = slides.length;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    if (i === index) {
+                        slide.classList.add('active');
+                    } else {
+                        slide.classList.remove('active');
+                    }
+                });
+
+                indicators.forEach((dot, i) => {
+                    if (i === index) {
+                        dot.classList.remove('bg-white/60', 'w-2');
+                        dot.classList.add('bg-white', 'w-4');
+                    } else {
+                        dot.classList.remove('bg-white', 'w-4');
+                        dot.classList.add('bg-white/60', 'w-2');
+                    }
+                });
+            }
+
+            setInterval(() => {
+                currentIndex = (currentIndex + 1) % totalSlides;
+                showSlide(currentIndex);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
