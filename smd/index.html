@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>Intelligent Financial Data Analysis Service</title>
+    <style>
+        :root {
+            --primary-color: #00f5ff;
+            --secondary-color: #ff6b35;
+            --accent-color: #7c3aed;
+            --warning-color: #fbbf24;
+            --background-primary: #0a0a1a;
+            --background-secondary: #1a1a2e;
+            --text-primary: #ffffff;
+            --text-secondary: #b3b3cc;
+            --grid-color: rgba(0, 245, 255, 0.1);
+            --border-color: rgba(255, 255, 255, 0.2);
+            --box-shadow: 0 8px 32px rgba(0, 245, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .main-container {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--background-primary) 0%, var(--background-secondary) 100%);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', 'Arial', sans-serif;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        .background-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(0, 245, 255, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 245, 255, 0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+            animation: grid-move 20s linear infinite;
+        }
+
+        @keyframes grid-move {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .star-field {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+        }
+
+        .star {
+            position: absolute;
+            background: var(--primary-color);
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        .star:nth-child(1) { top: 10%; left: 20%; width: 2px; height: 2px; animation-delay: 0s; }
+        .star:nth-child(2) { top: 25%; left: 80%; width: 1px; height: 1px; animation-delay: 1s; }
+        .star:nth-child(3) { top: 60%; left: 15%; width: 3px; height: 3px; animation-delay: 2s; }
+        .star:nth-child(4) { top: 80%; left: 70%; width: 2px; height: 2px; animation-delay: 0.5s; }
+        .star:nth-child(5) { top: 40%; left: 90%; width: 1px; height: 1px; animation-delay: 1.5s; }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .fixed-notification-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 107, 53, 0.95);
+            color: white;
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 10;
+            padding-top: 60px;
+            min-height: 100vh;
+        }
+
+        .hero-section {
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .primary-title {
+            font-size: clamp(28px, 8vw, 48px);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .statistics-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 15px 20px;
+            backdrop-filter: blur(10px);
+            min-width: 120px;
+        }
+
+        .stat-value {
+            color: var(--primary-color);
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .hero-subtitle {
+            color: var(--text-secondary);
+            font-size: clamp(16px, 4vw, 20px);
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .accuracy-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.3), rgba(0, 245, 255, 0.3));
+            border: 1px solid var(--primary-color);
+            border-radius: 30px;
+            padding: 12px 28px;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 20px 0;
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+            }
+            50% {
+                box-shadow: 0 0 35px rgba(0, 245, 255, 0.6);
+            }
+        }
+
+        .service-description {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+            margin: 25px 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .service-description strong {
+            color: var(--primary-color);
+        }
+
+        .input-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 500px;
+            backdrop-filter: blur(15px);
+            box-shadow: var(--box-shadow);
+        }
+
+        .company-input-field {
+            width: 100%;
+            padding: 16px 20px;
+            font-size: 16px;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .company-input-field:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+        }
+
+        .company-input-field::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .analysis-button {
+            width: 100%;
+            padding: 18px;
+            font-size: 18px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--secondary-color), var(--warning-color));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            animation: breathe 2s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(255, 107, 53, 0.3);
+            }
+            50% {
+                transform: scale(1.02);
+                box-shadow: 0 8px 30px rgba(255, 107, 53, 0.5);
+            }
+        }
+
+        .analysis-button:hover {
+            animation: none;
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.6);
+        }
+
+        .analysis-button:active {
+            transform: translateY(0) scale(1);
+        }
+
+        .analysis-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.5s;
+            transform: rotate(45deg);
+        }
+
+        .analysis-button:hover::before {
+            animation: shine 0.7s ease-in-out;
+        }
+
+        @keyframes shine {
+            0% { transform: rotate(45deg) translate(-100%, -100%); }
+            50% { transform: rotate(45deg) translate(-50%, -50%); }
+            100% { transform: rotate(45deg) translate(100%, 100%); }
+        }
+
+        /* User Reviews Section */
+        .reviews-section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .reviews-title {
+            text-align: center;
+            font-size: clamp(24px, 5vw, 32px);
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .reviews-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(15px);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 80px;
+            font-family: Georgia, serif;
+            color: var(--primary-color);
+            opacity: 0.15;
+            line-height: 1;
+        }
+
+        .review-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--primary-color);
+            box-shadow: 0 20px 40px rgba(0, 245, 255, 0.15);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .review-avatar::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color)) border-box;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask-composite: xor;
+        }
+
+        .review-avatar.avatar-1 {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
+        .review-avatar.avatar-2 {
+            background: linear-gradient(135deg, #ec4899, #f43f5e);
+        }
+
+        .review-avatar.avatar-3 {
+            background: linear-gradient(135deg, #14b8a6, #06b6d4);
+        }
+
+        .review-user-info {
+            flex: 1;
+        }
+
+        .review-username {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .review-date {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 3px;
+            margin-bottom: 15px;
+        }
+
+        .star-icon {
+            width: 18px;
+            height: 18px;
+            fill: var(--warning-color);
+            filter: drop-shadow(0 0 3px rgba(251, 191, 36, 0.5));
+        }
+
+        .review-content {
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
+        }
+
+        .review-tag {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 6px 14px;
+            background: rgba(0, 245, 255, 0.1);
+            border: 1px solid rgba(0, 245, 255, 0.3);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            backdrop-filter: blur(5px);
+        }
+
+        .progress-modal {
+            background: var(--background-secondary);
+            border: 2px solid var(--primary-color);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 20px 60px rgba(0, 245, 255, 0.3);
+        }
+
+        .progress-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            width: 0%;
+            border-radius: 4px;
+            transition: width 0.1s ease;
+        }
+
+        .analysis-steps {
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin: 15px 0;
+        }
+
+        .profile-image-container {
+            margin: 30px 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 8px 25px rgba(0, 245, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 35px rgba(0, 245, 255, 0.4);
+        }
+
+        .completion-section {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(124, 58, 237, 0.15);
+            border: 2px solid var(--accent-color);
+            border-radius: 16px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            display: none;
+            z-index: 1500;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 20px 60px rgba(124, 58, 237, 0.4);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: var(--text-secondary);
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .close-button:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-primary);
+            transform: scale(1.1);
+        }
+
+        .completion-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            z-index: 1400;
+            backdrop-filter: blur(5px);
+        }
+
+        .completion-title {
+            color: var(--accent-color);
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .completion-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .contact-button {
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: breathe-button 2.5s ease-in-out infinite;
+        }
+
+        @keyframes breathe-button {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 5px 20px rgba(124, 58, 237, 0.3);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 8px 30px rgba(124, 58, 237, 0.5);
+            }
+        }
+
+        .contact-button:hover {
+            animation: none;
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(124, 58, 237, 0.6);
+        }
+
+        .risk-disclosure-section {
+            background: rgba(251, 191, 36, 0.05);
+            border-top: 3px solid var(--warning-color);
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        .risk-title {
+            color: var(--warning-color);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .risk-list {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .risk-item {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .risk-item::before {
+            content: '*';
+            position: absolute;
+            left: 0;
+            color: var(--warning-color);
+            font-weight: bold;
+        }
+
+        .footer-links {
+            text-align: center;
+            padding: 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 20px;
+        }
+
+        .footer-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .fixed-notification-bar {
+                font-size: 11px;
+                padding: 6px 12px;
+            }
+
+            .hero-section {
+                padding: 30px 15px;
+            }
+
+            .statistics-container {
+                gap: 10px;
+            }
+
+            .stat-item {
+                padding: 12px 16px;
+                min-width: 100px;
+            }
+
+            .input-section {
+                margin: 30px 15px;
+                padding: 25px;
+            }
+
+            .completion-section {
+                padding: 25px;
+                max-width: 95%;
+            }
+
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .risk-disclosure-section {
+                padding: 25px 15px;
+            }
+
+            .reviews-section {
+                padding: 40px 15px;
+            }
+
+            .reviews-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .review-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="background-grid"></div>
+
+        <div class="star-field">
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+            <div class="star"></div>
+        </div>
+
+        <div class="content-wrapper" style="padding-top: 20px;">
+            <section class="hero-section">
+                <h1 class="primary-title">AI-Powered Market Analysis</h1>
+                <p class="hero-subtitle">Stock Market Insights Based on Data</p>
+
+                <div class="profile-image-container">
+                    <img src="img/1.jpg" alt="Expert" class="profile-image">
+                </div>
+
+                <div class="statistics-container">
+                    <div class="stat-item">
+                        <div class="stat-value">50K+</div>
+                        <div class="stat-label">Data Points</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">7K+</div>
+                        <div class="stat-label">Users</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value">1.5s</div>
+                        <div class="stat-label">Analysis Time</div>
+                    </div>
+                </div>
+
+                <div class="accuracy-badge">Prediction Accuracy Reaches 97.3%</div>
+
+                <p class="service-description">
+                    Through learning from tens of thousands of stock patterns, it classifies and judges known models to predict stock price trends, indices, and currencies.<br><br>
+                    It can also automatically identify and provide answers and guidance through an AI customer service.<br><br>
+                    This is currently an internal beta version, and <strong>7,863 people</strong> have already joined the learning. The large model application is continuously learning.
+                </p>
+
+                <div class="input-section">
+                    <input type="text" class="company-input-field" placeholder="Enter code to test" id="companyInput">
+                    <button class="analysis-button" onclick="startAnalysis()">Get Soaring Stock Report Analysis</button>
+                </div>
+            </section>
+
+            <!-- User Reviews Section -->
+            <section class="reviews-section">
+                <h2 class="reviews-title">What Our Users Say</h2>
+                <div class="reviews-grid">
+                    <!-- Review 1 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar avatar-1">M</div>
+                            <div class="review-user-info">
+                                <div class="review-username">Michael Chen</div>
+                                <div class="review-date">December 28, 2025</div>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="review-content">
+                            Analysis speed is incredibly fast! I get comprehensive market data in just seconds. Highly recommended!
+                        </p>
+                        <span class="review-tag">⚡ Fast Analysis</span>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar avatar-2">S</div>
+                            <div class="review-user-info">
+                                <div class="review-username">Sarah Williams</div>
+                                <div class="review-date">January 2, 2026</div>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="review-content">
+                            All financial data I need in one place. Interface is intuitive and reports are well-organized. Great tool!
+                        </p>
+                        <span class="review-tag">📊 Data Quality</span>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="review-avatar avatar-3">J</div>
+                            <div class="review-user-info">
+                                <div class="review-username">James Park</div>
+                                <div class="review-date">January 5, 2026</div>
+                            </div>
+                        </div>
+                        <div class="review-stars">
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg class="star-icon" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        </div>
+                        <p class="review-content">
+                            Transparent platform with responsive customer support. Analysis reports are very helpful. Will continue using!
+                        </p>
+                        <span class="review-tag">🛡️ Trusted Service</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="risk-disclosure-section">
+                <h2 class="risk-title">⚠️ Important Risk Disclosure</h2>
+                <div class="risk-list">
+                    <div class="risk-item">This platform is operated for informational purposes only and does not provide financial product sales, investment advisory, or investment brokerage services.</div>
+                    <div class="risk-item">All information provided is reference material based on publicly available data and should not be interpreted as investment recommendations or trading signals.</div>
+                    <div class="risk-item">Investments carry the risk of principal loss, and all investment decisions and their outcomes are the sole responsibility of the investor.</div>
+                    <div class="risk-item">Past data and analysis results do not guarantee future returns, and results may differ from expectations depending on market conditions.</div>
+                    <div class="risk-item">We do not guarantee the accuracy, completeness, or timeliness of information and are not responsible for any losses resulting from the use of this information.</div>
+                    <div class="risk-item">Please consult with a professional before investing and fully consider your investment objectives and risk tolerance.</div>
+                </div>
+
+                <div class="footer-links">
+                    <a class="footer-link" target="_blank">Privacy Policy</a>
+                    <a class="footer-link" target="_blank">Terms of Service</a>
+                </div>
+            </section>
+        </div>
+
+        <div class="completion-overlay" id="completionOverlay"></div>
+        <div class="completion-section" id="completionSection">
+            <div class="close-button" onclick="closeCompletion()">×</div>
+            <h3 class="completion-title">Information Analysis Complete</h3>
+            <p class="completion-description">
+                To view detailed financial data, please contact our dedicated customer service.<br>
+                We provide clear and easy-to-understand public information.
+            </p>
+            <button class="contact-button" onclick="closeCompletion()">Get Your Report Now</button>
+        </div>
+
+        <div class="modal-overlay" id="progressModal">
+            <div class="progress-modal">
+                <h3 class="progress-title">AI System Analyzing...</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar-fill" id="progressBar"></div>
+                </div>
+                <div class="analysis-steps" id="analysisSteps">
+                    Analyzing market data...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function startAnalysis() {
+            const inputValue = document.getElementById('companyInput').value.trim();
+            if (!inputValue) {
+                showCustomAlert('Please enter a company name or stock code.');
+                return;
+            }
+
+            const progressModal = document.getElementById('progressModal');
+            const progressBar = document.getElementById('progressBar');
+            const analysisSteps = document.getElementById('analysisSteps');
+            const completionSection = document.getElementById('completionSection');
+
+            progressModal.style.display = 'flex';
+
+            const steps = [
+                'Analyzing market data...',
+                'Analyzing latest news...',
+                'Analyzing historical data...',
+                'Analysis complete!'
+            ];
+
+            let currentStep = 0;
+            let progress = 0;
+
+            const progressInterval = setInterval(() => {
+                progress += Math.random() * 30;
+                if (progress > 100) progress = 100;
+
+                progressBar.style.width = progress + '%';
+
+                if (progress > currentStep * 25 && currentStep < steps.length - 1) {
+                    currentStep++;
+                    analysisSteps.textContent = steps[currentStep];
+                }
+
+                if (progress >= 100) {
+                    clearInterval(progressInterval);
+                    setTimeout(() => {
+                        progressModal.style.display = 'none';
+                        document.getElementById('completionOverlay').style.display = 'block';
+                        completionSection.style.display = 'block';
+                    }, 500);
+                }
+            }, 100);
+        }
+
+        function closeCompletion() {
+            document.getElementById('completionOverlay').style.display = 'none';
+            document.getElementById('completionSection').style.display = 'none';
+        }
+
+        function showCustomAlert(message) {
+            const alertModal = document.createElement('div');
+            alertModal.className = 'modal-overlay';
+            alertModal.style.display = 'flex';
+            alertModal.innerHTML = `
+                <div class="progress-modal" style="max-width: 300px;">
+                    <h3 class="progress-title">Notice</h3>
+                    <p style="color: var(--text-secondary); margin: 20px 0;">${message}</p>
+                    <button class="contact-button" onclick="this.closest('.modal-overlay').remove()" style="width: 100%;">OK</button>
+                </div>
+            `;
+            document.body.appendChild(alertModal);
+
+            setTimeout(() => {
+                if (alertModal.parentNode) {
+                    alertModal.remove();
+                }
+            }, 3000);
+        }
+
+        // Touch event optimization
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('button');
+            buttons.forEach(button => {
+                button.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.95)';
+                });
+                button.addEventListener('touchend', function() {
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 100);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
