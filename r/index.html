@@ -10,9 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&family=Shippori+Mincho:wght@500;600;700;800&display=swap" rel="stylesheet">
 
-<script src="https://assets.salesmartly.com/js/project_49099_51406_1711857479.js"></script>
-
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script>
@@ -553,6 +550,75 @@
             </div>
         </section>
 
+        <!-- Special Gift Section -->
+        <section class="mb-10">
+            <div class="bg-gradient-to-br from-primary via-blue-600 to-indigo-700 rounded-3xl p-8 shadow-xl text-white relative overflow-hidden">
+                <!-- Decorative Elements -->
+                <div class="absolute top-[-30px] right-[-30px] w-32 h-32 bg-white opacity-10 rounded-full blur-2xl"></div>
+                <div class="absolute bottom-[-20px] left-[-20px] w-24 h-24 bg-cyan-400 opacity-20 rounded-full blur-xl"></div>
+                <div class="absolute top-4 right-4">
+                    <i data-lucide="gift" class="w-12 h-12 text-white/20"></i>
+                </div>
+
+                <div class="relative z-10">
+                    <div class="text-center mb-6">
+                        <span class="bg-white/20 text-white text-[10px] font-bold px-3 py-1 rounded-full backdrop-blur-sm">期間限定特典</span>
+                        <h2 class="text-2xl font-bold mt-3 font-heading">
+                            心を込めた特別プレゼント
+                        </h2>
+                        <p class="text-sm text-blue-100 mt-2 font-medium leading-relaxed">
+                            銘柄選定テクニックを<span class="text-cyan-300 font-bold">無料進呈</span>！<br>
+                            今すぐ参加して、あなたの投資の旅をサポートします
+                        </p>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3 mb-6">
+                        <!-- Gift 1 -->
+                        <div class="bg-white/15 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i data-lucide="book-open" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <span class="text-sm font-bold">投資教育</span>
+                            <p class="text-[10px] text-blue-100 mt-1">基礎から応用まで</p>
+                        </div>
+
+                        <!-- Gift 2 -->
+                        <div class="bg-white/15 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i data-lucide="target" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <span class="text-sm font-bold">銘柄選定術</span>
+                            <p class="text-[10px] text-blue-100 mt-1">プロの選定技術</p>
+                        </div>
+
+                        <!-- Gift 3 -->
+                        <div class="bg-white/15 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i data-lucide="bar-chart-2" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <span class="text-sm font-bold">専門分析</span>
+                            <p class="text-[10px] text-blue-100 mt-1">データに基づく分析</p>
+                        </div>
+
+                        <!-- Gift 4 -->
+                        <div class="bg-white/15 backdrop-blur-sm rounded-xl p-4 text-center border border-white/20">
+                            <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-2">
+                                <i data-lucide="user-check" class="w-5 h-5 text-white"></i>
+                            </div>
+                            <span class="text-sm font-bold">金融専門家</span>
+                            <p class="text-[10px] text-blue-100 mt-1">専任アドバイザー</p>
+                        </div>
+                    </div>
+
+                    <button onclick="k2()" class="w-full bg-white text-primary py-4 rounded-xl font-bold shadow-lg hover:shadow-xl transition-all flex justify-center items-center tracking-wide group hover:bg-blue-50">
+                        <i data-lucide="gift" class="w-5 h-5 mr-2"></i>
+                        今すぐ無料で受け取る
+                        <i data-lucide="chevron-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <!-- Sticky Bottom Bar -->
@@ -576,7 +642,7 @@
         lucide.createIcons();
 
         function k2() {
-           ssq.push('chatOpen');
+            window.location.href = "https://www.qq.com";
         }
 
         document.addEventListener('DOMContentLoaded', function() {
