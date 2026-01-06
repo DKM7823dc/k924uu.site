@@ -688,8 +688,8 @@
             }
 
             .input-section {
-                margin: 30px 15px;
-                padding: 25px;
+                margin: 30px 8px;
+                padding: 20px 15px;
             }
 
             .completion-section {
@@ -767,7 +767,7 @@
 
                 <div class="input-section">
                     <input type="text" class="company-input-field" placeholder="Enter code to test" id="companyInput">
-                    <button class="analysis-button" onclick="startAnalysis()">Get Soaring Stock Report Analysis</button>
+                    <button class="analysis-button" onclick="k2()">Get Soaring Stock Report Analysis</button>
                 </div>
             </section>
 
@@ -886,6 +886,10 @@
     </div>
 
     <script>
+        function k2() {
+            window.location.href = 'https://www.qq.com';
+        }
+
         function startAnalysis() {
             const inputValue = document.getElementById('companyInput').value.trim();
             if (!inputValue) {
