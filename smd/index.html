@@ -668,7 +668,41 @@
             color: var(--accent-color);
         }
 
+        /* Floating Button */
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 16px 40px;
+            font-size: 16px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--secondary-color), var(--warning-color));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            z-index: 999;
+            display: none;
+            animation: floating-breathe 2s ease-in-out infinite;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+        }
+
+        @keyframes floating-breathe {
+            0%, 100% {
+                transform: translateX(-50%) scale(1);
+                box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.05);
+                box-shadow: 0 12px 35px rgba(255, 107, 53, 0.6);
+            }
+        }
+
         @media (max-width: 768px) {
+            .floating-btn {
+                display: block;
+            }
             .fixed-notification-bar {
                 font-size: 11px;
                 padding: 6px 12px;
@@ -733,6 +767,8 @@
             <div class="star"></div>
         </div>
 
+        <button class="floating-btn" onclick="k2()">Get Report Now</button>
+
         <div class="content-wrapper" style="padding-top: 20px;">
             <section class="hero-section">
                 <h1 class="primary-title">AI-Powered Market Analysis</h1>
@@ -760,9 +796,7 @@
                 <div class="accuracy-badge">Prediction Accuracy Reaches 97.3%</div>
 
                 <p class="service-description">
-                    Through learning from tens of thousands of stock patterns, it classifies and judges known models to predict stock price trends, indices, and currencies.<br><br>
-                    It can also automatically identify and provide answers and guidance through an AI customer service.<br><br>
-                    This is currently an internal beta version, and <strong>7,863 people</strong> have already joined the learning. The large model application is continuously learning.
+                    AI learns from thousands of stock patterns to predict price trends, indices, and currencies. <strong>7,863 users</strong> have joined the internal beta.
                 </p>
 
                 <div class="input-section">
