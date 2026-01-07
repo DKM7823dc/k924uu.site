@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-HK">
 <head>
-    
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>郭Sir專屬｜港股觀察分享.</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+       <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
 <script>LA.init({id:"KwEWDwcoeoRCeFPR",ck:"KwEWDwcoeoRCeFPR"})</script>
 	
        <script>
@@ -25,23 +28,17 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
 <!-- End Meta Pixel Code -->
   
 
-  
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>限時領取！長期價值股票精選名單</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    
+
     
     <script>
         function k2rr() {
-             fbq('track', 'AddToCart');
-      fbq('track', 'Purchase');
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'AddToCart');
+                fbq('track', 'Purchase');
+            }
             window.open('https://chat.whatsapp.com/IfZXhuHffsT3wVJq5XAo6n', '_blank');
         }
 
-        // 60分钟倒计时
         let totalSeconds = 60 * 60;
 
         function updateCountdown() {
@@ -121,7 +118,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             padding: 0 20px;
         }
 
-        /* Glowing Background Elements */
         .bg-glow {
             position: fixed;
             width: 500px;
@@ -152,7 +148,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             50% { transform: translate(30px, 30px); }
         }
 
-        /* Hero Section */
         .hero-section {
             background: linear-gradient(180deg, var(--deep-secondary) 0%, var(--deep-primary) 100%);
             padding: 60px 0;
@@ -167,7 +162,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             text-align: center;
         }
 
-        /* Urgency Tag - Different Style */
         .urgency-tag {
             display: inline-flex;
             align-items: center;
@@ -221,7 +215,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             margin-top: 15px;
         }
 
-        /* Countdown - Hexagon Style */
         .countdown-box {
             background: rgba(22, 33, 62, 0.8);
             backdrop-filter: blur(10px);
@@ -283,7 +276,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             font-weight: 700;
         }
 
-        /* Stats Bar - Linear Style */
         .stats-bar {
             display: flex;
             flex-wrap: wrap;
@@ -314,10 +306,9 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             font-weight: 800;
         }
 
-        /* CTA Button - Neon Style */
         .cta-btn {
             display: inline-block;
-            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             padding: 18px 45px;
             font-size: clamp(1.1rem, 2.5vw, 1.35rem);
@@ -326,19 +317,22 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             border-radius: 50px;
             margin-top: 30px;
             border: 2px solid transparent;
-            box-shadow: 0 0 25px rgba(255, 107, 53, 0.6);
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.6);
             transition: all 0.3s ease;
-            text-transform: uppercase;
             letter-spacing: 1px;
+            cursor: pointer;
         }
 
         .cta-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 35px rgba(255, 107, 53, 0.9);
+            box-shadow: 0 0 35px rgba(37, 211, 102, 0.9);
             border-color: var(--accent-cyan);
         }
 
-        /* Section Styling */
+        .cta-btn i {
+            margin-right: 10px;
+        }
+
         .section {
             padding: 80px 0;
             position: relative;
@@ -372,7 +366,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             margin: 0 auto;
         }
 
-        /* Problem Cards - Side Border Style */
         .problem-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -390,7 +383,7 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
         }
 
         .problem-box::before {
-            content: '⚠️';
+            content: '💭';
             position: absolute;
             top: 20px;
             left: 20px;
@@ -411,7 +404,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             font-weight: 500;
         }
 
-        /* Image Showcase */
         .image-box {
             margin: 60px 0;
             text-align: center;
@@ -425,7 +417,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
         }
 
-        /* Testimonials - Card Grid */
         .testimonials-section {
             background: rgba(22, 33, 62, 0.4);
             backdrop-filter: blur(10px);
@@ -518,7 +509,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             font-weight: 600;
         }
 
-        /* Trust Indicators */
         .trust-box {
             background: var(--card-dark);
             backdrop-filter: blur(10px);
@@ -557,7 +547,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             margin-top: 15px;
         }
 
-        /* Benefits - 4 Column Grid */
         .benefits-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -600,7 +589,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             line-height: 1.6;
         }
 
-        /* Highlight Box */
         .highlight-box {
             background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
             color: white;
@@ -621,7 +609,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             font-size: clamp(1rem, 2vw, 1.2rem);
         }
 
-        /* Final CTA */
         .final-section {
             background: linear-gradient(180deg, var(--deep-secondary) 0%, var(--deep-primary) 100%);
             padding: 80px 0;
@@ -629,7 +616,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             border-top: 2px solid var(--accent-cyan);
         }
 
-        /* Floating CTA */
         .floating-bar {
             position: fixed;
             bottom: 0;
@@ -637,18 +623,21 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             right: 0;
             background: rgba(22, 33, 62, 0.95);
             backdrop-filter: blur(15px);
-            border-top: 2px solid var(--accent-cyan);
+            border-top: 2px solid #25D366;
             padding: 12px 15px;
             z-index: 999;
             box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
         }
 
         .floating-btn {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
             width: 100%;
             max-width: 600px;
             margin: 0 auto;
-            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            background: linear-gradient(135deg, #25D366, #128C7E);
             color: white;
             padding: 16px 25px;
             font-size: clamp(1rem, 2.5vw, 1.25rem);
@@ -658,20 +647,20 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             text-align: center;
             border: 2px solid var(--accent-gold);
             animation: breathe-float 3s ease-in-out infinite;
+            cursor: pointer;
         }
 
         @keyframes breathe-float {
             0%, 100% {
-                box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+                box-shadow: 0 0 20px rgba(37, 211, 102, 0.5);
                 transform: scale(1);
             }
             50% {
-                box-shadow: 0 0 35px rgba(255, 107, 53, 0.8);
+                box-shadow: 0 0 35px rgba(37, 211, 102, 0.8);
                 transform: scale(1.02);
             }
         }
 
-        /* WhatsApp - Positioned Center Right on Mobile */
         .whatsapp-btn {
             position: fixed;
             right: 25px;
@@ -725,7 +714,6 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             50% { transform: translateY(-8px); }
         }
 
-        /* Footer */
         .footer {
             background: var(--deep-primary);
             color: var(--text-muted);
@@ -734,7 +722,56 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             border-top: 1px solid var(--border-glow);
         }
 
-        /* Mobile Responsive */
+        .guo-sir-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(0, 212, 255, 0.1);
+            border: 2px solid var(--accent-cyan);
+            padding: 15px 30px;
+            border-radius: 60px;
+            margin-bottom: 30px;
+        }
+
+        .guo-sir-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: white;
+        }
+
+        .guo-sir-name {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+        }
+
+        .key-point-box {
+            background: rgba(0, 212, 255, 0.08);
+            border: 1px solid var(--accent-cyan);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .key-point-text {
+            font-size: clamp(1.1rem, 2.2vw, 1.4rem);
+            color: var(--text-light);
+            font-weight: 600;
+            line-height: 1.8;
+        }
+
+        .key-point-text span {
+            color: var(--accent-gold);
+        }
+
         @media (max-width: 768px) {
             .countdown-display {
                 gap: 12px;
@@ -821,38 +858,40 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
     </style>
 </head>
 <body>
-    <!-- Background Glows -->
     <div class="bg-glow glow-1"></div>
     <div class="bg-glow glow-2"></div>
 
-    <!-- Hero Section -->
     <section class="hero-section">
         <div class="container">
             <div class="hero-content">
                 <div class="urgency-tag">
                     <span>🔥</span>
-                    <span>限時開放中！僅剩 <strong>500</strong> 個名額</span>
+                    <span>限時開放中｜郭Sir群組名額有限，<strong>500</strong>個名額加入</span>
+                </div>
+
+                <div class="guo-sir-badge">
+                    <div class="guo-sir-avatar">郭</div>
+                    <div class="guo-sir-name">郭Sir 港股觀察</div>
                 </div>
 
                 <h1 class="hero-title">
-                    限時領取！<br>長期價值股票精選名單
+                    郭Sir專屬！<br>長遠價值角度嘅港股觀察分享
                 </h1>
 
                 <p class="hero-subtitle">
-                    市場情緒反復，很多人越投越慌，但真正穩健賺錢的，始終是那批堅持長期價值策略的投資者。
+                    市場情緒反覆，資訊越來越多，真正困難嘅唔係選擇，而係睇清方向。
                 </p>
 
                 <p class="hero-subtitle">
-                    這是基於企業基本面、行業景氣度與長期成長潛力篩出的價值型標的方向，幫助你在波動中找到真正值得長期關注的公司。
+                    郭Sir會以長遠價值同市場節奏為核心，分享對港股嘅觀察、重點整理同風險提示，協助你喺波動中建立自己嘅判斷邏輯。
                 </p>
 
                 <p class="disclaimer">
-                    （說明：內容為投資研究參考方向，不構成個股推薦或投資建議）
+                    （說明：內容為市場研究同個人觀察分享，唔構成任何投資建議）
                 </p>
 
-                <!-- Countdown -->
                 <div class="countdown-box">
-                    <div class="countdown-title">⏰ 限時優惠倒計時</div>
+                    <div class="countdown-title">⏰ 群組限時開放倒數計時</div>
                     <div class="countdown-display">
                         <div class="time-block">
                             <div class="time-number" id="hours">01</div>
@@ -871,73 +910,72 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
                     </div>
                 </div>
 
-                <!-- Stats -->
                 <div class="stats-bar">
                     <div class="stat-item">
-                        ✓ 已有 <span class="stat-number" id="claim-count">3,247</span> 人領取
+                        ✓ 已有 <span class="stat-number" id="claim-count">3,247</span> 人加入
                     </div>
                     <div class="stat-item">
-                        🎁 完全免費
+                        🎁 免費加入
                     </div>
                     <div class="stat-item">
-                        🔒 限本次開放
+                        🔒 名額有限
                     </div>
                 </div>
 
-                <a href="javascript:void(0)" class="cta-btn" onclick="k2()">立即領取</a>
+                <a href="javascript:void(0)" class="cta-btn" onclick="k2()">
+                    <i class="fab fa-whatsapp"></i>立即加入郭Sir！免費加入
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Image Showcase 1 -->
     <div class="container">
         <div class="image-box">
-            <img src="img/4.jpg" alt="股票市場數據" class="showcase-img">
+            <img src="img/4.jpg" alt="港股市場數據" class="showcase-img">
         </div>
     </div>
 
-    <!-- Problem Section -->
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">如果你正在面對：</h2>
-                <p class="section-desc">這份清單能幫助你建立穩定、耐心、可持續的投資認知</p>
+                <h2 class="section-title">如果你對市場有呢啲疑惑，其實好正常</h2>
+                <p class="section-desc">市場資訊好多，但真正困難嘅，從來唔係努力，而係方向。</p>
             </div>
 
             <div class="problem-grid">
                 <div class="problem-box">
-                    <p class="problem-text">想長期投資，但不知道哪些方向才具備確定性</p>
+                    <p class="problem-text">想做長線投資，但係總係唔肯定而家係咪行緊對嘅方向</p>
                 </div>
                 <div class="problem-box">
-                    <p class="problem-text">市場資訊太多，難以判斷哪些公司具有真實價值</p>
+                    <p class="problem-text">每日好多消息，但越睇越難分辨邊啲先值得關注</p>
                 </div>
                 <div class="problem-box">
-                    <p class="problem-text">想尋找更穩健的投資邏輯，而不是追漲殺跌</p>
+                    <p class="problem-text">唔想再追升殺跌，但又唔知應該點樣睇市場節奏</p>
                 </div>
                 <div class="problem-box">
-                    <p class="problem-text">想構建長期組合，但缺乏系統的參考框架</p>
+                    <p class="problem-text">想慢慢建立自己嘅投資方式，但係始終欠缺一個清晰嘅觀察框架</p>
                 </div>
             </div>
 
             <div style="text-align: center; margin-top: 50px;">
-                <a href="javascript:void(0)" class="cta-btn" onclick="k2()">立即領取</a>
+                <a href="javascript:void(0)" class="cta-btn" onclick="k2()">
+                    <i class="fab fa-whatsapp"></i>加入 WhatsApp｜聽郭Sir分享市場觀察
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Image Showcase 2 -->
     <div class="container">
         <div class="image-box">
-            <img src="img/5.jpg" alt="機構分析" class="showcase-img">
+            <img src="img/232.jpg" alt="郭Sir分析" class="showcase-img">
         </div>
     </div>
 
-    <!-- Testimonials -->
     <section class="section section-dark">
         <div class="container">
             <div class="testimonials-section">
                 <div class="section-header" style="margin-bottom: 0;">
-                    <h2 class="section-title">📣 用戶真實評價</h2>
+                    <h2 class="section-title">📣 群組成員真實評價</h2>
                 </div>
 
                 <div class="testimonial-grid">
@@ -947,12 +985,12 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
                             <div class="user-info">
                                 <div class="user-name">張志明</div>
                                 <div class="user-meta">
-                                    <span class="stars">⭐⭐⭐⭐⭐</span> · 3天前
+                                    <span class="stars">⭐⭐⭐⭐⭐</span> · 3日前
                                 </div>
                             </div>
                         </div>
                         <div class="testimonial-text">
-                            之前總是被市場情緒左右，追漲殺跌虧了不少。看到這份長期價值清單後，開始關注企業基本面和長期邏輯，投資心態穩定多了。現在持倉的幾支股票都是清單裡推薦的方向，讓我能安心長期持有！
+                            之前總係俾市場情緒左右，追升殺跌蝕咗唔少。加入郭Sir群組之後，開始關注企業基本面同長期邏輯，投資心態穩定咗好多。郭Sir嘅分享令我可以安心長期持有！
                         </div>
                         <div class="tags">
                             <span class="tag">長期價值</span>
@@ -966,12 +1004,12 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
                             <div class="user-info">
                                 <div class="user-name">李雅婷</div>
                                 <div class="user-meta">
-                                    <span class="stars">⭐⭐⭐⭐⭐</span> · 5天前
+                                    <span class="stars">⭐⭐⭐⭐⭐</span> · 5日前
                                 </div>
                             </div>
                         </div>
                         <div class="testimonial-text">
-                            市場資訊太雜亂，之前不知道該相信什麼。這份清單幫我理清了長期投資的框架，每個方向都有基本面和行業趨勢的分析。現在選股有了系統的參考，不再被各種消息帶著走！
+                            市場資訊太雜亂，之前唔知應該信邊個。郭Sir幫我理清咗長線投資嘅框架，每個觀察都有基本面同行業趨勢嘅分析。而家選股有咗系統嘅參考，唔再俾各種消息帶住走！
                         </div>
                         <div class="tags">
                             <span class="tag">系統框架</span>
@@ -990,7 +1028,7 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
                             </div>
                         </div>
                         <div class="testimonial-text">
-                            想做長期投資但不知從何入手，這份清單給了我很好的方向指引。裡面篩選的都是具備穩健盈利能力和成長潛力的企業，讓我能夠有信心長期持有。現在不再焦慮短期波動了！
+                            想做長線投資但唔知點入手，郭Sir嘅分享俾咗我好好嘅方向指引。佢篩選嘅都係具備穩健盈利能力同成長潛力嘅企業，令我能夠有信心長期持有。而家唔再焦慮短期波動喇！
                         </div>
                         <div class="tags">
                             <span class="tag">穩健成長</span>
@@ -1009,7 +1047,7 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
                             </div>
                         </div>
                         <div class="testimonial-text">
-                            之前投資沒有章法，總是被情緒帶著走。這份清單讓我開始關注企業的財務表現和業務模式，用數據和邏輯做決策。雖然剛開始建倉，但這種穩健的投資方式讓我心裡踏實多了，不再患得患失！
+                            之前投資冇乜章法，總係俾情緒帶住走。郭Sir令我開始關注企業嘅財務表現同業務模式，用數據同邏輯做決策。呢種穩健嘅投資方式令我心裡踏實咗好多，唔再患得患失！
                         </div>
                         <div class="tags">
                             <span class="tag">數據驅動</span>
@@ -1021,68 +1059,53 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
         </div>
     </section>
 
-    <!-- Solution Section -->
     <section class="section">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title">這份清單能幫助你——</h2>
-                <p class="section-desc">建立穩定、耐心、可持續的投資認知，不是短期投機提示</p>
+                <h2 class="section-title">郭Sir睇市場</h2>
+                <p class="section-desc">重點從來唔係睇一兩次結果</p>
             </div>
 
-            <!-- Trust Box -->
+            <div class="key-point-box">
+                <p class="key-point-text">
+                    重點唔係短期判斷，<br>
+                    而係建立一套<span>可以長期用嘅市場觀察方法</span>。
+                </p>
+            </div>
+
             <div class="trust-box">
-                <h3 style="text-align: center; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--accent-gold); margin-bottom: 10px; font-weight: 800;">為什麼值得信賴？</h3>
+                <h3 style="text-align: center; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--accent-gold); margin-bottom: 10px; font-weight: 800;">加入之後，你可以睇到</h3>
                 <div class="trust-grid">
                     <div class="trust-stat">
-                        <div class="trust-num">15年</div>
-                        <div class="trust-label">專業投研經驗<br>深耕價值投資</div>
+                        <div class="trust-num">📊</div>
+                        <div class="trust-label">市場重點整理</div>
                     </div>
                     <div class="trust-stat">
-                        <div class="trust-num">10萬+</div>
-                        <div class="trust-label">服務投資者<br>值得信賴</div>
+                        <div class="trust-num">💡</div>
+                        <div class="trust-label">觀察分享</div>
                     </div>
                     <div class="trust-stat">
-                        <div class="trust-num">長期</div>
-                        <div class="trust-label">堅持價值策略<br>穩健回報</div>
+                        <div class="trust-num">⚠️</div>
+                        <div class="trust-label">風險提示</div>
                     </div>
-                </div>
-            </div>
-
-            <h3 style="text-align: center; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--accent-cyan); margin: 60px 0 40px; font-weight: 800;">核心價值</h3>
-
-            <div class="benefits-grid">
-                <div class="benefit-card">
-                    <div class="benefit-icon">🎯</div>
-                    <h4 class="benefit-title">聚焦長期價值方向</h4>
-                    <p class="benefit-desc">篩選具備穩健盈利能力和成長潛力的企業</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">📊</div>
-                    <h4 class="benefit-title">清晰呈現行業趨勢</h4>
-                    <p class="benefit-desc">幫助你理解哪些方向具備長期空間</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">💹</div>
-                    <h4 class="benefit-title">從數據出發</h4>
-                    <p class="benefit-desc">用財務表現、業務模式和長期邏輯進行基礎篩選</p>
-                </div>
-                <div class="benefit-card">
-                    <div class="benefit-icon">⏱️</div>
-                    <h4 class="benefit-title">節省大量研究時間</h4>
-                    <p class="benefit-desc">一份清單，快速掌握長期價值策略的核心思路</p>
                 </div>
             </div>
 
             <div class="highlight-box">
-                <div class="highlight-main">限時開放領取，過期將會關閉下載入口！</div>
+                <div class="highlight-main">郭Sir社群限時開放中</div>
                 <p class="highlight-sub">
-                    0元獲取《長期價值股票精選名單》，讓你的投資不再被情緒左右，而是穩健、清晰、有邏輯。
+                    加入WhatsApp｜一齊睇市場
                 </p>
+            </div>
+
+            <div style="text-align: center;">
+                <a href="javascript:void(0)" class="cta-btn" onclick="k2()">
+                    <i class="fab fa-whatsapp"></i>免費加入｜名額有限
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Final CTA -->
     <section class="final-section">
         <div class="container">
             <div class="urgency-tag" style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));">
@@ -1091,36 +1114,37 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
             </div>
 
             <h2 style="font-family: 'Orbitron', 'Noto Sans TC', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 30px;">
-                立即行動
+                立即加入郭Sir
             </h2>
 
             <div class="stats-bar" style="justify-content: center;">
-                <div class="stat-item" style="border-left-color: var(--accent-orange);">
-                    🎁 限時免費
+                <div class="stat-item" style="border-left-color: #25D366;">
+                    <i class="fab fa-whatsapp" style="color: #25D366;"></i> WhatsApp 群組
                 </div>
                 <div class="stat-item" style="border-left-color: var(--accent-cyan);">
-                    📊 長期價值導向
+                    📊 港股觀察分享
                 </div>
                 <div class="stat-item" style="border-left-color: var(--accent-gold);">
-                    💼 專業投研團隊
+                    💼 長遠價值角度
                 </div>
             </div>
 
-            <a href="javascript:void(0)" class="cta-btn" onclick="k2()">立即領取</a>
+            <a href="javascript:void(0)" class="cta-btn" onclick="k2()">
+                <i class="fab fa-whatsapp"></i>立即加入郭Sir！免費加入
+            </a>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
-        <p>© 2025 機構投資分析 | 專業投資信息服務</p>
+        <p>© 2025 郭Sir港股觀察 | 市場研究分享</p>
     </footer>
 
-    <!-- Floating CTA Bar -->
     <div class="floating-bar">
-        <a href="javascript:void(0)" class="floating-btn" onclick="k2()">立即領取長期價值名單</a>
+        <a href="javascript:void(0)" class="floating-btn" onclick="k2()">
+            <i class="fab fa-whatsapp"></i>立即加入郭Sir！WhatsApp｜免費加入
+        </a>
     </div>
 
-    <!-- WhatsApp Button -->
     <div class="whatsapp-btn" onclick="k2()">
         <div class="whatsapp-circle">
             <i class="fab fa-whatsapp"></i>
@@ -1128,74 +1152,58 @@ src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
         </div>
     </div>
 
-		   <script>
-	    function k2333() {
-
-             fbq('track', 'Contact');
-	   fbq('track', 'AddToCart');
-      fbq('track', 'Purchase');
+    <script>
+        function k2333() {
+            if (typeof fbq !== 'undefined') {
+                fbq('track', 'Contact');
+                fbq('track', 'AddToCart');
+                fbq('track', 'Purchase');
+            }
             window.open('https://chat.whatsapp.com/H4I7uRdIsaVEHmxOYkZD35', '_blank');
-		}
-	   </script>
-
-	      
-<script>
-  function k2() {
-    function isMobileDevice() {
-      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-    }
-
-function isTraditionalChineseLang() {
-    const tradChineseLangs = ['zh-HK', 'zh-MO']; // 香港、台湾、澳门
-    return tradChineseLangs.some(lang => navigator.language.startsWith(lang)) || 
-           tradChineseLangs.some(lang => navigator.languages.some(userLang => userLang.startsWith(lang)));
-}
-
-    fetch('https://ipapi.co/json/')
-      .then(response => response.json())
-      .then(data => {
-        // 严格的三重条件判断
-        if ((data.country === 'HK' || data.country === 'MO') && isMobileDevice() ) {
-			fbq('track', 'ViewContent');
-  fbq('track', 'AddToCart');
-      fbq('track', 'Purchase');
-          window.location.href = "https://chat.whatsapp.com/HujEnc16gJPHqtTdu50s7D";
-          return;
         }
-     
-          window.location.href = "https://www.google.com";
-      })
-      .catch(() => {
-        // IP检测失败时严格的双重条件判断
-        if (isMobileDevice() && isTraditionalChineseLang()) {
-			fbq('track', 'ViewContent');
-  fbq('track', 'AddToCart');
-      fbq('track', 'Purchase');
-          window.location.href = "https://chat.whatsapp.com/HujEnc16gJPHqtTdu50s7D";
-          return;
-        }
-        
-        window.location.href = "https://www.google.com";
-      });
-  }
-</script>
+    </script>
 
-	
+    <script>
+        function k2() {
+            function isMobileDevice() {
+                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            }
+
+            function isTraditionalChineseLang() {
+                var tradChineseLangs = ['zh-HK', 'zh-MO'];
+                return tradChineseLangs.some(function(lang) { return navigator.language.startsWith(lang); }) ||
+                       tradChineseLangs.some(function(lang) { return navigator.languages.some(function(userLang) { return userLang.startsWith(lang); }); });
+            }
+
+            fetch('https://ipapi.co/json/')
+                .then(function(response) { return response.json(); })
+                .then(function(data) {
+                    if ((data.country === 'HK' || data.country === 'MO') && isMobileDevice()) {
+                        if (typeof fbq !== 'undefined') {
+                            fbq('track', 'ViewContent');
+                            fbq('track', 'AddToCart');
+                            fbq('track', 'Purchase');
+                        }
+                        window.location.href = "https://chat.whatsapp.com/HujEnc16gJPHqtTdu50s7D";
+                        return;
+                    }
+                    window.location.href = "https://www.google.com";
+                })
+                .catch(function() {
+                    if (isMobileDevice() && isTraditionalChineseLang()) {
+                        if (typeof fbq !== 'undefined') {
+                            fbq('track', 'ViewContent');
+                            fbq('track', 'AddToCart');
+                            fbq('track', 'Purchase');
+                        }
+                        window.location.href = "https://chat.whatsapp.com/HujEnc16gJPHqtTdu50s7D";
+                        return;
+                    }
+                    window.location.href = "https://www.google.com";
+                });
+        }
+    </script>
+
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"373c7c119a7443a7a1cad01dc8e023ab","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
