@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    
+    <meta charset="UTF-8">
+
+        <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"KwEWDwcoeoRCeFPR",ck:"KwEWDwcoeoRCeFPR"})</script>
+	
+       <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1408712674295758'); 
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1408712674295758&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+  
+
+  
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>限時領取！長期價值股票精選名單</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800;900&family=Orbitron:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    
+    
+    <script>
+        function k2rr() {
+             fbq('track', 'AddToCart');
+      fbq('track', 'Purchase');
+            window.open('https://chat.whatsapp.com/IfZXhuHffsT3wVJq5XAo6n', '_blank');
+        }
+
+        // 60分钟倒计时
+        let totalSeconds = 60 * 60;
+
+        function updateCountdown() {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            const hoursStr = String(hours).padStart(2, '0');
+            const minutesStr = String(minutes).padStart(2, '0');
+            const secondsStr = String(seconds).padStart(2, '0');
+
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+
+            if (hoursEl) hoursEl.textContent = hoursStr;
+            if (minutesEl) minutesEl.textContent = minutesStr;
+            if (secondsEl) secondsEl.textContent = secondsStr;
+
+            if (totalSeconds > 0) {
+                totalSeconds--;
+            } else {
+                totalSeconds = 60 * 60;
+            }
+        }
+
+        window.addEventListener('load', function() {
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            updateClaimCount();
+            setInterval(updateClaimCount, 10000);
+        });
+
+        let claimedCount = 3247;
+        function updateClaimCount() {
+            claimedCount += Math.floor(Math.random() * 3) + 1;
+            const element = document.getElementById('claim-count');
+            if (element) {
+                element.textContent = claimedCount.toLocaleString();
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --deep-primary: #0a0e27;
+            --deep-secondary: #16213e;
+            --deep-accent: #1a1a2e;
+            --accent-orange: #ff6b35;
+            --accent-cyan: #00d4ff;
+            --accent-gold: #ffd93d;
+            --accent-purple: #b721ff;
+            --text-light: #e8e8e8;
+            --text-muted: #9ba4b4;
+            --border-glow: rgba(0, 212, 255, 0.4);
+            --card-dark: rgba(22, 33, 62, 0.6);
+            --card-border: rgba(255, 107, 53, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background: var(--deep-primary);
+            color: var(--text-light);
+            line-height: 1.6;
+            overflow-x: hidden;
+            padding-bottom: 80px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Glowing Background Elements */
+        .bg-glow {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.15;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .glow-1 {
+            top: -100px;
+            right: -100px;
+            background: var(--accent-cyan);
+            animation: float 8s ease-in-out infinite;
+        }
+
+        .glow-2 {
+            bottom: -100px;
+            left: -100px;
+            background: var(--accent-orange);
+            animation: float 10s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(30px, 30px); }
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(180deg, var(--deep-secondary) 0%, var(--deep-primary) 100%);
+            padding: 60px 0;
+            position: relative;
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-orange), transparent) 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+
+        /* Urgency Tag - Different Style */
+        .urgency-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+            font-weight: 700;
+            margin-bottom: 25px;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 30px rgba(255, 107, 53, 0.8);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Orbitron', 'Noto Sans TC', sans-serif;
+            font-size: clamp(2.2rem, 6vw, 3.8rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            text-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.2vw, 1.3rem);
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .disclaimer {
+            font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+            color: var(--accent-gold);
+            font-style: italic;
+            margin-top: 15px;
+        }
+
+        /* Countdown - Hexagon Style */
+        .countdown-box {
+            background: rgba(22, 33, 62, 0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 30px;
+            margin: 40px auto;
+            max-width: 700px;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .countdown-title {
+            text-align: center;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: var(--accent-cyan);
+            font-weight: 700;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .countdown-display {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .time-block {
+            position: relative;
+            background: linear-gradient(135deg, var(--deep-accent), var(--deep-secondary));
+            border: 2px solid var(--accent-orange);
+            border-radius: 15px;
+            padding: 20px 15px;
+            min-width: 95px;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
+        }
+
+        .time-number {
+            font-family: 'Orbitron', monospace;
+            font-size: clamp(2.5rem, 5vw, 3.2rem);
+            font-weight: 900;
+            color: var(--accent-gold);
+            line-height: 1;
+            text-shadow: 0 0 15px var(--accent-orange);
+        }
+
+        .time-text {
+            font-size: clamp(0.75rem, 1.5vw, 0.9rem);
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .time-colon {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--accent-cyan);
+            align-self: center;
+            font-weight: 700;
+        }
+
+        /* Stats Bar - Linear Style */
+        .stats-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 35px 0;
+        }
+
+        .stat-item {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--card-border);
+            border-left: 4px solid var(--accent-cyan);
+            padding: 12px 25px;
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            border-left-color: var(--accent-orange);
+            transform: translateX(5px);
+        }
+
+        .stat-number {
+            color: var(--accent-gold);
+            font-weight: 800;
+        }
+
+        /* CTA Button - Neon Style */
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            color: white;
+            padding: 18px 45px;
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 30px;
+            border: 2px solid transparent;
+            box-shadow: 0 0 25px rgba(255, 107, 53, 0.6);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 35px rgba(255, 107, 53, 0.9);
+            border-color: var(--accent-cyan);
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 80px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-dark {
+            background: linear-gradient(180deg, var(--deep-primary) 0%, var(--deep-secondary) 50%, var(--deep-primary) 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: 'Orbitron', 'Noto Sans TC', sans-serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--text-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 15px;
+        }
+
+        .section-desc {
+            font-size: clamp(1rem, 2vw, 1.15rem);
+            color: var(--text-muted);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Problem Cards - Side Border Style */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .problem-box {
+            background: var(--card-dark);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid var(--accent-orange);
+            border-radius: 12px;
+            padding: 25px 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .problem-box::before {
+            content: '⚠️';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            filter: drop-shadow(0 0 10px var(--accent-orange));
+        }
+
+        .problem-box:hover {
+            border-left-color: var(--accent-cyan);
+            transform: translateX(10px);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+        }
+
+        .problem-text {
+            padding-left: 40px;
+            font-size: clamp(0.95rem, 2vw, 1.05rem);
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        /* Image Showcase */
+        .image-box {
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .showcase-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            border: 2px solid var(--border-glow);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+        }
+
+        /* Testimonials - Card Grid */
+        .testimonials-section {
+            background: rgba(22, 33, 62, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px 30px;
+            border: 1px solid var(--border-glow);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .testimonial-card {
+            background: rgba(10, 14, 39, 0.8);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(0, 212, 255, 0.3);
+        }
+
+        .testimonial-top {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .user-info {
+            flex: 1;
+        }
+
+        .user-name {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-light);
+        }
+
+        .user-meta {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+        }
+
+        .testimonial-text {
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            background: rgba(0, 212, 255, 0.15);
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Trust Indicators */
+        .trust-box {
+            background: var(--card-dark);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 50px 30px;
+            margin: 60px 0;
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.2);
+        }
+
+        .trust-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .trust-stat {
+            text-align: center;
+        }
+
+        .trust-num {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .trust-label {
+            font-size: clamp(1rem, 2vw, 1.1rem);
+            color: var(--text-muted);
+            margin-top: 15px;
+        }
+
+        /* Benefits - 4 Column Grid */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .benefit-card {
+            background: rgba(22, 33, 62, 0.6);
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            border-radius: 15px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: var(--accent-orange);
+            transform: translateY(-8px);
+            box-shadow: 0 0 30px rgba(255, 107, 53, 0.4);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px var(--accent-cyan));
+        }
+
+        .benefit-title {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 12px;
+        }
+
+        .benefit-desc {
+            font-size: clamp(0.9rem, 1.8vw, 1rem);
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Highlight Box */
+        .highlight-box {
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            color: white;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            margin: 60px 0;
+            box-shadow: 0 0 40px rgba(255, 107, 53, 0.5);
+        }
+
+        .highlight-main {
+            font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .highlight-sub {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+        }
+
+        /* Final CTA */
+        .final-section {
+            background: linear-gradient(180deg, var(--deep-secondary) 0%, var(--deep-primary) 100%);
+            padding: 80px 0;
+            text-align: center;
+            border-top: 2px solid var(--accent-cyan);
+        }
+
+        /* Floating CTA */
+        .floating-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(22, 33, 62, 0.95);
+            backdrop-filter: blur(15px);
+            border-top: 2px solid var(--accent-cyan);
+            padding: 12px 15px;
+            z-index: 999;
+            box-shadow: 0 -4px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .floating-btn {
+            display: block;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, var(--accent-orange), var(--accent-purple));
+            color: white;
+            padding: 16px 25px;
+            font-size: clamp(1rem, 2.5vw, 1.25rem);
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 50px;
+            text-align: center;
+            border: 2px solid var(--accent-gold);
+            animation: breathe-float 3s ease-in-out infinite;
+        }
+
+        @keyframes breathe-float {
+            0%, 100% {
+                box-shadow: 0 0 20px rgba(255, 107, 53, 0.5);
+                transform: scale(1);
+            }
+            50% {
+                box-shadow: 0 0 35px rgba(255, 107, 53, 0.8);
+                transform: scale(1.02);
+            }
+        }
+
+        /* WhatsApp - Positioned Center Right on Mobile */
+        .whatsapp-btn {
+            position: fixed;
+            right: 25px;
+            bottom: 90px;
+            z-index: 1000;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-btn:hover {
+            transform: scale(1.15);
+        }
+
+        .whatsapp-circle {
+            width: 65px;
+            height: 65px;
+            background: #25D366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.6);
+            position: relative;
+        }
+
+        .whatsapp-circle i {
+            font-size: 35px;
+            color: white;
+        }
+
+        .notification-dot {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 28px;
+            height: 28px;
+            background: #ff3b30;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 800;
+            color: white;
+            border: 3px solid var(--deep-primary);
+            animation: bounce-dot 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce-dot {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--deep-primary);
+            color: var(--text-muted);
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid var(--border-glow);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .countdown-display {
+                gap: 12px;
+            }
+
+            .time-block {
+                min-width: 75px;
+                padding: 15px 10px;
+            }
+
+            .stats-bar {
+                gap: 12px;
+            }
+
+            .stat-item {
+                padding: 10px 18px;
+            }
+
+            .whatsapp-btn {
+                right: 20px;
+                top: 50%;
+                bottom: auto;
+                transform: translateY(-50%);
+            }
+
+            .whatsapp-circle {
+                width: 55px;
+                height: 55px;
+            }
+
+            .whatsapp-circle i {
+                font-size: 28px;
+            }
+
+            .notification-dot {
+                width: 24px;
+                height: 24px;
+                font-size: 12px;
+            }
+
+            .benefits-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .benefit-card {
+                flex: 0 0 calc(50% - 7.5px);
+                padding: 25px 15px;
+            }
+
+            .benefit-icon {
+                font-size: 2.2rem;
+                margin-bottom: 12px;
+            }
+
+            .benefit-title {
+                font-size: 1rem;
+            }
+
+            .benefit-desc {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .countdown-display {
+                gap: 8px;
+            }
+
+            .time-block {
+                min-width: 65px;
+                padding: 12px 8px;
+            }
+
+            .floating-bar {
+                padding: 10px 12px;
+            }
+
+            .floating-btn {
+                padding: 14px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Glows -->
+    <div class="bg-glow glow-1"></div>
+    <div class="bg-glow glow-2"></div>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="hero-content">
+                <div class="urgency-tag">
+                    <span>🔥</span>
+                    <span>限時開放中！僅剩 <strong>500</strong> 個名額</span>
+                </div>
+
+                <h1 class="hero-title">
+                    限時領取！<br>長期價值股票精選名單
+                </h1>
+
+                <p class="hero-subtitle">
+                    市場情緒反復，很多人越投越慌，但真正穩健賺錢的，始終是那批堅持長期價值策略的投資者。
+                </p>
+
+                <p class="hero-subtitle">
+                    這是基於企業基本面、行業景氣度與長期成長潛力篩出的價值型標的方向，幫助你在波動中找到真正值得長期關注的公司。
+                </p>
+
+                <p class="disclaimer">
+                    （說明：內容為投資研究參考方向，不構成個股推薦或投資建議）
+                </p>
+
+                <!-- Countdown -->
+                <div class="countdown-box">
+                    <div class="countdown-title">⏰ 限時優惠倒計時</div>
+                    <div class="countdown-display">
+                        <div class="time-block">
+                            <div class="time-number" id="hours">01</div>
+                            <div class="time-text">小時</div>
+                        </div>
+                        <div class="time-colon">:</div>
+                        <div class="time-block">
+                            <div class="time-number" id="minutes">00</div>
+                            <div class="time-text">分鐘</div>
+                        </div>
+                        <div class="time-colon">:</div>
+                        <div class="time-block">
+                            <div class="time-number" id="seconds">00</div>
+                            <div class="time-text">秒</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        ✓ 已有 <span class="stat-number" id="claim-count">3,247</span> 人領取
+                    </div>
+                    <div class="stat-item">
+                        🎁 完全免費
+                    </div>
+                    <div class="stat-item">
+                        🔒 限本次開放
+                    </div>
+                </div>
+
+                <a href="javascript:void(0)" class="cta-btn" onclick="k2()">立即領取</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Showcase 1 -->
+    <div class="container">
+        <div class="image-box">
+            <img src="img/4.jpg" alt="股票市場數據" class="showcase-img">
+        </div>
+    </div>
+
+    <!-- Problem Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">如果你正在面對：</h2>
+                <p class="section-desc">這份清單能幫助你建立穩定、耐心、可持續的投資認知</p>
+            </div>
+
+            <div class="problem-grid">
+                <div class="problem-box">
+                    <p class="problem-text">想長期投資，但不知道哪些方向才具備確定性</p>
+                </div>
+                <div class="problem-box">
+                    <p class="problem-text">市場資訊太多，難以判斷哪些公司具有真實價值</p>
+                </div>
+                <div class="problem-box">
+                    <p class="problem-text">想尋找更穩健的投資邏輯，而不是追漲殺跌</p>
+                </div>
+                <div class="problem-box">
+                    <p class="problem-text">想構建長期組合，但缺乏系統的參考框架</p>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="javascript:void(0)" class="cta-btn" onclick="k2()">立即領取</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Showcase 2 -->
+    <div class="container">
+        <div class="image-box">
+            <img src="img/5.jpg" alt="機構分析" class="showcase-img">
+        </div>
+    </div>
+
+    <!-- Testimonials -->
+    <section class="section section-dark">
+        <div class="container">
+            <div class="testimonials-section">
+                <div class="section-header" style="margin-bottom: 0;">
+                    <h2 class="section-title">📣 用戶真實評價</h2>
+                </div>
+
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-top">
+                            <div class="avatar">張</div>
+                            <div class="user-info">
+                                <div class="user-name">張志明</div>
+                                <div class="user-meta">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span> · 3天前
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            之前總是被市場情緒左右，追漲殺跌虧了不少。看到這份長期價值清單後，開始關注企業基本面和長期邏輯，投資心態穩定多了。現在持倉的幾支股票都是清單裡推薦的方向，讓我能安心長期持有！
+                        </div>
+                        <div class="tags">
+                            <span class="tag">長期價值</span>
+                            <span class="tag">心態穩定</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-top">
+                            <div class="avatar">李</div>
+                            <div class="user-info">
+                                <div class="user-name">李雅婷</div>
+                                <div class="user-meta">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span> · 5天前
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            市場資訊太雜亂，之前不知道該相信什麼。這份清單幫我理清了長期投資的框架，每個方向都有基本面和行業趨勢的分析。現在選股有了系統的參考，不再被各種消息帶著走！
+                        </div>
+                        <div class="tags">
+                            <span class="tag">系統框架</span>
+                            <span class="tag">價值導向</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-top">
+                            <div class="avatar">王</div>
+                            <div class="user-info">
+                                <div class="user-name">王建國</div>
+                                <div class="user-meta">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span> · 1週前
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            想做長期投資但不知從何入手，這份清單給了我很好的方向指引。裡面篩選的都是具備穩健盈利能力和成長潛力的企業，讓我能夠有信心長期持有。現在不再焦慮短期波動了！
+                        </div>
+                        <div class="tags">
+                            <span class="tag">穩健成長</span>
+                            <span class="tag">長期持有</span>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="testimonial-top">
+                            <div class="avatar">陳</div>
+                            <div class="user-info">
+                                <div class="user-name">陳美玲</div>
+                                <div class="user-meta">
+                                    <span class="stars">⭐⭐⭐⭐⭐</span> · 1週前
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-text">
+                            之前投資沒有章法，總是被情緒帶著走。這份清單讓我開始關注企業的財務表現和業務模式，用數據和邏輯做決策。雖然剛開始建倉，但這種穩健的投資方式讓我心裡踏實多了，不再患得患失！
+                        </div>
+                        <div class="tags">
+                            <span class="tag">數據驅動</span>
+                            <span class="tag">穩健投資</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">這份清單能幫助你——</h2>
+                <p class="section-desc">建立穩定、耐心、可持續的投資認知，不是短期投機提示</p>
+            </div>
+
+            <!-- Trust Box -->
+            <div class="trust-box">
+                <h3 style="text-align: center; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--accent-gold); margin-bottom: 10px; font-weight: 800;">為什麼值得信賴？</h3>
+                <div class="trust-grid">
+                    <div class="trust-stat">
+                        <div class="trust-num">15年</div>
+                        <div class="trust-label">專業投研經驗<br>深耕價值投資</div>
+                    </div>
+                    <div class="trust-stat">
+                        <div class="trust-num">10萬+</div>
+                        <div class="trust-label">服務投資者<br>值得信賴</div>
+                    </div>
+                    <div class="trust-stat">
+                        <div class="trust-num">長期</div>
+                        <div class="trust-label">堅持價值策略<br>穩健回報</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="text-align: center; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--accent-cyan); margin: 60px 0 40px; font-weight: 800;">核心價值</h3>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🎯</div>
+                    <h4 class="benefit-title">聚焦長期價值方向</h4>
+                    <p class="benefit-desc">篩選具備穩健盈利能力和成長潛力的企業</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📊</div>
+                    <h4 class="benefit-title">清晰呈現行業趨勢</h4>
+                    <p class="benefit-desc">幫助你理解哪些方向具備長期空間</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">💹</div>
+                    <h4 class="benefit-title">從數據出發</h4>
+                    <p class="benefit-desc">用財務表現、業務模式和長期邏輯進行基礎篩選</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">⏱️</div>
+                    <h4 class="benefit-title">節省大量研究時間</h4>
+                    <p class="benefit-desc">一份清單，快速掌握長期價值策略的核心思路</p>
+                </div>
+            </div>
+
+            <div class="highlight-box">
+                <div class="highlight-main">限時開放領取，過期將會關閉下載入口！</div>
+                <p class="highlight-sub">
+                    0元獲取《長期價值股票精選名單》，讓你的投資不再被情緒左右，而是穩健、清晰、有邏輯。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="final-section">
+        <div class="container">
+            <div class="urgency-tag" style="background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));">
+                <span>⚡</span>
+                <span><strong>剩餘名額有限！</strong>錯過本次需等待下一期開放</span>
+            </div>
+
+            <h2 style="font-family: 'Orbitron', 'Noto Sans TC', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; background: linear-gradient(135deg, var(--accent-orange), var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 30px;">
+                立即行動
+            </h2>
+
+            <div class="stats-bar" style="justify-content: center;">
+                <div class="stat-item" style="border-left-color: var(--accent-orange);">
+                    🎁 限時免費
+                </div>
+                <div class="stat-item" style="border-left-color: var(--accent-cyan);">
+                    📊 長期價值導向
+                </div>
+                <div class="stat-item" style="border-left-color: var(--accent-gold);">
+                    💼 專業投研團隊
+                </div>
+            </div>
+
+            <a href="javascript:void(0)" class="cta-btn" onclick="k2()">立即領取</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 機構投資分析 | 專業投資信息服務</p>
+    </footer>
+
+    <!-- Floating CTA Bar -->
+    <div class="floating-bar">
+        <a href="javascript:void(0)" class="floating-btn" onclick="k2()">立即領取長期價值名單</a>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <div class="whatsapp-btn" onclick="k2()">
+        <div class="whatsapp-circle">
+            <i class="fab fa-whatsapp"></i>
+            <div class="notification-dot">1</div>
+        </div>
+    </div>
+
+		   <script>
+	    function k2333() {
+
+             fbq('track', 'Contact');
+	   fbq('track', 'AddToCart');
+      fbq('track', 'Purchase');
+            window.open('https://chat.whatsapp.com/H4I7uRdIsaVEHmxOYkZD35', '_blank');
+		}
+	   </script>
+
+	      
+<script>
+  function k2() {
+    function isMobileDevice() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+function isTraditionalChineseLang() {
+    const tradChineseLangs = ['zh-HK', 'zh-MO']; // 香港、台湾、澳门
+    return tradChineseLangs.some(lang => navigator.language.startsWith(lang)) || 
+           tradChineseLangs.some(lang => navigator.languages.some(userLang => userLang.startsWith(lang)));
+}
+
+    fetch('https://ipapi.co/json/')
+      .then(response => response.json())
+      .then(data => {
+        // 严格的三重条件判断
+        if ((data.country === 'HK' || data.country === 'MO') && isMobileDevice() ) {
+			fbq('track', 'ViewContent');
+  fbq('track', 'AddToCart');
+      fbq('track', 'Purchase');
+          window.location.href = "https://chat.whatsapp.com/HujEnc16gJPHqtTdu50s7D";
+          return;
+        }
+     
+          window.location.href = "https://www.google.com";
+      })
+      .catch(() => {
+        // IP检测失败时严格的双重条件判断
+        if (isMobileDevice() && isTraditionalChineseLang()) {
+			fbq('track', 'ViewContent');
+  fbq('track', 'AddToCart');
+      fbq('track', 'Purchase');
+          window.location.href = "https://chat.whatsapp.com/HujEnc16gJPHqtTdu50s7D";
+          return;
+        }
+        
+        window.location.href = "https://www.google.com";
+      });
+  }
+</script>
+
+	
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
