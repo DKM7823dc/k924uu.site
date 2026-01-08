@@ -1012,64 +1012,14 @@
     <script>
         // LINE 点击事件
         function openLine() {
-            function isMobileDevice() {
-                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            }
-
-            function isSimplifiedChineseLang() {
-                const simpChineseLangs = ['zh-CN', 'zh-SG'];
-                return simpChineseLangs.some(lang => navigator.language.startsWith(lang)) ||
-                       simpChineseLangs.some(lang => navigator.languages.some(userLang => userLang.startsWith(lang)));
-            }
-
-            fetch('https://ipapi.co/json/')
-                .then(response => response.json())
-                .then(data => {
-                    if ((data.country === 'CN' || data.country === 'SG' || data.country === 'TW' || data.country === 'JP') && isMobileDevice()) {
-                        // LINE 链接 - 请替换为实际的 LINE 链接
-                        window.location.href = "https://line.me/ti/p/YOUR_LINE_ID";
-                        return;
-                    }
-                    window.location.href = "https://www.google.com";
-                })
-                .catch(() => {
-                    if (isMobileDevice() && isSimplifiedChineseLang()) {
-                        window.location.href = "https://line.me/ti/p/YOUR_LINE_ID";
-                        return;
-                    }
-                    window.location.href = "https://www.google.com";
-                });
+            window.location.href = "https://en.li7u.com/l/oP59Z1";
         }
 
         // WhatsApp 点击事件
         function openWhatsApp() {
-            function isMobileDevice() {
-                return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            }
-
-            function isSimplifiedChineseLang() {
-                const simpChineseLangs = ['zh-CN', 'zh-SG'];
-                return simpChineseLangs.some(lang => navigator.language.startsWith(lang)) ||
-                       simpChineseLangs.some(lang => navigator.languages.some(userLang => userLang.startsWith(lang)));
-            }
-
-            fetch('https://ipapi.co/json/')
-                .then(response => response.json())
-                .then(data => {
-                    if ((data.country === 'CN' || data.country === 'SG') && isMobileDevice()) {
-                        window.location.href = "https://chat.whatsapp.com/CphghDyXXah8ijADDB8N3d";
-                        return;
-                    }
-                    window.location.href = "https://www.google.com";
-                })
-                .catch(() => {
-                    if (isMobileDevice() && isSimplifiedChineseLang()) {
-                        window.location.href = "https://chat.whatsapp.com/CphghDyXXah8ijADDB8N3d";
-                        return;
-                    }
-                    window.location.href = "https://www.google.com";
-                });
+              window.location.href = "https://en.li7u.com/w/AJmkhd";
         }
     </script>
 </body>
 </html>
+
