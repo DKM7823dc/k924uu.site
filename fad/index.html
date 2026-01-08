@@ -9,8 +9,9 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
+        .font-display { font-family: 'Space Grotesk', sans-serif; }
         .gradient-text {
             background: linear-gradient(to right, #2563eb, #4f46e5);
             -webkit-background-clip: text;
@@ -35,6 +36,26 @@
 
         .btn-breathing {
             animation: breathe 2s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(37, 99, 235, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(37, 99, 235, 0.6); }
+        }
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        .launch-badge {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
         }
     </style>
 </head>
@@ -67,27 +88,92 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="pt-32 pb-16 lg:pt-40 lg:pb-24 overflow-hidden">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
-                Investissez et Gagnez : <br class="hidden md:block" />
-                <span class="gradient-text">Faites Fructifier Votre Richesse !</span>
+    <section class="pt-28 pb-16 lg:pt-36 lg:pb-24 overflow-hidden relative">
+        <!-- Background decoration -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-blue-200/30 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-10 right-10 w-96 h-96 bg-indigo-200/30 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <!-- Launch Badge -->
+            <div class="inline-flex items-center gap-2 launch-badge text-white px-4 py-2 rounded-full text-sm font-semibold mb-6 float-animation">
+                <i data-lucide="rocket" class="w-4 h-4"></i>
+                <span>Launching January 10, 2026</span>
+            </div>
+
+            <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 font-display">
+                Invest Smart, <br class="hidden md:block" >
+                <span class="gradient-text">Grow Your Wealth!</span>
             </h1>
+
             <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-600">
-                Verizon vous offre un canal d'investissement intelligent et efficace. 
-                Vos gains sont déposés automatiquement toutes les <span class="font-bold text-blue-600">24 heures</span>.
+                Verizon offers you an intelligent and efficient investment channel.
+                Your earnings are deposited automatically every <span class="font-bold text-blue-600">24 hours</span>.
             </p>
+
+            <!-- Bonus Banner -->
+            <div class="mt-8 inline-flex items-center gap-3 bg-gradient-to-r from-amber-50 to-yellow-50 border-2 border-amber-200 rounded-2xl px-6 py-4 pulse-glow">
+                <div class="bg-amber-400 text-amber-900 p-2 rounded-xl">
+                    <i data-lucide="gift" class="w-6 h-6"></i>
+                </div>
+                <div class="text-left">
+                    <p class="text-amber-800 font-bold text-lg">Register Now & Get <span class="text-amber-600">500 FCFA</span> Bonus!</p>
+                    <p class="text-amber-600 text-sm">Limited time welcome reward for new members</p>
+                </div>
+            </div>
+
             <div class="mt-10 flex justify-center gap-4">
                 <!-- Hero Button (Calls k2) -->
                 <button onclick="k2()" class="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold text-lg shadow-xl shadow-blue-600/20 hover:bg-blue-700 transition-transform hover:-translate-y-1">
-                    Commencer Maintenant
+                    Get Started Now
                 </button>
             </div>
         </div>
     </section>
 
+    <!-- Trust & Regulation Section -->
+    <section class="py-12 bg-white border-y border-slate-100">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-br from-slate-50 to-blue-50 rounded-3xl p-8 md:p-10 border border-slate-200">
+                <div class="flex flex-col md:flex-row items-start gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center">
+                            <i data-lucide="shield-check" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-xl md:text-2xl font-bold text-slate-900 mb-4">
+                            SEC-Regulated Commodity Exchange Platform
+                        </h3>
+                        <p class="text-slate-600 leading-relaxed text-base md:text-lg">
+                            This platform is a commodity exchange strictly regulated by the U.S. Securities and Exchange Commission (SEC), primarily facilitating the sale of internally marketed electronic products. Our core functions focus on <span class="font-semibold text-blue-600">price discovery</span> and <span class="font-semibold text-blue-600">risk hedging</span>—putting your idle funds to work.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed text-base md:text-lg mt-4">
+                            With a small investment, you can achieve long-term returns. No more worrying about inflation or investment setbacks. <span class="font-semibold text-slate-800">Our goal is not overnight riches</span>, but through long-term professional asset allocation, we help your wealth grow steadily and sustainably over time.
+                        </p>
+                        <div class="mt-6 flex flex-wrap gap-3">
+                            <span class="inline-flex items-center gap-1.5 bg-green-50 text-green-700 px-3 py-1.5 rounded-full text-sm font-medium border border-green-200">
+                                <i data-lucide="check-circle" class="w-4 h-4"></i>
+                                SEC Regulated
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 px-3 py-1.5 rounded-full text-sm font-medium border border-blue-200">
+                                <i data-lucide="trending-up" class="w-4 h-4"></i>
+                                Stable Long-term Growth
+                            </span>
+                            <span class="inline-flex items-center gap-1.5 bg-purple-50 text-purple-700 px-3 py-1.5 rounded-full text-sm font-medium border border-purple-200">
+                                <i data-lucide="lock" class="w-4 h-4"></i>
+                                Risk Hedging
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Image Section -->
-    <section class="pb-20">
+    <section class="py-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
                 <img src="img/1.jpg" alt="Verizon Investment Team" class="w-full h-auto object-cover">
@@ -228,5 +314,4 @@
         lucide.createIcons();
     </script>
 </body>
-
 </html>
