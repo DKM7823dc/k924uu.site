@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Pre-Owned Luxury - Authentic Designer Goods</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- TikTok Pixel Code Start -->
+    <script>
+    !function (w, d, t) {
+      w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+    var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+    ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+      ttq.load('D4U46IJC77UFCDG9M6D0');
+      ttq.page();
+    }(window, document, 'ttq');
+    </script>
+    <!-- TikTok Pixel Code End -->
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            gold: '#D4AF37',
+                            light: '#F8F9FA',
+                            cream: '#FFF8F0'
+                        }
+                    },
+                    fontFamily: {
+                        elegant: ['Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @keyframes breathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        @keyframes fadeSlide {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .breathe {
+            animation: breathe 2s ease-in-out infinite;
+        }
+
+        .fade-slide {
+            animation: fadeSlide 0.8s ease-out;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #B8860B, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .elegant-shadow {
+            box-shadow: 0 15px 35px rgba(212, 175, 55, 0.15);
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFFFFF 50%, #FFF8F0 100%);
+        }
+
+        .modal-content {
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+
+        .modal-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .modal-content::-webkit-scrollbar-track {
+            background: #F0F0F0;
+            border-radius: 4px;
+        }
+
+        .modal-content::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
+
+        .price-tag {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #9ca3af;
+        }
+
+        .discount-badge {
+            background: linear-gradient(135deg, #dc2626, #ef4444);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800 overflow-x-hidden">
+    <div class="hero-bg min-h-screen flex flex-col">
+        <!-- Header -->
+        <header class="container mx-auto px-4 py-4">
+            <div class="text-center">
+                <h1 class="text-2xl md:text-3xl font-elegant font-bold gradient-text mb-2">
+                   Premium Pre-Owned Luxury
+                </h1>
+                <p class="text-brand-gold text-base md:text-lg font-light">
+                    Authenticated Designer Goods | 100% Genuine | Best Prices
+                </p>
+                <div class="mt-2 text-sm text-gray-600">
+                    <p>Expert Authentication Team | Certificate Included with Every Item</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex-grow container mx-auto px-4 py-4">
+            <div class="grid md:grid-cols-2 gap-6 items-center max-w-4xl mx-auto">
+
+                <!-- Left Side - Hero Image -->
+                <div class="text-center order-2 md:order-1">
+                    <div class="relative inline-block">
+                        <img src="img/1.png?v=1122d"
+                             alt="Pre-Owned Luxury Collection"
+                             class="w-36 h-36 md:w-48 md:h-48 object-cover rounded-full elegant-shadow border-4 border-brand-gold/30 mx-auto"
+                             onerror="this.src='https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=400&h=400&fit=crop&q=80'">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-brand-gold/10 to-transparent"></div>
+                        <div class="absolute -top-2 -right-2 discount-badge text-white text-xs px-2 py-1 rounded-full font-bold">
+                            Up to 70% OFF
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side - Features -->
+                <div class="space-y-4 order-1 md:order-2 fade-slide">
+                    <div class="space-y-4">
+                        <div class="flex items-start space-x-3 p-3 rounded-lg bg-white shadow-md border border-gray-100">
+                            <div class="flex-shrink-0 w-10 h-10 bg-brand-gold/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-certificate text-brand-gold"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">100% Authentic Guarantee</h3>
+                                <p class="text-gray-600 text-sm">Expert authentication on every item, money-back guarantee</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 p-3 rounded-lg bg-white shadow-md border border-gray-100">
+                            <div class="flex-shrink-0 w-10 h-10 bg-brand-gold/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-tags text-brand-gold"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">Save 60-70% Off Retail</h3>
+                                <p class="text-gray-600 text-sm">Luxury brands at a fraction of the price, pristine condition</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 p-3 rounded-lg bg-white shadow-md border border-gray-100">
+                            <div class="flex-shrink-0 w-10 h-10 bg-brand-gold/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-shipping-fast text-brand-gold"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">Free Worldwide Shipping</h3>
+                                <p class="text-gray-600 text-sm">Insured express delivery with tracking</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-3 p-3 rounded-lg bg-white shadow-md border border-gray-100">
+                            <div class="flex-shrink-0 w-10 h-10 bg-brand-gold/10 rounded-full flex items-center justify-center">
+                                <i class="fas fa-undo text-brand-gold"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800 mb-1">7-Day Return Policy</h3>
+                                <p class="text-gray-600 text-sm">Full refund if not satisfied, risk-free shopping</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hot Products with Prices -->
+            <div class="mt-8">
+                <h2 class="text-xl md:text-2xl font-elegant font-bold text-center gradient-text mb-2">
+                   Best Sellers · Limited Time Offers
+                </h2>
+                <p class="text-center text-gray-500 text-sm mb-6">Save 60-70% Off Retail | Certificate of Authenticity Included</p>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 max-w-4xl mx-auto">
+                    <!-- Product 1 -->
+                    <div class="product-card bg-white rounded-lg overflow-hidden elegant-shadow border border-gray-100 transition-all duration-300">
+                        <div class="relative">
+                            <img src="img/p1.jpg" alt="LV Neverfull" class="w-full h-32 md:h-40 object-cover" onerror="this.src='https://images.unsplash.com/photo-1584917865442-de89df76afd3?w=400&h=300&fit=crop&q=80'">
+                            <div class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">65% OFF</div>
+                            <div class="absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded">Like New</div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="text-sm font-semibold text-gray-800 mb-1 truncate">LV Neverfull MM</h3>
+                            <p class="text-xs text-gray-500 mb-2">Classic Monogram Tote</p>
+                            <div class="flex items-baseline space-x-2">
+                                <span class="text-red-500 font-bold text-lg">$680</span>
+                                <span class="original-price text-xs">$1,960</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card bg-white rounded-lg overflow-hidden elegant-shadow border border-gray-100 transition-all duration-300">
+                        <div class="relative">
+                            <img src="img/p2.jpg" alt="Gucci Marmont" class="w-full h-32 md:h-40 object-cover" onerror="this.src='https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&h=300&fit=crop&q=80'">
+                            <div class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">68% OFF</div>
+                            <div class="absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded">Excellent</div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="text-sm font-semibold text-gray-800 mb-1 truncate">Gucci Marmont Chain Bag</h3>
+                            <p class="text-xs text-gray-500 mb-2">Double G Classic</p>
+                            <div class="flex items-baseline space-x-2">
+                                <span class="text-red-500 font-bold text-lg">$720</span>
+                                <span class="original-price text-xs">$2,250</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card bg-white rounded-lg overflow-hidden elegant-shadow border border-gray-100 transition-all duration-300">
+                        <div class="relative">
+                            <img src="img/p3.jpg" alt="Chanel CF" class="w-full h-32 md:h-40 object-cover" onerror="this.src='https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=300&fit=crop&q=80'">
+                            <div class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">62% OFF</div>
+                            <div class="absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded">Very Good</div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="text-sm font-semibold text-gray-800 mb-1 truncate">Chanel Classic Flap</h3>
+                            <p class="text-xs text-gray-500 mb-2">Lambskin Medium Black/Gold</p>
+                            <div class="flex items-baseline space-x-2">
+                                <span class="text-red-500 font-bold text-lg">$3,980</span>
+                                <span class="original-price text-xs">$10,500</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card bg-white rounded-lg overflow-hidden elegant-shadow border border-gray-100 transition-all duration-300">
+                        <div class="relative">
+                            <img src="img/p4.jpg" alt="Hermes Kelly" class="w-full h-32 md:h-40 object-cover" onerror="this.src='https://images.unsplash.com/photo-1594223274512-ad4803739b7c?w=400&h=300&fit=crop&q=80'">
+                            <div class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">60% OFF</div>
+                            <div class="absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded">Like New</div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="text-sm font-semibold text-gray-800 mb-1 truncate">Hermes Kelly 25</h3>
+                            <p class="text-xs text-gray-500 mb-2">Togo Leather Gold HW</p>
+                            <div class="flex items-baseline space-x-2">
+                                <span class="text-red-500 font-bold text-lg">$7,980</span>
+                                <span class="original-price text-xs">$19,950</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card bg-white rounded-lg overflow-hidden elegant-shadow border border-gray-100 transition-all duration-300">
+                        <div class="relative">
+                            <img src="img/p5.jpg" alt="Rolex Submariner" class="w-full h-32 md:h-40 object-cover" onerror="this.src='https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400&h=300&fit=crop&q=80'">
+                            <div class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">65% OFF</div>
+                            <div class="absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded">Mint</div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="text-sm font-semibold text-gray-800 mb-1 truncate">Rolex Submariner</h3>
+                            <p class="text-xs text-gray-500 mb-2">Black Dial 116610LN</p>
+                            <div class="flex items-baseline space-x-2">
+                                <span class="text-red-500 font-bold text-lg">$5,880</span>
+                                <span class="original-price text-xs">$16,800</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card bg-white rounded-lg overflow-hidden elegant-shadow border border-gray-100 transition-all duration-300">
+                        <div class="relative">
+                            <img src="img/p6.jpg" alt="Dior Lady" class="w-full h-32 md:h-40 object-cover" onerror="this.src='https://images.unsplash.com/photo-1600857062241-98e5dba7f214?w=400&h=300&fit=crop&q=80'">
+                            <div class="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded font-bold">67% OFF</div>
+                            <div class="absolute top-2 right-2 bg-green-500 text-white text-xs px-2 py-1 rounded">Excellent</div>
+                        </div>
+                        <div class="p-3">
+                            <h3 class="text-sm font-semibold text-gray-800 mb-1 truncate">Dior Lady Dior</h3>
+                            <p class="text-xs text-gray-500 mb-2">Medium Cannage Black</p>
+                            <div class="flex items-baseline space-x-2">
+                                <span class="text-red-500 font-bold text-lg">$1,760</span>
+                                <span class="original-price text-xs">$5,350</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- More Products Button -->
+                <div class="text-center mt-6">
+                    <button onclick="contactUs()" class="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-full shadow-lg transition-all duration-300 inline-flex items-center space-x-2 text-base font-medium">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        <span>More Products - Contact WhatsApp</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product Categories -->
+            <div class="mt-8">
+                <h2 class="text-xl md:text-2xl font-elegant font-bold text-center gradient-text mb-6">
+                   Shop by Category
+                </h2>
+
+                <div class="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto">
+                    <div class="bg-white rounded-lg p-6 text-center elegant-shadow border border-gray-100 hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-shopping-bag text-brand-gold text-3xl mb-3"></i>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Designer Bags</h3>
+                        <p class="text-gray-600 text-sm">LV / Chanel / Hermès / Gucci</p>
+                        <p class="text-red-500 text-sm font-bold mt-2">Up to 70% OFF</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-6 text-center elegant-shadow border border-gray-100 hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-clock text-brand-gold text-3xl mb-3"></i>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Luxury Watches</h3>
+                        <p class="text-gray-600 text-sm">Rolex / Cartier / Omega / Patek</p>
+                        <p class="text-red-500 text-sm font-bold mt-2">Up to 65% OFF</p>
+                    </div>
+
+                    <div class="bg-white rounded-lg p-6 text-center elegant-shadow border border-gray-100 hover:shadow-xl transition-all duration-300">
+                        <i class="fas fa-gem text-brand-gold text-3xl mb-3"></i>
+                        <h3 class="text-lg font-semibold mb-2 text-gray-800">Fine Jewelry</h3>
+                        <p class="text-gray-600 text-sm">Cartier / Tiffany / VCA / Bulgari</p>
+                        <p class="text-red-500 text-sm font-bold mt-2">Up to 60% OFF</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-6 p-6 bg-brand-gold/10 rounded-lg max-w-2xl mx-auto border border-brand-gold/20">
+                <h3 class="text-xl font-elegant font-bold gradient-text mb-2">
+                    Contact Us · Get Exclusive Offers
+                </h3>
+                <p class="text-gray-700 mb-2">
+                    New Customer: $50 OFF First Order | VIP Member Discounts
+                </p>
+                <p class="text-sm text-gray-500">
+                    Authentication • Consignment • Trade-In • Buy & Sell
+                </p>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="container mx-auto px-4 py-4 border-t border-gray-200">
+            <div class="text-center text-sm text-gray-600">
+                <p>&copy; 2024 Premium Pre-Owned Luxury. All rights reserved.</p>
+                <p class="mt-1">Professional Pre-Owned Luxury Marketplace | 100% Authentic Guarantee</p>
+                <div class="mt-2 space-x-4">
+                    <button onclick="openPrivacyPolicy()" class="hover:text-brand-gold cursor-pointer transition-colors">Privacy Policy</button>
+                    <span>•</span>
+                    <span>Terms of Service</span>
+                    <span>•</span>
+                    <button onclick="openReturnPolicy()" class="hover:text-brand-gold cursor-pointer transition-colors">Return Policy</button>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Contact Button -->
+    <div class="fixed bottom-6 left-1/2 transform -translate-x-1/2 z-50">
+        <div class="relative">
+            <button
+               onclick="contactUs()"
+               class="breathe bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-full shadow-2xl transition-all duration-300 flex items-center space-x-3 text-base">
+                <i class="fas fa-comments text-lg"></i>
+                <span class="font-medium">Contact Us</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Custom Modal for Contact -->
+    <div id="contactModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full mx-4">
+            <h3 class="text-xl font-bold text-gray-800 mb-4">Contact Information</h3>
+            <div class="space-y-3 text-gray-600">
+                <p><i class="fas fa-envelope mr-2"></i> Email: support@luxuryresale.com</p>
+                <p><i class="fas fa-phone mr-2"></i> Phone: +1 (555) 123-4567</p>
+                <p><i class="fas fa-clock mr-2"></i> Hours: Mon-Sun 9AM-9PM EST</p>
+                <p><i class="fas fa-map-marker-alt mr-2"></i> Location: Luxury Authentication Center</p>
+            </div>
+            <div class="flex justify-end space-x-3 mt-6">
+                <button onclick="closeContactModal()" class="px-4 py-2 text-gray-600 hover:bg-gray-100 rounded">Close</button>
+                <button onclick="openWhatsApp()" class="px-4 py-2 bg-green-500 text-white hover:bg-green-600 rounded">
+                    <i class="fab fa-whatsapp mr-1"></i> WhatsApp
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Privacy Policy Modal -->
+    <div id="privacyModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-lg shadow-lg max-w-3xl w-full mx-4">
+            <div class="p-6 border-b border-gray-200">
+                <h3 class="text-2xl font-bold text-gray-800">Privacy Policy</h3>
+            </div>
+            <div class="p-6 modal-content text-gray-600">
+                <p class="mb-4"><strong>Last Updated:</strong> January 2024</p>
+
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">1. Information We Collect</h4>
+                <p class="mb-4">We collect information that you provide directly to us, including but not limited to:</p>
+                <ul class="list-disc list-inside mb-4 space-y-1">
+                    <li>Name, email address, phone number, and shipping address</li>
+                    <li>Payment information (processed securely through third-party payment processors)</li>
+                    <li>Order history and purchase preferences</li>
+                    <li>Communications with our customer service team</li>
+                </ul>
+
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">2. How We Use Your Information</h4>
+                <p class="mb-4">We use the information we collect to:</p>
+                <ul class="list-disc list-inside mb-4 space-y-1">
+                    <li>Process and fulfill your orders</li>
+                    <li>Communicate with you about your orders and our products</li>
+                    <li>Provide customer support and respond to your inquiries</li>
+                    <li>Send promotional communications (with your consent)</li>
+                    <li>Improve our products and services</li>
+                    <li>Detect and prevent fraud and abuse</li>
+                </ul>
+
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">3. Information Sharing</h4>
+                <p class="mb-4">We do not sell your personal information. We may share your information with:</p>
+                <ul class="list-disc list-inside mb-4 space-y-1">
+                    <li>Service providers who assist with order fulfillment, payment processing, and shipping</li>
+                    <li>Business partners with your explicit consent</li>
+                    <li>Law enforcement or regulatory authorities when required by law</li>
+                </ul>
+
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">4. Data Security</h4>
+                <p class="mb-4">We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. However, no method of transmission over the Internet is 100% secure.</p>
+
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">5. Your Rights</h4>
+                <p class="mb-4">You have the right to:</p>
+                <ul class="list-disc list-inside mb-4 space-y-1">
+                    <li>Access and receive a copy of your personal data</li>
+                    <li>Request correction of inaccurate data</li>
+                    <li>Request deletion of your data (subject to legal obligations)</li>
+                    <li>Opt-out of marketing communications</li>
+                    <li>Object to processing of your data</li>
+                </ul>
+
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">6. Contact Us</h4>
+                <p class="mb-4">If you have any questions about this Privacy Policy, please contact us:</p>
+                <p class="mb-2">Email: privacy@luxuryresale.com</p>
+                <p class="mb-2">Phone: +1 (555) 123-4567</p>
+            </div>
+            <div class="p-6 border-t border-gray-200 flex justify-end">
+                <button onclick="closePrivacyModal()" class="px-6 py-2 bg-brand-gold text-white hover:bg-brand-gold/80 rounded transition-colors">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Return Policy Modal -->
+    <div id="returnModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+        <div class="bg-white rounded-lg shadow-lg max-w-3xl w-full mx-4">
+            <div class="p-6 border-b border-gray-200">
+                <h3 class="text-2xl font-bold text-gray-800">Return & Refund Policy</h3>
+            </div>
+            <div class="p-6 modal-content text-gray-600">
+                <p class="mb-4"><strong>Last Updated:</strong> January 2024</p>
+
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">1. Return Window</h4>
+                <p class="mb-4">We offer a 7-day return policy from the date of delivery. Items must be returned within this timeframe to be eligible for a refund or exchange.</p>
+
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">2. Eligible Items</h4>
+                <p class="mb-4">To be eligible for a return, items must:</p>
+                <ul class="list-disc list-inside mb-4 space-y-1">
+                    <li>Be unused and in the same condition as received</li>
+                    <li>Include original tags and packaging</li>
+                    <li>Be accompanied by proof of purchase (receipt or order confirmation)</li>
+                    <li>Not be personalized or custom-made items</li>
+                </ul>
+
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">3. Non-Returnable Items</h4>
+                <p class="mb-4">The following items cannot be returned:</p>
+                <ul class="list-disc list-inside mb-4 space-y-1">
+                    <li>Items marked as "Final Sale" or "Non-Returnable"</li>
+                    <li>Personalized or customized items</li>
+                    <li>Items showing signs of wear or damage</li>
+                    <li>Items without original tags or packaging</li>
+                </ul>
+
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">4. Return Process</h4>
+                <p class="mb-4">To initiate a return:</p>
+                <ol class="list-decimal list-inside mb-4 space-y-1">
+                    <li>Contact our customer service team at support@luxuryresale.com</li>
+                    <li>Provide your order number and reason for return</li>
+                    <li>Receive a return authorization (RA) number and shipping instructions</li>
+                    <li>Pack the item securely with all original materials</li>
+                    <li>Ship the item to the address provided</li>
+                </ol>
+
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">5. Refund Processing</h4>
+                <p class="mb-4">Once we receive and inspect your return:</p>
+                <ul class="list-disc list-inside mb-4 space-y-1">
+                    <li>Approved refunds will be processed within 5-7 business days</li>
+                    <li>Refunds will be issued to the original payment method</li>
+                    <li>Please allow 5-10 business days for the refund to appear in your account</li>
+                    <li>Original shipping charges are non-refundable (unless the item is defective)</li>
+                </ul>
+
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">6. Authentication Disputes</h4>
+                <p class="mb-4">If you have concerns about authenticity:</p>
+                <ul class="list-disc list-inside mb-4 space-y-1">
+                    <li>You may have the item verified by any third-party authentication service</li>
+                    <li>If confirmed not authentic, we guarantee a full refund plus compensation</li>
+                    <li>We will cover all authentication fees</li>
+                </ul>
+
+                <h4 class="text-lg font-semibold text-gray-800 mb-2">7. Contact Information</h4>
+                <p class="mb-4">For questions about returns or refunds, please contact us:</p>
+                <p class="mb-2">Email: support@luxuryresale.com</p>
+                <p class="mb-2">Phone: +1 (555) 123-4567</p>
+                <p class="mb-2">Hours: Monday-Sunday, 9AM-9PM EST</p>
+            </div>
+            <div class="p-6 border-t border-gray-200 flex justify-end">
+                <button onclick="closeReturnModal()" class="px-6 py-2 bg-brand-gold text-white hover:bg-brand-gold/80 rounded transition-colors">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Contact functions - Direct WhatsApp redirect
+        function contactUs() {
+            // Track events
+            ttq.track('ClickButton');
+            ttq.track('Contact');
+            ttq.track('AddToCart');
+            ttq.track('CompleteRegistration');
+
+            // Directly open WhatsApp without showing modal
+            window.open('https://qq.com', '_blank');
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModal').classList.add('hidden');
+        }
+
+        
+
+        // Privacy Policy functions
+        function openPrivacyPolicy() {
+            document.getElementById('privacyModal').classList.remove('hidden');
+        }
+
+        function closePrivacyModal() {
+            document.getElementById('privacyModal').classList.add('hidden');
+        }
+
+        // Return Policy functions
+        function openReturnPolicy() {
+            document.getElementById('returnModal').classList.remove('hidden');
+        }
+
+        function closeReturnModal() {
+            document.getElementById('returnModal').classList.add('hidden');
+        }
+
+        // Close modals when clicking outside
+        window.addEventListener('click', function(event) {
+            const privacyModal = document.getElementById('privacyModal');
+            const returnModal = document.getElementById('returnModal');
+            const contactModal = document.getElementById('contactModal');
+
+            if (event.target === privacyModal) {
+                closePrivacyModal();
+            }
+            if (event.target === returnModal) {
+                closeReturnModal();
+            }
+            if (event.target === contactModal) {
+                closeContactModal();
+            }
+        });
+
+        // Prevent drag on images
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('dragstart', (e) => e.preventDefault());
+        });
+    </script>
+
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"48615963fdef450cbdc295358554f39e","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
