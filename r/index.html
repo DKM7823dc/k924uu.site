@@ -65,16 +65,6 @@
             text-rendering: optimizeLegibility;
         }
 
-        .carousel-slide {
-            display: none;
-            width: 100%;
-            height: auto;
-            border-radius: 12px;
-        }
-        .carousel-slide.active {
-            display: block;
-        }
-
         .profile-card {
             display: none;
             width: 100%;
@@ -121,20 +111,32 @@
               これは投資について学ぶための無料プラットフォームです。定期的に講師による無料講義を開催しており、どなたでも自由に意見交換できます。取引への参加を強制することはありません。
             </p>
 
-            <!-- Carousel -->
-            <div class="relative w-full rounded-2xl shadow-xl mb-8 overflow-hidden bg-white border border-slate-100">
-                <div id="carousel-container" class="w-full">
-                    <img src="img/1.png" alt="スライド 1" class="carousel-slide active">
-                    <img src="img/2.jpg" alt="スライド 2" class="carousel-slide">
-                    <img src="img/3.jpg" alt="スライド 3" class="carousel-slide">
-                </div>
-                <!-- Gradient Overlay for Text readability if needed -->
-                <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none"></div>
-
-                <div class="absolute bottom-3 left-0 right-0 flex justify-center space-x-2" id="carousel-indicators">
-                    <div class="h-1.5 w-6 bg-accent rounded-full transition-all"></div>
-                    <div class="h-1.5 w-1.5 bg-white/70 rounded-full transition-all"></div>
-                    <div class="h-1.5 w-1.5 bg-white/70 rounded-full transition-all"></div>
+            <!-- Static Hero Image with Overlay Text -->
+            <div class="relative w-full rounded-2xl shadow-xl mb-8 overflow-hidden bg-white border border-slate-100 group">
+                <!-- Single Image -->
+                <img src="img/1.png" alt="投資スクール" class="w-full h-auto object-cover transform transition-transform duration-700 group-hover:scale-105">
+                
+                <!-- Dark Gradient Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/95 via-slate-900/50 to-transparent flex flex-col justify-end p-5">
+                    <!-- Overlay Text Content -->
+                    <div class="grid grid-cols-2 gap-y-3 gap-x-2">
+                        <div class="flex items-center text-white/90">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-accent mr-1.5 flex-shrink-0"></i>
+                            <span class="text-xs font-bold">無料の学習資料</span>
+                        </div>
+                        <div class="flex items-center text-white/90">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-accent mr-1.5 flex-shrink-0"></i>
+                            <span class="text-xs font-bold">講師による無料講義</span>
+                        </div>
+                        <div class="flex items-center text-white/90">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-accent mr-1.5 flex-shrink-0"></i>
+                            <span class="text-xs font-bold">リアルタイム株式分析</span>
+                        </div>
+                        <div class="flex items-center text-white/90">
+                            <i data-lucide="check-circle-2" class="w-4 h-4 text-accent mr-1.5 flex-shrink-0"></i>
+                            <span class="text-xs font-bold">最新の経済ニュース</span>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -797,38 +799,6 @@
         function k2() {
             ssq.push('chatOpen');
         }
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const slides = document.querySelectorAll('.carousel-slide');
-            const indicators = document.querySelectorAll('#carousel-indicators div');
-            let currentIndex = 0;
-            const totalSlides = slides.length;
-
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    if (i === index) {
-                        slide.classList.add('active');
-                    } else {
-                        slide.classList.remove('active');
-                    }
-                });
-
-                indicators.forEach((dot, i) => {
-                    if (i === index) {
-                        dot.classList.remove('bg-white/70', 'w-1.5');
-                        dot.classList.add('bg-accent', 'w-6');
-                    } else {
-                        dot.classList.remove('bg-accent', 'w-6');
-                        dot.classList.add('bg-white/70', 'w-1.5');
-                    }
-                });
-            }
-
-            setInterval(() => {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                showSlide(currentIndex);
-            }, 3000);
-        });
 
         // Profile Card Carousel
         let profileIndex = 0;
