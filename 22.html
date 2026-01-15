@@ -1,1 +1,72 @@
-I love traveling, and my goal is to travel the world.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta 
+        name="viewport" 
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0"
+    >
+    <title>Copy Text</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            padding: 20px;
+        }
+        button {
+            font-size: 16px;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            background-color: #007aff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<p id="textToCopy">
+    I love traveling, and my goal is to travel the world.
+</p>
+
+<button onclick="copyText()">复制这句话</button>
+
+<script>
+function copyText() {
+    const text = document.getElementById("textToCopy").innerText;
+
+    // 优先使用现代 Clipboard API（iPhone Safari 支持）
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text)
+            .then(() => {
+                alert("已复制 ✅");
+            })
+            .catch(() => {
+                fallbackCopy(text);
+            });
+    } else {
+        fallbackCopy(text);
+    }
+}
+
+function fallbackCopy(text) {
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.style.position = "fixed"; // 防止页面滚动
+    textarea.style.opacity = "0";
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+
+    try {
+        document.execCommand("copy");
+        alert("已复制 ✅");
+    } catch (err) {
+        alert("复制失败 ❌");
+    }
+
+    document.body.removeChild(textarea);
+}
+</script>
+
+</body>
+</html>
