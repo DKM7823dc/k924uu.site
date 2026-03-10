@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Garden - Televisión en Vivo, Noticias, Deportes y Más</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #4db848;
+            --primary-dark: #3a9436;
+            --primary-light: #6dd467;
+            --bg-dark: #0a0e1a;
+            --bg-card: #111827;
+            --bg-card2: #1a2235;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --border: #1e2d45;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; background: var(--bg-dark); color: var(--text-primary); line-height: 1.6; }
+
+        /* NAV */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(10,14,26,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); z-index: 1000; padding: 0 2rem; }
+        .nav-inner { max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 70px; }
+        .nav-logo { font-size: 1.4rem; font-weight: 800; color: var(--primary); text-decoration: none; display: flex; align-items: center; gap: 8px; }
+        .nav-logo span { color: white; }
+        .nav-links { display: flex; list-style: none; gap: 1.4rem; align-items: center; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; font-size: 0.88rem; font-weight: 500; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+        .nav-cta { background: var(--primary) !important; color: white !important; padding: 8px 20px; border-radius: 50px; }
+        .nav-cta:hover { background: var(--primary-dark) !important; }
+
+        /* ===================== HERO (全宽居中，无图) ===================== */
+        #inicio {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0a0e1a 0%, #0c1c0c 50%, #0a0e1a 100%);
+            padding: 120px 2rem 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        #inicio::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(77,184,72,0.07) 0%, transparent 50%),
+                radial-gradient(circle at 80% 30%, rgba(77,184,72,0.06) 0%, transparent 50%),
+                radial-gradient(circle at 50% 80%, rgba(77,184,72,0.04) 0%, transparent 45%);
+        }
+        /* 装饰光晕圆 */
+        #inicio::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(77,184,72,0.05) 0%, transparent 65%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-content {
+            max-width: 820px;
+            position: relative;
+            z-index: 1;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(77,184,72,0.12);
+            border: 1px solid rgba(77,184,72,0.3);
+            padding: 7px 20px;
+            border-radius: 50px;
+            font-size: 0.83rem;
+            color: var(--primary-light);
+            margin-bottom: 1.8rem;
+            letter-spacing: 0.3px;
+        }
+        .hero-title {
+            font-size: 3.4rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+        .hero-title .highlight {
+            color: var(--primary);
+            display: block;
+            margin-top: 0.3rem;
+        }
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            line-height: 1.85;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Stats 横排 */
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-bottom: 2.8rem;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            max-width: 620px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .hero-stat {
+            flex: 1;
+            padding: 1.3rem 1rem;
+            border-right: 1px solid var(--border);
+            transition: background 0.3s;
+        }
+        .hero-stat:last-child { border-right: none; }
+        .hero-stat:hover { background: rgba(77,184,72,0.06); }
+        .hero-stat .num { font-size: 1.5rem; font-weight: 800; color: var(--primary); display: block; line-height: 1; margin-bottom: 4px; }
+        .hero-stat .label { font-size: 0.75rem; color: var(--text-secondary); letter-spacing: 0.3px; }
+        .stars { color: #ffd700; font-size: 0.9rem; }
+        /* Buttons */
+        .hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 16px 42px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 700;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 30px rgba(77,184,72,0.4);
+            text-decoration: none;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 45px rgba(77,184,72,0.55); }
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: transparent;
+            color: var(--primary-light);
+            padding: 16px 36px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: 1.5px solid rgba(77,184,72,0.4);
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        .btn-outline:hover { background: rgba(77,184,72,0.08); border-color: var(--primary); transform: translateY(-3px); }
+        /* 平台标签 */
+        .hero-platforms {
+            display: flex;
+            justify-content: center;
+            gap: 0.8rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .platform-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            font-size: 0.78rem;
+            color: var(--text-secondary);
+        }
+
+        /* COMMON */
+        section { padding: 80px 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 55px; }
+        .section-tag { display: inline-block; background: rgba(77,184,72,0.12); color: var(--primary); padding: 4px 14px; border-radius: 50px; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 1rem; }
+        .section-title { font-size: 2.4rem; font-weight: 800; margin-bottom: 1rem; }
+        .section-subtitle { font-size: 1.05rem; color: var(--text-secondary); max-width: 620px; margin: 0 auto; }
+        .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--primary), transparent); }
+
+        /* ===================== SOBRE (全宽，无图) ===================== */
+        #sobre { background: var(--bg-card); }
+
+        .about-text-full { max-width: 860px; margin: 0 auto; }
+        .about-text-full p {
+            color: var(--text-secondary);
+            margin-bottom: 1.3rem;
+            line-height: 1.9;
+            font-size: 1rem;
+        }
+
+        /* 四列 highlight 卡片 */
+        .about-highlights {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.3rem;
+            margin-top: 3rem;
+        }
+        .highlight-card {
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            padding: 1.8rem 1.4rem;
+            text-align: center;
+            transition: all 0.3s;
+        }
+        .highlight-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px rgba(77,184,72,0.15);
+        }
+        .highlight-card .hc-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+        .highlight-card .hc-num {
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--primary);
+            display: block;
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+        .highlight-card .hc-label {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+        /* 两列 feature 列表 */
+        .about-features-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            margin-top: 2.5rem;
+        }
+        .about-feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 1.2rem 1.4rem;
+            background: var(--bg-dark);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            transition: all 0.3s;
+        }
+        .about-feature-item:hover { border-color: var(--primary); background: rgba(77,184,72,0.04); }
+        .afi-icon {
+            width: 42px; height: 42px;
+            background: rgba(77,184,72,0.12);
+            border-radius: 12px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+        .afi-text strong { display: block; font-size: 0.95rem; margin-bottom: 3px; color: var(--text-primary); }
+        .afi-text span { font-size: 0.83rem; color: var(--text-secondary); line-height: 1.55; }
+
+        /* CAPTURAS */
+        #capturas { background: var(--bg-dark); }
+        .screenshots-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
+        .screenshot-card { border-radius: 16px; overflow: hidden; border: 1px solid var(--border); transition: all 0.3s; }
+        .screenshot-card:hover { transform: translateY(-6px); box-shadow: 0 12px 45px rgba(77,184,72,0.2); border-color: var(--primary); }
+        .screenshot-card img { width: 100%; display: block; }
+
+        /* COMO USAR */
+        #como-usar { background: var(--bg-card); }
+        .steps-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1.2rem; }
+        .step-card { background: var(--bg-dark); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; text-align: center; transition: all 0.3s; }
+        .step-card:hover { border-color: var(--primary); box-shadow: 0 5px 30px rgba(77,184,72,0.15); }
+        .step-num { width: 42px; height: 42px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; margin: 0 auto 1rem; }
+        .step-card p { font-size: 0.83rem; color: var(--text-secondary); line-height: 1.6; }
+
+        /* CANALES */
+        #canales { background: var(--bg-dark); }
+        .channels-table { width: 100%; border-collapse: collapse; border-radius: 16px; overflow: hidden; }
+        .channels-table th { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); color: white; padding: 16px 20px; text-align: left; font-weight: 600; font-size: 0.95rem; }
+        .channels-table td { padding: 13px 20px; border-bottom: 1px solid var(--border); color: var(--text-secondary); font-size: 0.92rem; }
+        .channels-table tr:nth-child(even) td { background: var(--bg-card); }
+        .channels-table tr:hover td { background: rgba(77,184,72,0.06); color: white; }
+
+        /* CARACTERISTICAS */
+        #caracteristicas { background: var(--bg-card); }
+        .features-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; }
+        .feature-card {
+            background: var(--bg-dark); border: 1px solid var(--border); border-radius: 18px;
+            padding: 1.2rem; display: flex; gap: 1.1rem; align-items: flex-start; transition: all 0.3s;
+        }
+        .feature-card:hover { transform: translateY(-4px); border-color: var(--primary); box-shadow: 0 10px 40px rgba(77,184,72,0.15); }
+        .feature-card .fc-thumb { width: 72px; height: 72px; border-radius: 14px; object-fit: cover; flex-shrink: 0; border: 1px solid var(--border); background: var(--bg-card2); }
+        .feature-card .fc-body { flex: 1; }
+        .feature-card .fc-body h3 { font-size: 0.97rem; font-weight: 700; margin-bottom: 0.45rem; color: var(--text-primary); line-height: 1.3; }
+        .feature-card .fc-body p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.65; }
+        .extra-features { display: grid; grid-template-columns: repeat(2,1fr); gap: 1.4rem; margin-top: 3rem; }
+        .extra-item { background: var(--bg-card2); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; display: flex; gap: 1rem; transition: all 0.3s; }
+        .extra-item:hover { border-color: var(--primary); }
+        .extra-icon { font-size: 1.5rem; width: 46px; height: 46px; display: flex; align-items: center; justify-content: center; background: rgba(77,184,72,0.1); border-radius: 12px; flex-shrink: 0; }
+        .extra-item h4 { font-size: 0.95rem; margin-bottom: 0.4rem; }
+        .extra-item p { font-size: 0.83rem; color: var(--text-secondary); line-height: 1.6; }
+
+        /* DESCARGAR */
+        #descargar { background: linear-gradient(135deg, #0a0e1a 0%, #0c1f0c 100%); position: relative; overflow: hidden; }
+        #descargar::before { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 50%, rgba(77,184,72,0.08) 0%, transparent 70%); }
+        .download-inner { position: relative; z-index: 1; }
+        .download-table { max-width: 580px; margin: 0 auto 3rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; }
+        .download-table table { width: 100%; border-collapse: collapse; }
+        .download-table td { padding: 14px 22px; border-bottom: 1px solid var(--border); font-size: 0.93rem; }
+        .download-table td:first-child { color: var(--text-secondary); width: 45%; font-weight: 500; }
+        .download-table td:last-child { color: var(--primary); font-weight: 600; }
+        .download-table tr:last-child td { border-bottom: none; }
+
+        /* INSTALACION */
+        #instalacion { background: var(--bg-card); }
+        .install-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.8rem; }
+        .install-step { background: var(--bg-dark); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; transition: all 0.3s; }
+        .install-step:hover { border-color: var(--primary); box-shadow: 0 8px 35px rgba(77,184,72,0.18); }
+        .install-step .install-img-wrap { width: 100%; background: var(--bg-card2); display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--border); overflow: hidden; }
+        .install-step .install-img-wrap img { width: 100%; height: auto; display: block; object-fit: contain; }
+        .install-step .install-step-body { padding: 1.2rem 1.2rem 1.4rem; text-align: center; }
+        .install-step-num { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; font-weight: 700; font-size: 0.88rem; margin-bottom: 0.7rem; }
+        .install-step h4 { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--text-primary); }
+        .install-step p { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6; }
+
+        /* SMART TV */
+        #smart-tv { background: var(--bg-dark); }
+        .tv-steps { max-width: 780px; margin: 0 auto; }
+        .tv-step { display: flex; gap: 1.5rem; margin-bottom: 1.2rem; padding: 1.2rem 1.5rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 12px; align-items: center; transition: all 0.3s; }
+        .tv-step:hover { border-color: var(--primary); }
+        .tv-step-num { width: 36px; height: 36px; background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+        .tv-step p { color: var(--text-secondary); font-size: 0.93rem; line-height: 1.6; }
+
+        /* iOS */
+        #ios { background: var(--bg-card); }
+        .ios-steps { max-width: 700px; margin: 0 auto; }
+        .ios-step-item { display: flex; gap: 1.5rem; margin-bottom: 1.2rem; padding: 1.2rem 1.5rem; background: var(--bg-dark); border: 1px solid var(--border); border-radius: 12px; align-items: center; transition: all 0.3s; }
+        .ios-step-item:hover { border-color: var(--primary); }
+        .ios-step-num { width: 36px; height: 36px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+        .ios-step-item p { color: var(--text-secondary); font-size: 0.93rem; line-height: 1.6; }
+
+        /* ALTERNATIVAS */
+        #alternativas { background: var(--bg-dark); }
+        .alt-grid { display: grid; grid-template-columns: repeat(5,1fr); gap: 1.5rem; }
+        .alt-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; text-align: center; transition: all 0.3s; }
+        .alt-card:hover { border-color: var(--primary); transform: translateY(-4px); box-shadow: 0 10px 35px rgba(77,184,72,0.15); }
+        .alt-icon { font-size: 2.2rem; margin-bottom: 0.8rem; }
+        .alt-card h4 { font-size: 1rem; margin-bottom: 0.5rem; }
+        .alt-card p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.55; }
+
+        /* PROBLEMAS */
+        #problemas { background: var(--bg-card); }
+        .trouble-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .trouble-item { background: var(--bg-dark); border: 1px solid var(--border); border-left: 3px solid var(--primary); border-radius: 12px; padding: 1.5rem; transition: all 0.3s; }
+        .trouble-item:hover { border-color: var(--primary); }
+        .trouble-item h4 { font-size: 0.97rem; margin-bottom: 0.6rem; color: white; }
+        .trouble-item p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; }
+
+        /* FAQ */
+        #faq { background: var(--bg-dark); }
+        .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .faq-item { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 1.5rem; transition: all 0.3s; }
+        .faq-item:hover { border-color: var(--primary); }
+        .faq-q { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 0.8rem; }
+        .faq-q-badge { width: 24px; height: 24px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.72rem; font-weight: 800; flex-shrink: 0; }
+        .faq-q h4 { font-size: 0.97rem; color: var(--primary-light); line-height: 1.4; }
+        .faq-item p { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.7; padding-left: 34px; }
+
+        /* FOOTER */
+        footer { background: var(--bg-card); border-top: 1px solid var(--border); padding: 3rem 2rem; text-align: center; }
+        .footer-logo { font-size: 1.8rem; font-weight: 800; color: var(--primary); margin-bottom: 0.8rem; }
+        footer p { color: var(--text-secondary); font-size: 0.88rem; margin-bottom: 0.4rem; }
+
+        /* RESPONSIVE */
+        @media(max-width:1100px){
+            .about-highlights { grid-template-columns: repeat(2,1fr); }
+        }
+        @media(max-width:960px){
+            .hero-title { font-size: 2.5rem; }
+            .screenshots-grid { grid-template-columns: repeat(2,1fr); }
+            .steps-grid { grid-template-columns: repeat(3,1fr); }
+            .install-steps { grid-template-columns: repeat(2,1fr); }
+            .alt-grid { grid-template-columns: repeat(3,1fr); }
+            .about-highlights { grid-template-columns: repeat(2,1fr); }
+            .about-features-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+        @media(max-width:768px){
+            .nav-links { display: none; }
+            .hero-title { font-size: 1.9rem; }
+            .section-title { font-size: 1.8rem; }
+            .hero-stats { flex-direction: column; max-width: 100%; border-radius: 16px; }
+            .hero-stat { border-right: none; border-bottom: 1px solid var(--border); }
+            .hero-stat:last-child { border-bottom: none; }
+            .faq-grid { grid-template-columns: 1fr; }
+            .trouble-grid { grid-template-columns: 1fr; }
+            .extra-features { grid-template-columns: 1fr; }
+            .alt-grid { grid-template-columns: repeat(2,1fr); }
+            .about-highlights { grid-template-columns: repeat(2,1fr); }
+            .steps-grid { grid-template-columns: repeat(2,1fr); }
+            .install-steps { grid-template-columns: 1fr 1fr; }
+        }
+        @media(max-width:480px){
+            .install-steps { grid-template-columns: 1fr; }
+            .screenshots-grid { grid-template-columns: 1fr; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .alt-grid { grid-template-columns: 1fr; }
+            .about-highlights { grid-template-columns: 1fr 1fr; }
+            .hero-btns { flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+    <div class="nav-inner">
+        <a href="#inicio" class="nav-logo">📺 TV<span> Garden</span></a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#caracteristicas">Características</a></li>
+            <li><a href="#canales">Canales</a></li>
+            <li><a href="#descargar">Descargar</a></li>
+            <li><a href="#instalacion">Instalación</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#descargar" class="nav-cta">⬇ Descargar</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- ==================== HERO (无图，居中全宽) ==================== -->
+<section id="inicio">
+    <div class="hero-content">
+        <div class="hero-badge">📺 Televisión en Vivo &nbsp;·&nbsp; Deportes &nbsp;·&nbsp; Noticias &nbsp;·&nbsp; Entretenimiento</div>
+
+        <h1 class="hero-title">
+            Jardín de TV —
+            <span class="highlight">Televisión en Vivo, Noticias,<br>Deportes y Más…</span>
+        </h1>
+
+        <p class="hero-desc">
+            TV Garden no es solo una aplicación de streaming; ¡es tu solución para escapar de las costosas suscripciones! Disfruta de tus deportes favoritos, noticias en tiempo real, reality shows, películas y música sin ninguna ventana emergente. Descarga aquí la última versión del APK de TV Garden para Android, iOS, PC y Smart TV — completamente gratis.
+        </p>
+
+        <!-- Stats 横排卡片 -->
+        <div class="hero-stats">
+            <div class="hero-stat">
+                <span class="num">+500K</span>
+                <span class="label">Descargas</span>
+            </div>
+            <div class="hero-stat">
+                <span class="num"><span class="stars">★★★★★</span> 4.7</span>
+                <span class="label">Valoración</span>
+            </div>
+            <div class="hero-stat">
+                <span class="num">1000+</span>
+                <span class="label">Canales TV</span>
+            </div>
+            <div class="hero-stat">
+                <span class="num">130+</span>
+                <span class="label">Países</span>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="hero-btns">
+            <button class="btn-primary" onclick="k2()">⬇ Descargar Ahora — 100% GRATIS</button>
+            <a href="#sobre" class="btn-outline">▶ Descubrir Más</a>
+        </div>
+
+        <!-- Platform tags -->
+        <div class="hero-platforms">
+            <span class="platform-tag">🤖 Android</span>
+            <span class="platform-tag">📱 iOS</span>
+            <span class="platform-tag">📺 Smart TV</span>
+            <span class="platform-tag">💻 PC / Mac</span>
+            <span class="platform-tag">🆓 100% Gratuito</span>
+            <span class="platform-tag">🚫 Sin Anuncios</span>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ==================== SOBRE (无图，全宽文字 + 卡片) ==================== -->
+<section id="sobre">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">¿Qué es TV Garden?</div>
+            <h2 class="section-title">La herramienta de streaming más poderosa del mundo</h2>
+            <p class="section-subtitle">Más de 1000 canales de televisión de 130 países reunidos en una sola aplicación, gratis y sin publicidad</p>
+        </div>
+
+        <!-- 段落文字 -->
+        <div class="about-text-full">
+            <p>TV Garden es la herramienta de streaming más potente del mundo actualmente. Reúne más de 1000 canales de televisión de 130 países/regiones. Solo tienes que seleccionar tu país/región en el globo interactivo y luego elegir el canal que quieras ver, así de simple. Puedes ver deportes en vivo, comedia, reality shows y noticias en cualquier momento y lugar.</p>
+            <p>La aplicación te permite ver programas de televisión, películas, deportes y noticias desde tu teléfono durante un viaje o en tu descanso del almuerzo. ¡TV Garden es la aplicación ideal para ver televisión en vivo! Úsala para ver fútbol, críquet, baloncesto, o para seguir los canales de noticias regionales e internacionales en tiempo real.</p>
+            <p>TV Garden se enfoca en la simplicidad, la confiabilidad y una experiencia de streaming fluida y sin buffering. Ofrece una forma conveniente de navegar por la TV en vivo sin necesidad de crear una cuenta, registrarse ni pagar ninguna suscripción.</p>
+        </div>
+
+        <!-- 四大数字亮点 -->
+        <div class="about-highlights">
+            <div class="highlight-card">
+                <div class="hc-icon">🌍</div>
+                <span class="hc-num">130+</span>
+                <span class="hc-label">Países y regiones con cobertura global completa</span>
+            </div>
+            <div class="highlight-card">
+                <div class="hc-icon">📡</div>
+                <span class="hc-num">1000+</span>
+                <span class="hc-label">Canales de TV de todo tipo de contenido</span>
+            </div>
+            <div class="highlight-card">
+                <div class="hc-icon">🆓</div>
+                <span class="hc-num">100%</span>
+                <span class="hc-label">Gratuito, sin suscripciones ni pagos ocultos</span>
+            </div>
+            <div class="highlight-card">
+                <div class="hc-icon">⭐</div>
+                <span class="hc-num">4.7</span>
+                <span class="hc-label">Valoración promedio por más de 500K usuarios</span>
+            </div>
+        </div>
+
+        <!-- 特性两列列表 -->
+        <div class="about-features-grid">
+            <div class="about-feature-item">
+                <div class="afi-icon">🚫</div>
+                <div class="afi-text">
+                    <strong>Sin Anuncios Molestos</strong>
+                    <span>Navega por miles de canales sin publicidad que interrumpa tu experiencia de visualización.</span>
+                </div>
+            </div>
+            <div class="about-feature-item">
+                <div class="afi-icon">⚡</div>
+                <div class="afi-text">
+                    <strong>Sin Buffering</strong>
+                    <span>Tecnología de streaming adaptativa que ajusta la calidad según tu velocidad de internet.</span>
+                </div>
+            </div>
+            <div class="about-feature-item">
+                <div class="afi-icon">🔓</div>
+                <div class="afi-text">
+                    <strong>Sin Registro Necesario</strong>
+                    <span>Abre la app y empieza a ver al instante. Sin crear cuenta ni compartir datos personales.</span>
+                </div>
+            </div>
+            <div class="about-feature-item">
+                <div class="afi-icon">📱</div>
+                <div class="afi-text">
+                    <strong>Multiplataforma</strong>
+                    <span>Compatible con Android, iOS, Smart TV y PC. Tu entretenimiento en cualquier dispositivo.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CAPTURAS -->
+<section id="capturas">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Capturas de Pantalla</div>
+            <h2 class="section-title">Mira TV Garden en acción</h2>
+            <p class="section-subtitle">Interfaz limpia con tema oscuro, diseñada para la mejor experiencia de visualización</p>
+        </div>
+        <div class="screenshots-grid">
+            <div class="screenshot-card"><img src="imga/TV-Garden-Screenshot-1.webp" alt="TV Garden Screenshot 1" loading="lazy"></div>
+            <div class="screenshot-card"><img src="imga/TV-Garden-Screenshot-2.webp" alt="TV Garden Screenshot 2" loading="lazy"></div>
+            <div class="screenshot-card"><img src="imga/TV-Garden-Screenshot-3.webp" alt="TV Garden Screenshot 3" loading="lazy"></div>
+            <div class="screenshot-card"><img src="imga/TV-Garden-Screenshot-4.webp" alt="TV Garden Screenshot 4" loading="lazy"></div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMO USAR -->
+<section id="como-usar">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Guía de Uso</div>
+            <h2 class="section-title">¿Cómo ver televisión en vivo con TV Garden?</h2>
+            <p class="section-subtitle">Su forma única de encontrar canales favoritos hace que todo el proceso sea rápido y conveniente</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card"><div class="step-num">1</div><p>Sigue nuestra guía de instalación para descargar e instalar TV Garden en tu dispositivo compatible.</p></div>
+            <div class="step-card"><div class="step-num">2</div><p>Inicia la app, encuentra tu país en el globo que aparece en pantalla y tócalo para abrirlo.</p></div>
+            <div class="step-card"><div class="step-num">3</div><p>Verás la lista de todos los canales. Desplázate hacia abajo y toca el canal que deseas ver.</p></div>
+            <div class="step-card"><div class="step-num">4</div><p>Al tocar el canal comenzará la reproducción de la transmisión en vivo del canal seleccionado.</p></div>
+            <div class="step-card"><div class="step-num">5</div><p>Configura el video en pantalla completa, ajusta el volumen y listo. ¡A disfrutar!</p></div>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem;">
+            <button class="btn-primary" onclick="k2()">⬇ Descargar TV Garden Gratis</button>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CANALES -->
+<section id="canales">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Canales Populares</div>
+            <h2 class="section-title">Lista de canales de TV populares en TV Garden</h2>
+            <p class="section-subtitle">Miles de canales con todo tipo de contenido. Estos son los más populares disponibles gratis.</p>
+        </div>
+        <table class="channels-table">
+            <thead>
+                <tr>
+                    <th>⚽ Canales Deportivos</th>
+                    <th>📰 Canales de Noticias</th>
+                    <th>🎬 Canales de Entretenimiento</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>ESPN</td><td>BBC Noticias</td><td>HBO</td></tr>
+                <tr><td>Fox Sports</td><td>CNN</td><td>Netflix (Global)</td></tr>
+                <tr><td>beIN Sports</td><td>Al Jazeera</td><td>Sony Entertainment TV</td></tr>
+                <tr><td>NBC Sports</td><td>Fox News</td><td>Colors TV</td></tr>
+                <tr><td>Eurosport</td><td>NDTV</td><td>AMC</td></tr>
+                <tr><td>Ten Sports</td><td>Republic TV</td><td>CW Network</td></tr>
+                <tr><td>Canal+ Sport</td><td>TRT World</td><td>GMA Network</td></tr>
+                <tr><td>Sport TV</td><td>Asia News Channel (CNA)</td><td>Show TV</td></tr>
+                <tr><td>Sony Sports</td><td>Deutsche Welle / DW News</td><td>ITV (Independent Television)</td></tr>
+                <tr><td>Star Sports</td><td>France 24</td><td>CCTV-1 (China Central TV)</td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CARACTERISTICAS -->
+<section id="caracteristicas">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Funciones del APK</div>
+            <h2 class="section-title">Funciones increíbles de TV Garden APK</h2>
+            <p class="section-subtitle">Numerosas funciones asombrosas que mejoran significativamente tu experiencia. La simplicidad es su concepto central.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <img class="fc-thumb" src="imga/4K-Quality-Streaming.webp" alt="4K Streaming" loading="lazy">
+                <div class="fc-body">
+                    <h3>🎯 Streaming en Calidad 4K</h3>
+                    <p>Ajusta automáticamente la calidad del video según tu velocidad de red. Soporta visualización con calidad máxima de 4K (2160px/1440p).</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img class="fc-thumb" src="imga/Create-Favorites-List.webp" alt="Favoritos" loading="lazy">
+                <div class="fc-body">
+                    <h3>⭐ Crear Lista de Favoritos</h3>
+                    <p>Agrega tus canales preferidos a la lista de favoritos para acceder fácilmente desde la sección "Favoritos" sin tener que buscarlos cada vez.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img class="fc-thumb" src="imga/No-Annoying-Ads.webp" alt="Sin Anuncios" loading="lazy">
+                <div class="fc-body">
+                    <h3>🚫 Sin Anuncios Molestos</h3>
+                    <p>Disfruta de transmisiones en vivo y eventos deportivos sin publicidad. Navega por miles de canales sin preocuparte por anuncios molestos.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img class="fc-thumb" src="imga/Live-Sports-News.webp" alt="Deportes en Vivo" loading="lazy">
+                <div class="fc-body">
+                    <h3>⚽ Deportes en Vivo y Noticias</h3>
+                    <p>Millones de usuarios ven deportes en vivo: fútbol, criquet, baloncesto y más. Accede a cientos de canales de noticias internacionales en tiempo real.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img class="fc-thumb" src="imga/1000-TV-Channels.webp" alt="1000 Canales" loading="lazy">
+                <div class="fc-body">
+                    <h3>📡 Más de 1000 Canales de TV</h3>
+                    <p>Accede a miles de canales de películas, deportes, música, educación, vida salvaje y mucho más, todos claramente clasificados por género.</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <img class="fc-thumb" src="imga/Multiple-Languages.webp" alt="Múltiples Idiomas" loading="lazy">
+                <div class="fc-body">
+                    <h3>🌐 Múltiples Idiomas</h3>
+                    <p>Ofrece canales locales en portugués, español, indonesio, mandarín, hindi, turco y muchos más idiomas regionales para usuarios de todo el planeta.</p>
+                </div>
+            </div>
+            <div class="feature-card" style="grid-column:1/-1;">
+                <img class="fc-thumb" src="imga/Explore-International-TV-Channels.webp" alt="Canales Internacionales" loading="lazy" style="width:90px;height:90px;">
+                <div class="fc-body">
+                    <h3>🌍 Explorar Canales de TV Internacionales</h3>
+                    <p>Si no encuentras entretenimiento en el contenido local, puedes seleccionar cualquier país del mundo, explorar sus populares canales de televisión y descubrir qué tipo de entretenimiento ofrecen. ¡El mundo entero en la palma de tu mano!</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-header" style="margin-top:4rem;margin-bottom:2rem;">
+            <div class="section-tag">Funciones Adicionales</div>
+            <h2 class="section-title" style="font-size:1.9rem;">Más características que te encantarán</h2>
+        </div>
+        <div class="extra-features">
+            <div class="extra-item">
+                <div class="extra-icon">📱</div>
+                <div><h4>Modo Picture-in-Picture</h4><p>Ve canales de TV en vivo en una ventana flotante mientras usas otras aplicaciones. Arrastra el reproductor a cualquier esquina de la pantalla.</p></div>
+            </div>
+            <div class="extra-item">
+                <div class="extra-icon">🆓</div>
+                <div><h4>Sin Suscripción</h4><p>Todas las funciones y servicios de TV Garden son completamente gratuitos. No necesitas pagar ninguna suscripción para acceder a ellos.</p></div>
+            </div>
+            <div class="extra-item">
+                <div class="extra-icon">🚫</div>
+                <div><h4>Experiencia Sin Anuncios</h4><p>Disfruta de transmisiones en vivo y eventos deportivos sin publicidad. Interfaz limpia y fluida para navegar miles de canales.</p></div>
+            </div>
+            <div class="extra-item">
+                <div class="extra-icon">🛠️</div>
+                <div><h4>Atención al Cliente</h4><p>El equipo de soporte te ayudará con problemas comunes. Si deseas agregar tu canal favorito, envía tu solicitud desde la sección de comentarios.</p></div>
+            </div>
+            <div class="extra-item" style="grid-column:1/-1;">
+                <div class="extra-icon">⚡</div>
+                <div><h4>Sin Buffering</h4><p>Utiliza tecnología de streaming adaptativa que ajusta la resolución del video según tu velocidad de internet, logrando reproducción fluida sin pausas ni tiempos de carga.</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- DESCARGAR -->
+<section id="descargar">
+    <div class="container download-inner">
+        <div class="section-header">
+            <div class="section-tag">Descarga</div>
+            <h2 class="section-title">Descargar TV Garden APK Última Versión 2026</h2>
+            <p class="section-subtitle">Descarga gratuita para Android, iOS, PC y Smart TV — Sin registro, sin pago</p>
+        </div>
+        <div class="download-table">
+            <table>
+                <tr><td>Nombre de la App</td><td>TV Garden</td></tr>
+                <tr><td>Versión</td><td>V1.0</td></tr>
+                <tr><td>Tamaño</td><td>6 MB</td></tr>
+                <tr><td>Desarrollador</td><td>TVGarden Corp.</td></tr>
+                <tr><td>Categoría</td><td>Entretenimiento</td></tr>
+                <tr><td>Licencia</td><td>Gratuita</td></tr>
+                <tr><td>Requisitos</td><td>Android 5.0 o superior</td></tr>
+                <tr><td>Actualizado</td><td>Hace 1 día</td></tr>
+            </table>
+        </div>
+        <div style="text-align:center;">
+            <button class="btn-primary" onclick="k2()" style="font-size:1.15rem;padding:20px 60px;">⬇ ¡Descargar Ahora!</button>
+            <p style="color:var(--text-secondary);margin-top:1rem;font-size:0.88rem;">✅ 100% Gratuito &nbsp;·&nbsp; ✅ Sin Virus &nbsp;·&nbsp; ✅ Sin Registro Necesario</p>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- INSTALACION -->
+<section id="instalacion">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Instalación Android</div>
+            <h2 class="section-title">¿Cómo descargar e instalar TV Garden APK?</h2>
+            <p class="section-subtitle">Esta guía detallada garantiza que descargues e instales correctamente TV Garden en tu smartphone Android.</p>
+        </div>
+        <div class="install-steps">
+            <div class="install-step">
+                <div class="install-img-wrap"><img src="imga/1.webp" alt="Paso 1" loading="lazy"></div>
+                <div class="install-step-body">
+                    <div class="install-step-num">1</div>
+                    <h4>Descargar TV Garden</h4>
+                    <p>Haz clic en el botón "Descargar" en esta página. Espera a que el archivo APK se descargue completamente.</p>
+                </div>
+            </div>
+            <div class="install-step">
+                <div class="install-img-wrap"><img src="imga/2.webp" alt="Paso 2" loading="lazy"></div>
+                <div class="install-step-body">
+                    <div class="install-step-num">2</div>
+                    <h4>Habilitar Fuentes Desconocidas</h4>
+                    <p>Ve a "Configuración" → "Seguridad" y habilita "Instalar aplicaciones desconocidas".</p>
+                </div>
+            </div>
+            <div class="install-step">
+                <div class="install-img-wrap"><img src="imga/3.webp" alt="Paso 3" loading="lazy"></div>
+                <div class="install-step-body">
+                    <div class="install-step-num">3</div>
+                    <h4>Localizar el Archivo APK</h4>
+                    <p>Abre el gestor de archivos, ve a "Descargas" y busca el archivo APK de TV Garden.</p>
+                </div>
+            </div>
+            <div class="install-step">
+                <div class="install-img-wrap"><img src="imga/4.webp" alt="Paso 4" loading="lazy"></div>
+                <div class="install-step-body">
+                    <div class="install-step-num">4</div>
+                    <h4>Instalar y Abrir</h4>
+                    <p>Toca el APK y pulsa "Instalar". Abre TV Garden desde el menú principal. ¡Listo!</p>
+                </div>
+            </div>
+        </div>
+        <div style="text-align:center;margin-top:3rem;">
+            <button class="btn-primary" onclick="k2()">⬇ Descargar e Instalar Ahora</button>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SMART TV -->
+<section id="smart-tv">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Smart TV</div>
+            <h2 class="section-title">¿Cómo instalar TV Garden en Smart TV?</h2>
+            <p class="section-subtitle">Disfruta de deportes y noticias en la pantalla grande siguiendo estos sencillos pasos</p>
+        </div>
+        <div class="tv-steps">
+            <div class="tv-step"><div class="tv-step-num">1</div><p>Haz clic en el botón de descarga para obtener el archivo APK de TV Garden.</p></div>
+            <div class="tv-step"><div class="tv-step-num">2</div><p>Abre la Play Store/App Store, busca una app de gestor de archivos e instálala en tu televisor.</p></div>
+            <div class="tv-step"><div class="tv-step-num">3</div><p>Ve a "Configuración" >> "Seguridad y restricciones", encuentra "Fuentes desconocidas" y actívala.</p></div>
+            <div class="tv-step"><div class="tv-step-num">4</div><p>Abre el gestor de archivos, encuentra el APK descargado y tócalo para instalar la aplicación.</p></div>
+            <div class="tv-step"><div class="tv-step-num">5</div><p>Regresa a la pantalla principal y toca el ícono de TV Garden. ¡Disfruta de TV en vivo gratis en pantalla grande!</p></div>
+        </div>
+        <div style="text-align:center;margin-top:2.5rem;">
+            <button class="btn-primary" onclick="k2()">⬇ Descargar para Smart TV</button>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- iOS -->
+<section id="ios">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">iOS iPhone / iPad</div>
+            <h2 class="section-title">TV Garden para iOS</h2>
+            <p class="section-subtitle">Aunque TV Garden no es compatible con iOS de forma directa, igualmente puedes disfrutar todos sus canales de TV en vivo gratis</p>
+        </div>
+        <div class="ios-steps">
+            <div class="ios-step-item"><div class="ios-step-num">1</div><p>Inicia el navegador <strong>Safari</strong> y abre la URL oficial de TV Garden.</p></div>
+            <div class="ios-step-item"><div class="ios-step-num">2</div><p>Haz clic en el botón <strong>"Ver en Vivo"</strong> para abrir la versión web de la aplicación.</p></div>
+            <div class="ios-step-item"><div class="ios-step-num">3</div><p>Toca el ícono <strong>"Compartir"</strong> en el navegador Safari.</p></div>
+            <div class="ios-step-item"><div class="ios-step-num">4</div><p>Desplázate hacia abajo y selecciona <strong>"Agregar a pantalla de inicio"</strong>.</p></div>
+            <div class="ios-step-item"><div class="ios-step-num">5</div><p>Establece el nombre e ícono de la app y toca el botón <strong>"Agregar"</strong>.</p></div>
+            <div class="ios-step-item"><div class="ios-step-num">6</div><p>Regresa a la pantalla de inicio y toca el ícono de TV Garden. Se iniciará la versión web con todas las funciones y sin publicidad.</p></div>
+        </div>
+        <div style="text-align:center;margin-top:2rem;">
+            <button class="btn-primary" onclick="k2()">📱 Acceder a TV Garden en iOS</button>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ALTERNATIVAS -->
+<section id="alternativas">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Alternativas</div>
+            <h2 class="section-title">Las mejores alternativas a TV Garden</h2>
+            <p class="section-subtitle">Si TV Garden no es compatible con tu dispositivo, aquí están las 5 mejores opciones similares investigadas para ti</p>
+        </div>
+        <div class="alt-grid">
+            <div class="alt-card"><div class="alt-icon">▶️</div><h4>YouTube</h4><p>Muchos canales deportivos y los principales medios de noticias disponibles gratis mediante soporte publicitario.</p></div>
+            <div class="alt-card"><div class="alt-icon">🎬</div><h4>Hulu</h4><p>La versión premium ofrece cientos de canales locales e internacionales con reality shows, deportes y películas.</p></div>
+            <div class="alt-card"><div class="alt-icon">🌐</div><h4>Pluto TV</h4><p>Servicio líder en EE.UU. con más de 250 canales de TV con comedia, educación y deportes de forma gratuita.</p></div>
+            <div class="alt-card"><div class="alt-icon">📺</div><h4>YuppTV</h4><p>Plataforma OTT del sur de Asia con miles de series, eventos en vivo, noticias y música para todas las edades.</p></div>
+            <div class="alt-card"><div class="alt-icon">🦊</div><h4>Tubi TV</h4><p>Tubi de Fox ofrece canales de TV en vivo gratuitos, ligas de fútbol populares y películas gratis para todos.</p></div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROBLEMAS -->
+<section id="problemas">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">Solución de Problemas</div>
+            <h2 class="section-title">Problemas comunes y sus soluciones efectivas</h2>
+            <p class="section-subtitle">TV Garden garantiza una experiencia fluida, pero aquí algunos consejos para resolver problemas comunes</p>
+        </div>
+        <div class="trouble-grid">
+            <div class="trouble-item"><h4>🐢 Carga Lenta</h4><p>A veces la app tarda más de lo habitual, generalmente por una conexión insuficiente. Asegúrate de tener una conexión a internet rápida y estable para evitar el buffering.</p></div>
+            <div class="trouble-item"><h4>🔊 Audio y Video Desincronizados</h4><p>Puede ser un problema del servidor. Repórtalo al equipo de desarrollo. La mayoría de estos problemas se resuelven en dos días hábiles.</p></div>
+            <div class="trouble-item"><h4>🔒 Reproducción de Video Restringida</h4><p>TV Garden agrega algunos canales de pago que pueden estar restringidos por región. Se recomienda usar una VPN para evitar restricciones geográficas.</p></div>
+            <div class="trouble-item"><h4>⏱️ Retraso en Transmisión en Vivo</h4><p>Hay un botón "En vivo" en la esquina inferior derecha del reproductor. Haz clic para actualizar el enlace de streaming y ver sin ningún retraso.</p></div>
+            <div class="trouble-item" style="grid-column:1/-1;"><h4>🔄 Problemas de Sobreescritura al Actualizar</h4><p>Si tienes instalada una versión anterior de TV Garden, puede que encuentres problemas al actualizar. Para resolverlo, desinstala primero la versión anterior y luego instala el nuevo APK actualizado.</p></div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- FAQ -->
+<section id="faq">
+    <div class="container">
+        <div class="section-header">
+            <div class="section-tag">FAQ</div>
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            <p class="section-subtitle">Respuestas a las dudas más comunes sobre TV Garden APK</p>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="faq-q"><div class="faq-q-badge">Q</div><h4>¿Es seguro usar TV Garden APK?</h4></div>
+                <p>TV Garden es una plataforma de streaming bastante segura y confiable. Durante la instalación, Google Play Protect puede mostrar una advertencia. Puedes ignorar este mensaje, simplemente escanea la app y, tras pasar el test, instálala sin problemas.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><div class="faq-q-badge">Q</div><h4>¿Puedo instalar TV Garden en una Smart TV?</h4></div>
+                <p>TV Garden es compatible con la mayoría de Smart TV con Android TV, Fire TV OS e incluso Google Chromecast. Habilita las opciones de desarrollador, activa la instalación de apps de "fuentes desconocidas", descarga el APK y tócalo para instalar.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><div class="faq-q-badge">Q</div><h4>¿Es legal usar la aplicación TV Garden?</h4></div>
+                <p>Por supuesto. TV Garden cumple plenamente con las leyes de derechos de autor y las normas de transmisión. Es una aplicación completamente legal que sigue todos los procedimientos legales de manera estricta.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><div class="faq-q-badge">Q</div><h4>¿Cómo usar TV Garden en iPhone?</h4></div>
+                <p>Para usarla en iOS, accede al sitio web oficial de TV Garden en Safari, toca el ícono "Compartir" y luego "Agregar a pantalla de inicio". Funciona como una aplicación normal sin necesidad de descargar nada.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><div class="faq-q-badge">Q</div><h4>¿Qué tipo de contenido puedo ver en TV Garden?</h4></div>
+                <p>La aplicación ofrece una gran variedad: noticias, deportes, películas, música, reality shows y series de televisión. Todo completamente gratis y sin necesidad de registrarse ni pagar.</p>
+            </div>
+            <div class="faq-item">
+                <div class="faq-q"><div class="faq-q-badge">Q</div><h4>¿TV Garden está disponible en EE.UU., Europa, India, Indonesia y Turquía?</h4></div>
+                <p>Sí, todos estos países tienen acceso, incluidos los 50 países europeos. TV Garden está disponible a nivel mundial con más de 130 países y más de 1000 canales disponibles para todos.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA FINAL -->
+<section style="background:linear-gradient(135deg,#0c1f0c 0%,#0a0e1a 100%);padding:100px 2rem;text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(77,184,72,0.1) 0%,transparent 70%);"></div>
+    <div class="container" style="position:relative;z-index:1;">
+        <div class="section-tag" style="display:inline-block;">¡Comienza Ahora!</div>
+        <h2 style="font-size:2.8rem;font-weight:800;margin:1rem 0 1rem;">¿Listo para ver TV sin límites?</h2>
+        <p style="color:var(--text-secondary);font-size:1.1rem;max-width:600px;margin:0 auto 2.5rem;line-height:1.7;">Descarga TV Garden ahora y disfruta de más de 1000 canales de TV en vivo de 130 países. Completamente gratis, sin publicidad y sin registrarte.</p>
+        <button class="btn-primary" onclick="k2()" style="font-size:1.15rem;padding:20px 65px;">⬇ Descargar TV Garden — GRATIS</button>
+        <div style="margin-top:1.8rem;display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;">
+            <span style="color:var(--text-secondary);font-size:0.85rem;">✅ +500K Descargas</span>
+            <span style="color:var(--text-secondary);font-size:0.85rem;">⭐ 4.7 Valoración</span>
+            <span style="color:var(--text-secondary);font-size:0.85rem;">🆓 100% Gratuito</span>
+            <span style="color:var(--text-secondary);font-size:0.85rem;">🚫 Sin Publicidad</span>
+            <span style="color:var(--text-secondary);font-size:0.85rem;">📡 1000+ Canales</span>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-logo">📺 TV Garden</div>
+    <p>La aplicación de streaming más potente del mundo</p>
+    <p style="font-size:0.8rem;margin-top:4px;">Televisión en Vivo · Deportes · Noticias · Entretenimiento · Películas</p>
+    <div style="margin:2rem 0;">
+        <button class="btn-primary" onclick="k2()">⬇ Descargar Gratis Ahora</button>
+    </div>
+    <p style="font-size:0.75rem;color:#444;">© 2026 TV Garden. Todos los derechos reservados.</p>
+</footer>
+
+<script>
+    function k2() {
+        window.location.href = 'https://www.qq.com';
+    }
+
+    // Active nav on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(s => {
+            if (window.scrollY >= s.offsetTop - 100) current = s.getAttribute('id');
+        });
+        navLinks.forEach(a => {
+            a.style.color = '';
+            if (a.getAttribute('href') === '#' + current) a.style.color = '#4db848';
+        });
+    });
+
+    // Scroll-triggered fade-in
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.style.opacity = '1';
+                e.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+
+    document.querySelectorAll(
+        '.feature-card, .step-card, .faq-item, .trouble-item, .alt-card, .screenshot-card, .extra-item, .tv-step, .ios-step-item, .install-step, .highlight-card, .about-feature-item'
+    ).forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(22px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(el);
+    });
+</script>
+</body>
+</html>
