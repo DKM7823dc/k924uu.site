@@ -13,11 +13,83 @@
     <title>Dating Community</title>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <script>
-	    function openLine() { 
-            window.open("https://line.me/ti/p/~lhls4", "_blank");
+
+	 <script>
+        // 声明全局变量存储 API 状态和配置
+        let targetRedirectUrl = '';
+        let targetEventName = ''; 
+        let apiStatus = 'loading'; // 新增：记录当前接口状态 (loading加载中, success成功, error失败)
+        let apiErrorMsg = '';      // 新增：记录具体的错误信息
+
+        // 获取当前页面的完整 URL (用于传给后台完全匹配)
+        const currentLandingUrl = window.location.href.split('?')[0]; 
+
+        // 调用后台 API
+        fetch('https://url.dakm0112u.site/api.php?landing_url=' + encodeURIComponent(currentLandingUrl))
+            .then(response => response.json())
+            .then(res => {
+                if (res.code === 200) {
+                    apiStatus = 'success';
+                    const data = res.data;
+                    targetRedirectUrl = data.redirect_url;
+                    targetEventName = data.event_name;
+
+                    // --- 动态初始化 Facebook Pixel ---
+                    !function(f,b,e,v,n,t,s)
+                    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                    n.queue=[];t=b.createElement(e);t.async=!0;
+                    t.src=v;s=b.getElementsByTagName(e)[0];
+                    s.parentNode.insertBefore(t,s)}(window, document,'script',
+                    'https://connect.facebook.net/en_US/fbevents.js');
+                    
+                    fbq('init', data.pixel_id); 
+                    fbq('track', 'PageView');
+                } else {
+                    // 接口正常连通，但后台判定有错误（比如域名没配、链接为空）
+                    apiStatus = 'error';
+                    apiErrorMsg = res.msg; 
+                    console.error("配置加载失败:", res.msg);
+                }
+            })
+            .catch(err => {
+                // 网络或跨域等底层错误
+                apiStatus = 'error';
+                apiErrorMsg = '网络请求失败，请检查跨域设置或接口域名是否正确。';
+                console.error("API请求错误:", err);
+            });
+
+        // 按钮点击事件处理函数
+        function handleBtnClick() {
+            if (apiStatus === 'success' && targetRedirectUrl) {
+                // 【正常跳转逻辑】
+                if (typeof fbq === 'function') {
+                    fbq('track', targetEventName);
+                }
+                setTimeout(() => {
+                    window.location.href = targetRedirectUrl;
+                }, 300);
+
+            } else if (apiStatus === 'loading') {
+                // 【加载中逻辑】
+                alert("安全连接正在初始化，请稍等片刻再点击...");
+
+            } else if (apiStatus === 'error') {
+                // 【加载失败逻辑：精准分类提示】
+                if (apiErrorMsg.includes('暂无启用') || apiErrorMsg.includes('跳转链接')) {
+                    alert("⚠️ 缺少跳转地址！\n\n后台规则已匹配，但该规则下没有处于【启用】状态的外部跳转链接。\n请登录后台添加或开启至少一条跳转链接！");
+                } 
+                else if (apiErrorMsg.includes('未找到匹配')) {
+                    alert("⚠️ 域名未匹配！\n\n请检查后台填写的【落地页地址】是否与下方当前网址完全一致（注意http/https和斜杠）：\n" + currentLandingUrl);
+                } 
+                else {
+                    alert("⚠️ 配置加载异常：\n\n" + apiErrorMsg);
+                }
+            }
         }
-</script>
+    </script>
+ 
 	
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <style>
