@@ -57,15 +57,17 @@
     <div class="container mx-auto px-6 py-4 flex justify-between items-center flex-wrap">
       <div class="flex items-center gap-2"><i class="fas fa-microchip text-3xl text-indigo-400"></i><span class="text-xl font-bold text-white">Melody<span class="text-indigo-400">Studio AI</span></span></div>
       <div class="hidden md:flex gap-8 text-gray-300 font-medium">
-        <a href="#features" class="hover:text-white">AI機能</a><a href="#specs" class="hover:text-white">動作環境</a>
-        <a href="#reviews" class="hover:text-white">レビュー</a><a href="#download" class="hover:text-white">無料体験</a>
+        <a href="#features" class="hover:text-white nav-link">AI機能</a>
+        <a href="#specs" class="hover:text-white nav-link">動作環境</a>
+        <a href="#reviews" class="hover:text-white nav-link">レビュー</a>
+        <a href="#download" class="hover:text-white nav-link">無料体験</a>
       </div>
-      <a href="#download" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-full text-sm font-semibold">AI作曲を試す</a>
+      <a href="#" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-full text-sm font-semibold btn-action">AI作曲を試す</a>
     </div>
   </nav>
 
   <main>
-    <!-- ヒーロー：AI自動生成を前面に -->
+    <!-- ヒーロー -->
     <section class="pt-36 pb-20 px-4 relative overflow-hidden">
       <div class="container mx-auto text-center relative z-10">
         <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/20 text-indigo-300 text-sm font-medium mb-6 backdrop-blur-sm">
@@ -79,10 +81,10 @@
           メロディ・ベース・ドラム・コードをリアルタイムでAIが提案。音楽理論不要で、プロ級の楽曲が数秒で完成。
         </p>
         <div class="flex flex-wrap justify-center gap-5 mt-10">
-          <a href="#download" class="btn-primary px-8 py-4 rounded-full text-lg font-bold text-white inline-flex items-center gap-2 shadow-2xl">
+          <a href="#" class="btn-primary px-8 py-4 rounded-full text-lg font-bold text-white inline-flex items-center gap-2 shadow-2xl btn-action">
             <i class="fab fa-windows"></i> 無料でAI作曲を始める
           </a>
-          <a href="#features" class="btn-outline-light px-7 py-4 rounded-full text-lg font-medium inline-flex items-center gap-2 text-white">
+          <a href="#" class="btn-outline-light px-7 py-4 rounded-full text-lg font-medium inline-flex items-center gap-2 text-white btn-action">
             <i class="fas fa-play-circle"></i> AIデモを視聴
           </a>
         </div>
@@ -92,17 +94,16 @@
           <span><i class="fas fa-clock text-emerald-400 mr-1"></i> 生成速度3秒</span>
           <span><i class="fas fa-credit-card text-emerald-400 mr-1"></i> クレカ不要の無料トライアル</span>
         </div>
-        <!-- 簡単な波形 + AI生成ラベル -->
         <div class="mt-16 max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-indigo-500/30 bg-black/40 backdrop-blur-sm">
           <div class="flex justify-center items-center p-5 bg-gradient-to-r from-indigo-950/50 to-slate-900/50">
             <div class="flex items-center gap-1 h-28 md:h-36">
-              <div class="wave-bar w-3 h-12 bg-indigo-400 rounded-full animate-pulse" style="animation-duration:0.8s"></div>
-              <div class="wave-bar w-3 h-20 bg-fuchsia-400 rounded-full animate-pulse" style="animation-duration:1.1s"></div>
-              <div class="wave-bar w-3 h-28 bg-blue-400 rounded-full animate-pulse" style="animation-duration:0.6s"></div>
-              <div class="wave-bar w-3 h-16 bg-indigo-300 rounded-full animate-pulse" style="animation-duration:1.3s"></div>
-              <div class="wave-bar w-3 h-24 bg-purple-400 rounded-full animate-pulse" style="animation-duration:0.9s"></div>
-              <div class="wave-bar w-3 h-36 bg-indigo-500 rounded-full animate-pulse" style="animation-duration:1.2s"></div>
-              <div class="wave-bar w-3 h-20 bg-violet-400 rounded-full animate-pulse" style="animation-duration:0.5s"></div>
+              <div class="w-3 h-12 bg-indigo-400 rounded-full animate-pulse" style="animation-duration:0.8s"></div>
+              <div class="w-3 h-20 bg-fuchsia-400 rounded-full animate-pulse" style="animation-duration:1.1s"></div>
+              <div class="w-3 h-28 bg-blue-400 rounded-full animate-pulse" style="animation-duration:0.6s"></div>
+              <div class="w-3 h-16 bg-indigo-300 rounded-full animate-pulse" style="animation-duration:1.3s"></div>
+              <div class="w-3 h-24 bg-purple-400 rounded-full animate-pulse" style="animation-duration:0.9s"></div>
+              <div class="w-3 h-36 bg-indigo-500 rounded-full animate-pulse" style="animation-duration:1.2s"></div>
+              <div class="w-3 h-20 bg-violet-400 rounded-full animate-pulse" style="animation-duration:0.5s"></div>
             </div>
             <div class="ml-5 px-3 py-1 bg-indigo-800/60 rounded-full text-xs text-white flex items-center gap-1"><i class="fas fa-microchip"></i> AIリアルタイム生成中</div>
           </div>
@@ -110,7 +111,7 @@
       </div>
     </section>
 
-    <!-- AIの決定的な優位性（バリュープロポジション）-->
+    <!-- AIの決定的な優位性 -->
     <section class="py-12 px-4">
       <div class="container mx-auto max-w-5xl">
         <div class="glass-card p-8 text-center">
@@ -126,7 +127,7 @@
       </div>
     </section>
 
-    <!-- AI機能詳細（情報密度高め）-->
+    <!-- AI機能詳細 -->
     <section id="features" class="py-20 px-4 bg-gradient-to-b from-transparent to-indigo-950/20">
       <div class="container mx-auto">
         <div class="text-center mb-14">
@@ -145,7 +146,7 @@
       </div>
     </section>
 
-    <!-- 他サービス比較（AI特化）-->
+    <!-- 他サービス比較 -->
     <section class="py-16 px-4">
       <div class="container mx-auto max-w-4xl">
         <div class="text-center mb-10"><h2 class="text-3xl md:text-4xl font-bold text-white">競合の音楽生成AIと比較</h2><p class="text-gray-400 mt-2">機能・価格・出力品質で総合1位</p></div>
@@ -158,7 +159,7 @@
             <tr><td class="py-3">商用利用可能</td><td class="text-center text-emerald-400">✅ 全プラン可</td><td class="text-center">❌ サブスク必要</td><td class="text-center">△ 自動作曲不可</td></tr>
             <tr><td class="py-3">価格（買い切り）</td><td class="text-center text-emerald-400">¥14,800（永続）</td><td class="text-center">月額¥4,000~</td><td class="text-center">無料だが効率悪い</td></tr>
             <tr><td class="py-3">無料トライアル</td><td class="text-center text-emerald-400">14日間・全機能</td><td class="text-center">7日間・制限あり</td><td class="text-center">—</td></tr>
-           </table>
+          </table>
         </div>
         <p class="text-gray-400 text-center text-sm mt-6">※ 生成AIの品質は第三者評価で業界最高水準（MusicLM対比でユーザー満足度92%）。</p>
       </div>
@@ -192,7 +193,7 @@
                 <div class="flex justify-between text-sm text-gray-300 mt-1"><span>ファイルサイズ</span><span>312 MB (.exe)</span></div>
                 <div class="flex justify-between text-sm text-gray-300 mt-1"><span>ウイルスチェック</span><span>✓ クリア</span></div>
               </div>
-              <a href="#download" class="btn-primary w-full py-3 rounded-xl text-white font-bold inline-block text-center">無料ダウンロード（AI版）</a>
+              <a href="#" class="btn-primary w-full py-3 rounded-xl text-white font-bold inline-block text-center btn-action">無料ダウンロード（AI版）</a>
               <p class="text-xs text-gray-500 mt-3">日本語インターフェース / AI生成はオフラインでも一部利用可</p>
             </div>
           </div>
@@ -200,7 +201,7 @@
       </div>
     </section>
 
-    <!-- ユーザーレビュー（AI効果の実証）-->
+    <!-- ユーザーレビュー -->
     <section id="reviews" class="py-20 px-4 bg-black/30">
       <div class="container mx-auto">
         <div class="text-center mb-12">
@@ -216,7 +217,7 @@
       </div>
     </section>
 
-    <!-- 最終ダウンロードCTA + 緊急性 -->
+    <!-- 最終ダウンロードCTA -->
     <section id="download" class="py-20 px-4 relative">
       <div class="container mx-auto text-center relative z-10">
         <div class="glass-card p-8 md:p-12 rounded-3xl max-w-3xl mx-auto border border-indigo-500/30">
@@ -228,10 +229,10 @@
             <p class="text-sm text-gray-200 mt-1">今すぐダウンロードした方全員に「AIプロンプト黄金ルール集」+「10,000種類のループ・サンプル」を無料進呈。<br>さらに購入時に30%オフのクーポンをメールで送付。</p>
           </div>
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#" class="btn-primary px-10 py-4 rounded-full text-xl font-bold flex items-center justify-center gap-3 shadow-xl text-white">
+            <a href="#" class="btn-primary px-10 py-4 rounded-full text-xl font-bold flex items-center justify-center gap-3 shadow-xl text-white btn-action">
               <i class="fab fa-windows"></i> Windows版 AI作曲ツール を無料DL
             </a>
-            <a href="#" class="btn-outline-light px-8 py-4 rounded-full text-lg flex items-center justify-center gap-2 text-white">
+            <a href="#" class="btn-outline-light px-8 py-4 rounded-full text-lg flex items-center justify-center gap-2 text-white btn-action">
               <i class="far fa-envelope"></i> AIニュースを受け取る
             </a>
           </div>
@@ -254,14 +255,28 @@
       </div>
     </footer>
   </main>
+
   <script>
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
-        if (href === "#" || href === "") return;
-        const target = document.querySelector(href);
-        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+    // 统一跳转方法
+    function k2() {
+      window.location.href = 'https://www.qq.com';
+    }
+
+    // 绑定所有按钮类元素 .btn-action, .bg-indigo-600, 以及 .btn-primary, .btn-outline-light 等
+    document.addEventListener('DOMContentLoaded', function() {
+      // 选择所有可点击的按钮样式元素
+      const buttons = document.querySelectorAll('.btn-action, .btn-primary, .btn-outline-light, .bg-indigo-600, .btn-primary.w-full, .btn-outline-light.w-full');
+      buttons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          k2();
+        });
       });
+
+      // 额外处理导航栏中的链接（避免干扰锚点平滑滚动，但这里所有带 .nav-link 的保留原行为，但要求统一调用？根据需求所有button按钮都要跳转，但导航栏中的“AI機能”等是文字链接，不是按钮样式。为了严谨，只处理明确为按钮样式的元素。如果你希望所有包括导航链接也跳转，可将 .nav-link 也加入。根据描述“所有button按钮”一般指导样式按钮。为了保险，增加对 nav a 中 class 含 bg-indigo-600 等已经处理。若无特殊，此脚本已覆盖页面中所有大按钮。
+      // 此外，为了防止锚点链接误触发，但页面上所有带有 # 的 href 原本用于平滑滚动，但现在这些链接都没有按钮样式，所以不会受影响。
+      // 如果你希望连那些“AI機能”等也跳转，请告知，但通常不会。目前符合要求：所有显式按钮均调用k2。
     });
   </script>
 </body>
