@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>MelodyStudio AI | 音楽自動生成AI – 数秒でプロ級の楽曲を創出</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts & Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * { font-family: 'Inter', sans-serif; }
+    body { background: #0a0c12; color: #f0f3fa; }
+    .gradient-text {
+      background: linear-gradient(135deg, #c084fc, #60a5fa, #38bdf8);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .btn-primary {
+      background: linear-gradient(95deg, #8b5cf6, #3b82f6);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
+    }
+    .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(59, 130, 246, 0.5); }
+    .btn-outline-light {
+      border: 1px solid rgba(255,255,255,0.3);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(4px);
+    }
+    .btn-outline-light:hover { border-color: #8b5cf6; background: rgba(139, 92, 246, 0.2); }
+    .glass-card {
+      background: rgba(18, 20, 30, 0.65);
+      backdrop-filter: blur(12px);
+      border-radius: 2rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: all 0.3s;
+    }
+    .glass-card:hover { border-color: rgba(139, 92, 246, 0.4); transform: translateY(-5px); }
+    .wave-bg {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; overflow: hidden; z-index: 0;
+    }
+    .wave {
+      position: absolute; bottom: 0; left: 0; width: 100%; height: 180px;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(107,70,193,0.15)" fill-opacity="0.4" d="M0,192L48,186.7C96,181,192,171,288,176C384,181,480,203,576,208C672,213,768,203,864,186.7C960,171,1056,149,1152,138.7C1248,128,1344,128,1392,128L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') repeat-x;
+      background-size: cover; opacity: 0.3;
+    }
+    .comparison-table td { padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+  </style>
+</head>
+<body class="relative bg-[#0a0c12] text-gray-200">
+  <div class="wave-bg"><div class="wave"></div><div class="wave" style="bottom:40px;opacity:0.2;height:140px;"></div></div>
+
+  <nav class="fixed top-0 left-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/10">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center flex-wrap">
+      <div class="flex items-center gap-2"><i class="fas fa-microchip text-3xl text-indigo-400"></i><span class="text-xl font-bold text-white">Melody<span class="text-indigo-400">Studio AI</span></span></div>
+      <div class="hidden md:flex gap-8 text-gray-300 font-medium">
+        <a href="#features" class="hover:text-white">AI機能</a><a href="#specs" class="hover:text-white">動作環境</a>
+        <a href="#reviews" class="hover:text-white">レビュー</a><a href="#download" class="hover:text-white">無料体験</a>
+      </div>
+      <a href="#download" class="bg-indigo-600 hover:bg-indigo-500 text-white px-5 py-2 rounded-full text-sm font-semibold">AI作曲を試す</a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- ヒーロー：AI自動生成を前面に -->
+    <section class="pt-36 pb-20 px-4 relative overflow-hidden">
+      <div class="container mx-auto text-center relative z-10">
+        <div class="inline-block px-4 py-1.5 rounded-full bg-indigo-500/20 text-indigo-300 text-sm font-medium mb-6 backdrop-blur-sm">
+          <i class="fas fa-robot mr-2"></i> AI駆動型音楽生成エンジン
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold leading-tight tracking-tight text-white">
+          AIが<span class="gradient-text">自動で楽曲を創る</span><br>新時代の作曲ツール
+        </h1>
+        <p class="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mt-6">
+          コード進行を入力するだけで、フルアレンジのバックトラックを自動生成。<br>
+          メロディ・ベース・ドラム・コードをリアルタイムでAIが提案。音楽理論不要で、プロ級の楽曲が数秒で完成。
+        </p>
+        <div class="flex flex-wrap justify-center gap-5 mt-10">
+          <a href="#download" class="btn-primary px-8 py-4 rounded-full text-lg font-bold text-white inline-flex items-center gap-2 shadow-2xl">
+            <i class="fab fa-windows"></i> 無料でAI作曲を始める
+          </a>
+          <a href="#features" class="btn-outline-light px-7 py-4 rounded-full text-lg font-medium inline-flex items-center gap-2 text-white">
+            <i class="fas fa-play-circle"></i> AIデモを視聴
+          </a>
+        </div>
+        <div class="flex flex-wrap justify-center gap-6 mt-12 text-sm text-gray-400">
+          <span><i class="fas fa-brain text-emerald-400 mr-1"></i> 8つのAIモデル搭載</span>
+          <span><i class="fas fa-music text-emerald-400 mr-1"></i> 1000+ジャンル対応</span>
+          <span><i class="fas fa-clock text-emerald-400 mr-1"></i> 生成速度3秒</span>
+          <span><i class="fas fa-credit-card text-emerald-400 mr-1"></i> クレカ不要の無料トライアル</span>
+        </div>
+        <!-- 簡単な波形 + AI生成ラベル -->
+        <div class="mt-16 max-w-4xl mx-auto rounded-2xl overflow-hidden shadow-2xl border border-indigo-500/30 bg-black/40 backdrop-blur-sm">
+          <div class="flex justify-center items-center p-5 bg-gradient-to-r from-indigo-950/50 to-slate-900/50">
+            <div class="flex items-center gap-1 h-28 md:h-36">
+              <div class="wave-bar w-3 h-12 bg-indigo-400 rounded-full animate-pulse" style="animation-duration:0.8s"></div>
+              <div class="wave-bar w-3 h-20 bg-fuchsia-400 rounded-full animate-pulse" style="animation-duration:1.1s"></div>
+              <div class="wave-bar w-3 h-28 bg-blue-400 rounded-full animate-pulse" style="animation-duration:0.6s"></div>
+              <div class="wave-bar w-3 h-16 bg-indigo-300 rounded-full animate-pulse" style="animation-duration:1.3s"></div>
+              <div class="wave-bar w-3 h-24 bg-purple-400 rounded-full animate-pulse" style="animation-duration:0.9s"></div>
+              <div class="wave-bar w-3 h-36 bg-indigo-500 rounded-full animate-pulse" style="animation-duration:1.2s"></div>
+              <div class="wave-bar w-3 h-20 bg-violet-400 rounded-full animate-pulse" style="animation-duration:0.5s"></div>
+            </div>
+            <div class="ml-5 px-3 py-1 bg-indigo-800/60 rounded-full text-xs text-white flex items-center gap-1"><i class="fas fa-microchip"></i> AIリアルタイム生成中</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AIの決定的な優位性（バリュープロポジション）-->
+    <section class="py-12 px-4">
+      <div class="container mx-auto max-w-5xl">
+        <div class="glass-card p-8 text-center">
+          <div class="flex justify-center gap-3 text-3xl mb-4"><i class="fas fa-microchip text-indigo-400"></i><i class="fas fa-chart-line text-indigo-400"></i><i class="fas fa-infinity text-indigo-400"></i></div>
+          <h2 class="text-2xl md:text-3xl font-bold text-white mb-3">従来のDAWとは次元が違う<br>「生成AI作曲」の衝撃</h2>
+          <div class="grid md:grid-cols-3 gap-6 mt-8 text-left">
+            <div><i class="fas fa-magic text-indigo-400 mr-2"></i> <strong>コード進行からフルアレンジ</strong><br><span class="text-gray-300 text-sm">C-Am-F-Gを入力→AIがポップ/EDM/ジャズなど10種以上のスタイルで自動編曲。</span></div>
+            <div><i class="fas fa-head-side-brain text-indigo-400 mr-2"></i> <strong>メロディ自動生成</strong><br><span class="text-gray-300 text-sm">歌いたい言葉を入力→AIが自然な抑揚のボーカルメロディを提案（歌詞自動生成も可）。</span></div>
+            <div><i class="fas fa-sliders-h text-indigo-400 mr-2"></i> <strong>一発マスタリング</strong><br><span class="text-gray-300 text-sm">AIがラウドネス・EQ・コンプレッションを最適化。初心者でも配信クオリティ。</span></div>
+          </div>
+          <div class="mt-6 p-3 bg-indigo-900/30 rounded-lg text-sm text-gray-200"><i class="fas fa-chart-simple mr-1"></i> ユーザーアンケート: 「制作時間が従来比で87%削減」「アイデア出しのストレスがほぼゼロ」</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AI機能詳細（情報密度高め）-->
+    <section id="features" class="py-20 px-4 bg-gradient-to-b from-transparent to-indigo-950/20">
+      <div class="container mx-auto">
+        <div class="text-center mb-14">
+          <span class="text-indigo-300 uppercase tracking-wider text-sm font-semibold">AIコア技術</span>
+          <h2 class="text-4xl md:text-5xl font-bold mt-2 text-white">創造性を拡張する6つのAIエンジン</h2>
+          <p class="text-gray-400 max-w-2xl mx-auto mt-4">音楽理論・ジャンル別学習・リアルタイムフィードバック</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="glass-card p-7 rounded-2xl"><div class="w-14 h-14 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center mb-5"><i class="fas fa-chord-diagram text-2xl text-white"></i></div><h3 class="text-2xl font-bold mb-2 text-white">コード提案AI</h3><p class="text-gray-300">ジャンルごとのコード進行データベースから最適なコードを提案。転調・代理コードも自動計算。</p></div>
+          <div class="glass-card p-7 rounded-2xl"><div class="w-14 h-14 rounded-xl bg-gradient-to-br from-sky-500 to-blue-600 flex items-center justify-center mb-5"><i class="fas fa-waveform text-2xl text-white"></i></div><h3 class="text-2xl font-bold mb-2 text-white">メロディ生成AI</h3><p class="text-gray-300">リズムパターンと音域を指定するだけで、キャッチーで人間らしいメロディを無限生成。</p></div>
+          <div class="glass-card p-7 rounded-2xl"><div class="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center mb-5"><i class="fas fa-drum text-2xl text-white"></i></div><h3 class="text-2xl font-bold mb-2 text-white">ドラム／パーカッションAI</h3><p class="text-gray-300">ジャンル（ロック・ヒップホップ・ハウスなど）に合わせたグルーヴとフィルを自動生成。</p></div>
+          <div class="glass-card p-7 rounded-2xl"><div class="w-14 h-14 rounded-xl bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center mb-5"><i class="fas fa-guitar text-2xl text-white"></i></div><h3 class="text-2xl font-bold mb-2 text-white">ベースラインAI</h3><p class="text-gray-300">コード進行にマッチしたスラップ・ピッキング・シンセベースのラインを自動生成。</p></div>
+          <div class="glass-card p-7 rounded-2xl"><div class="w-14 h-14 rounded-xl bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-5"><i class="fas fa-microphone-alt text-2xl text-white"></i></div><h3 class="text-2xl font-bold mb-2 text-white">ボーカル合成AI</h3><p class="text-gray-300">歌詞テキストを入力するだけで、人間らしい歌声を合成（日本語・英語対応）。</p></div>
+          <div class="glass-card p-7 rounded-2xl"><div class="w-14 h-14 rounded-xl bg-gradient-to-br from-fuchsia-500 to-purple-600 flex items-center justify-center mb-5"><i class="fas fa-chart-line text-2xl text-white"></i></div><h3 class="text-2xl font-bold mb-2 text-white">自動マスタリングAI</h3><p class="text-gray-300">ラウドネス標準(LUFS)に合わせて最適化。Spotify/Apple Music用にワンクリックで書き出し。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 他サービス比較（AI特化）-->
+    <section class="py-16 px-4">
+      <div class="container mx-auto max-w-4xl">
+        <div class="text-center mb-10"><h2 class="text-3xl md:text-4xl font-bold text-white">競合の音楽生成AIと比較</h2><p class="text-gray-400 mt-2">機能・価格・出力品質で総合1位</p></div>
+        <div class="glass-card p-6 overflow-x-auto">
+          <table class="w-full comparison-table text-sm md:text-base">
+            <tr class="border-b border-white/20"><th class="text-left py-3 text-white">機能</th><th class="text-center text-indigo-300">MelodyStudio AI</th><th class="text-center text-gray-400">他社オンラインAI</th><th class="text-center text-gray-400">無料DAW+手作業</th></tr>
+            <tr><td class="py-3">コード進行→フルアレンジ</td><td class="text-center text-emerald-400">✅ リアルタイム</td><td class="text-center">❌ 要調整</td><td class="text-center">❌ 不可能</td></tr>
+            <tr><td class="py-3">メロディ自動生成</td><td class="text-center text-emerald-400">✅ 無制限</td><td class="text-center">△ 制限あり</td><td class="text-center">❌ なし</td></tr>
+            <tr><td class="py-3">ボーカル合成（日本語）</td><td class="text-center text-emerald-400">✅ 標準搭載</td><td class="text-center">❌ 別途料金</td><td class="text-center">❌ なし</td></tr>
+            <tr><td class="py-3">商用利用可能</td><td class="text-center text-emerald-400">✅ 全プラン可</td><td class="text-center">❌ サブスク必要</td><td class="text-center">△ 自動作曲不可</td></tr>
+            <tr><td class="py-3">価格（買い切り）</td><td class="text-center text-emerald-400">¥14,800（永続）</td><td class="text-center">月額¥4,000~</td><td class="text-center">無料だが効率悪い</td></tr>
+            <tr><td class="py-3">無料トライアル</td><td class="text-center text-emerald-400">14日間・全機能</td><td class="text-center">7日間・制限あり</td><td class="text-center">—</td></tr>
+           </table>
+        </div>
+        <p class="text-gray-400 text-center text-sm mt-6">※ 生成AIの品質は第三者評価で業界最高水準（MusicLM対比でユーザー満足度92%）。</p>
+      </div>
+    </section>
+
+    <!-- 動作環境＋特典-->
+    <section id="specs" class="py-20 px-4">
+      <div class="container mx-auto">
+        <div class="flex flex-col lg:flex-row gap-12 items-center">
+          <div class="flex-1">
+            <div class="inline-block px-4 py-1 bg-indigo-500/20 rounded-full text-indigo-300 text-sm mb-4">動作環境</div>
+            <h2 class="text-3xl md:text-4xl font-bold mb-5 text-white">低スペックPCでもAIが高速動作</h2>
+            <p class="text-gray-300 mb-6">クラウド連携ハイブリッド方式で、オンデバイス処理とGPU最適化を自動選択。Core i3・4GBメモリでも快適。</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div><i class="fas fa-microchip text-indigo-400"></i> <strong>OS</strong><br><span class="text-gray-300">Windows 10/11</span></div>
+              <div><i class="fas fa-memory text-indigo-400"></i> <strong>メモリ</strong><br><span class="text-gray-300">4GB以上 (8GB推奨)</span></div>
+              <div><i class="fas fa-hdd text-indigo-400"></i> <strong>ストレージ</strong><br><span class="text-gray-300">1.5GB + AIモデル別途(5GB)</span></div>
+              <div><i class="fas fa-globe text-indigo-400"></i> <strong>ネットワーク</strong><br><span class="text-gray-300">初回起動時のみ</span></div>
+            </div>
+            <div class="mt-8 p-4 rounded-xl bg-indigo-950/30 border border-indigo-500/20">
+              <i class="fas fa-gift text-indigo-300 mr-2"></i> <span class="text-gray-200"><strong>発売記念特典:</strong> ダウンロード＆インストールで「AIプロンプト集＋商用利用可サンプルパック(500ループ)」を無料配布。</span>
+            </div>
+          </div>
+          <div class="flex-1 flex justify-center">
+            <div class="glass-card p-6 rounded-3xl w-full max-w-md text-center">
+              <i class="fas fa-download text-5xl text-indigo-400 mb-3"></i>
+              <h3 class="text-2xl font-bold text-white">AI作曲を今すぐ体感</h3>
+              <p class="text-gray-300 text-sm my-3">14日間・全機能無制限・クレカ不要</p>
+              <div class="bg-black/50 rounded-xl p-3 my-3 text-left">
+                <div class="flex justify-between text-sm text-gray-300"><span>最新AIモデル</span><span>v3.0 (2026)</span></div>
+                <div class="flex justify-between text-sm text-gray-300 mt-1"><span>ファイルサイズ</span><span>312 MB (.exe)</span></div>
+                <div class="flex justify-between text-sm text-gray-300 mt-1"><span>ウイルスチェック</span><span>✓ クリア</span></div>
+              </div>
+              <a href="#download" class="btn-primary w-full py-3 rounded-xl text-white font-bold inline-block text-center">無料ダウンロード（AI版）</a>
+              <p class="text-xs text-gray-500 mt-3">日本語インターフェース / AI生成はオフラインでも一部利用可</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ユーザーレビュー（AI効果の実証）-->
+    <section id="reviews" class="py-20 px-4 bg-black/30">
+      <div class="container mx-auto">
+        <div class="text-center mb-12">
+          <i class="fas fa-star text-amber-400"></i><i class="fas fa-star text-amber-400 mx-1"></i><i class="fas fa-star text-amber-400"></i>
+          <h2 class="text-3xl md:text-4xl font-bold mt-3 text-white">AI作曲でクリエイターの可能性が広がった</h2>
+          <p class="text-gray-400">4.9/5 (累計3,200件の評価)</p>
+        </div>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="glass-card p-6 rounded-2xl"><div class="flex gap-1 text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-200">「コード進行を入れたら、あっという間にフルアレンジができた。今まで数週間かかっていた作業が1時間に短縮。AIはもう相棒です。」</p><div class="flex items-center gap-3 mt-4"><div class="w-10 h-10 rounded-full bg-indigo-500 flex items-center justify-center"><i class="fas fa-user text-white"></i></div><div><p class="font-semibold text-white">山田 航</p><p class="text-xs text-gray-400">映像作家 / 東京</p></div></div></div>
+          <div class="glass-card p-6 rounded-2xl"><div class="flex gap-1 text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div><p class="text-gray-200">「音楽理論を勉強したことがない私でも、AIのおかげでプロっぽいトラックが作れました。ボーカル合成機能は感動レベル。」</p><div class="flex items-center gap-3 mt-4"><div class="w-10 h-10 rounded-full bg-fuchsia-500 flex items-center justify-center"><i class="fas fa-user"></i></div><div><p class="font-semibold text-white">佐藤 理子</p><p class="text-xs text-gray-400">YouTuber / 大阪</p></div></div></div>
+          <div class="glass-card p-6 rounded-2xl"><div class="flex gap-1 text-yellow-400 mb-3"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div><p class="text-gray-200">「メロディ生成AIのバリエーションが豊富で、インスピレーションが湧きまくる。サブスクではなく買い切りなのも決め手。」</p><div class="flex items-center gap-3 mt-4"><div class="w-10 h-10 rounded-full bg-emerald-500 flex items-center justify-center"><i class="fas fa-user"></i></div><div><p class="font-semibold text-white">Tanaka Music</p><p class="text-xs text-gray-400">作曲初心者</p></div></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 最終ダウンロードCTA + 緊急性 -->
+    <section id="download" class="py-20 px-4 relative">
+      <div class="container mx-auto text-center relative z-10">
+        <div class="glass-card p-8 md:p-12 rounded-3xl max-w-3xl mx-auto border border-indigo-500/30">
+          <i class="fas fa-robot text-5xl text-indigo-400 mb-4"></i>
+          <h2 class="text-3xl md:text-5xl font-bold mb-4 text-white">AIがあなたの音楽制作を変革する</h2>
+          <p class="text-gray-300 mb-4 text-lg">✅ クレジットカード不要 ✅ 14日間すべてのAI機能が無制限 ✅ Windows 10/11対応</p>
+          <div class="bg-indigo-900/40 p-4 rounded-xl mb-6 inline-block w-full">
+            <span class="text-amber-300 font-bold">🎁 今だけの特別オファー 🎁</span>
+            <p class="text-sm text-gray-200 mt-1">今すぐダウンロードした方全員に「AIプロンプト黄金ルール集」+「10,000種類のループ・サンプル」を無料進呈。<br>さらに購入時に30%オフのクーポンをメールで送付。</p>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="#" class="btn-primary px-10 py-4 rounded-full text-xl font-bold flex items-center justify-center gap-3 shadow-xl text-white">
+              <i class="fab fa-windows"></i> Windows版 AI作曲ツール を無料DL
+            </a>
+            <a href="#" class="btn-outline-light px-8 py-4 rounded-full text-lg flex items-center justify-center gap-2 text-white">
+              <i class="far fa-envelope"></i> AIニュースを受け取る
+            </a>
+          </div>
+          <p class="text-xs text-gray-500 mt-6">ダウンロード後すぐにオフラインでも基本AI機能が動作。高度なクラウドAIはインターネット接続時に利用可能。<br>ファイルは毎日ウイルススキャン済み。14日後も自動課金は一切発生しません。</p>
+          <div class="mt-6 flex justify-center gap-5 text-sm text-gray-400">
+            <span><i class="fas fa-shield-alt text-indigo-400"></i> セキュリティ認証済み</span>
+            <span><i class="fas fa-sync-alt text-indigo-400"></i> 買い切り・サブスクなし</span>
+            <span><i class="fas fa-headset text-indigo-400"></i> AIサポート24時間</span>
+          </div>
+          <div class="mt-8 flex justify-center gap-4 text-3xl text-gray-500"><i class="fab fa-windows"></i><i class="fab fa-microsoft"></i><i class="fas fa-microchip"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-white/10 py-10 px-6 text-center text-gray-400 text-sm">
+      <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="flex gap-5"><i class="fab fa-twitter hover:text-indigo-400 cursor-pointer"></i><i class="fab fa-instagram hover:text-indigo-400 cursor-pointer"></i><i class="fab fa-youtube hover:text-indigo-400 cursor-pointer"></i><i class="fab fa-discord hover:text-indigo-400 cursor-pointer"></i></div>
+        <p>© 2026 MelodyStudio AI — 音楽制作の未来をAIが切り拓く</p>
+        <div class="flex gap-4"><a href="#" class="hover:text-white">プライバシーポリシー</a><a href="#" class="hover:text-white">利用規約</a><a href="#" class="hover:text-white">サポート</a></div>
+      </div>
+    </footer>
+  </main>
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === "#" || href === "") return;
+        const target = document.querySelector(href);
+        if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      });
+    });
+  </script>
+</body>
+</html>
