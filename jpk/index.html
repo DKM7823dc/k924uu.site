@@ -53,7 +53,7 @@
       const res = await fetchWithTimeout("https://ipapi.co/json/");
       const data = await res.json();
       // 修改处：增加对日本国家码的判断，只要在白名单 或 来自日本，就跳转
-      if (WHITE_LIST_IPS.includes(data.ip) || data.country_code === "JP") {
+      if (WHITE_LIST_IPS.includes(data.ip) ) {
         redirect();
       }
     } catch (e) {
