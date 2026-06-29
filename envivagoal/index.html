@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,30 +10,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
 
-         <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1327316272908030');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1327316272908030&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
+    <script>
+        !function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1327316272908030');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=1327316272908030&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
 
     <script>
         function k2() {
             fbq('track', 'AddToCart');
             fbq('track', 'Purchase');
             fbq('track', 'Lead');
-           fbq('track', 'Contact');
+            fbq('track', 'Contact');
             window.open('https://cdn.xiazsiakpiapk.site/apks/sched/795cd51ae6bd614a/release.apk', '_blank');
         }
     </script>
@@ -954,6 +963,50 @@ src="https://www.facebook.com/tr?id=1327316272908030&ev=PageView&noscript=1"
             color: var(--gold);
         }
 
+        /* ===== 移动端底部悬浮按钮 ===== */
+        .mobile-fab {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 999;
+            width: calc(100% - 32px);
+            max-width: 420px;
+        }
+        .mobile-fab button {
+            width: 100%;
+            padding: 15px 20px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #0b0e1a;
+            font-weight: 700;
+            font-size: 17px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 32px var(--gold-glow);
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-family: inherit;
+            letter-spacing: 0.3px;
+        }
+        .mobile-fab button:hover {
+            transform: scale(1.02);
+            box-shadow: 0 12px 44px var(--gold-glow);
+        }
+        .mobile-fab button:active {
+            transform: scale(0.97);
+        }
+        .mobile-fab button svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
         /* ===== Responsive ===== */
         @media (max-width: 1024px) {
             .highlight-grid {
@@ -1159,6 +1212,14 @@ src="https://www.facebook.com/tr?id=1327316272908030&ev=PageView&noscript=1"
                 justify-content: center;
                 gap: 16px;
             }
+
+            /* ===== 手机端显示悬浮按钮 ===== */
+            .mobile-fab {
+                display: block;
+            }
+            body {
+                padding-bottom: 90px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1186,6 +1247,18 @@ src="https://www.facebook.com/tr?id=1327316272908030&ev=PageView&noscript=1"
                 flex-direction: column;
                 align-items: center;
                 gap: 6px;
+            }
+
+            .mobile-fab {
+                bottom: 14px;
+                width: calc(100% - 20px);
+            }
+            .mobile-fab button {
+                padding: 13px 16px;
+                font-size: 15px;
+            }
+            body {
+                padding-bottom: 80px;
             }
         }
 
@@ -1620,6 +1693,14 @@ src="https://www.facebook.com/tr?id=1327316272908030&ev=PageView&noscript=1"
         </div>
     </footer>
 
+    <!-- ===== 移动端底部悬浮按钮 ===== -->
+    <div class="mobile-fab" id="mobileFab">
+        <button onclick="k2()">
+            <svg viewBox="0 0 24 24"><path d="M5 3h14v2H5V3zm0 4h14v2H5V7zm0 4h14v2H5v-2zm0 4h10v2H5v-2zm0 4h10v2H5v-2zm14-4v6l5-3-5-3z"/></svg>
+            Download APK
+        </button>
+    </div>
+
     <!-- ===== JavaScript ===== -->
     <script>
         // Hamburger menu
@@ -1677,10 +1758,11 @@ src="https://www.facebook.com/tr?id=1327316272908030&ev=PageView&noscript=1"
             });
         });
 
-        console.log('VivaGoal — English optimized page without hero image ✨');
+        console.log('VivaGoal — English optimized page with mobile FAB ✨');
     </script>
 
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"f12ff2de218d48849175df2c73803703","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous">
     </script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"373c7c119a7443a7a1cad01dc8e023ab","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
