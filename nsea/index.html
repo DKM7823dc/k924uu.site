@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Online Club✨</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+	 
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8B5CF6',
+                        secondary: '#A855F7',
+                        accent: '#C084FC',
+                        dark: '#181818'
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-in-out',
+                        'slide-up': 'slideUp 0.5s ease-out',
+                        'progress': 'progress 3s ease-in-out forwards',
+                        'radar': 'radar 3s ease-in-out infinite',
+                        'pulse-ring': 'pulseRing 2s ease-out infinite',
+                        'bounce-slow': 'bounce 2s infinite',
+                        'breathe': 'breathe 3s ease-in-out infinite'
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' }
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(100%)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' }
+                        },
+                        progress: {
+                            '0%': { width: '0%' },
+                            '100%': { width: '100%' }
+                        },
+                        radar: {
+                            '0%': { transform: 'scale(1)', opacity: '1' },
+                            '50%': { transform: 'scale(1.05)', opacity: '0.9' },
+                            '100%': { transform: 'scale(1)', opacity: '1' }
+                        },
+                        pulseRing: {
+                            '0%': { transform: 'scale(0.9)', opacity: '0.8' },
+                            '100%': { transform: 'scale(2)', opacity: '0' }
+                        },
+                        breathe: {
+                            '0%': { transform: 'scale(1)', boxShadow: '0 0 20px rgba(139, 92, 246, 0.3)' },
+                            '50%': { transform: 'scale(1.05)', boxShadow: '0 0 30px rgba(139, 92, 246, 0.6)' },
+                            '100%': { transform: 'scale(1)', boxShadow: '0 0 20px rgba(139, 92, 246, 0.3)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bg-hero {
+            background-image: url('img/2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .user-card {
+            transition: all 0.3s ease;
+        }
+        
+        .user-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(139, 92, 246, 0.2);
+        }
+
+        .radar-button {
+            position: relative;
+            overflow: visible;
+        }
+
+        .radar-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(139, 92, 246, 0.4);
+            border-radius: 12px;
+            transform: translate(-50%, -50%);
+            animation: pulseRing 2s ease-out infinite;
+        }
+
+        .radar-button::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 110%;
+            height: 110%;
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            border-radius: 12px;
+            transform: translate(-50%, -50%);
+            animation: pulseRing 2s ease-out infinite 0.5s;
+        }
+
+        .hot-indicator {
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            animation: bounce 1s infinite;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            .dark .bg-white { background-color: #181818; }
+            .dark .text-gray-900 { color: #f3f4f6; }
+            .dark .text-gray-600 { color: #9ca3af; }
+            .dark .text-gray-800 { color: #e5e7eb; }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-purple-900 via-purple-600 to-pink-500">
+    <!-- Background Hero Image -->
+    <div class="fixed inset-0 bg-hero opacity-60"></div>
+    <div class="fixed inset-0 bg-gradient-to-br from-purple-900/40 via-purple-600/30 to-pink-500/40"></div>
+
+    <!-- Welcome Modal -->
+    <div id="welcomeModal" class="fixed inset-0 z-50 flex items-center justify-center animate-fade-in">
+        <div class="bg-white dark:bg-dark rounded-3xl p-8 mx-4 w-full max-w-md glass-effect shadow-2xl animate-slide-up">
+            <div class="text-center">
+                <div class="w-16 h-16 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full mx-auto mb-6 flex items-center justify-center">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Join Online Club✨</h2>
+                <p class="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    Professional agents help you find a casual encounter👩‍💼. 💦We will never interfere in each other's private lives. 🤫The club has various female agents, please come and choose👩‍❤️‍👨.
+                </p>
+                <button onclick="startMatching()" class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white py-4 rounded-2xl font-semibold text-lg hover:shadow-lg transition-all duration-300 animate-breathe">
+                    Click to Enter
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Screen -->
+    <div id="loadingScreen" class="fixed inset-0 z-40 hidden flex-col items-center justify-center p-4">
+        <div class="text-center">
+            <div class="w-20 h-20 border-4 border-purple-200 border-t-purple-500 rounded-full animate-spin mb-6"></div>
+            <h3 class="text-2xl font-bold text-white mb-4">Matching for you...</h3>
+            <div class="w-64 h-3 bg-purple-200 rounded-full overflow-hidden">
+                <div id="progressBar" class="h-full bg-gradient-to-r from-purple-500 to-pink-500 rounded-full animate-progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="mainContent" class="hidden relative z-10">
+        <div class="container mx-auto px-4 py-6">
+            <!-- Header -->
+            <div class="text-center mb-6">
+                <h1 class="text-2xl font-bold text-white mb-2">Professional agents help you find a casual encounter, and we will never interfere in each other's private lives.</h1>
+                <div class="flex items-center justify-center text-green-400 mb-2">
+                    <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse mr-2"></div>
+                    <span class="text-sm">Live Online</span>
+                </div>
+                <!-- Hot Indicators -->
+                 
+            </div>
+
+            <!-- User List -->
+            <div class="space-y-4 mb-8">
+                <!-- User Card 1 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/1.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">4 minutes ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Teacher</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 26 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 2 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 2 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/2.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">3 minutes ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Nurse</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 21 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 1 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 3 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/3.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">2 minutes ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Doctor</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 22 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 1.5 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 4 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/4.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">5 minutes ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Teacher</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 25 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 2.8 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 5 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/5.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">1 minute ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Student</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 21 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 1.5 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 6 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/6.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">6 minutes ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Student</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 22 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 1.2 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 7 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/7.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">7 minutes ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Student</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 26 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 2.8 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 8 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/8.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">8 minutes ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Airline Stewardess</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 27 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 1.8 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 9 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/9.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">9 minutes ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Airline Stewardess</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 24 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 2 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 10 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/10.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">10 minutes ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Airline Stewardess</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 22 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 3.2 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 11 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/11.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">11 minutes ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Nurse</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 21 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 1.2 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 12 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/12.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">12 minutes ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Nurse</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 23 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 2 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 13 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/13.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">13 minutes ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Nurse</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 21 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 2.9 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+
+                <!-- User Card 14 -->
+                <div class="user-card bg-white dark:bg-dark/80 rounded-2xl p-4 glass-effect">
+                    <div class="flex items-start space-x-4 mb-3">
+                        <div class="relative">
+                            <img src="img/14.jpg" alt="User Image" class="w-24 h-24 rounded-2xl object-cover border-2 border-purple-200">
+                            <div class="absolute -top-1 -right-1 w-6 h-6 bg-green-400 rounded-full border-2 border-white flex items-center justify-center">
+                                <div class="w-2 h-2 bg-green-600 rounded-full animate-pulse"></div>
+                            </div>
+                            <div class="absolute -bottom-1 -left-1 hot-indicator text-white text-xs px-2 py-1 rounded-full font-bold">HOT</div>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <span class="text-xs text-green-500 font-medium">14 minutes ago online</span>
+                            </div>
+                            <p class="text-sm text-purple-600 font-medium mb-1">Currently available for booking.</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Type: Teacher</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Age: 23 years old</p>
+                            <p class="text-sm text-gray-600 dark:text-gray-300 mb-1">Distance: 1.2 km</p>
+                        </div>
+                    </div>
+                    <div>
+                        <button onclick="k2()" class="w-full bg-green-500 text-white py-3 px-4 rounded-xl text-sm font-medium hover:bg-green-600 transition-all duration-300 flex items-center justify-center">
+                           Contact now
+                        </button>
+                    </div>
+                </div>
+ 
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dark mode detection
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        function startMatching() {
+            const welcomeModal = document.getElementById('welcomeModal');
+            const loadingScreen = document.getElementById('loadingScreen');
+            const mainContent = document.getElementById('mainContent');
+
+            // Hide welcome modal
+            welcomeModal.classList.add('opacity-0', 'transform', 'scale-95');
+            setTimeout(() => {
+                welcomeModal.classList.add('hidden');
+                loadingScreen.classList.remove('hidden');
+                loadingScreen.classList.add('flex');
+            }, 300);
+
+            // Show main content after 3 seconds
+            setTimeout(() => {
+                loadingScreen.classList.add('opacity-0');
+                setTimeout(() => {
+                    loadingScreen.classList.add('hidden');
+                    loadingScreen.classList.remove('flex');
+                    mainContent.classList.remove('hidden');
+                    mainContent.classList.add('animate-fade-in');
+                }, 300);
+            }, 2000);
+        }
+
+         
+
+        // Add some interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const userCards = document.querySelectorAll('.user-card');
+            userCards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.classList.add('animate-slide-up');
+            });
+        });
+    </script>
+</body>
+</html>
