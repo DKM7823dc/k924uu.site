@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elite Link-Ups ✨ VIP Club</title>
+    <title>BloomGirl ✨ VIP Club</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -71,10 +71,12 @@
     <header class="sticky top-0 z-50 bg-[#0a0a0a]/90 backdrop-blur-md border-b border-white/10">
         <div class="container mx-auto px-4 h-16 flex justify-between items-center">
             <div class="flex items-center space-x-2">
-                <div class="w-8 h-8 rounded bg-brand-accent flex items-center justify-center text-black font-serif font-bold text-xl">
-                    E
+                <!-- 修改：使用 t1.jpg 作为 Logo -->
+                <div class="w-8 h-8 rounded overflow-hidden border border-brand-accent/50 flex items-center justify-center">
+                    <img src="img/t1.jpg" alt="BloomGirl Logo" class="w-full h-full object-cover">
                 </div>
-                <span class="font-serif font-bold text-xl tracking-wide text-gold-gradient">ELITE CLUB</span>
+                <!-- 修改：品牌名 BloomGirl -->
+                <span class="font-serif font-bold text-xl tracking-wide text-gold-gradient">BloomGirl</span>
             </div>
             <div class="flex items-center space-x-2 text-xs font-semibold px-3 py-1.5 rounded-full bg-white/5 border border-white/10">
                 <span class="relative flex h-2.5 w-2.5">
@@ -143,7 +145,7 @@
                 <!-- 所有的剩余数据都将在这里循环渲染出来 -->
             </div>
 
-            <!-- 新增：触底转化按钮 Load More / View All -->
+            <!-- 触底转化按钮 Load More / View All -->
             <button onclick="bookAgent()" class="w-full mt-8 py-4 rounded-xl border border-brand-accent/40 text-brand-gold font-bold text-sm bg-brand-card hover:bg-brand-accent hover:text-black transition-all duration-300 flex justify-center items-center shadow-[0_0_20px_rgba(212,175,55,0.05)] hover:shadow-[0_0_25px_rgba(212,175,55,0.25)] group">
                 <svg class="w-5 h-5 mr-2 group-hover:animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                 Unlock More Elite Babes
