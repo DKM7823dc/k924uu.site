@@ -1,0 +1,1935 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>TEMUCINTA - Temukan Cinta Sejati di Indonesia</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary-purple: #3a1c71;
+            --primary-purple-dark: #2e1a54;
+            --primary-purple-light: #512c99;
+            --secondary-pink: #e6307a;
+            --secondary-pink-light: #ff5e95;
+            --accent-pink: #ff8faf;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --card-bg: rgba(58, 28, 113, 0.8);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --whatsapp-green: #25D366;
+            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-light);
+            line-height: 1.7;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-purple-dark));
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.3;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Background Elements */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-purple), var(--primary-purple-dark));
+            z-index: -2;
+        }
+        
+        .bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            background-color: var(--accent-pink);
+            width: 30px;
+            height: 30px;
+            opacity: 0.6;
+            border-radius: 50%;
+            animation: float-up 15s infinite linear;
+        }
+        
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.6;
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                transform: translateY(-200px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Header Styles */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            background-color: rgba(58, 28, 113, 0.7);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            letter-spacing: 1px;
+        }
+        
+        .logo i {
+            margin-right: 12px;
+            color: var(--secondary-pink);
+            font-size: 32px;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            gap: 10px;
+            border: none;
+            outline: none;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(45deg, var(--secondary-pink), var(--secondary-pink-light));
+            color: white;
+            box-shadow: 0 8px 20px rgba(230, 48, 122, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(230, 48, 122, 0.4);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary-pink);
+            color: white;
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--secondary-pink);
+            transform: translateY(-5px);
+        }
+        
+        .btn-whatsapp {
+            background-color: var(--whatsapp-green);
+            color: white;
+            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3);
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #20BD5A;
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(37, 211, 102, 0.4);
+        }
+        
+        /* WhatsApp Fixed Button */
+        .whatsapp-fixed {
+            position: fixed;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background-color: var(--whatsapp-green);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+            cursor: pointer;
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-fixed:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 12px 30px rgba(37, 211, 102, 0.5);
+        }
+        
+        .whatsapp-icon {
+            font-size: 30px;
+            color: white;
+        }
+        
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 22px;
+            height: 22px;
+            background-color: #FF4757;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+            box-shadow: 0 3px 8px rgba(255, 71, 87, 0.4);
+        }
+        
+        /* Hero Section - Redesigned without background image */
+        .hero {
+            padding: 150px 0 100px;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, var(--primary-purple-dark), var(--primary-purple));
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: 0;
+        }
+        
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-card {
+            background-color: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+            animation: fadeInUp 1s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-pink), var(--accent-pink));
+        }
+        
+        .hero-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            background: linear-gradient(90deg, #fff, var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: shimmer 2s infinite;
+            background-size: 200% 100%;
+        }
+        
+        @keyframes shimmer {
+            0% {
+                background-position: -200% 0;
+            }
+            100% {
+                background-position: 200% 0;
+            }
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+        
+        .hero-image {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .hero-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .hero-image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; 
+            z-index: 1;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transform: scale(1.05);
+            transition: transform 0.5s ease;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .hero-shape {
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: var(--secondary-pink);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero-shape-2 {
+            position: absolute;
+            top: -80px;
+            left: -80px;
+            width: 200px;
+            height: 200px;
+            background: var(--secondary-pink);
+            border-radius: 50%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .hero-decoration {
+            position: absolute;
+            z-index: 1;
+        }
+        
+        .hero-decoration-1 {
+            top: 20%;
+            left: 10%;
+            font-size: 30px;
+            color: var(--secondary-pink);
+            opacity: 0.5;
+            animation: float 7s ease-in-out infinite;
+        }
+        
+        .hero-decoration-2 {
+            bottom: 15%;
+            right: 15%;
+            font-size: 24px;
+            color: var(--secondary-pink);
+            opacity: 0.4;
+            animation: float 5s ease-in-out infinite 1s;
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        .floating-heart {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            animation: float-up 20s linear infinite;
+        }
+        
+        .heart-svg {
+            fill: var(--secondary-pink);
+            opacity: 0.6;
+        }
+        
+        .bubble {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: bubbleFloat 15s infinite linear;
+        }
+        
+        @keyframes bubbleFloat {
+            0% {
+                transform: translate(0, 100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.1;
+                transform: translate(10px, 80vh) scale(1);
+            }
+            100% {
+                transform: translate(20px, -100px) scale(0.5);
+                opacity: 0;
+            }
+        }
+        
+        /* Members Section */
+        .members {
+            padding: 100px 0;
+            position: relative;
+            background-color: rgba(58, 28, 113, 0.7);
+            backdrop-filter: blur(10px);
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--secondary-pink), var(--accent-pink));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .member-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--card-border);
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .member-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .member-image-container {
+            position: relative;
+            width: 100%;
+            height: 0;
+            padding-bottom: 100%; /* Square aspect ratio */
+            overflow: hidden;
+        }
+        
+        .member-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 130%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .member-card:hover .member-image {
+            transform: scale(1.05);
+        }
+        
+        .member-online {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--secondary-pink);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            z-index: 2;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: white;
+            border-radius: 50%;
+            position: relative;
+        }
+        
+        .pulse-dot::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: white;
+            border-radius: 50%;
+            z-index: -1;
+            animation: pulse-ring 1.5s infinite;
+        }
+        
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(2);
+                opacity: 0;
+            }
+        }
+        
+        .member-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .member-name {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--accent-pink);
+        }
+        
+        .member-statement {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            font-style: italic;
+            opacity: 0.9;
+            flex-grow: 1;
+        }
+        
+        .members-stats {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px;
+            background: linear-gradient(135deg, var(--primary-purple-light), var(--primary-purple));
+            border-radius: 15px;
+            color: white;
+            box-shadow: var(--box-shadow);
+            border: 1px solid var(--card-border);
+            animation: fadeIn 1s;
+        }
+        
+        .stats-number {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, #fff, var(--accent-pink));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block;
+        }
+        
+        .stats-text {
+            font-size: 20px;
+            opacity: 0.9;
+        }
+        
+        /* About Section - Redesigned to be more vibrant */
+        .about {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(45deg, var(--primary-purple), var(--primary-purple-dark));
+        }
+        
+        .about::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='42' height='44' viewBox='0 0 42 44' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 0h4v4H0V0zm0 8h4v4H0V8zm0 8h4v4H0v-4zm8 0h4v4H8v-4zm8 0h4v4h-4v-4zm8 0h4v4h-4v-4zm8 0h4v4h-4v-4zM0 24h4v4H0v-4zm8 0h4v4H8v-4zm8 0h4v4h-4v-4zm8 0h4v4h-4v-4zm8 0h4v4h-4v-4zm10-16h2v2h-2v-2zm0 8h2v2h-2v-2zm0 8h2v2h-2v-2zm0 8h2v2h-2v-2zM2 4h2v2H2V4zm0 8h2v2H2v-2zm0 8h2v2H2v-2zm0 8h2v2H2v-2zm10-20h2v2h-2V8zm0 8h2v2h-2v-2zm0 8h2v2h-2v-2zm0 8h2v2h-2v-2zm10-20h2v2h-2V8zm0 8h2v2h-2v-2zm0 8h2v2h-2v-2zm0 8h2v2h-2v-2zm10-20h2v2h-2V8zm0 8h2v2h-2v-2zm0 8h2v2h-2v-2zm0 8h2v2h-2v-2z'/%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+        
+        .about-container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .about-card {
+            background-color: rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 30px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transition: transform 0.6s ease, box-shadow 0.6s ease;
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .about-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.25);
+        }
+        
+        .about-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--secondary-pink), var(--secondary-pink-light));
+        }
+        
+        .about-icon {
+            font-size: 40px;
+            color: var(--secondary-pink);
+            margin-bottom: 20px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+        
+        .about-card:hover .about-icon {
+            transform: scale(1.2);
+        }
+        
+        .about-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--accent-pink);
+        }
+        
+        .about-text {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+        
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin: 50px 0;
+        }
+        
+        .about-stat {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+            transform: translateY(50px);
+            opacity: 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .about-stat.visible {
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+        
+        .about-stat:hover {
+            transform: translateY(-5px) scale(1.05);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .about-stat::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary-pink), var(--secondary-pink-light));
+        }
+        
+        .about-stat-number {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text-light);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .about-stat-text {
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .about-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* Testimonials Section - Redesigned for better image integration */
+        .testimonials {
+            padding: 100px 0;
+            background-color: rgba(46, 23, 88, 0.7);
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--card-border);
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .testimonial-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .testimonial-header {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .testimonial-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial-card:hover .testimonial-image {
+            transform: scale(1.05);
+        }
+        
+        .testimonial-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%; 
+        }
+        
+        .testimonial-quote {
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+            font-size: 36px;
+            color: var(--secondary-pink);
+            opacity: 0.7;
+        }
+        
+        .testimonial-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        .testimonial-text {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            flex-grow: 1;
+            z-index: 1;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 15px;
+        }
+        
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--secondary-pink);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: white;
+            font-size: 22px;
+        }
+        
+        .author-info h4 {
+            font-weight: 600;
+            color: var(--accent-pink);
+            margin-bottom: 4px;
+        }
+        
+        .author-info p {
+            font-size: 14px;
+            color: var(--text-light);
+            opacity: 0.7;
+        }
+        
+        /* How It Works Section */
+        .how-it-works {
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .step-card {
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            padding: 35px 30px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            border: 1px solid var(--card-border);
+            transform: translateY(50px);
+            opacity: 0;
+        }
+        
+        .step-card.visible {
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 0.6s ease, opacity 0.6s ease;
+        }
+        
+        .step-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary-pink), var(--accent-pink));
+        }
+        
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary-pink), var(--secondary-pink-light));
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 24px;
+            margin: 0 auto 25px;
+            position: relative;
+        }
+        
+        .step-number::before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            background: linear-gradient(135deg, var(--secondary-pink), var(--secondary-pink-light));
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.5;
+            animation: pulse 2s infinite;
+        }
+        
+        .step-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--accent-pink);
+        }
+        
+        .step-description {
+            color: var(--text-light);
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+        
+        /* CTA Section */
+        .cta {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-purple-light), var(--primary-purple-dark));
+            color: var(--text-light);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.07' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .cta-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 25px;
+        }
+        
+        .cta-text {
+            font-size: 20px;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: rgba(46, 23, 88, 0.9);
+            color: white;
+            padding: 80px 0 30px;
+            position: relative;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-logo i {
+            margin-right: 12px;
+            color: var(--secondary-pink);
+        }
+        
+        .footer-about {
+            opacity: 0.8;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        
+        .footer-heading {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: white;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: white;
+            opacity: 0.7;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-right: 8px;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--secondary-pink);
+            transform: translateX(5px);
+        }
+        
+        .disclaimer {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+        }
+        
+        .disclaimer-title {
+            font-weight: 600;
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+        
+        .disclaimer-text {
+            opacity: 0.8;
+            font-size: 14px;
+            margin-bottom: 15px;
+            line-height: 1.7;
+        }
+        
+        .copyright {
+            text-align: center;
+            opacity: 0.7;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-image {
+                margin-top: 40px;
+            }
+            
+            .about-stats {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 150px 0 80px;
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .members-grid, 
+            .testimonial-grid,
+            .about-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .step-card {
+                padding: 25px 20px;
+            }
+            
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .whatsapp-fixed {
+                width: 50px;
+                height: 50px;
+                right: 15px;
+            }
+            
+            .whatsapp-icon {
+                font-size: 25px;
+            }
+            
+            .notification-badge {
+                width: 18px;
+                height: 18px;
+                font-size: 10px;
+            }
+            
+            .about-stats {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .hero-card {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Elements -->
+    <div class="bg-gradient"></div>
+    <div class="bg-particles" id="particles-js"></div>
+    
+    <!-- WhatsApp Fixed Button -->
+    <div class="whatsapp-fixed" onclick="opensite()">
+        <i class="fab fa-whatsapp whatsapp-icon"></i>
+        <div class="notification-badge">1</div>
+    </div>
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-container">
+                <div class="logo">
+                    <i class="fas fa-heart"></i> TEMUCINTA
+                </div>
+                 
+            </div>
+        </div>
+    </header>
+    
+    <!-- Hero Section - Redesigned without background image -->
+    <section class="hero">
+        <div class="hero-shape"></div>
+        <div class="hero-shape-2"></div>
+        <div class="hero-decoration hero-decoration-1">
+            <i class="fas fa-heart"></i>
+        </div>
+        <div class="hero-decoration hero-decoration-2">
+            <i class="fas fa-star"></i>
+        </div>
+        <div class="floating-hearts" id="floating-hearts"></div>
+        
+        <div class="container">
+            <div class="hero-grid">
+                <div class="hero-content">
+                    <div class="hero-card">
+                        <h1 class="hero-title">TEMUCINTA — Kisah Cinta Anda Dimulai di Sini</h1>
+                        <p class="hero-subtitle">
+                            Di TEMUCINTA, kami percaya setiap orang pantas bertemu dengan seseorang yang istimewa. Platform kami mengumpulkan orang-orang lajang dari seluruh Indonesia untuk membangun koneksi yang tulus, langgeng, dan nyata. Berikan diri Anda kesempatan untuk menciptakan kisah yang indah.
+                        </p>
+                        <button class="btn btn-primary btn-animated" onclick="opensite()">
+                            <i class="fas fa-heart"></i> Mulai Sekarang
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="hero-image">
+                    <div class="hero-image-container">
+                        <div class="hero-image-overlay"></div>
+                        <img src="https://pfst.cf2.poecdn.net/base/image/cc9b9ad1b6648662ae9a5ab2ece03851cc5b64adcd4e92a28cdf2f89393ec88d?w=1224&h=816" alt="Pasangan Bahagia">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Members Section -->
+    <section class="members">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Temui Orang Lajang yang Siap Menulis Kisah Indah</h2>
+                <p class="section-subtitle">
+                    Ribuan orang lajang menarik dari seluruh Indonesia menunggu untuk bertemu dengan Anda
+                </p>
+            </div>
+            
+            <div class="members-grid">
+                <div class="member-card">
+                    <div class="member-image-container">
+                        <img src="https://www.upoaa.online/yn/img/1.jpg" alt="Ayu" class="member-image">
+                    </div>
+                    <div class="member-online">
+                        <div class="pulse-dot"></div> Online
+                    </div>
+                    <div class="member-content">
+                        <h3 class="member-name">Ayu</h3>
+                        <p class="member-statement">
+                            "Di lautan manusia, saya percaya ada seseorang yang akan membuat dunia saya lebih indah. Mungkinkah itu Anda?"
+                        </p>
+                        <button class="btn btn-primary" onclick="opensite()">
+                            <i class="fas fa-comment"></i> Kirim Pesan
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-image-container">
+                        <img src="https://www.upoaa.online/yn/img/2.jpg" alt="Putri" class="member-image">
+                    </div>
+                    <div class="member-online">
+                        <div class="pulse-dot"></div> Online
+                    </div>
+                    <div class="member-content">
+                        <h3 class="member-name">Putri</h3>
+                        <p class="member-statement">
+                            "Suka mencoba hal-hal baru, lebih suka berpetualang dengan orang spesial. Maukah Anda menjadi yang spesial untuk saya?"
+                        </p>
+                        <button class="btn btn-primary" onclick="opensite()">
+                            <i class="fas fa-comment"></i> Kirim Pesan
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-image-container">
+                        <img src="https://www.upoaa.online/yn/img/3.jpg" alt="Dewi" class="member-image">
+                    </div>
+                    <div class="member-online">
+                        <div class="pulse-dot"></div> Online
+                    </div>
+                    <div class="member-content">
+                        <h3 class="member-name">Dewi</h3>
+                        <p class="member-statement">
+                            "Saya orang yang sederhana, suka tertawa, suka makan, dan tentu saja, lebih suka berbagi semua itu dengan orang yang tepat."
+                        </p>
+                        <button class="btn btn-primary" onclick="opensite()">
+                            <i class="fas fa-comment"></i> Kirim Pesan
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-image-container">
+                        <img src="https://www.upoaa.online/yn/img/4.jpg" alt="Indah" class="member-image">
+                    </div>
+                    <div class="member-online">
+                        <div class="pulse-dot"></div> Online
+                    </div>
+                    <div class="member-content">
+                        <h3 class="member-name">Indah</h3>
+                        <p class="member-statement">
+                            "Saya menikmati kebebasan, tapi lebih berharap dalam perjalanan kebebasan itu, bisa bertemu seseorang untuk berjalan bersama."
+                        </p>
+                        <button class="btn btn-primary" onclick="opensite()">
+                            <i class="fas fa-comment"></i> Kirim Pesan
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-image-container">
+                        <img src="https://www.upoaa.online/yn/img/5.jpg" alt="Sari" class="member-image">
+                    </div>
+                    <div class="member-online">
+                        <div class="pulse-dot"></div> Online
+                    </div>
+                    <div class="member-content">
+                        <h3 class="member-name">Sari</h3>
+                        <p class="member-statement">
+                            "Saya mungkin bukan orang yang paling istimewa, tapi saya bersedia menggunakan keistimewaan saya untuk menjaga keunikan Anda."
+                        </p>
+                        <button class="btn btn-primary" onclick="opensite()">
+                            <i class="fas fa-comment"></i> Kirim Pesan
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <div class="member-image-container">
+                        <img src="https://www.upoaa.online/yn/img/6.jpg" alt="Lestari" class="member-image">
+                    </div>
+                    <div class="member-online">
+                        <div class="pulse-dot"></div> Online
+                    </div>
+                    <div class="member-content">
+                        <h3 class="member-name">Lestari</h3>
+                        <p class="member-statement">
+                            "Saya bisa sangat keren, juga bisa sangat imut, tapi yang paling ingin saya jadi adalah pengecualian di hatimu."
+                        </p>
+                        <button class="btn btn-primary" onclick="opensite()">
+                            <i class="fas fa-comment"></i> Kirim Pesan
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="members-stats">
+                <div class="stats-number">23,922</div>
+                <p class="stats-text">Anggota telah bergabung dengan platform kami</p>
+                <p style="margin-top: 10px; opacity: 0.8;">Klik tombol untuk melihat profil lainnya, jangan lewatkan kesempatan Anda</p>
+                <button class="btn btn-primary btn-animated" style="margin-top: 25px;" onclick="opensite()">
+                    <i class="fas fa-user-plus"></i> Lihat Lebih Banyak Profil
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section - Redesigned to be more vibrant -->
+    <section class="about">
+        <div class="container about-container">
+            <div class="about-header">
+                <h2 class="section-title">Tentang Kami</h2>
+                <p class="section-subtitle">
+                    Temui orang istimewa, mulai dari sini!
+                </p>
+            </div>
+            
+            <div class="about-cards">
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="about-title">Temukan Cinta Sejati</h3>
+                    <p class="about-text">
+                        Kami membantu Anda menemukan pasangan yang benar-benar cocok dengan kepribadian dan nilai-nilai Anda. Mulailah perjalanan romantis Anda hari ini.
+                    </p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="about-title">Aman & Terpercaya</h3>
+                    <p class="about-text">
+                        Keamanan Anda adalah prioritas kami. Semua profil diverifikasi dan kami melindungi informasi pribadi Anda dengan standar keamanan tertinggi.
+                    </p>
+                </div>
+                
+                <div class="about-card">
+                    <div class="about-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="about-title">Komunitas Berkualitas</h3>
+                    <p class="about-text">
+                        Bergabunglah dengan ribuan anggota berkualitas yang mencari hubungan serius dan bermakna. Kami menghubungkan Anda dengan orang-orang yang sesuai.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="about-stats">
+                <div class="about-stat">
+                    <div class="about-stat-number">23,922+</div>
+                    <div class="about-stat-text">Total Anggota Wanita</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat-number">25</div>
+                    <div class="about-stat-text">Rata-rata Usia</div>
+                </div>
+                <div class="about-stat">
+                    <div class="about-stat-number">19,821</div>
+                    <div class="about-stat-text">Online Sekarang</div>
+                </div>
+            </div>
+            
+            <div class="about-cta">
+                <button class="btn btn-primary btn-animated" onclick="opensite()">
+                    <i class="fas fa-heart"></i> Gabung Sekarang
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section - Redesigned for better image integration -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kisah Sukses dari Pengguna Kami</h2>
+                <p class="section-subtitle">
+                    Saksikan cinta indah mereka, terima kasih TEMUCINTA
+                </p>
+            </div>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://www.upoaa.online/yn/img/b1.jpg" alt="Testimoni 1" class="testimonial-image">
+                        <div class="testimonial-overlay"></div>
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            "Saya tidak pernah berpikir, pesan sederhana bisa mengubah hidup saya. Ketika menulis kepada Julian, itu hanya sebuah percobaan. Beberapa hari kemudian, hubungan kami berkembang cepat, dan tiga bulan kemudian kami bertemu di Lyon seperti keajaiban. Sekarang, kami menghabiskan setiap hari bersama. Terima kasih TEMUCINTA atas keajaibannya."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Amelia</h4>
+                                <p>Jakarta</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://www.upoaa.online/yn/img/b2.jpg" alt="Testimoni 2" class="testimonial-image">
+                        <div class="testimonial-overlay"></div>
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            "Berkat TEMUCINTA, kami berhasil mengatasi jarak ribuan kilometer, dari virtual ke kenyataan. Sekarang, jarak antar dua kota hanya menambah kebahagiaan kami."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Budi & Anisa</h4>
+                                <p>Bandung - Surabaya</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <img src="https://www.upoaa.online/yn/img/b3.jpg" alt="Testimoni 3" class="testimonial-image">
+                        <div class="testimonial-overlay"></div>
+                        <div class="testimonial-quote">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">
+                            "Aplikasi kencan yang dangkal telah mengecewakan saya berkali-kali, sampai saya menemukan TEMUCINTA. Di sini, saya bertemu Lucas, pasangan yang tulus dan perhatian. Kami berbagi nilai-nilai yang sama, dan hidup kami menjadi lebih indah karenanya."
+                        </p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="author-info">
+                                <h4>Maya</h4>
+                                <p>Bali</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Mulai Perjalanan Cinta Anda</h2>
+                <p class="section-subtitle">
+                    Gabung dengan TEMUCINTA sangat mudah dan cepat
+                </p>
+            </div>
+            
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Tambahkan Kami di WhatsApp</h3>
+                    <p class="step-description">
+                        Hubungi kami melalui WhatsApp untuk memulai perjalanan mencari cinta Anda.
+                    </p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Kirim Profil Anda</h3>
+                    <p class="step-description">
+                        Isi nama, usia, kota, minat, dan tipe pasangan ideal Anda... cepat dan rahasia!
+                    </p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Dapatkan Rekomendasi Pertama</h3>
+                    <p class="step-description">
+                        Tim kami akan memilihkan pasangan yang sangat sesuai dan tulus untuk Anda. Langkah pertama ada di tangan Anda!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title">Temukan Cinta Sejati Anda Hari Ini</h2>
+                <p class="cta-text">
+                    Bergabunglah dengan ribuan orang yang telah menemukan kebahagiaan melalui TEMUCINTA
+                </p>
+                <button class="btn btn-whatsapp btn-animated" style="font-size: 18px; padding: 15px 35px;" onclick="opensite()">
+                    <i class="fab fa-whatsapp"></i> Mulai Sekarang
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <i class="fas fa-heart"></i> TEMUCINTA
+                    </div>
+                    <p class="footer-about">
+                        TEMUCINTA Dirancang untuk membantu Anda menemukan koneksi yang bermakna dan tulus..
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Link Cepat</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Beranda</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Tentang Kami</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Cara Kerja</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Kebijakan</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Kebijakan Privasi</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Syarat & Ketentuan</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Keamanan</a></li>
+                        <li><a href="#"><i class="fas fa-chevron-right"></i> Bantuan</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="disclaimer">
+                <h4 class="disclaimer-title">Informasi Penting</h4>
+               
+                <p class="disclaimer-text">
+                    Semua profil pengguna diverifikasi untuk memastikan keamanan dan keaslian. Kami sangat menghargai privasi Anda dan tidak akan pernah membagikan informasi pribadi tanpa persetujuan.
+                </p>
+                <p class="disclaimer-text">
+                    Semua foto pengguna digunakan dengan izin dan tidak boleh direproduksi di luar platform kami. Konten kami sesuai dengan kebijakan periklanan Facebook dan TikTok serta standar komunitas.
+                </p>
+                 
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 TEMUCINTA. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script>
+        function opensite() {
+             window.location.href = "https://sourl.cn/A8rSSX";
+        }
+        
+        // Create floating hearts
+        function createFloatingElements() {
+            const container = document.getElementById('floating-hearts');
+            const heartCount = 20;
+            const bubbleCount = 15;
+            
+            // Create hearts
+            for(let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.style.left = `${Math.random() * 100}%`;
+                heart.style.animationDelay = `${Math.random() * 15}s`;
+                heart.style.animationDuration = `${15 + Math.random() * 10}s`;
+                heart.style.opacity = `${0.1 + Math.random() * 0.5}`;
+                heart.style.width = `${20 + Math.random() * 20}px`;
+                heart.style.height = heart.style.width;
+                
+                const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+                svg.setAttribute("viewBox", "0 0 24 24");
+                svg.classList.add("heart-svg");
+                
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("d", "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z");
+                
+                svg.appendChild(path);
+                heart.appendChild(svg);
+                container.appendChild(heart);
+            }
+            
+            // Create bubbles
+            for(let i = 0; i < bubbleCount; i++) {
+                const bubble = document.createElement('div');
+                bubble.classList.add('bubble');
+                bubble.style.left = `${Math.random() * 100}%`;
+                bubble.style.animationDelay = `${Math.random() * 15}s`;
+                bubble.style.width = `${5 + Math.random() * 15}px`;
+                bubble.style.height = bubble.style.width;
+                container.appendChild(bubble);
+            }
+        }
+        
+        // Initialize Particles.js
+        function initParticles() {
+            particlesJS('particles-js', {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#ffffff"
+                    },
+                    "shape": {
+                        "type": "circle",
+                        "stroke": {
+                            "width": 0,
+                            "color": "#000000"
+                        },
+                    },
+                    "opacity": {
+                        "value": 0.3,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true,
+                        "anim": {
+                            "enable": true,
+                            "speed": 2,
+                            "size_min": 0.1,
+                            "sync": false
+                        }
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#ffffff",
+                        "opacity": 0.2,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 1,
+                        "direction": "none",
+                        "random": true,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false,
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "bubble"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    },
+                    "modes": {
+                        "bubble": {
+                            "distance": 150,
+                            "size": 5,
+                            "duration": 2,
+                            "opacity": 0.5,
+                            "speed": 3
+                        },
+                        "push": {
+                            "particles_nb": 4
+                        }
+                    }
+                },
+                "retina_detect": true
+            });
+        }
+        
+        // Scroll animation for cards
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.member-card, .testimonial-card, .step-card, .about-stat, .about-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            elements.forEach(element => {
+                observer.observe(element);
+            });
+        }
+        
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingElements();
+            if (typeof particlesJS !== 'undefined') {
+                initParticles();
+            }
+            animateOnScroll();
+        });
+    </script>
+</body>
+</html>

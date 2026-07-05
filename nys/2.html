@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SparkCircle - Cerita Cintamu Dimulai Di Sini</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #b241c3;
+            --secondary-color: #ff6b6b;
+            --accent-color: #4ecdc4;
+            --dark-color: #292f36;
+            --light-color: #f7f7f7;
+            --online-color: #4CAF50;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f0fb;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #8a2be2 100%);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 5px 20px rgba(178, 65, 195, 0.3);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .tagline {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn:hover {
+            background-color: #ff8c8c;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+        
+        .btn:active::after {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25D366;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+        }
+        
+        .section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--primary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        
+        .members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .member-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .member-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(178, 65, 195, 0.2);
+        }
+        
+        .member-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+        
+        .member-info {
+            padding: 20px;
+        }
+        
+        .member-name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .online-status {
+            display: flex;
+            align-items: center;
+            font-size: 0.8rem;
+            color: var(--online-color);
+        }
+        
+        .online-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--online-color);
+            border-radius: 50%;
+            margin-right: 5px;
+            display: inline-block;
+        }
+        
+        .member-quote {
+            font-size: 0.95rem;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        .stats {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .stat {
+            padding: 20px;
+            flex: 1;
+            min-width: 200px;
+            margin: 10px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .testimonials {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial {
+            background: linear-gradient(135deg, white 0%, #f7f7f7 100%);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .testimonial img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 20px;
+            border: 5px solid var(--primary-color);
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            color: #555;
+        }
+        
+        .how-it-works {
+            margin-top: 60px;
+        }
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 30px;
+            margin: 15px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .step h3 {
+            margin-top: 15px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+        
+        .whatsapp-icon {
+            display: block;
+            width: 60px;
+            height: 60px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            font-size: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: pulse 2s infinite;
+        }
+        
+        .notification {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 20px;
+            height: 20px;
+            background-color: #FF5252;
+            color: white;
+            border-radius: 50%;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .disclaimer {
+            font-size: 0.8rem;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .members, .testimonials {
+                grid-template-columns: 1fr;
+            }
+            
+            .steps {
+                flex-direction: column;
+            }
+            
+            .whatsapp-float {
+                right: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">SparkCircle</div>
+            <div class="tagline">Cerita Cintamu Dimulai Di Sini</div>
+            <p>Di SparkCircle, kami percaya setiap orang berhak bertemu dengan seseorang yang istimewa. Platform kami menyatukan para lajang dari seluruh Indonesia untuk membangun hubungan yang tulus, langgeng, dan nyata. Beri dirimu kesempatan untuk menciptakan kisah yang indah.</p>
+            <button class="btn whatsapp-btn" onclick="opensite()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+                    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.288.131.332.202.043.72.043.419-.101.824z"/>
+                </svg>
+                Mulai Sekarang
+            </button>
+        </div>
+    </header>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Temui Singles Siap Menulis Kisah Indah</h2>
+            <div class="members">
+                <div class="member-card">
+                    <img src="https://www.upoaa.online/yn/img/1.jpg" alt="Ayu" class="member-img">
+                    <div class="member-info">
+                        <div class="member-name">
+                            Ayu
+                            <span class="online-status">
+                                <span class="online-dot"></span>
+                                Online
+                            </span>
+                        </div>
+                        <p class="member-quote">"Di lautan manusia ini, aku percaya ada seseorang yang akan membuat duniaku lebih indah. Mungkinkah itu kamu?"</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <img src="https://www.upoaa.online/yn/img/2.jpg" alt="Putri" class="member-img">
+                    <div class="member-info">
+                        <div class="member-name">
+                            Putri
+                            <span class="online-status">
+                                <span class="online-dot"></span>
+                                Online
+                            </span>
+                        </div>
+                        <p class="member-quote">"Suka mencoba hal baru, lebih suka berpetualang dengan orang yang istimewa. Maukah kamu jadi yang istimewa untukku?"</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <img src="https://www.upoaa.online/yn/img/3.jpg" alt="Dewi" class="member-img">
+                    <div class="member-info">
+                        <div class="member-name">
+                            Dewi
+                            <span class="online-status">
+                                <span class="online-dot"></span>
+                                Online
+                            </span>
+                        </div>
+                        <p class="member-quote">"Aku orang yang sederhana, suka tertawa, suka makan, dan tentu saja, lebih suka berbagi semua itu dengan orang yang tepat."</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <img src="https://www.upoaa.online/yn/img/4.jpg" alt="Indah" class="member-img">
+                    <div class="member-info">
+                        <div class="member-name">
+                            Indah
+                            <span class="online-status">
+                                <span class="online-dot"></span>
+                                Online
+                            </span>
+                        </div>
+                        <p class="member-quote">"Aku menikmati kebebasan, tapi lebih berharap dalam perjalananku yang bebas, bisa bertemu seseorang yang berjalan berdampingan denganku."</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <img src="https://www.upoaa.online/yn/img/5.jpg" alt="Sari" class="member-img">
+                    <div class="member-info">
+                        <div class="member-name">
+                            Sari
+                            <span class="online-status">
+                                <span class="online-dot"></span>
+                                Online
+                            </span>
+                        </div>
+                        <p class="member-quote">"Aku mungkin bukan orang yang paling istimewa, tapi aku bersedia menggunakan keistimewaanku untuk menjaga keunikanmu."</p>
+                    </div>
+                </div>
+                
+                <div class="member-card">
+                    <img src="https://www.upoaa.online/yn/img/6.jpg" alt="Lestari" class="member-img">
+                    <div class="member-info">
+                        <div class="member-name">
+                            Lestari
+                            <span class="online-status">
+                                <span class="online-dot"></span>
+                                Online
+                            </span>
+                        </div>
+                        <p class="member-quote">"Aku bisa sangat keren, bisa juga sangat imut, tapi yang paling ingin aku jadi adalah pengecualian di hatimu."</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <p style="margin-bottom: 20px;">Saat ini kami memiliki 23.922 anggota di platform. Klik tombol untuk melihat lebih banyak profil. Jangan lewatkan kesempatanmu!</p>
+                <button class="btn whatsapp-btn" onclick="opensite()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.288.131.332.202.043.72.043.419-.101.824z"/>
+                    </svg>
+                    Lihat Lebih Banyak
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" style="background-color: white;">
+        <div class="container">
+            <h2 class="section-title">Tentang Kami</h2>
+            <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+                <h3 style="color: var(--primary-color); margin-bottom: 20px;">Temukan TA yang Istimewa, Mulai dari Sini!</h3>
+                <p style="margin-bottom: 30px;">Entah kamu mencari cinta sejati, sahabat, atau jodoh yang ditakdirkan, kami menyediakan platform kencan yang aman, hangat, dan nyata. Di sini, setiap pertemuan penuh kemungkinan, setiap kecocokan datang dari hati.</p>
+                <button class="btn whatsapp-btn" onclick="opensite()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.288.131.332.202.043.72.043.419-.101.824z"/>
+                    </svg>
+                    Gabung Sekarang
+                </button>
+            </div>
+            
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-number">23.922+</div>
+                    <div class="stat-label">Anggota Wanita</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-number">25</div>
+                    <div class="stat-label">Rata-rata Usia</div>
+                </div>
+                
+                <div class="stat">
+                    <div class="stat-number">19.821</div>
+                    <div class="stat-label">Online Sekarang</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title">Testimoni Pengguna</h2>
+            <h3 style="text-align: center; margin-bottom: 40px; color: var(--dark-color);">Saksikan kisah cinta indah mereka, berkat SparkCircle</h3>
+            
+            <div class="testimonials">
+                <div class="testimonial">
+                    <img src="https://www.upoaa.online/yn/img/b1.jpg" alt="Testimonial 1">
+                    <p>"Aku tak pernah menyangka pesan sederhana bisa mengubah hidupku. Mengirim pesan pada Julian hanya sekedar mencoba. Beberapa hari kemudian, perasaan kami berkembang pesat, dan tiga bulan kemudian bertemu di Lyon, seperti keajaiban. Kini, kami hidup bersama setiap hari. Terima kasih SparkCircle atas keajaiban ini."</p>
+                </div>
+                
+                <div class="testimonial">
+                    <img src="https://www.upoaa.online/yn/img/b2.jpg" alt="Testimonial 2">
+                    <p>"Berkat SparkCircle, kami melewati ribuan kilometer, dari virtual menjadi nyata. Sekarang, jarak dua kota hanya menambah kebahagiaan kami."</p>
+                </div>
+                
+                <div class="testimonial">
+                    <img src="https://www.upoaa.online/yn/img/b3.jpg" alt="Testimonial 3">
+                    <p>"Banyak aplikasi kencan dangkal membuatku kecewa, hingga aku menemukan SparkCircle. Di sini, aku bertemu Lucas, pasangan yang tulus dan perhatian. Kami berbagi nilai yang sama, hidup jadi lebih indah karenanya."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="section" style="background-color: white;">
+        <div class="container">
+            <h2 class="section-title">Cara Bergabung</h2>
+            <h3 style="text-align: center; margin-bottom: 40px; color: var(--dark-color);">Mulai perjalanan cintamu, bergabung dengan SparkCircle mudah dan cepat</h3>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Tambahkan kami di WhatsApp</h3>
+                    <p>Klik tombol WhatsApp di halaman ini untuk memulai percakapan</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Kirim Profil Anda</h3>
+                    <p>Isi nama, usia, kota, hobi, dan tipe pasangan ideal Anda... cepat dan rahasia!</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Dapatkan Kecocokan Pertama</h3>
+                    <p>Tim kami akan memilihkan pasangan yang sangat cocok dan tulus untuk Anda. Langkah selanjutnya, Anda yang menentukan!</p>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 50px;">
+                <button class="btn whatsapp-btn" onclick="opensite()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="white">
+                        <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.288.131.332.202.043.72.043.419-.101.824z"/>
+                    </svg>
+                    Mulai Sekarang
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <div class="whatsapp-float">
+        <a href="#" class="whatsapp-icon" onclick="opensite(); return false;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="white">
+                <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.288.131.332.202.043.72.043.419-.101.824z"/>
+            </svg>
+            <span class="notification">1</span>
+        </a>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <div class="logo" style="margin-bottom: 20px;">SparkCircle</div>
+            <p>Cerita Cintamu Dimulai Di Sini</p>
+            
+            <div class="disclaimer">
+                <h3 style="margin-bottom: 10px;">Pemberitahuan Kebijakan</h3>
+                <p>SparkCircle mematuhi kebijakan iklan Facebook dan TikTok. Kami tidak menjual produk terlarang atau berbahaya, tidak menggunakan konten dewasa yang tidak sesuai, dan tidak menggunakan bahasa yang mengandung diskriminasi. Semua konten kami ramah, positif, dan mempromosikan hubungan yang sehat dan saling menghormati. Platform ini untuk pengguna berusia 18+ tahun. Kami menghormati privasi Anda dan tidak membagikan informasi pribadi tanpa izin.</p>
+                <p style="margin-top: 10px;">© 2023 SparkCircle. Hak Cipta Dilindungi.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        function opensite() {
+            window.open('https://line.me/ti/p/~username', '_blank');
+        }
+    </script>
+</body>
+</html>
