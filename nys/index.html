@@ -17,7 +17,7 @@
     n=f.fbq=function(){
         n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
     };
-    if(!f._fbq) f._fbq=n;
+    if(!f._fbq) n._fbq=n;
     n.push=n;
     n.loaded=!0;
     n.version='2.0';
@@ -1364,6 +1364,64 @@ window.location.href="https://www.qq.com";
                 padding: 30px 20px;
             }
         }
+
+        /* ===== 新增紧凑间距样式覆盖（不删减任何内容） ===== */
+        .hero { padding: 80px 0 60px !important; min-height: auto !important; }
+        .members { padding: 50px 0 !important; }
+        .about { padding: 50px 0 !important; }
+        .testimonials { padding: 50px 0 !important; }
+        .how-it-works { padding: 50px 0 !important; }
+        .cta { padding: 50px 0 !important; }
+        footer { padding: 40px 0 20px !important; }
+
+        .section-header { margin-bottom: 30px !important; }
+        .members-grid { margin-bottom: 25px !important; gap: 20px !important; }
+        .about-cards { margin-bottom: 25px !important; gap: 20px !important; }
+        .about-stats { margin: 25px 0 !important; gap: 15px !important; }
+        .members-stats { padding: 20px !important; margin-bottom: 20px !important; }
+        .footer-grid { gap: 30px !important; margin-bottom: 30px !important; }
+
+        .hero-title { margin-bottom: 10px !important; font-size: 38px !important; }
+        .hero-subtitle { margin-bottom: 15px !important; font-size: 16px !important; }
+        .member-statement { margin-bottom: 10px !important; }
+        .about-text { margin-bottom: 10px !important; }
+        .testimonial-text { margin-bottom: 10px !important; }
+        .step-description { margin-bottom: 10px !important; }
+        .cta-text { margin-bottom: 20px !important; }
+        .disclaimer-text { margin-bottom: 8px !important; }
+
+        .member-content { padding: 15px !important; }
+        .about-card { padding: 20px !important; }
+        .testimonial-content { padding: 15px !important; }
+        .step-card { padding: 20px 15px !important; }
+        .about-stat { padding: 15px !important; }
+        .hero-card { padding: 30px !important; }
+        
+        .step-number { width: 50px; height: 50px; font-size: 20px; margin: 0 auto 15px !important; }
+        .step-title { font-size: 18px; margin-bottom: 10px !important; }
+        .member-name { font-size: 18px; margin-bottom: 8px !important; }
+        .about-title { font-size: 18px; margin-bottom: 8px !important; }
+        .about-icon { font-size: 30px; margin-bottom: 10px !important; }
+        
+        .steps-container { margin-top: 30px !important; gap: 20px !important; }
+        .about-cta { margin-top: 30px !important; }
+        
+        .disclaimer { padding: 15px !important; margin-bottom: 25px !important; }
+        .disclaimer-title { font-size: 16px; margin-bottom: 10px !important; }
+        
+        .footer-logo { font-size: 24px; margin-bottom: 15px !important; }
+        .footer-about { margin-bottom: 15px !important; font-size: 14px !important; }
+        .footer-heading { font-size: 18px; margin-bottom: 15px !important; }
+        
+        .section-title { font-size: 30px !important; margin-bottom: 15px !important; }
+        .section-subtitle { font-size: 16px !important; }
+        .cta-title { font-size: 30px !important; margin-bottom: 15px !important; }
+        .cta-text { font-size: 18px !important; }
+        
+        .hero-image { margin-top: 0 !important; }
+        @media (max-width: 992px) {
+            .hero-image { margin-top: 20px !important; }
+        }
     </style>
 </head>
 <body>
@@ -1405,8 +1463,7 @@ window.location.href="https://www.qq.com";
             <div class="hero-grid">
                 <div class="hero-content">
                     <div class="hero-card">
-                        <h1 class="hero-title">FOR LOVE — Your Love Story Begins Here</h1>
-<h2 class="hero-title">Participants: 25–65 years old. Minors, please do not join.</h2>
+                        <h2 class="hero-title">FOR LOVE — Your Love Story Begins Here</h2> 
                         <p class="hero-subtitle">
                             At FOR LOVE, we believe everyone deserves to meet someone special. Our platform brings together singles from all over to build genuine, lasting, and real connections. Give yourself the chance to create a beautiful story.
                         </p>
@@ -1808,7 +1865,7 @@ window.location.href="https://www.qq.com";
             </div>
             
             <div class="copyright">
-                <p>&copy; 2025 FOR LOVE. All rights reserved.</p>
+                <p>&copy; 2026 FOR LOVE. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -2013,4 +2070,4 @@ window.location.href="https://www.qq.com";
         });
     </script>
 </body>
-</html>g
+</html>
