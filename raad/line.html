@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+
+  
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1938678986840638');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1938678986840638&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+ 
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1323533446080766');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1323533446080766&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>LINE好友添加</title>
+    <style>
+        /* 全局重置 + 居中布局 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+                "Helvetica Neue", Arial, "Hiragino Sans", "Noto Sans CJK JP",
+                sans-serif;
+            /* 防止点击页面时的默认高亮 */
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* 按钮 —— LINE 品牌绿 + 呼吸动画 */
+        .line-btn {
+            background-color: #06c755;
+            /* LINE 官方绿色 */
+            color: #ffffff;
+            border: none;
+            border-radius: 48px;
+            padding: 18px 48px;
+            font-size: 22px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            /* 开启硬件加速，提升手机动画流畅度 */
+            will-change: transform, box-shadow;
+            /* 呼吸动画：2.5秒一个循环，缓入缓出，无限播放 */
+            animation: breathe 2.5s ease-in-out infinite;
+            /* 文字不换行 */
+            white-space: nowrap;
+            user-select: none;
+            -webkit-touch-callout: none;
+            /* 修复移动端点击闪烁 */
+            -webkit-tap-highlight-color: transparent;
+            /* 确保点击反馈不被动画阻挡 */
+            touch-action: manipulation;
+        }
+
+        /* 呼吸关键帧：缩放 + 阴影脉动 */
+        @keyframes breathe {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 16px rgba(6, 199, 85, 0.35);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 32px rgba(6, 199, 85, 0.6);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 16px rgba(6, 199, 85, 0.35);
+            }
+        }
+
+        /* 悬停效果（桌面端）：保留呼吸，额外叠加状态 */
+        .line-btn:hover {
+            background-color: #05b34c;
+            /* 悬停时让呼吸效果更明显一些，但不破坏原有节奏 */
+            animation: breathe-hover 2.5s ease-in-out infinite;
+        }
+
+        @keyframes breathe-hover {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 6px 20px rgba(6, 199, 85, 0.4);
+            }
+            50% {
+                transform: scale(1.07);
+                box-shadow: 0 10px 40px rgba(6, 199, 85, 0.7);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 6px 20px rgba(6, 199, 85, 0.4);
+            }
+        }
+
+        /* 点击效果（激活时） */
+        .line-btn:active {
+            background-color: #049b41;
+            transform: scale(0.96) !important; /* 点击时缩小，覆盖呼吸缩放 */
+            box-shadow: 0 2px 8px rgba(6, 199, 85, 0.3) !important;
+            /* 点击时暂停动画，获得即时的按压反馈 */
+            animation: none !important;
+            transition: transform 0.08s ease, box-shadow 0.08s ease;
+        }
+
+        /* 移动端适配 */
+        @media (max-width: 480px) {
+            .line-btn {
+                padding: 16px 32px;
+                font-size: 18px;
+                border-radius: 40px;
+                /* 移动端适当调整动画幅度，避免过于夸张 */
+                animation: breathe-mobile 2.8s ease-in-out infinite;
+            }
+
+            @keyframes breathe-mobile {
+                0% {
+                    transform: scale(1);
+                    box-shadow: 0 4px 14px rgba(6, 199, 85, 0.3);
+                }
+                50% {
+                    transform: scale(1.04);
+                    box-shadow: 0 6px 24px rgba(6, 199, 85, 0.5);
+                }
+                100% {
+                    transform: scale(1);
+                    box-shadow: 0 4px 14px rgba(6, 199, 85, 0.3);
+                }
+            }
+
+            /* 移动端悬停效果退化为无（避免误触） */
+            .line-btn:hover {
+                animation: breathe-mobile 2.8s ease-in-out infinite;
+                background-color: #06c755;
+            }
+
+            .line-btn:active {
+                background-color: #049b41;
+                transform: scale(0.94) !important;
+                animation: none !important;
+            }
+        }
+
+        /* 小屏幕下若文字过长可换行 */
+        @media (max-width: 360px) {
+            .line-btn {
+                padding: 14px 24px;
+                font-size: 16px;
+                white-space: normal;
+                /* 允许换行 */
+                min-width: 200px;
+                justify-content: center;
+                display: inline-flex;
+                /* 让flex居中文本 */
+                align-items: center;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 唯一的按钮 -->
+    <button class="line-btn" onclick="k2()">
+        LINE友だち追加する
+    </button>
+
+    <script>
+        /**
+         * k2 方法 —— 跳转到 www.qq.com
+         * 使用 window.location 进行页面跳转
+         */
+        function k2() {
+           fbq('track', 'AddToCart');
+      fbq('track', 'Purchase');
+           window.location.href="https://asffsfqas.xyz/vWm2Td";
+        }
+    </script>
+
+</body>
+</html>
