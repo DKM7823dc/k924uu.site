@@ -1,0 +1,173 @@
+*,*::before,*::after{box-sizing:border-box;-webkit-tap-highlight-color:transparent;touch-action:manipulation}
+html,body{margin:0;min-height:100%;height:100%;font-family:HarmonyOS Sans SC,-apple-system,sans-serif;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{background:#0d0d12;overflow-x:hidden}
+#app{min-height:100vh;min-height:100dvh;height:100%;display:flex;justify-content:center;align-items:stretch}
+.phone-frame{position:relative;width:min(100vw,430px);min-height:100vh;min-height:100dvh;overflow-x:hidden;overflow-y:auto;padding:0 0 max(10px,env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;background:#0d0d12;-webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none}
+.phone-frame::-webkit-scrollbar{display:none}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.5;transform:scale(1.15)}}
+@keyframes liveGlow{0%,100%{box-shadow:0 0 6px rgba(34,197,94,0.5)}50%{box-shadow:0 0 16px rgba(34,197,94,0.8)}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes toastIn{0%{opacity:0;transform:translateX(60px)}15%{opacity:1;transform:translateX(0)}85%{opacity:1;transform:translateX(0)}100%{opacity:0;transform:translateX(60px)}}
+@keyframes countUp{0%{opacity:0.6}50%{opacity:1}100%{opacity:0.6}}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{position:relative;z-index:2;text-align:center;padding:36px 20px 0;flex-shrink:0;animation:slideUp 0.6s ease}
+.title-row{display:flex;align-items:center;justify-content:center;gap:12px}
+.title-row img{height:28px;filter:brightness(0) invert(1)}
+.title-row .title-svg{height:34px}
+.hero-subtitle{margin:8px 0 0;color:#8e8e9a;font-size:13px;font-weight:500;letter-spacing:0.03em}
+
+/* ============================================================
+   HOT BANNER
+   ============================================================ */
+.hot-banner{position:relative;z-index:2;margin:14px 16px 0;padding:10px 14px;border-radius:12px;background:linear-gradient(135deg,rgba(255,68,102,0.12),rgba(255,107,138,0.06));border:1px solid rgba(255,68,102,0.18);display:flex;align-items:center;gap:8px;animation:slideUp 0.6s ease 0.1s both}
+.hot-banner-icon{font-size:1.25rem}
+.hot-banner-text{flex:1;font-size:0.75rem;color:#ff8fa6;font-weight:600}
+.hot-banner-count{font-size:0.9375rem;font-weight:800;color:#ff4466}
+
+/* ============================================================
+   ACTIVITY TOAST
+   ============================================================ */
+.activity-toast{position:relative;z-index:2;margin:10px 16px 0;overflow:hidden;height:28px}
+.activity-item{font-size:0.6875rem;color:#8e8e9a;padding:5px 0;display:flex;align-items:center;gap:6px;white-space:nowrap;animation:toastIn 4s ease-in-out infinite}
+.activity-item:nth-child(1){animation-delay:0s}
+.activity-item:nth-child(2){animation-delay:2s}
+.activity-item:nth-child(3){animation-delay:4s}
+.activity-item .dot{width:4px;height:4px;border-radius:50%;background:#22c55e}
+.activity-item strong{color:#86efac;font-weight:600}
+
+/* ============================================================
+   HERO IMAGE
+   ============================================================ */
+.hero-img-wrap{position:relative;z-index:2;padding:14px 16px 0;flex-shrink:0;animation:slideUp 0.6s ease 0.15s both}
+.hero-img-wrap img{width:100%;border-radius:16px;display:block}
+
+/* ============================================================
+   LIVE SECTION — 绿色标识
+   ============================================================ */
+.live-section{position:relative;z-index:2;padding:28px 0 8px;flex-shrink:0;animation:slideUp 0.6s ease 0.2s both}
+.live-header{display:flex;align-items:center;justify-content:space-between;padding:0 16px;margin-bottom:12px}
+.live-header-left{display:flex;align-items:center;gap:8px}
+.live-dot{width:8px;height:8px;border-radius:50%;background:#22c55e;animation:liveGlow 1.5s ease-in-out infinite}
+.live-header-title{font-size:1rem;font-weight:800;color:#fff}
+.live-header-count{font-size:0.6875rem;color:#c8c0b8;background:rgba(255,255,255,0.06);padding:4px 10px;border-radius:99px;font-weight:600}
+.live-header-count .num{font-weight:800;color:#ff8fa6}
+.live-scroll{display:flex;gap:10px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:0 16px 4px;-webkit-overflow-scrolling:touch}
+.live-scroll::-webkit-scrollbar{display:none}
+.live-card{flex:0 0 130px;scroll-snap-align:start;border-radius:14px;overflow:hidden;position:relative;aspect-ratio:3/4.5;cursor:pointer;background:#1a1a22;transition:transform 0.2s ease}
+.live-card:active{transform:scale(0.95)}
+.live-card img{width:100%;height:100%;object-fit:cover;display:block}
+.live-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 30%,rgba(0,0,0,0.65) 70%,rgba(0,0,0,0.9) 100%)}
+.live-card-live{position:absolute;top:8px;left:8px;display:flex;align-items:center;gap:3px;padding:2px 7px;border-radius:99px;background:#22c55e;color:#fff;font-size:0.5rem;font-weight:700;letter-spacing:0.04em;animation:liveGlow 2s ease-in-out infinite;z-index:2}
+.live-card-live::before{content:'';width:5px;height:5px;border-radius:50%;background:#fff;animation:pulse 1s ease-in-out infinite}
+.live-card-viewers{position:absolute;top:8px;right:8px;display:flex;align-items:center;gap:3px;padding:3px 7px;border-radius:99px;background:rgba(0,0,0,0.5);color:#fff;font-size:0.5625rem;font-weight:600;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.live-card-viewers svg{width:10px;height:10px}
+.live-card-body{position:absolute;bottom:0;left:0;right:0;padding:12px 10px;z-index:1}
+.live-card-name{font-size:0.8125rem;font-weight:700;color:#fff;margin-bottom:2px}
+.live-card-tagline{font-size:0.625rem;color:rgba(255,255,255,0.6);margin-bottom:4px;line-height:1.3}
+.live-card-tags{display:flex;gap:4px;flex-wrap:wrap}
+.live-card-tag{font-size:0.5625rem;padding:2px 6px;border-radius:99px;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7)}
+
+/* ============================================================
+   WELCOME
+   ============================================================ */
+.welcome-section{position:relative;z-index:2;padding:20px 16px 30px;flex-shrink:0;animation:slideUp 0.6s ease 0.25s both}
+.welcome-head{text-align:center;margin-bottom:22px}
+.welcome-head h3{font-size:0.9375rem;font-weight:700;color:#e8e8ee;margin:0 0 4px;line-height:1.5}
+.welcome-meta{font-size:0.75rem;color:#8e8e9a;line-height:1.6;margin-top:8px}
+
+/* ============================================================
+   URGENCY STRIP — no animations
+   ============================================================ */
+.urgency-strip{display:flex;gap:8px;margin-bottom:18px}
+.urgency-item{flex:1;padding:10px 8px;border-radius:12px;background:#1a1a22;border:1px solid rgba(255,255,255,0.05);text-align:center;cursor:pointer;transition:background 0.2s}
+.urgency-item:active{background:#22222c}
+.urgency-item-icon{font-size:1.25rem;margin-bottom:4px}
+.urgency-item-num{font-size:1rem;font-weight:800;color:#fff;margin-bottom:1px}
+.urgency-item-lbl{font-size:0.625rem;color:#8e8e9a}
+.urgency-item .hl{color:#ff4466}
+
+/* ============================================================
+   SECTION TITLE
+   ============================================================ */
+.section-title-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+.section-title-row h4{font-size:0.9375rem;font-weight:700;color:#e8e8ee;margin:0}
+.section-title-row .more{font-size:0.6875rem;color:#8e8e9a;cursor:pointer}
+
+/* ============================================================
+   USER CARDS
+   ============================================================ */
+.user-grid{display:flex;flex-wrap:wrap;margin:0 -5px}
+.user-grid .col{width:50%;padding:0 5px}
+.user-card{border-radius:16px;overflow:hidden;background:#1a1a22;border:1px solid rgba(255,255,255,0.05);margin-bottom:10px;transition:transform 0.2s ease;cursor:pointer;position:relative}
+.user-card:active{transform:scale(0.96)}
+.user-card-photo{position:relative;line-height:0;overflow:hidden}
+.user-card-photo img{display:block;width:100%;height:auto;aspect-ratio:3/4;object-fit:cover;transition:transform 0.4s ease}
+.user-card:active .user-card-photo img{transform:scale(1.05)}
+.user-card-online{position:absolute;top:8px;left:8px;display:flex;align-items:center;gap:4px;padding:3px 8px;border-radius:99px;background:rgba(0,0,0,0.5);color:#fff;font-size:0.5625rem;font-weight:700;backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px)}
+.user-card-online img{width:14px;height:14px}
+.user-card-cert{position:absolute;top:8px;right:8px;padding:3px 8px;border-radius:99px;background:linear-gradient(135deg,#ff6b8a,#e04070);color:#fff;font-size:0.5625rem;font-weight:600}
+.user-card-hot{position:absolute;top:38px;right:-6px;width:26px;height:26px;background:linear-gradient(135deg,#ff4466,#ff8c42);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.6875rem;box-shadow:0 2px 10px rgba(255,68,102,0.5);z-index:3}
+.user-card-body{padding:11px 10px 13px}
+.user-card-row1{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.user-card-row1 .uid{font-size:0.75rem;font-weight:700;color:#e8e8ee}
+.user-card-row1 .city{font-size:0.625rem;font-weight:600;color:#ff6b8a;padding:2px 8px;border-radius:99px;background:rgba(255,107,138,0.1);border:1px solid rgba(255,107,138,0.15)}
+.user-card-row2{display:flex;align-items:center;gap:12px}
+.user-card-row2 .stat{display:flex;align-items:center;gap:3px;font-size:0.6875rem;color:#7a7a88}
+.user-card-row2 .stat img{width:15px;height:15px;display:block;opacity:0.6}
+.user-card-interests{display:flex;gap:4px;flex-wrap:wrap;margin-top:7px}
+.user-card-interests span{font-size:0.5625rem;padding:2px 7px;border-radius:99px;background:rgba(255,255,255,0.04);color:#8e8e9a;border:1px solid rgba(255,255,255,0.06)}
+.shimmer-line{height:1.5px;background:linear-gradient(90deg,transparent,rgba(255,107,138,0.35),transparent);background-size:200% 100%;animation:shimmer 2s ease-in-out infinite;margin:0 10px 3px;border-radius:1px}
+
+/* ============================================================
+   NEW MEMBERS — auto loop carousel
+   ============================================================ */
+.new-carousel{overflow:hidden;margin-bottom:20px;position:relative}
+.new-track{display:flex;gap:8px;width:max-content;animation:scrollLoop 20s linear infinite}
+.new-track:hover{animation-play-state:paused}
+@keyframes scrollLoop{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.new-card{flex:0 0 100px;border-radius:14px;overflow:hidden;background:#1a1a22;cursor:pointer;transition:transform 0.2s ease;text-align:center;padding-bottom:10px}
+.new-card:active{transform:scale(0.95)}
+.new-card img{width:100px;height:100px;aspect-ratio:1/1;object-fit:cover;display:block}
+.new-card .nm{font-size:0.75rem;font-weight:700;color:#e8e8ee;margin-top:8px}
+.new-card .lc{font-size:0.625rem;color:#8e8e9a}
+
+/* ============================================================
+   TIPS
+   ============================================================ */
+.tips-header{font-size:0.875rem;font-weight:700;color:#e8e8ee;margin:28px 0 12px;text-align:center}
+.tips-list{counter-reset:tip;list-style:none;padding:0;margin:0}
+.tips-list li{counter-increment:tip;position:relative;padding:14px 12px 14px 42px;margin-bottom:8px;background:#1a1a22;border-radius:14px;font-size:0.8125rem;color:#b0b0ba;line-height:1.6;border:1px solid rgba(255,255,255,0.04)}
+.tips-list li::before{content:counter(tip);position:absolute;left:10px;top:14px;width:20px;height:20px;min-width:20px;border-radius:50%;background:linear-gradient(135deg,#ff6b8a,#e04070);color:#fff;font-size:0.6875rem;font-weight:700;display:flex;align-items:center;justify-content:center}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contact-row{margin-top:24px;display:flex;align-items:center;gap:12px;justify-content:center;flex-wrap:wrap}
+.contact-row strong{font-size:0.875rem;color:#e8e8ee;font-weight:600}
+.contact-btn{width:52px;height:52px;border-radius:16px;cursor:pointer;box-shadow:0 4px 20px rgba(255,107,138,0.3);transition:transform 0.2s ease;flex-shrink:0;border:2px solid rgba(255,255,255,0.1);animation:liveGlow 3s ease-in-out infinite}
+.contact-btn:active{transform:scale(0.9)}
+
+/* ============================================================
+   FLOATING CTA
+   ============================================================ */
+.float-cta{position:sticky;bottom:12px;z-index:10;margin:0 16px;display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;border-radius:99px;background:linear-gradient(135deg,#ff6b8a,#e04070);color:#fff;font-size:0.9375rem;font-weight:700;box-shadow:0 8px 28px rgba(255,68,102,0.4);cursor:pointer;transition:transform 0.15s ease}
+.float-cta:active{transform:scale(0.97)}
+.float-cta-dot{width:6px;height:6px;border-radius:50%;background:#fff;animation:pulse 1.5s ease-in-out infinite}
+
+@media (max-width: 480px){
+  .phone-frame{width:100vw}
+  .title-row .title-svg{height:30px}
+  .title-row img:not(.title-svg){height:24px}
+  .hero{padding:28px 16px 0}
+  .welcome-section{padding:16px 12px 24px}
+  .live-section{padding:24px 0 6px}
+}
