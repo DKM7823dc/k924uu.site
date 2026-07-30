@@ -93,9 +93,21 @@ src="https://www.facebook.com/tr?id=1608526056916699&ev=PageView&noscript=1"
             <div class="activity-item"><span class="dot"></span> <strong>高雄·氣質女神</strong> 剛剛加入了 Secret Love</div>
         </div>
 
-        <!-- Hero image -->
+        <!-- Hero image carousel -->
         <div class="hero-img-wrap">
-            <img src="images/1.jpg" alt="">
+            <div class="carousel">
+                <div class="carousel-track" id="carouselTrack">
+                    <img src="images/t1.jpg" alt="">
+                    <img src="images/t2.jpg" alt="">
+                    <img src="images/t3.jpg" alt="">
+                    <img src="images/t4.jpg" alt="">
+                    <img src="images/t5.jpg" alt="">
+                    <img src="images/t6.jpg" alt="">
+                </div>
+            </div>
+            <div class="carousel-dots" id="carouselDots">
+                <span class="active"></span><span></span><span></span><span></span><span></span><span></span>
+            </div>
         </div>
 
         <!-- ============================================================
@@ -322,9 +334,8 @@ src="https://www.facebook.com/tr?id=1608526056916699&ev=PageView&noscript=1"
             <!-- 温馨提醒 -->
             <p class="tips-header">溫馨提示</p>
             <ol class="tips-list">
-                <li>尊重每一位用戶請以真誠、友善的態度與他人交流，尊重對方的意願和隱私，共同營造安全、愉快的交友環境。</li>
-                <li>找出適合自己的緣分Secret Love平台上的使用者有著不同的交友需求，有人希望認識新朋友，有人期待輕鬆約會，也有人希望發展長期關係。建議在交流過程中互相了解，尋找志同道合的對象。</li>
-                <li>加入Secret Love會員，獲得更多約愛機會 升級會員後，您將獲得更多曝光機會，優先展示個人資料，解鎖更多用戶資訊和高級功能，幫助您更快認識附近的新朋友，並提高匹配成功率。立即點擊聯絡你的 Secret Love 專屬紅娘，開啟您的約會之旅！</li>
+                <li>免费加入Secret Love，獲得更多約愛和曝光機會，優先展示個人資料和解鎖更多正妹資訊，幫助您更快認識附近正妹，提高匹配成功率。</li>
+                <li>立即點擊聯絡你的 Secret Love 專屬紅娘，開啟您的約會之旅！心動不如心動</li>
             </ol>
 
             <div class="contact-row">
@@ -344,10 +355,25 @@ src="https://www.facebook.com/tr?id=1608526056916699&ev=PageView&noscript=1"
     var el = document.getElementById('onlineCount');
     var count = 3598;
     function tick(){
-        count += Math.floor(Math.random() * 21) + 30; // 30-50
+        count += Math.floor(Math.random() * 21) + 30;
         el.textContent = count.toLocaleString();
     }
     setInterval(tick, 2000);
+})();
+</script>
+<script>
+(function(){
+    var track = document.getElementById('carouselTrack');
+    var dots = document.querySelectorAll('#carouselDots span');
+    var total = 6;
+    var idx = 0;
+    function go(n){
+        idx = n;
+        track.style.transform = 'translateX(-' + (idx * 100) + '%)';
+        dots.forEach(function(d,i){ d.classList.toggle('active', i === idx); });
+    }
+    setInterval(function(){ go((idx + 1) % total); }, 3000);
+    dots.forEach(function(d,i){ d.addEventListener('click',function(){ go(i); }); });
 })();
 </script>
 </body></html>
