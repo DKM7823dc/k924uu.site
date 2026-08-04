@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>木内登英 - あなたの株式専門家</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'gold': '#FFD700',
+                        'dark-blue': '#1B365D',
+                        'light-blue': '#2563EB',
+                        'accent-blue': '#3B82F6'
+                    },
+                    fontFamily: {
+                        'japanese': ['Hiragino Sans', 'Yu Gothic', 'Meiryo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@200;300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #1B365D 0%, #2563EB 100%);
+        }
+        .gold-gradient {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+        }
+        .floating-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        .pulse-border {
+            animation: pulse-border 2s infinite;
+        }
+        @keyframes pulse-border {
+            0%, 100% { border-color: #FFD700; box-shadow: 0 0 0 0 rgba(255, 215, 0, 0.7); }
+            50% { border-color: #FFA500; box-shadow: 0 0 0 10px rgba(255, 215, 0, 0); }
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <script>
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+
+    <!-- Hero Section -->
+    <section class="gradient-bg flex items-center justify-center relative overflow-hidden" style="min-height: 80vh;">
+        <div class="absolute inset-0 bg-black opacity-20"></div>
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="text-center text-white">
+                <div class="floating-animation mb-8">
+                    <img src="img/4.jpg" alt="木内登英" class="w-full max-w-xs mx-auto shadow-2xl">
+                </div>
+                <h1 class="text-3xl font-bold mb-4">
+                    <span class="text-gold">木内登英</span>：あなたの株式専門家
+                </h1>
+                <p class="text-lg mb-6 opacity-90">投資でお悩みのあなたは、一人ではありません</p>
+                
+                <!-- Alert Bar -->
+                <div class="bg-red-600 text-white py-3 px-6 rounded-lg mb-8 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-r from-red-600 via-red-500 to-red-600 animate-pulse"></div>
+                    <div class="relative z-10">
+                        <p class="text-sm font-bold">⚠️ まもなく申請受付終了、最後の100名限定 ⚠️</p>
+                    </div>
+                </div>
+                
+                <button class="gold-gradient text-dark-blue px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 pulse-border border-2">
+                    今すぐLINEで無料相談を始める
+                </button>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 text-white animate-bounce">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Pain Points Section -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-16 text-gray-800 dark:text-white">
+                この変化の激しい株式市場で、多くの投資家が直面する課題
+            </h2>
+            <div class="space-y-8">
+                <div class="card-hover bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+                    <div class="text-red-500 text-4xl mb-4">⚠️</div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">情報過多</h3>
+                    <p class="text-gray-600 dark:text-gray-300">毎日無数の投資アドバイスがありますが、どれが本当に信頼できるのでしょうか？様々な声を聞く時、心は疑惑と不安で満たされていませんか？</p>
+                </div>
+                <div class="card-hover bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+                    <div class="text-red-500 text-4xl mb-4">😰</div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">損失への恐れ</h3>
+                    <p class="text-gray-600 dark:text-gray-300">すべての投資にはリスクが伴います。苦労して得た積蓄を失うことを恐れて、いつも迷いを感じていませんか？この不安で夜も眠れません。</p>
+                </div>
+                <div class="card-hover bg-gray-50 dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+                    <div class="text-red-500 text-4xl mb-4">😔</div>
+                    <h3 class="text-xl font-semibold mb-4 text-gray-800 dark:text-white">サポート不足</h3>
+                    <p class="text-gray-600 dark:text-gray-300">重要な時に、しばしば無力感を感じます。指導を受けたいが、誰に助けを求めればよいかわからず、孤独感が生まれます。</p>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <button class="bg-light-blue text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-blue-600 transition-all duration-300 transform hover:scale-105">
+                    LINEを追加して一対一相談を受ける
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section class="py-20 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl font-bold text-center mb-16 text-gray-800 dark:text-white">
+                実際の成功事例
+            </h2>
+            <div class="space-y-8">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg card-hover">
+                    <div class="flex items-center mb-4">
+                        <img src="img/1.jpg" alt="田中*郎" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 dark:text-white">田中*郎</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">45歳</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">"先生の指導でソニー株を購入後、3ヶ月で25%上昇しました。技術分析と業界知識の組み合わせが的確でした。"</p>
+                    <div class="text-green-500 font-semibold">+25% 利益</div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg card-hover">
+                    <div class="flex items-center mb-4">
+                        <img src="img/3.jpg" alt="佐藤*子" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 dark:text-white">佐藤*子</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">38歳</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">"先生の指導でリスク管理を学び、トヨタ株への投資で安定した18%のリターンを実現。初心者の私でも安心して投資できました。"</p>
+                    <div class="text-green-500 font-semibold">+18% 利益</div>
+                </div>
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg card-hover">
+                    <div class="flex items-center mb-4">
+                        <img src="img/2.jpg" alt="山田*郎" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-gray-800 dark:text-white">山田*郎</h4>
+                            <p class="text-sm text-gray-600 dark:text-gray-300">52歳</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">"先生の指導による半導体関連株の市場分析が素晴らしく、ファナック株で30%の収益を上げることができました。タイミングが完璧でした。"</p>
+                    <div class="text-green-500 font-semibold">+30% 利益</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Profile -->
+    <section class="py-20 bg-white dark:bg-gray-900">
+        <div class="w-full">
+            <!-- Header -->
+            <div class="text-center mb-12 px-4">
+                <h2 class="text-4xl font-light mb-6 text-gray-800 dark:text-white tracking-wide leading-relaxed" style="font-family: 'Noto Serif JP', serif; letter-spacing: 0.1em;">
+                    <span class="text-gold font-medium">木内登英</span><span class="text-gray-600 dark:text-gray-400">、</span><br class="md:hidden"><span class="text-gray-700 dark:text-gray-300">あなたと共に歩む</span>
+                </h2>
+                <div class="w-32 h-0.5 bg-gradient-to-r from-transparent via-gold to-transparent mx-auto"></div>
+            </div>
+            
+            <!-- Content Layout -->
+            <div class="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-700 p-4 rounded-3xl shadow-xl">
+                <!-- Image -->
+                <div class="text-center mb-8">
+                    <img src="img/1.png" alt="木内登英" class="w-64 h-64 mx-auto rounded-2xl shadow-2xl object-cover">
+                </div>
+                
+                <!-- Description -->
+                <div class="text-center mb-10">
+                    <div class="bg-white dark:bg-gray-700 p-6 rounded-xl shadow-lg mb-6">
+                        <p class="text-xl leading-relaxed text-gray-800 dark:text-gray-200 font-medium" style="font-family: 'Noto Serif JP', serif; line-height: 1.8;">
+                            木内登英は<span class="font-bold text-gold text-2xl">20年以上</span>の投資経験を持ち、すでに<span class="font-bold text-gold text-2xl">10,000名以上</span>の投資家が<span class="font-bold text-gold text-2xl">平均20%</span>の年間リターンを実現するお手伝いをしてきました。
+                        </p>
+                    </div>
+                    <p class="text-lg text-gray-600 dark:text-gray-400 leading-relaxed" style="font-family: 'Noto Sans JP', sans-serif;">
+                        彼の成功はデータだけでなく、すべての投資家への思いやりとサポートにあります。投資は数字のゲームではなく、夢と未来への選択なのです。
+                    </p>
+                </div>
+                
+                <!-- Features Grid -->
+                <div class="grid gap-6 mb-10">
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg card-hover">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <span class="text-dark-blue text-sm font-bold">✓</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800 dark:text-white mb-2">信頼できる専門家</h4>
+                                <p class="text-gray-600 dark:text-gray-300">金融業界の権威として、彼の分析は『金融タイムズ』と『ウォール街日報』に引用されています。市場の変動を正確に予測し、投資家に確実な価値を提供します。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg card-hover">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <span class="text-dark-blue text-sm font-bold">✓</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800 dark:text-white mb-2">信頼のコミュニティ</h4>
+                                <p class="text-gray-600 dark:text-gray-300">85%のクライアントが投資戦略使用後、顕著な収益を感じています。あなたもこの温かいコミュニティの一員となり、成功の喜びを分かち合いませんか。</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg card-hover">
+                        <div class="flex items-start">
+                            <div class="w-8 h-8 bg-gold rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                                <span class="text-dark-blue text-sm font-bold">✓</span>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold text-lg text-gray-800 dark:text-white mb-2">限定機会</h4>
+                                <p class="text-gray-600 dark:text-gray-300">現在、投資相談の無料枠を100名様限定で提供しています。この貴重な機会を逃さず、成功への第一歩を踏み出しましょう。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Button -->
+                <div class="text-center">
+                    <button class="gold-gradient text-dark-blue px-10 py-5 rounded-full text-xl font-bold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 pulse-border border-2">
+                        LINEを追加して専属投資戦略を取得
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Free Platform Section -->
+    <section class="py-20 gradient-bg">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold mb-8 text-white">
+                無料でLINEに参加し、学習の旅を始めましょう
+            </h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="space-y-8 mb-12">
+                    <div class="bg-white bg-opacity-10 p-8 rounded-2xl card-hover">
+                        <div class="text-gold text-4xl mb-4">💬</div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">オープンな交流プラットフォーム</h3>
+                        <p class="text-white opacity-90">LINEアカウントを追加し、無料の投資討論グループに参加してください。ここで木内登英や他の投資家と共に学び、経験を共有し、互いに励まし合うことができます。</p>
+                    </div>
+                    <div class="bg-white bg-opacity-10 p-8 rounded-2xl card-hover">
+                        <div class="text-gold text-4xl mb-4">🛡️</div>
+                        <h3 class="text-xl font-semibold mb-4 text-white">リスクフリー体験</h3>
+                        <p class="text-white opacity-90">LINE追加後、満足できない場合はいつでも退出できます。後顧の憂いなく投資の世界を探索していただけるよう、安全とサポートを学習の中で感じてください。</p>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <h3 class="text-xl font-bold mb-6 text-white">もう迷わないでください、成功は目の前にあります！</h3>
+                    <p class="text-lg mb-8 text-white opacity-90">今日行動を起こし、私たちのLINEアカウントを追加して、独占的な市場分析と投資戦略を取得してください。あなたの小さな一歩が、財産増加の大きな一歩になるかもしれません。</p>
+                    
+                    <div class="bg-white bg-opacity-20 p-8 rounded-2xl border-2 border-gold pulse-border mb-8">
+                        <div class="text-gold text-3xl mb-4">🎁</div>
+                        <h4 class="text-xl font-bold text-white mb-4">限定特典</h4>
+                        <p class="text-white opacity-90 mb-4">今すぐLINE追加で以下の特典を無料プレゼント：</p>
+                        <ul class="text-white space-y-2">
+                            <li>✅ 個別投資相談（通常5万円相当）</li>
+                            <li>✅ 週次市場分析レポート</li>
+                            <li>✅ 投資家限定コミュニティへの招待</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="gold-gradient text-dark-blue px-12 py-6 rounded-full text-xl font-bold shadow-2xl hover:shadow-3xl transform hover:scale-110 transition-all duration-300 pulse-border border-2 mb-4">
+                        🎯 今すぐLINE追加で無料特典をGET！
+                    </button>
+                    <p class="text-white opacity-75">※100名様限定　残り枠わずか</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-blue text-white py-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="mb-8">
+                <h3 class="text-xl font-semibold mb-2">木内登英</h3>
+                <p class="text-gray-300">あなたの成功を共に目指します</p>
+            </div>
+            
+            <div class="border-t border-gray-600 pt-8">
+                <p class="text-gray-400">&copy; 2024 木内登英投資コンサルティング. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating LINE Button -->
+    <div class="fixed bottom-6 right-6 z-50">
+        <button class="bg-green-500 hover:bg-green-600 text-white px-6 py-4 rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 pulse-border border-2 border-green-400">
+            <span class="text-sm font-semibold">一対一相談を受ける</span>
+        </button>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden backdrop-blur-sm">
+        <div class="bg-gradient-to-br from-white via-white to-gray-50 dark:from-gray-800 dark:via-gray-800 dark:to-gray-900 p-4 rounded-2xl shadow-3xl max-w-sm w-full mx-2 transform transition-all duration-500 border-2 border-gold border-opacity-20">
+            <!-- Professional Header -->
+            <div class="text-center mb-3">
+                <!-- Premium Success Icon -->
+                <div class="w-12 h-12 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-2 shadow-xl border-2 border-white dark:border-gray-700">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
+                
+                <!-- Elegant Title -->
+                <h3 class="text-lg font-bold bg-gradient-to-r from-gold to-yellow-600 bg-clip-text text-transparent" style="font-family: 'Noto Serif JP', serif; letter-spacing: 0.05em;">
+                    クォータをロックしました
+                </h3>
+            </div>
+            
+            <!-- Premium Content -->
+            <div class="mb-4">
+                <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-600 p-3 rounded-xl border border-blue-200 dark:border-gray-500 mb-3">
+                    <p class="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-2 text-center" style="font-family: 'Noto Serif JP', serif;">
+                        あなたは既に取得しました
+                    </p>
+                    
+                    <div class="space-y-2">
+                        <div class="flex items-center bg-white dark:bg-gray-800 p-2 rounded-lg shadow-sm border border-gray-100 dark:border-gray-600">
+                            <div class="w-6 h-6 bg-gradient-to-br from-gold to-yellow-500 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                                <span class="text-white text-xs font-bold">1</span>
+                            </div>
+                            <span class="text-gray-800 dark:text-gray-200 text-sm font-medium" style="font-family: 'Noto Sans JP', sans-serif;">
+                                【今月上昇予定の5銘柄リスト】
+                            </span>
+                        </div>
+                        
+                        <div class="flex items-center bg-white dark:bg-gray-800 p-2 rounded-lg shadow-sm border border-gray-100 dark:border-gray-600">
+                            <div class="w-6 h-6 bg-gradient-to-br from-gold to-yellow-500 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                                <span class="text-white text-xs font-bold">2</span>
+                            </div>
+                            <span class="text-gray-800 dark:text-gray-200 text-sm font-medium" style="font-family: 'Noto Sans JP', sans-serif;">
+                                無料株式診断機会1回
+                            </span>
+                        </div>
+                        
+                        <div class="flex items-center bg-white dark:bg-gray-800 p-2 rounded-lg shadow-sm border border-gray-100 dark:border-gray-600">
+                            <div class="w-6 h-6 bg-gradient-to-br from-gold to-yellow-500 rounded-full flex items-center justify-center mr-2 flex-shrink-0">
+                                <span class="text-white text-xs font-bold">3</span>
+                            </div>
+                            <span class="text-gray-800 dark:text-gray-200 text-sm font-medium" style="font-family: 'Noto Sans JP', sans-serif;">
+                                無料専属投資戦略分析レポート
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Urgency Notice -->
+                <div class="bg-gradient-to-r from-yellow-50 to-orange-50 dark:from-yellow-900 dark:to-orange-900 p-2 rounded-lg border-l-2 border-yellow-400">
+                    <p class="text-xs text-yellow-800 dark:text-yellow-200 font-semibold" style="font-family: 'Noto Sans JP', sans-serif;">
+                        <span class="font-semibold">ヒント：</span>毎日先着100名様限定です。お早めにLINE追加をお願いします
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Premium Action Buttons -->
+            <div class="flex flex-col space-y-2">
+                <button id="confirmBtn" class="group relative bg-gradient-to-r from-gold via-yellow-500 to-gold text-dark-blue px-6 py-3 rounded-full text-base font-bold shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300 whitespace-nowrap overflow-hidden" style="font-family: 'Noto Sans JP', sans-serif;">
+                    <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div class="relative flex items-center justify-center">
+                        LINEに移動して受け取る
+                    </div>
+                </button>
+                
+                <button id="cancelBtn" class="bg-gray-100 dark:bg-gray-700 text-gray-600 dark:text-gray-300 px-6 py-2 rounded-full text-sm font-medium hover:bg-gray-200 dark:hover:bg-gray-600 transition-all duration-300 whitespace-nowrap border border-gray-200 dark:border-gray-600" style="font-family: 'Noto Sans JP', sans-serif;">
+                    枠を放棄する
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Modal functions
+        function showModal() {
+            document.getElementById('successModal').classList.remove('hidden');
+        }
+        
+        function hideModal() {
+            document.getElementById('successModal').classList.add('hidden');
+        }
+        
+        // Modal button handlers
+        document.getElementById('confirmBtn').addEventListener('click', function() {
+            hideModal();
+            // Call k2() if it exists, otherwise continue
+            if (typeof k2 === 'function') {
+                k2();
+            }
+            window.open('https://www.qq.com', '_blank');
+        });
+        
+        document.getElementById('cancelBtn').addEventListener('click', function() {
+            hideModal();
+        });
+        
+        // Close modal when clicking outside
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                hideModal();
+            }
+        });
+
+        // Add click handlers for CTA buttons
+        document.querySelectorAll('button').forEach(button => {
+            // Skip modal buttons
+            if (button.id === 'confirmBtn' || button.id === 'cancelBtn') return;
+            
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                showModal();
+            });
+        });
+    </script>
+</body>
+</html>

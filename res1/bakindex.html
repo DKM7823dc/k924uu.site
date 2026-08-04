@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+ 
+
+
+<script>
+  function kk2() {
+  window.location.href="https://www.qq.com"; 
+        }
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>株式市場分析情報サービス - 一般情報提供</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+        }
+
+        /* Common gradients */
+        .gradient-blue { background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%); }
+        .gradient-light { background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); }
+        .gradient-white { background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); }
+        .gradient-purple { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .gradient-green { background: linear-gradient(45deg, #28a745, #20c997); }
+        .gradient-gold { background: linear-gradient(45deg, #ffd700, #ffed4e); }
+
+        /* Common spacing */
+        .p-20 { padding: 20px; }
+        .p-30 { padding: 30px 20px; }
+        .p-40 { padding: 40px 20px; }
+        .m-15 { margin: 15px 0; }
+        .m-20 { margin: 20px 0; }
+        .mb-10 { margin-bottom: 10px; }
+        .mb-15 { margin-bottom: 15px; }
+        .mb-20 { margin-bottom: 20px; }
+
+        /* Common border and shadow */
+        .border-radius { border-radius: 10px; }
+        .border-radius-full { border-radius: 50px; }
+        .shadow { box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .shadow-lg { box-shadow: 0 0 30px rgba(0,0,0,0.3); }
+        .border-left { border-left: 4px solid #007bff; }
+
+        /* Text styles */
+        .text-center { text-align: center; }
+        .text-white { color: white; }
+        .text-primary { color: #1e3c72; }
+        .text-lg { font-size: 18px; }
+        .text-xl { font-size: 20px; }
+        .text-2xl { font-size: 24px; }
+        .font-bold { font-weight: bold; }
+
+        /* Container */
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* Header */
+        .header {
+            color: white;
+            position: relative;
+        }
+
+        .header h1 {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+        }
+
+        .header h1::before { content: "📊"; position: absolute; left: -30px; top: 0; font-size: 20px; }
+        .header h1::after { content: "📈"; position: absolute; right: -30px; top: 0; font-size: 20px; }
+
+        .header p {
+            font-size: 16px;
+            opacity: 0.9;
+            background: rgba(255,255,255,0.1);
+            border-radius: 25px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        /* Card styles */
+        .card {
+            border-bottom: 1px solid #eee;
+            position: relative;
+        }
+
+        .card h2 {
+            position: relative;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-left: 4px solid #007bff;
+        }
+
+        .card h2::before {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+        }
+
+        .card:nth-child(4) h2::before { content: "🔧"; }
+        .card:nth-child(5) h2::before { content: "⭐"; }
+
+        .card p {
+            text-align: justify;
+            position: relative;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            border-left: 3px solid #e9ecef;
+        }
+
+        .card p::before {
+            content: "💡";
+            position: absolute;
+            left: -15px;
+            top: 15px;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        /* Expert section */
+        .expert-avatar {
+            width: 100%;
+            height: 200px;
+            margin: 0 auto 15px auto;
+            border: 3px solid #007bff;
+            object-fit: cover;
+            display: block;
+        }
+
+        .expert-details h3 {
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .expert-details h3::before {
+            content: "👨‍💼";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 16px;
+        }
+
+        .expert-details p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+            border-left: 3px solid #007bff;
+        }
+
+        /* Feature list */
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-list li:hover { transform: translateX(5px); }
+
+        .feature-list li::before {
+            position: absolute;
+            left: -15px;
+            top: 15px;
+            background: white;
+            border-radius: 50%;
+            padding: 5px;
+            font-size: 12px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .feature-list li:nth-child(1)::before { content: "📊"; }
+        .feature-list li:nth-child(2)::before { content: "⚡"; }
+        .feature-list li:nth-child(3)::before { content: "🎯"; }
+        .feature-list li:nth-child(4)::before { content: "🏆"; }
+
+        .feature-list li strong {
+            background: linear-gradient(45deg, #007bff, #0056b3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Stats grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .stat-item {
+            color: white;
+            padding: 20px;
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        /* Images */
+        .content-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        /* Buttons */
+        .btn {
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover { transform: translateY(-2px); }
+
+        .btn-primary {
+            color: white;
+            padding: 18px 40px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(40,167,69,0.4);
+        }
+
+        .btn-primary:hover { box-shadow: 0 6px 20px rgba(40,167,69,0.6); }
+
+        .btn-line {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #00B900;
+            color: white;
+            padding: 15px 25px;
+            font-size: 16px;
+            font-weight: bold;
+            box-shadow: 0 4px 20px rgba(0, 185, 0, 0.4);
+            z-index: 1000;
+            animation: breathe 2s ease-in-out infinite;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-line:hover { animation: breathe 1s ease-in-out infinite; }
+
+        @keyframes breathe {
+            0%, 100% { transform: translateX(-50%) scale(1); }
+            50% { transform: translateX(-50%) scale(1.05); }
+        }
+
+        /* Warning boxes */
+        .warning-box {
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .warning-box h4 {
+            font-size: 16px;
+        }
+
+        .warning-box p {
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .warning-yellow {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+        }
+
+        .warning-yellow h4, .warning-yellow p { color: #856404; }
+
+        .warning-red {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+
+        .warning-red h4, .warning-red p { color: #721c24; }
+
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+        }
+
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 14px;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        .footer-links a:hover { border-bottom-color: #bdc3c7; }
+
+        .footer p {
+            font-size: 12px;
+            color: #95a5a6;
+            margin-top: 15px;
+        }
+
+        /* Dark mode */
+        @media (prefers-color-scheme: dark) {
+            .container { background: #1a1a1a; color: #fff; }
+            .card { border-bottom-color: #333; }
+            .expert-section { background: #2a2a2a; }
+            .feature-list li { background: #2a2a2a; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container gradient-light shadow-lg">
+        <!-- Header -->
+        <header class="header gradient-blue p-40 text-center">
+            <h1 class="text-2xl font-bold mb-10 gradient-gold">株式市場分析情報サービス</h1>
+            <p class="p-20">市場データの分析結果に関する情報を提供いたします</p>
+        </header>
+
+        <!-- Expert Section -->
+        <section class="expert-section gradient-white p-30 border-left">
+            <div class="expert-info mb-20 text-center">
+                <img src="img/1.jpg" alt="金融アナリスト" class="expert-avatar border-radius shadow">
+                <div class="expert-details">
+                    <h3 class="text-lg text-primary mb-10">金融アナリスト</h3>
+                    <p class="gradient-white p-20 border-radius m-15">市場データの分析と情報提供サービスです。過去のデータに基づく分析結果をお届けしております。※個人の投資判断の参考資料として提供</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Problem Section -->
+        <section class="card p-30">
+            <h2 class="text-xl text-primary mb-15 text-center gradient-white border-radius">市場情報の収集にお困りですか？</h2>
+            <p class="mb-15 gradient-white p-20 border-radius">株式市場は日々変動し、情報収集と分析が重要です。多くの方が、情報源や分析資料の不足に課題を感じています。</p>
+            <p class="mb-15 gradient-white p-20 border-radius">当サービスでは、市場データの分析結果に関する情報を提供いたします。※投資助言ではありません</p>
+            <img src="img/2.jpg" alt="市場データ分析" class="content-image border-radius m-20 shadow">
+        </section>
+
+        <!-- Solution Section -->
+        <section class="card p-30">
+            <h2 class="text-xl text-primary mb-15 text-center gradient-white border-radius">提供サービス内容</h2>
+            <ul class="feature-list m-20">
+                <li class="p-20 border-left mb-15 gradient-white border-radius shadow">
+                    <strong>市場データ分析：</strong>データ分析技術を活用し、市場動向に関する分析情報を提供いたします。
+                </li>
+                <li class="p-20 border-left mb-15 gradient-white border-radius shadow">
+                    <strong>市場情報配信：</strong>定期的な市場レポートとトレンド分析資料をお届けします。
+                </li>
+                <li class="p-20 border-left mb-15 gradient-white border-radius shadow">
+                    <strong>投資教育コンテンツ：</strong>投資に関する基礎知識や市場分析手法について学習できるコンテンツを提供します。
+                </li>
+            </ul>
+            <img src="img/3.jpg" alt="市場分析資料" class="content-image border-radius m-20 shadow">
+        </section>
+
+        <!-- Features Section -->
+        <section class="card p-30">
+            <h2 class="text-xl text-primary mb-15 text-center gradient-white border-radius">サービスの特徴</h2>
+            
+            <div class="stats-grid m-20">
+                <div class="stat-item gradient-purple border-radius text-center">
+                    <span class="stat-number">5年</span>
+                    <span class="stat-label">情報提供実績</span>
+                </div>
+                <div class="stat-item gradient-purple border-radius text-center">
+                    <span class="stat-number">毎日</span>
+                    <span class="stat-label">情報更新</span>
+                </div>
+            </div>
+
+            <ul class="feature-list m-20">
+                <li class="p-20 border-left mb-15 gradient-white border-radius shadow">
+                    <strong>データ重視のアプローチ：</strong>歴史的データと市場トレンドに基づいた分析情報を提供いたします。
+                </li>
+                <li class="p-20 border-left mb-15 gradient-white border-radius shadow">
+                    <strong>定期的な情報配信：</strong>市場の動向に合わせて定期的に分析レポートをお届けします。
+                </li>
+                <li class="p-20 border-left mb-15 gradient-white border-radius shadow">
+                    <strong>教育的コンテンツ：</strong>投資知識の向上を目的とした教育コンテンツを提供しております。
+                </li>
+                <li class="p-20 border-left mb-15 gradient-white border-radius shadow">
+                    <strong>継続的なサポート：</strong>情報提供に加え、投資に関する基礎知識の学習をサポートします。
+                </li>
+            </ul>
+            
+            <img src="img/4.jpg" alt="投資学習資料" class="content-image border-radius m-20 shadow">
+        </section>
+
+        <!-- 免責事項を強化し、ページ上部にも配置 -->
+        <div class="warning-box warning-red p-20">
+            <h4 class="mb-10">⚠️ 重要な免責事項</h4>
+            <p class="mb-10"><strong>本サービスは投資助言業ではありません。</strong>提供する情報は一般的な市場分析資料であり、個別の投資推奨や助言ではありません。</p>
+            <p class="mb-10"><strong>投資判断は必ずお客様ご自身で行ってください。</strong>提供される情報は将来の市場動向や投資成果を保証するものではありません。過去の分析結果は将来の利益を保証しません。</p>
+            <p class="mb-10"><strong>投資には元本割れのリスクがあります。</strong>投資を行う際は、リスクを十分理解した上で、ご自身の責任において実行してください。</p>
+            <p><strong>本サービスの利用により生じた損失について一切の責任を負いません。</strong></p>
+        </div>
+
+        <!-- Risk Warning -->
+        <div class="warning-box warning-yellow p-20">
+            <h4 class="mb-10">⚠️ 投資リスクについて</h4>
+            <p>株式投資には価格変動リスク、流動性リスク、信用リスクなど様々なリスクが存在します。市場の状況により損失が生じる可能性があります。投資を行う前に、これらのリスクを十分にご理解ください。また、投資資金は余裕資金の範囲内で行うことを強くお勧めいたします。</p>
+        </div>
+
+        <!-- CTA Section -->
+        <section class="gradient-purple p-40 text-center">
+            <div class="text-white mb-20 text-xl font-bold">市場分析情報をご希望の方</div>
+            <button class="btn btn-primary gradient-green border-radius-full" onclick="kk2()">詳細情報を確認する</button>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer p-30 text-center">
+            <div class="footer-links mb-20">
+                <a href="privacy.html">プライバシーポリシー</a>
+                <a href="terms.html">利用規約</a> 
+            </div>
+            <p>&copy; 2024 株式市場分析情報サービス. All rights reserved.</p>
+            <p>本サービスは情報提供のみを目的としており、投資助言業ではありません。</p>
+            <p>金融商品取引法に基づく登録を受けた業者ではありません。</p>
+        </footer>
+    </div>
+
+    <!-- Line Contact Button -->
+    <button class="btn btn-line border-radius-full" onclick="kk2()">
+        <span>💬</span>
+        お問い合わせ
+    </button>
+
+    <script>
+      
+
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

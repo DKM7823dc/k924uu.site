@@ -1,0 +1,572 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>オンラインセミナー - あなたの投資の道はここから始まる</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700;900&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#5D5CDE',
+                        gold: '#F59E0B',
+                        lightBlue: '#F0F9FF',
+                        darkBlue: '#1E40AF',
+                        neon: '#0EA5E9',
+                        purple: '#8B5CF6',
+                        orange: '#F97316'
+                    },
+                    fontFamily: {
+                        'japanese': ['Noto Sans JP', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gradient-bg {
+            background: linear-gradient(135deg, #F0F9FF 0%, #E0F2FE 25%, #BAE6FD 50%, #7DD3FC 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .gradient-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(245, 158, 11, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(93, 92, 222, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(14, 165, 233, 0.05) 0%, transparent 50%);
+        }
+        
+        .gold-gradient {
+            background: linear-gradient(135deg, #F59E0B 0%, #F97316 50%, #EF4444 100%);
+        }
+        
+        .neon-glow {
+            box-shadow: 
+                0 0 20px rgba(14, 165, 233, 0.3),
+                0 0 40px rgba(14, 165, 233, 0.2),
+                0 0 60px rgba(14, 165, 233, 0.1);
+        }
+        
+        .glass-morphism {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .number-highlight {
+            background: linear-gradient(135deg, #F97316 0%, #F59E0B 50%, #EAB308 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            font-size: 2rem;
+            text-shadow: 0 0 30px rgba(245, 158, 11, 0.8);
+            filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.8));
+        }
+        
+        @media (min-width: 768px) {
+            .number-highlight {
+                font-size: 2.5rem;
+            }
+        }
+        
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0;
+        }
+        
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+        }
+        
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, #F59E0B, #F97316);
+            top: 20%;
+            left: 10%;
+        }
+        
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #5D5CDE, #8B5CF6);
+            top: 60%;
+            right: 10%;
+        }
+        
+        .shape:nth-child(3) {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #0EA5E9, #5D5CDE);
+            bottom: 20%;
+            left: 20%;
+        }
+        
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(93, 92, 222, 0.15);
+        }
+        
+        .text-glow {
+            text-shadow: 0 0 20px rgba(245, 158, 11, 0.6);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #5D5CDE 0%, #8B5CF6 50%, #F59E0B 100%);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(93, 92, 222, 0.3);
+        }
+        
+        .floating-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: linear-gradient(135deg, #F97316 0%, #F59E0B 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 20px rgba(249, 115, 22, 0.3);
+            white-space: nowrap;
+        }
+        
+        .floating-btn:hover {
+            transform: translateX(-50%) scale(1.05);
+            box-shadow: 0 6px 25px rgba(249, 115, 22, 0.4);
+        }
+        
+        .urgent-badge {
+            background: linear-gradient(135deg, #EF4444 0%, #F97316 100%);
+        }
+        
+        .trust-badge {
+            background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+        }
+
+        /* Popup Modal Styles */
+        .popup-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(2px);
+        }
+
+        .popup-content {
+            background: linear-gradient(135deg, #5D5CDE 0%, #8B5CF6 50%, #F97316 100%);
+            border-radius: 20px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border: 3px solid #0EA5E9;
+        }
+
+        .popup-close {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            font-size: 24px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .popup-close:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .px-4 {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            
+            .mobile-no-gap {
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+            
+            .btn-primary {
+                font-size: 0.9rem;
+                padding: 0.75rem 1.5rem;
+            }
+            
+            .floating-btn {
+                font-size: 0.9rem;
+                padding: 10px 20px;
+                bottom: 15px;
+            }
+            
+            /* Mobile spacing adjustments */
+            .mobile-section {
+                padding-top: 2rem !important;
+                padding-bottom: 2rem !important;
+            }
+            
+            .mobile-hero {
+                min-height: 70vh !important;
+            }
+            
+            .mobile-mb-small {
+                margin-bottom: 1rem !important;
+            }
+            
+            .mobile-mb-medium {
+                margin-bottom: 1.5rem !important;
+            }
+            
+            .mobile-mb-large {
+                margin-bottom: 2rem !important;
+            }
+
+            .popup-content {
+                padding: 20px;
+                margin: 20px;
+            }
+        }
+    </style>
+</head>
+<body class="font-japanese bg-gray-50 text-gray-800 overflow-x-hidden">
+
+    <!-- Popup Modal -->
+    <div id="popupModal" class="popup-modal">
+        <div class="popup-content">
+            <button class="popup-close" onclick="closePopup()">&times;</button>
+            <div class="text-white">
+                <div class="text-4xl mb-4">🚨</div>
+                <h2 class="text-2xl md:text-3xl font-black mb-4 text-white">緊急通知！</h2>
+                <p class="text-lg md:text-xl font-bold mb-4">まだ823名の席が残っています。<br>今すぐLINEに追加してください</p>
+                <div class="bg-white/20 rounded-lg p-4 mb-6">
+                    <p class="text-base md:text-lg font-bold mb-2">「優良株式情報」と返信すると、</p>
+                    <p class="text-base md:text-lg font-bold text-blue-200">急騰株式情報を取得できます</p>
+                </div>
+                <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105" onclick="k2(); closePopup();">
+                    今すぐLINEを追加
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Expert Section -->
+    <section class="py-8 mobile-section md:py-24 px-2 md:px-4 mobile-no-gap bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 relative">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-8 mobile-mb-large md:mb-20">
+                <h2 class="text-3xl md:text-7xl font-black mb-4 mobile-mb-small md:mb-8 text-glow text-gray-800">特別招待専門家</h2>
+                <div class="w-32 h-2 gold-gradient mx-auto rounded-full"></div>
+            </div>
+            
+            <div class="glass-morphism rounded-3xl shadow-2xl p-4 mobile-mb-medium md:p-16 neon-glow relative">
+                <!-- Expert Badge -->
+                <div class="absolute -top-3 left-6 bg-purple-600 text-white px-4 py-2 rounded-full text-sm font-bold">
+                    🏆 業界トップ専門家
+                </div>
+                
+                <div class="grid md:grid-cols-2 gap-6 md:gap-16 items-center">
+                    <div class="text-center md:text-left">
+                        <h3 class="text-2xl md:text-5xl font-black mb-3 mobile-mb-small md:mb-6 text-orange-600 text-glow">
+                            駒田 智彦（Komada）氏
+                        </h3>
+                        <p class="text-orange-600 font-bold text-lg md:text-xl mb-4 mobile-mb-medium md:mb-8">GCM Investments Japan KK シニアメンバー</p>
+                        <p class="text-base md:text-xl leading-relaxed text-gray-700 mb-4 mobile-mb-medium md:mb-8">
+                            駒田氏はGCMインベストメンツ・ジャパン株式会社の代表取締役社長です。GCMグロブナー入社以前は、1991年から2014年まで三井住友信託銀行に勤務していました。直近では、東京を拠点とするプライベートエクイティ投資チームのグローバルヘッドを務めました。2008年から2013年までは香港事務所のプライベートエクイティチームのヘッドを務め、様々なプライベートエクイティ・パートナーシップへの投資実行を担当しました。また、三井住友信託銀行の自己勘定口座においてプライベートエクイティ・ポートフォリオ運用を5年間担当し、日本の中堅企業への直接投資にも携わりました。在職中は、国内各部署および海外子会社におけるコーポレートファイナンス業務など、他の事業にも携わりました。駒田氏は早稲田大学で法学士号を取得しており、米国公認会計士の資格を有しています。
+                        </p>
+                        <div class="flex space-x-4 justify-center md:justify-start">
+                            <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center">
+                                <span class="text-white font-bold">20+</span>
+                            </div>
+                            <div class="text-left">
+                                <p class="text-orange-600 font-bold">年の経験</p>
+                                <p class="text-sm text-gray-600">投資業界</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Achievement Badges -->
+                        <div class="flex flex-wrap gap-2 mt-4 justify-center md:justify-start">
+                            <span class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs">📊 運用資産500億円</span>
+                            <span class="bg-green-500 text-white px-3 py-1 rounded-full text-xs">📈 年間利回り15%</span>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <div class="relative">
+                            <img src="img/2.jpg" alt="駒田智彦氏" class="rounded-3xl shadow-2xl max-w-sm w-full mx-auto neon-glow">
+                            <div class="absolute -top-4 -right-4 bg-gradient-to-r from-orange-400 to-yellow-400 text-white px-4 py-2 rounded-full font-bold">
+                                専門家
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Highlights Section -->
+    <section class="py-8 mobile-section md:py-24 px-2 md:px-4 mobile-no-gap bg-gradient-to-r from-purple-100 via-blue-50 to-indigo-100">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-8 mobile-mb-large md:mb-20">
+                <h2 class="text-3xl md:text-7xl font-black mb-4 mobile-mb-small md:mb-8 text-glow text-gray-800">セミナーハイライト</h2>
+                <div class="w-32 h-2 gold-gradient mx-auto rounded-full"></div>
+                <!-- Value Badge -->
+                <div class="mt-4 inline-block bg-red-500 text-white px-6 py-2 rounded-full text-sm font-bold">
+                    🔥 総額10万円相当の内容を無料公開
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
+                <div class="glass-morphism rounded-3xl p-4 md:p-8 card-hover neon-glow">
+                    <div class="w-16 md:w-20 h-16 md:h-20 bg-gradient-to-br from-primary to-purple-400 rounded-full flex items-center justify-center mb-3 mobile-mb-small md:mb-6 mx-auto">
+                        <span class="text-2xl md:text-3xl">📈</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 mobile-mb-small md:mb-4 text-center text-orange-600">投資戦略の精髄</h3>
+                    <p class="text-gray-700 text-center text-sm md:text-base">現在の市場動向を理解し、適応性の高い投資戦略を探求し、あなたの投資ポートフォリオに活力を注入します。</p>
+                </div>
+
+                <div class="glass-morphism rounded-3xl p-4 md:p-8 card-hover neon-glow">
+                    <div class="w-16 md:w-20 h-16 md:h-20 bg-gradient-to-br from-orange-400 to-yellow-400 rounded-full flex items-center justify-center mb-3 mobile-mb-small md:mb-6 mx-auto">
+                        <span class="text-2xl md:text-3xl">🛡️</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 mobile-mb-small md:mb-4 text-center text-orange-600">リスク管理の重要性</h3>
+                    <p class="text-gray-700 text-center text-sm md:text-base">潜在的なリスクを識別し制御する方法を学び、あなたの資本の安全と増値を確保します。</p>
+                </div>
+
+                <div class="glass-morphism rounded-3xl p-4 md:p-8 card-hover neon-glow">
+                    <div class="w-16 md:w-20 h-16 md:h-20 bg-gradient-to-br from-blue-400 to-primary rounded-full flex items-center justify-center mb-3 mobile-mb-small md:mb-6 mx-auto">
+                        <span class="text-2xl md:text-3xl">🎯</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 mobile-mb-small md:mb-4 text-center text-orange-600">資本市場の機会</h3>
+                    <p class="text-gray-700 text-center text-sm md:text-base">現在の資本市場のトレンドを深く分析し、データの背後に隠れた投資機会を発見します。</p>
+                </div>
+
+                <div class="glass-morphism rounded-3xl p-4 md:p-8 card-hover neon-glow">
+                    <div class="w-16 md:w-20 h-16 md:h-20 bg-gradient-to-br from-purple-400 to-orange-400 rounded-full flex items-center justify-center mb-3 mobile-mb-small md:mb-6 mx-auto">
+                        <span class="text-2xl md:text-3xl">📊</span>
+                    </div>
+                    <h3 class="text-lg md:text-xl font-bold mb-2 mobile-mb-small md:mb-4 text-center text-orange-600">効率的な投資ポートフォリオの構築</h3>
+                    <p class="text-gray-700 text-center text-sm md:text-base">資産配分の芸術を習得し、多様化投資を通じて収益を最大化し、リスクを低減します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Interactive Q&A Section -->
+    <section class="py-8 mobile-section md:py-24 px-2 md:px-4 mobile-no-gap bg-gradient-to-br from-orange-200 via-red-200 to-yellow-200 text-gray-800 relative overflow-hidden">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto text-center relative z-10">
+            <div>
+                <h2 class="text-3xl md:text-7xl font-black mb-6 mobile-mb-medium md:mb-12 text-glow text-gray-800">インタラクティブQ&Aセッション</h2>
+                <p class="text-lg md:text-3xl mb-8 mobile-mb-large md:mb-16 text-gray-700">現場であなたの投資の疑問を解決し、業界専門家と直接対話し、専門的なアドバイスを得ます。</p>
+            </div>
+            
+            <div class="mb-8 mobile-mb-large md:mb-16">
+                <div class="glass-morphism rounded-3xl p-4 md:p-8 max-w-2xl mx-auto neon-glow">
+                    <img src="img/3.jpg" alt="インタラクティブQ&A" class="mx-auto rounded-3xl shadow-2xl max-w-md w-full">
+                </div>
+            </div>
+
+            <!-- CTA Section 2 -->
+            <div class="glass-morphism rounded-3xl p-4 mobile-mb-medium md:p-12 border-2 border-white/50 max-w-3xl mx-auto neon-glow relative">
+                <!-- Urgency Badge -->
+                <div class="absolute -top-3 left-1/2 transform -translate-x-1/2 urgent-badge text-white px-4 py-2 rounded-full text-sm font-bold">
+                    ⚡ 残り時間わずか
+                </div>
+                
+                <div>
+                    <p class="text-lg md:text-2xl mb-3 mobile-mb-small md:mb-6 font-bold text-gray-700">返信</p>
+                    <div class="number-highlight inline-block bg-white/50 px-4 mobile-mb-small md:px-12 py-3 md:py-6 rounded-2xl backdrop-blur-md shadow-2xl transform hover:scale-110 transition-all duration-500">
+                        777
+                    </div>
+                    <p class="text-lg md:text-2xl mt-3 mobile-mb-small md:mt-6 mb-4 mobile-mb-medium md:mb-8 font-bold text-gray-700">で優良な業績株を取得</p>
+                </div>
+                <button class="btn-primary text-white px-6 md:px-14 py-3 md:py-5 rounded-full font-bold text-base md:text-xl shadow-2xl transform hover:scale-105 transition-all duration-300" onclick="k2()">
+                    今すぐLINEを追加
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-8 mobile-section md:py-24 px-2 md:px-4 mobile-no-gap bg-gradient-to-br from-indigo-50 via-blue-50 to-purple-50">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-8 mobile-mb-large md:mb-20">
+                <h2 class="text-3xl md:text-7xl font-black mb-4 mobile-mb-small md:mb-8 text-glow text-gray-800">セミナー参加で得られるもの</h2>
+                <div class="w-32 h-2 gold-gradient mx-auto rounded-full"></div>
+                <!-- Guarantee Badge -->
+                <div class="mt-4 inline-block bg-green-500 text-white px-6 py-2 rounded-full text-sm font-bold">
+                    ✅ 30日間満足保証付き
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+                <div class="glass-morphism rounded-3xl p-4 md:p-10 card-hover neon-glow">
+                    <div class="text-4xl md:text-6xl mb-3 mobile-mb-small md:mb-6 text-center">🔍</div>
+                    <h3 class="text-lg md:text-2xl font-bold mb-3 mobile-mb-small md:mb-6 text-primary text-center">深い市場洞察</h3>
+                    <p class="text-gray-700 text-center text-sm md:text-lg">市場の最新動向と将来のトレンドを理解し、意思決定を支援します。</p>
+                </div>
+
+                <div class="glass-morphism rounded-3xl p-4 md:p-10 card-hover neon-glow">
+                    <div class="text-4xl md:text-6xl mb-3 mobile-mb-small md:mb-6 text-center">⚡</div>
+                    <h3 class="text-lg md:text-2xl font-bold mb-3 mobile-mb-small md:mb-6 text-primary text-center">実践的な投資テクニック</h3>
+                    <p class="text-gray-700 text-center text-sm md:text-lg">効果的な投資戦略を習得し、あなたの投資ポートフォリオを最適化します。</p>
+                </div>
+
+                <div class="glass-morphism rounded-3xl p-4 md:p-10 card-hover neon-glow">
+                    <div class="text-4xl md:text-6xl mb-3 mobile-mb-small md:mb-6 text-center">🛡️</div>
+                    <h3 class="text-lg md:text-2xl font-bold mb-3 mobile-mb-small md:mb-6 text-primary text-center">リスク管理知識</h3>
+                    <p class="text-gray-700 text-center text-sm md:text-lg">投資リスクを効果的に識別し管理する方法を学びます。</p>
+                </div>
+
+                <div class="glass-morphism rounded-3xl p-4 md:p-10 card-hover neon-glow">
+                    <div class="text-4xl md:text-6xl mb-3 mobile-mb-small md:mb-6 text-center">🎓</div>
+                    <h3 class="text-lg md:text-2xl font-bold mb-3 mobile-mb-small md:mb-6 text-primary text-center">専門家の経験共有</h3>
+                    <p class="text-gray-700 text-center text-sm md:text-lg">業界リーダーから成功事例と実用的なアドバイスを得ます。</p>
+                </div>
+
+                <div class="glass-morphism rounded-3xl p-4 md:p-10 card-hover neon-glow">
+                    <div class="text-4xl md:text-6xl mb-3 mobile-mb-small md:mb-6 text-center">🤝</div>
+                    <h3 class="text-lg md:text-2xl font-bold mb-3 mobile-mb-small md:mb-6 text-primary text-center">人脈ネットワークの構築</h3>
+                    <p class="text-gray-700 text-center text-sm md:text-lg">他の投資家と交流し、経験を共有し、人脈を拡大します。</p>
+                </div>
+
+                <div class="glass-morphism rounded-3xl p-4 md:p-10 card-hover neon-glow">
+                    <div class="text-4xl md:text-6xl mb-3 mobile-mb-small md:mb-6 text-center">💎</div>
+                    <h3 class="text-lg md:text-2xl font-bold mb-3 mobile-mb-small md:mb-6 text-primary text-center">独占コンテンツ</h3>
+                    <p class="text-gray-700 text-center text-sm md:text-lg">一般には公開されない独占的な投資情報とインサイトを取得します。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="gradient-bg py-8 mobile-section md:py-24 px-2 md:px-4 mobile-no-gap relative mb-16 md:mb-20">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div>
+                <h2 class="text-3xl md:text-7xl font-black mb-6 mobile-mb-medium md:mb-12 text-glow text-gray-800">今すぐ行動し、私たちのコミュニティに参加！</h2>
+                <p class="text-base md:text-2xl mb-8 mobile-mb-large md:mb-16 text-gray-700 leading-relaxed">
+                    私たちの投資家により良いサービスを提供するため、私たちのLINEを追加して、最新の投資情報、セミナーの更新、その他の独占コンテンツをいつでも入手することをお勧めします。ここでは、同じ志を持つ投資家と交流し、経験を共有し、互いに学び合うことができます。
+                </p>
+            </div>
+            
+            <div class="glass-morphism rounded-3xl p-4 mobile-mb-medium md:p-12 border-2 border-white/30 neon-glow">
+                <button class="btn-primary text-white px-6 md:px-16 py-3 md:py-6 rounded-full font-bold text-base md:text-2xl shadow-2xl transform hover:scale-105 transition-all duration-300" onclick="k2()">
+                    今すぐLINEを追加
+                </button>
+                <p class="text-gray-700 mt-3 mobile-mb-small md:mt-6 text-sm md:text-lg">🎁 特別ボーナス：登録者限定の投資ガイドを無料プレゼント</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating Button -->
+    <button class="floating-btn" onclick="k2()">
+        今すぐ参加
+    </button>
+
+    <script>
+        function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+        function closePopup() {
+            document.getElementById('popupModal').style.display = 'none';
+        }
+
+        // Show popup when page loads
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('popupModal').style.display = 'flex';
+            }, 1000);
+        });
+
+        // Close popup when clicking outside
+        document.getElementById('popupModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closePopup();
+            }
+        });
+
+        // Dark mode support
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Smooth scroll animation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

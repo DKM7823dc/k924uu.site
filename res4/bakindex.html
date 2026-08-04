@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<script>
+ function k2() {
+            window.open('https://www.qq.com', '_blank');
+        }
+
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+    <title>日本株式投資サロン - 専門的な投資交流プラットフォーム</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f1419 0%, #1a2332 25%, #2d3748 50%, #1a2332 75%, #0f1419 100%);
+            color: white;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            padding-top: 80px;
+            padding-bottom: 120px;
+        }
+        
+        .warning-strip {
+            background: linear-gradient(90deg, #dc2626, #ef4444, #dc2626);
+            color: white;
+            text-align: center;
+            padding: 12px 16px;
+            font-size: 14px;
+            font-weight: 500;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 50;
+            animation: warningGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes warningGlow {
+            from { opacity: 0.8; }
+            to { opacity: 1; }
+        }
+        
+        .section-divider {
+            margin: 40px 0;
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 24px;
+        }
+        
+        .shimmer-text {
+            background: linear-gradient(120deg, #ffffff 0%, #00d4aa 50%, #ffffff 100%);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shimmerAnimation 3s linear infinite;
+        }
+        
+        @keyframes shimmerAnimation {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: #d1d5db;
+            margin-bottom: 32px;
+            line-height: 1.5;
+        }
+        
+        .cyan-text {
+            color: #00d4aa;
+            font-weight: 600;
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            margin-bottom: 48px;
+            flex-wrap: wrap;
+        }
+        
+        .professional-avatar {
+            width: 256px;
+            height: 256px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+            border: 3px solid rgba(0, 212, 170, 0.3);
+        }
+        
+        .hero-text {
+            text-align: left;
+            max-width: 400px;
+        }
+        
+        .hero-text h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00d4aa;
+            margin-bottom: 16px;
+        }
+        
+        .hero-text p {
+            color: #d1d5db;
+            font-size: 1.125rem;
+            line-height: 1.5;
+        }
+        
+        .accent-button {
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 50%, #ff6b35 100%);
+            color: white;
+            font-weight: bold;
+            padding: 16px 48px;
+            border-radius: 50px;
+            font-size: 1.25rem;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+            transition: all 0.3s ease;
+            animation: buttonPulse 2s infinite;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .accent-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(255, 107, 53, 0.4);
+        }
+        
+        @keyframes buttonPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+        
+        .elevation-card {
+            background: linear-gradient(145deg, #1e2935, #0f1419);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 48px;
+        }
+        
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #00d4aa;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            margin-bottom: 40px;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .feature-icon {
+            background: linear-gradient(135deg, #00d4aa, #0077b6);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: white;
+            font-weight: bold;
+            font-size: 14px;
+            margin-top: 4px;
+        }
+        
+        .feature-content h4 {
+            font-weight: bold;
+            font-size: 1.25rem;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .feature-content p {
+            color: #d1d5db;
+        }
+        
+        .center-image {
+            margin: 0 auto 32px auto;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 384px;
+            height: auto;
+        }
+        
+        .pain-points-title {
+            font-size: 2.25rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 32px;
+            color: #fb923c;
+        }
+        
+        .pain-points-subtitle {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+            margin-bottom: 32px;
+            color: white;
+        }
+        
+        .pain-points-list {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+        
+        .pain-point {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 16px;
+            background: rgba(153, 27, 27, 0.2);
+            border-radius: 12px;
+            border-left: 4px solid #ef4444;
+            margin-bottom: 16px;
+        }
+        
+        .pain-point-bullet {
+            color: #f87171;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-top: 2px;
+        }
+        
+        .pain-point p {
+            color: #e5e7eb;
+        }
+        
+        .credentials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        
+        .credentials-section h2 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 24px;
+            color: #00d4aa;
+        }
+        
+        .credentials-content {
+            color: #d1d5db;
+        }
+        
+        .credentials-content p {
+            margin-bottom: 12px;
+        }
+        
+        .font-semibold {
+            font-weight: 600;
+        }
+        
+        .legal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+        }
+        
+        .legal-section h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: #fb923c;
+        }
+        
+        .legal-content {
+            color: #d1d5db;
+            font-size: 0.875rem;
+        }
+        
+        .legal-content p {
+            margin-bottom: 8px;
+        }
+        
+        .compliance-box {
+            margin-top: 32px;
+            padding: 24px;
+            background: rgba(30, 58, 138, 0.2);
+            border-radius: 12px;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+        }
+        
+        .compliance-box h3 {
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-bottom: 16px;
+            color: #60a5fa;
+        }
+        
+        .risk-warning {
+            border: 2px solid rgba(239, 68, 68, 0.3);
+        }
+        
+        .risk-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 24px;
+            color: #f87171;
+        }
+        
+        .risk-content {
+            color: #d1d5db;
+            text-align: center;
+        }
+        
+        .risk-content p {
+            margin-bottom: 16px;
+        }
+        
+        .risk-highlight {
+            font-weight: bold;
+            color: #f87171;
+        }
+        
+        .disclosure-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 24px;
+            color: #fbbf24;
+        }
+        
+        .disclosure-content {
+            color: #d1d5db;
+            font-size: 0.875rem;
+            line-height: 1.6;
+        }
+        
+        .footer {
+            text-align: center;
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+        
+        .footer a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: #00d4aa;
+        }
+        
+        .floating-cta {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 50;
+        }
+        
+        .breathing-cta {
+            animation: breathingEffect 3s ease-in-out infinite;
+            background: linear-gradient(135deg, #00d4aa 0%, #00b4d8 50%, #0077b6 100%);
+            color: white;
+            font-weight: bold;
+            padding: 16px 64px;
+            border-radius: 50px;
+            font-size: 1.125rem;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+            white-space: nowrap;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        @keyframes breathingEffect {
+            0%, 100% { 
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+            }
+            50% { 
+                transform: scale(1.05);
+                box-shadow: 0 15px 40px rgba(0, 212, 170, 0.5);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+                padding-top: 80px;
+                padding-bottom: 120px;
+            }
+            
+            .section-divider {
+                margin: 30px 0;
+            }
+            
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.25rem;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+                gap: 24px;
+            }
+            
+            .hero-text {
+                text-align: center;
+            }
+            
+            .elevation-card {
+                padding: 32px 24px;
+            }
+            
+            .section-title {
+                font-size: 1.875rem;
+            }
+            
+            .pain-points-title {
+                font-size: 1.875rem;
+            }
+            
+            .credentials-grid,
+            .legal-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .breathing-cta {
+                padding: 14px 32px;
+                font-size: 1rem;
+            }
+            
+            .professional-avatar {
+                width: 200px;
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 1.75rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+            
+            .accent-button {
+                padding: 14px 32px;
+                font-size: 1.125rem;
+            }
+            
+            .professional-avatar {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 固定警告条 -->
+    <div class="warning-strip">
+        本サロンの内容は情報共有のみを目的とし、投資助言を構成するものではありません。過去の実績は将来の収益を保証するものではありません。
+    </div>
+
+    <!-- メインコンテナ -->
+    <div class="container">
+        
+        <!-- ヒーローセクション -->
+        <section class="text-center section-divider">
+            <h1 class="hero-title">
+                <span class="shimmer-text">オンラインサロンに参加し、</span><br>
+                <span>日本株式投資の機会を探求</span>
+            </h1>
+            <p class="hero-subtitle">
+                日本の金融市場をより深く理解したいとお考えですか？<br>
+                私たちの<span class="cyan-text">オンライン投資サロン</span>は、<br>
+                投資認識を向上させるための専門的な交流プラットフォームを提供します。
+            </p>
+            
+            <div class="hero-content">
+                <img src="img/2.png" 
+                     alt="専門投資アドバイザー" 
+                     class="professional-avatar">
+                <div class="hero-text">
+                    <h3>専門的な投資指導</h3>
+                    <p>
+                        経験豊富な投資専門家による<br>
+                        実践的な市場分析と投資戦略を学び、<br>
+                        より賢明な投資判断を身につけましょう。
+                    </p>
+                </div>
+            </div>
+            
+            <button onclick="k2()" class="accent-button">
+                今すぐ私のLINEに追加
+            </button>
+        </section>
+
+        <!-- サロン特色セクション -->
+        <section class="elevation-card section-divider">
+            <h2 class="section-title">
+                オンラインサロンの特色
+            </h2>
+            
+            <div class="features-grid">
+                <div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div class="feature-content">
+                            <h4>専門的市場分析</h4>
+                            <p>日本株式市場のトレンド、業界政策及び企業ファンダメンタルズの解読</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div class="feature-content">
+                            <h4>合理的投資戦略</h4>
+                            <p>データと論理に基づく長期投資方法論の共有</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div class="feature-content">
+                            <h4>インタラクティブな交流学習</h4>
+                            <p>ベテラン投資家と市場洞察を議論し、投資思考を拡大</p>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-item">
+                        <span class="feature-icon">✓</span>
+                        <div class="feature-content">
+                            <h4>リスク意識の育成</h4>
+                            <p>市場変動を理解し、科学的な投資決定フレームワークを構築</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <img src="img/1.png" 
+                     alt="市場分析イメージ" 
+                     class="center-image">
+                     
+                <button onclick="k2()" class="accent-button">
+                    私のLINEに追加
+                </button>
+            </div>
+        </section>
+
+        <!-- 痛点解決セクション -->
+        <section class="elevation-card section-divider">
+            <h2 class="pain-points-title">
+                市場情報の取得が遅れ、投資判断に影響していませんか？
+            </h2>
+            
+            <h3 class="pain-points-subtitle">
+                投資においてこれらの悩みはありませんか？
+            </h3>
+            
+            <div class="pain-points-list">
+                <div class="pain-point">
+                    <span class="pain-point-bullet">•</span>
+                    <p>市場情報が複雑で、重要な情報を適時に取得できず、潜在的機会を逃している</p>
+                </div>
+                
+                <div class="pain-point">
+                    <span class="pain-point-bullet">•</span>
+                    <p>各種情報源の真偽が判別困難で、合理的な判断ができない</p>
+                </div>
+                
+                <div class="pain-point">
+                    <span class="pain-point-bullet">•</span>
+                    <p>専門的分析ツールが不足し、市場データを効率的に処理できない</p>
+                </div>
+                
+                <div class="pain-point">
+                    <span class="pain-point-bullet">•</span>
+                    <p>業界政策や経済変化への反応が遅れ、投資リズムに影響</p>
+                </div>
+                
+                <div class="pain-point">
+                    <span class="pain-point-bullet">•</span>
+                    <p>独立した市場観点を形成しにくく、外部の干渉を受けやすい</p>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <button onclick="k2()" class="accent-button">
+                    今すぐ私のLINEに追加
+                </button>
+            </div>
+        </section>
+
+        <!-- 主催者資格セクション -->
+        <section class="elevation-card section-divider">
+            <div class="credentials-grid">
+                <div class="credentials-section">
+                    <h2>主催者資格</h2>
+                    <div class="credentials-content">
+                        <p><span class="font-semibold">登録名称：</span>智匯教育有限公司</p>
+                        <p><span class="font-semibold">データ協力パートナー：</span>東京証券取引所、QUICK FactSet</p>
+                    </div>
+                </div>
+                
+                <div class="credentials-section">
+                    <h2>サービス性質説明</h2>
+                    <p class="credentials-content">本サービスは<span class="cyan-text font-semibold">純粋な教育類製品</span>で、以下の特徴があります：</p>
+                    <div class="credentials-content" style="margin-top: 16px;">
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>資産管理や代理取引は行いません</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>具体的な売買価格の提案は行いません</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>すべての事例は過去データ（最低3ヶ月前）を使用</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-icon">✓</span>
+                            <span>いかなる証券会社とも利益関係はありません</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 法律・監管セクション -->
+        <section class="elevation-card section-divider">
+            <h2 class="section-title">適用法律と監督管理</h2>
+            
+            <div class="legal-grid">
+                <div>
+                    <h3>法規遵守</h3>
+                    <div class="legal-content">
+                        <p>• 日本《金融商品取引法》</p>
+                        <p>• 米国SEC Regulation AC（アナリスト認証）</p>
+                        <p>• EU MiFID II投資者保護条項</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>内容監督管理</h3>
+                    <div class="legal-content">
+                        <p>• すべての資料はコンプライアンス官による事前審査</p>
+                        <p>• アーカイブ記録は5年保存（日本FSA要求）</p>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3>利用者権益</h3>
+                    <div class="legal-content">
+                        <p>• servmaheLp@hotmail.com経由でいつでも資料修正申請可能</p>
+                        <p>• 異議処理：要請受理→15営業日以内に書面回答</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="compliance-box">
+                <h3>コンプライアンス交流環境</h3>
+                <div class="legal-content">
+                    <p>• すべての分析は上場企業の公開情報に基づきます</p>
+                    <p>• 個別株式の売買提案は厳格に禁止されています</p>
+                </div>
+            </div>
+        </section>
+
+         
+
+        <!-- 重要開示セクション -->
+        <section class="elevation-card section-divider">
+            <h2 class="disclosure-title">重要開示</h2>
+            <p class="disclosure-content">
+                本ウェブサイトは、日本の金融株式に興味のある投資家に学習と交流のプラットフォームを提供することを目的としています。グループメンバーが共有する市場観点、投資経験及び関連情報は参考と議論のためのみで、いかなる形式の投資助言や保証を構成するものではありません。本交流グループは純粋に共有性質のもので、いかなる形式の理財や投資助言を構成するものではありません。本サロンのすべての内容は教育用途で、いかなる投資助言も構成しません。株式市場には元本損失リスクが存在し、過去の実績は将来の表現を予示するものではありません。参加は《リスク告知書》のすべての条項に同意したものとみなします。
+            </p>
+        </section>
+
+        <!-- フッター -->
+        <footer class="footer section-divider">
+            <div>
+                <a href="Privacy.html">プライバシー協定</a>
+                <span> | </span>
+                <a href="terms.html">利用者協定</a>
+				 <span> | </span>
+                <a href="Disclaimer.html">免責事項</a>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 浮動CTA按钮 -->
+    <div class="floating-cta">
+        <button onclick="k2()" class="breathing-cta">
+            LINEで今すぐ参加
+        </button>
+    </div>
+
+    <script>
+       
+        // 深色模式检测
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+    </script>
+</body>
+</html>
