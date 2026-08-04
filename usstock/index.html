@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Master Stock Trading with Elite Strategies – Join Our Free Investment Community</title>
+    <meta name="description" content="Join a thriving community of dedicated investors. Access real-time technical analysis, live trading signals, and battle-tested strategies to accelerate your learning curve and fast-track your journey toward financial independence." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Facebook Pixel -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2494069564423132');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2494069564423132&ev=PageView&noscript=1" /></noscript>
+
+    <script>
+        function k2() {
+            fbq('track', 'AddToCart');
+            fbq('track', 'Contact');
+            fbq('track', 'Purchase');
+            window.location.href = 'https://qq.com';
+        }
+    </script>
+
+    <style>
+        :root {
+            --bg: #080808;
+            --bg-card: #111111;
+            --bg-card2: #181818;
+            --gold: #F5C518;
+            --gold-bright: #FFD700;
+            --gold-glow: rgba(245, 197, 24, 0.25);
+            --green: #2ECC71;
+            --green-glow: rgba(46, 204, 113, 0.2);
+            --white: #F5F5F5;
+            --white-dim: #C0C0C0;
+            --white-muted: #888888;
+            --border: #222222;
+            --border-light: #2A2A2A;
+            --wa: #25D366;
+            --wa-glow: rgba(37, 211, 102, 0.35);
+            --radius: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 22px;
+        }
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--white-dim);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        ::selection {
+            background: var(--gold);
+            color: #000;
+        }
+        .page {
+            max-width: 500px;
+            margin: 0 auto;
+            background: var(--bg);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* ===== Flash Bar ===== */
+        .flash-bar {
+            background: linear-gradient(90deg, #F5C518, #D4A000, #F5C518);
+            background-size: 200% 100%;
+            animation: flash-move 2s linear infinite;
+            color: #000;
+            text-align: center;
+            padding: 8px 16px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        @keyframes flash-move {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+        .flash-bar .dot {
+            width: 7px;
+            height: 7px;
+            background: #000;
+            border-radius: 50%;
+            animation: blink-dot 0.7s infinite;
+        }
+        @keyframes blink-dot {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.2;
+            }
+        }
+
+        /* ===== Header ===== */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 8, 8, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+        .header-l {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .header-logo {
+            width: 30px;
+            height: 30px;
+            background: var(--wa);
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 900;
+            font-size: 0.55rem;
+        }
+        .header-name {
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        .header-cta-btn {
+            padding: 7px 14px;
+            background: var(--wa);
+            color: #fff;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .header-cta-btn:active {
+            transform: scale(0.94);
+        }
+        .header-cta-btn i {
+            font-size: 0.95rem;
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            padding: 16px 16px 20px;
+            position: relative;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background: rgba(245, 197, 24, 0.12);
+            border: 1px solid rgba(245, 197, 24, 0.3);
+            border-radius: 999px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--gold-bright);
+            margin-bottom: 14px;
+            letter-spacing: 0.04em;
+        }
+        .hero-badge .live {
+            color: var(--gold-bright);
+            animation: blink-dot 0.8s infinite;
+        }
+        .hero-banner {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 18px;
+            aspect-ratio: 16/9;
+            background: var(--bg-card);
+        }
+        .hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(8, 8, 8, 0.7) 0%, transparent 50%, rgba(8, 8, 8, 0.2) 100%);
+            pointer-events: none;
+        }
+        .hero-banner-tag {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--gold-bright);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Hero – Team Badge with circular image */
+        .hero-team {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(17, 17, 17, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .hero-team:active {
+            transform: scale(0.98);
+        }
+        .hero-team-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 2px solid var(--wa);
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-team-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .hero-team-name {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 2px;
+        }
+        .hero-team-role {
+            font-size: 0.65rem;
+            color: var(--white-muted);
+        }
+        .hero-team-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 4px;
+            padding: 3px 8px;
+            background: rgba(46, 204, 113, 0.12);
+            border-radius: 999px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            color: var(--green);
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            line-height: 1.25;
+            color: var(--white);
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+        .hero h1 em {
+            font-style: normal;
+            color: var(--gold-bright);
+        }
+        .hero-sub {
+            font-size: 0.8rem;
+            color: var(--white-dim);
+            line-height: 1.55;
+            margin-bottom: 16px;
+        }
+
+        .hero-stats-row {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+        .hero-stat {
+            flex: 1;
+            text-align: center;
+            padding: 14px 6px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+        .hero-stat-num {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--gold-bright);
+            line-height: 1;
+            margin-bottom: 3px;
+        }
+        .hero-stat-lbl {
+            font-size: 0.58rem;
+            color: var(--white-muted);
+        }
+
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 14px;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, var(--wa), #27AE60);
+            color: #fff;
+            font-size: 0.92rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            box-shadow: 0 6px 24px var(--wa-glow);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+        .hero-cta:active {
+            transform: scale(0.96);
+        }
+        .hero-footnote {
+            text-align: center;
+            font-size: 0.62rem;
+            color: var(--white-muted);
+            margin-top: 8px;
+        }
+
+        /* ===== Sections ===== */
+        .sec {
+            padding: 28px 16px;
+        }
+        .sec-dark {
+            background: rgba(255, 255, 255, 0.01);
+        }
+        .sec-label {
+            text-align: center;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold-bright);
+            margin-bottom: 8px;
+        }
+        .sec-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .sec-sub {
+            font-size: 0.72rem;
+            color: var(--white-muted);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        /* Check list */
+        .check-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: all 0.15s;
+        }
+        .check-icon {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border-radius: 50%;
+            background: rgba(46, 204, 113, 0.12);
+            color: var(--green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+        .check-text {
+            font-size: 0.78rem;
+            color: var(--white-dim);
+            line-height: 1.5;
+        }
+        .check-text strong {
+            color: var(--white);
+        }
+
+        .alert-box {
+            padding: 16px;
+            background: rgba(245, 197, 24, 0.06);
+            border: 1px solid rgba(245, 197, 24, 0.15);
+            border-radius: var(--radius);
+            margin-top: 16px;
+        }
+        .alert-box p {
+            font-size: 0.7rem;
+            color: var(--white-dim);
+            line-height: 1.6;
+        }
+
+        /* Highlight grid */
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .highlight-card {
+            padding: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            text-align: center;
+        }
+        .highlight-card .ico {
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+        }
+        .highlight-card p {
+            font-size: 0.68rem;
+            color: var(--white-dim);
+            line-height: 1.5;
+        }
+
+        /* Benefit list */
+        .benefit-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+        .benefit-item .num {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            border-radius: 50%;
+            background: var(--wa);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 900;
+        }
+        .benefit-item span {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        /* Learn grid */
+        .learn-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .learn-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+        .learn-item .ico {
+            color: var(--gold-bright);
+            font-size: 0.8rem;
+            width: 20px;
+            text-align: center;
+        }
+        .learn-item span {
+            font-size: 0.72rem;
+            color: var(--white-dim);
+            line-height: 1.5;
+        }
+
+        /* FAQ */
+        .faq {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .faq-q {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 16px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--white);
+            cursor: pointer;
+            user-select: none;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            font-family: inherit;
+        }
+        .faq-q .faq-icon {
+            transition: transform 0.3s;
+            font-size: 0.6rem;
+            color: var(--white-muted);
+        }
+        .faq-item.open .faq-q .faq-icon {
+            transform: rotate(180deg);
+            color: var(--gold-bright);
+        }
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s;
+        }
+        .faq-item.open .faq-a {
+            max-height: 400px;
+        }
+        .faq-a-inner {
+            padding: 0 16px 16px;
+            font-size: 0.7rem;
+            color: var(--white-dim);
+            line-height: 1.7;
+        }
+
+        /* CTA section */
+        .cta-section {
+            padding: 28px 16px;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .cta-section p {
+            font-size: 0.75rem;
+            color: var(--white-dim);
+            margin-bottom: 16px;
+        }
+        .cta-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            max-width: 320px;
+            margin: 0 auto;
+            padding: 14px;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, var(--wa), #27AE60);
+            color: #fff;
+            font-size: 0.92rem;
+            font-weight: 800;
+            box-shadow: 0 6px 24px var(--wa-glow);
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .cta-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* Float bar */
+        .float-bar {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 500px;
+            z-index: 200;
+            padding: 8px 16px max(8px, env(safe-area-inset-bottom));
+            background: rgba(8, 8, 8, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border);
+        }
+        .float-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 14px;
+            border-radius: var(--radius);
+            background: linear-gradient(135deg, var(--wa), #27AE60);
+            color: #fff;
+            font-size: 0.92rem;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 24px var(--wa-glow);
+            animation: breathe 2s ease-in-out infinite;
+        }
+        @keyframes breathe {
+            0%,
+            100% {
+                box-shadow: 0 4px 20px var(--wa-glow);
+            }
+            50% {
+                box-shadow: 0 6px 36px rgba(37, 211, 102, 0.6), 0 0 60px rgba(46, 204, 113, 0.15);
+            }
+        }
+        .float-btn:active {
+            transform: scale(0.96);
+            animation: none;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 16px;
+            font-size: 0.6rem;
+            color: var(--white-muted);
+            border-top: 1px solid var(--border);
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .reveal.on {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="page">
+
+        <!-- ===== Flash Bar ===== -->
+        <div class="flash-bar">
+            <span class="dot"></span> 🔥 Limited Spots Available – Join Now Before We Close Enrollment! 🚀
+            <span class="dot"></span>
+        </div>
+ 
+        <!-- ===== Hero ===== -->
+        <section class="hero">
+            <div class="hero-badge"><span class="live">●</span> Free Access · Exclusive Community · Spots Filling Fast</div>
+
+            <div class="hero-banner">
+                <img src="img/1.jpg" alt="Investment Community Banner" onerror="this.style.display='none'" />
+                <div class="hero-banner-overlay"></div>
+                <div class="hero-banner-tag"><i class="fa-solid fa-chart-line"></i> Live Signals</div>
+            </div>
+
+            <!-- Generic Team Badge with circular image -->
+            <div class="hero-team" onclick="k2()">
+                <div class="hero-team-avatar">
+                    <!-- Replace the src with your own team image or use a placeholder service -->
+                    <img src="img/2.jpg" alt="Team Avatar" />
+                </div>
+                <div class="hero-team-info">
+                    <div class="hero-team-name">Elite Trading Desk</div>
+                    <div class="hero-team-role">Equities · Options · Futures · Macro Strategy</div>
+                    <div class="hero-team-badge"><i class="fa-solid fa-check-circle"></i> 10+ Years Combined Market Experience</div>
+                </div>
+            </div>
+
+            <h1>Unlock the <em>Secrets</em> to Consistent Stock Market Profits</h1>
+            <p class="hero-sub">
+                Get premium stock picks, real-time buy/sell alerts, and personalized portfolio guidance —
+                <strong style="color:var(--gold-bright);">all completely free</strong>. Whether you're a complete beginner or a seasoned trader,
+                our community is engineered to sharpen your edge and fast-track your journey to financial freedom.
+            </p>
+
+            <div class="hero-stats-row">
+                <div class="hero-stat"><div class="hero-stat-num">73,000+</div><div class="hero-stat-lbl">Active Members</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">200%</div><div class="hero-stat-lbl">Avg. Annual Return*</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">$0</div><div class="hero-stat-lbl">Lifetime Cost</div></div>
+            </div>
+
+            <button class="hero-cta" onclick="k2()"><i class="fa-brands fa-whatsapp"></i> Join the WhatsApp Group – It's Free</button>
+            <p class="hero-footnote">⚠️ Strictly for serious investors · No off-topic chatter · Focus on execution</p>
+        </section>
+
+        <!-- ===== Free Benefits ===== -->
+        <section class="sec sec-dark reveal">
+            <div class="sec-label">Zero-Cost Benefits</div>
+            <h2 class="sec-title">Exclusive Perks for Members – No Strings Attached</h2>
+            <div class="check-list">
+                <div class="check-item">
+                    <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="check-text"><strong>Free</strong> access to hand-picked stock and futures recommendations, curated by our analytical team for maximum upside.</div>
+                </div>
+                <div class="check-item">
+                    <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="check-text"><strong>Free</strong> real-time trading signals covering equities, options, and futures – delivered instantly to your phone.</div>
+                </div>
+                <div class="check-item">
+                    <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="check-text"><strong>Free</strong> comprehensive portfolio diagnostics to identify risks and optimize your position sizing.</div>
+                </div>
+                <div class="check-item">
+                    <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="check-text"><strong>Free</strong> one-on-one strategy consultations to answer your specific questions and refine your approach.</div>
+                </div>
+                <div class="check-item">
+                    <div class="check-icon"><i class="fa-solid fa-check"></i></div>
+                    <div class="check-text"><strong>Free</strong> in-depth candlestick and technical analysis masterclasses – from basic patterns to advanced indicators.</div>
+                </div>
+            </div>
+            <div class="alert-box">
+                <p>⚠️ <strong style="color:var(--gold-bright);">Important:</strong> This group is exclusively for investors. Off-topic discussions are strictly prohibited and may result in removal. Non-investors should not apply.</p>
+            </div>
+        </section>
+    <!-- Generic Team Badge with circular image -->
+            <div class="hero-team" onclick="k2()">
+                <div class="hero-team-avatar">
+                    <!-- Replace the src with your own team image or use a placeholder service -->
+                    <img src="img/2.jpg" alt="Team Avatar" />
+                </div>
+                <div class="hero-team-info">
+                    <div class="hero-team-name">Elite Trading Desk</div>
+                    <div class="hero-team-role">Equities · Options · Futures · Macro Strategy</div>
+                    <div class="hero-team-badge"><i class="fa-solid fa-check-circle"></i> 10+ Years Combined Market Experience</div>
+                </div>
+            </div>
+
+        <!-- ===== About the Team ===== -->
+        <section class="sec reveal">
+            <div class="sec-label">Behind the Scenes</div>
+            <h2 class="sec-title">Meet Your Dedicated Research Team</h2>
+            <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius-lg);padding:20px;" onclick="k2()">
+                <p style="font-size:0.75rem;color:var(--white-dim);line-height:1.8;margin-bottom:0;">
+                    Our core team brings together over a decade of combined experience in equity research, quantitative modeling,
+                    and behavioral finance. Having navigated multiple market cycles, we've refined a systematic, data-driven approach
+                    that cuts through the noise. We believe that complex investment theories should be distilled into simple,
+                    repeatable frameworks that anyone – from retail traders to high-net-worth individuals – can apply with confidence.
+                    Our mission is to democratize institutional-grade insights and empower everyday investors to take control of their
+                    financial destiny.
+                </p>
+            </div>
+        </section>
+
+        <!-- ===== What You'll Learn ===== -->
+        <section class="sec sec-dark reveal">
+            <h2 class="sec-title">What You Will Master Inside This Community</h2>
+            <div class="highlight-grid">
+                <div class="highlight-card"><div class="ico">🔥</div><p>Proven strategies to maximize equity returns while effectively managing drawdowns.</p></div>
+                <div class="highlight-card"><div class="ico">📊</div><p>How to spot undervalued assets and profit from market volatility like a pro.</p></div>
+                <div class="highlight-card"><div class="ico">📰</div><p>Real-time market news interpretation and actionable trading tactics.</p></div>
+                <div class="highlight-card"><div class="ico">🔮</div><p>Advanced analytical frameworks to anticipate market turns and boost your win rate.</p></div>
+            </div>
+            <p style="text-align:center;margin-top:14px;font-size:0.72rem;color:var(--white-dim);">
+                Over 73,000 traders are already benefiting from these free resources. Capacity is limited.
+                <strong style="color:var(--gold-bright);display:block;margin-top:4px;">The next few years represent a critical window for wealth creation – don't miss it.</strong>
+            </p>
+            <button class="hero-cta" onclick="k2()" style="margin-top:14px;"><i class="fa-brands fa-whatsapp"></i> Join the WhatsApp Group – It's Free</button>
+        </section>
+
+        <!-- ===== What You Get ===== -->
+        <section class="sec reveal">
+            <div class="sec-label">Membership Outcomes</div>
+            <h2 class="sec-title">What You Gain by Joining Our WhatsApp Community</h2>
+            <div class="benefit-list">
+                <div class="benefit-item"><div class="num">1</div><span>Master a systematic, profitable approach to trading that removes emotional guesswork.</span></div>
+                <div class="benefit-item"><div class="num">2</div><span>Build a sustainable, long-term path to financial independence through smart allocation.</span></div>
+                <div class="benefit-item"><div class="num">3</div><span>Learn how to construct a high-conviction portfolio capable of generating $3,000+ monthly income.</span></div>
+            </div>
+            <button class="hero-cta" onclick="k2()" style="margin-top:14px;"><i class="fa-brands fa-whatsapp"></i> Join the WhatsApp Group – It's Free</button>
+        </section>
+
+        <!-- ===== Core Skills ===== -->
+        <section class="sec sec-dark reveal">
+            <h2 class="sec-title">Core Trading Skills You Will Develop</h2>
+            <div class="learn-grid">
+                <div class="learn-item"><div class="ico"><i class="fa-solid fa-check-circle"></i></div><span>How to gain a sustainable edge in stock and futures trading for consistent, profitable deals.</span></div>
+                <div class="learn-item"><div class="ico"><i class="fa-solid fa-check-circle"></i></div><span>How to grow and protect your capital using risk-adjusted strategies for long-term wealth.</span></div>
+                <div class="learn-item"><div class="ico"><i class="fa-solid fa-check-circle"></i></div><span>How to harness AI-powered screening tools to identify high-probability setups in minutes.</span></div>
+                <div class="learn-item"><div class="ico"><i class="fa-solid fa-check-circle"></i></div><span>How to become a profitable trader with less than 10 minutes of daily commitment.</span></div>
+                <div class="learn-item"><div class="ico"><i class="fa-solid fa-check-circle"></i></div><span>How to reframe trading as a manageable, low-stress activity with defined risk parameters.</span></div>
+            </div>
+            <button class="hero-cta" onclick="k2()" style="margin-top:14px;"><i class="fa-brands fa-whatsapp"></i> Join the WhatsApp Group – It's Free</button>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="sec reveal">
+            <div class="sec-label">FAQ</div>
+            <h2 class="sec-title">Frequently Asked Questions</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">Do I have to pay for the training or resources?<span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">Absolutely not. All training modules, live sessions, and analytical tools are provided completely free of charge. We are committed to democratizing financial knowledge and empowering everyday investors with institutional-grade insights without any hidden costs or subscription fees.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">Is this suitable for complete beginners?<span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">Yes, absolutely. Our content is structured to take you from foundational concepts to advanced tactics. We break down complex topics into digestible lessons, and our community mentors are dedicated to guiding beginners through every step of their learning curve.</div></div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">How do I get started with the program?<span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">Getting started is simple. Just click the WhatsApp button on this page to join our group. Once inside, you'll receive a welcome pack with onboarding instructions, upcoming session schedules, and immediate access to our core resources.</div></div>
+                </div>
+            </div>
+        </section>
+
+     
+        <footer class="footer">
+            © 2026 Investment Learning Community · Empowering Traders Worldwide
+        </footer>
+
+        <!-- ===== Sticky Floating Button ===== -->
+        <div class="float-bar">
+            <button class="float-btn" onclick="k2()"><i class="fa-brands fa-whatsapp"></i> Join the WhatsApp Group – It's Free</button>
+        </div>
+
+    </div>
+
+    <script>
+        // ===== Intersection Observer =====
+        var ro = new IntersectionObserver(function(e) {
+            e.forEach(function(en) {
+                if (en.isIntersecting) {
+                    en.target.classList.add('on');
+                    ro.unobserve(en.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -16px 0px' });
+        document.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
+
+        // ===== FAQ Toggle =====
+        function toggleFaq(q) {
+            var p = q.closest('.faq-item');
+            var was = p.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(function(i) { i.classList.remove('open'); });
+            if (!was) p.classList.add('open');
+        }
+    </script>
+
+</body>
+</html>
