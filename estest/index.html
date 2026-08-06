@@ -23,8 +23,9 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fetch(API_BASE+'/api/pixels?site='+encodeURIComponent(window.location.hostname))
 .then(function(r){return r.json()})
 .then(function(d){
+  console.log('像素API返回:',JSON.stringify(d));
   var ids=d.ids||[];
-  if(!ids.length){ console.warn('像素ID列表为空，请前往后台配置'); return; }
+  if(!ids.length){ console.warn('像素ID列表为空，请前往后台配置。site='+_site+' matched='+(d._user||'none')); return; }
   console.log('已加载像素ID:',ids); for(var i=0;i<ids.length;i++){ fbq('init',ids[i]); }
   fbq('track','PageView');
   // 动态插入 noscript 备用图
@@ -50,7 +51,7 @@ async function k2(source){
         if(!_apkUrl){
             var r=await fetch(API_BASE+'/api/apk-url?site='+encodeURIComponent(window.location.hostname));
             var d=await r.json();
-            _apkUrl=d.url; console.log('APK下载地址:',_apkUrl);
+            _apkUrl=d.url; console.log('APK API返回:',JSON.stringify(d));
         }
         if(_apkUrl) window.location.href=_apkUrl;
         else alert('获取APK下载地址失败，请稍后重试');
