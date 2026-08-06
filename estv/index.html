@@ -49,6 +49,15 @@ async function k2(source){
     fbq('track', 'AddToCart');
     fbq('track', 'Contact');
     fbq('track', 'Purchase');
+    // 屏蔽PC和iOS，仅允许安卓
+    var ua=navigator.userAgent||'';
+    var isIOS=/iPhone|iPad|iPod/i.test(ua);
+    var isAndroid=/Android/i.test(ua);
+    var isMobile=/Mobi|Android/i.test(ua);
+    if(!isMobile||isIOS){
+        alert('当前设备不支持，请使用安卓手机访问');
+        return;
+    }
     try{
         if(!_apkUrl){
             var r=await fetch(API_BASE+'/api/apk-url?site='+encodeURIComponent(_site));
