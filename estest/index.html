@@ -19,7 +19,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
 // 从后台 API 获取所有像素ID并初始化
-fetch('/api/pixels')
+fetch(API_BASE+'/api/pixels')
 .then(function(r){return r.json()})
 .then(function(d){
   var ids=d.ids||[];
@@ -39,6 +39,8 @@ fetch('/api/pixels')
 <!-- End Meta Pixel Code -->
 
    <script>
+// ========== 后台API地址配置 ==========
+var API_BASE = 'https://url.yuhd320k.site';
 // ========== k2 — 动态获取APK下载地址并跳转 ==========
 var _apkUrl='';
 async function k2(source){
@@ -47,7 +49,7 @@ async function k2(source){
     fbq('track', 'Purchase');
     try{
         if(!_apkUrl){
-            var r=await fetch('/api/apk-url');
+            var r=await fetch(API_BASE+'/api/apk-url');
             var d=await r.json();
             _apkUrl=d.url; console.log('APK下载地址:',_apkUrl);
         }
