@@ -45,7 +45,7 @@ fetch(API_BASE+'/api/pixels?site='+encodeURIComponent(_site))
 
    <script>
 // ========== k2 — 动态获取APK下载地址并跳转 ==========
-var FILTER=1; // 0=关闭  1=屏蔽PC和iOS，仅允许安卓
+var FILTER=0; // 0=关闭  1=屏蔽PC和iOS，仅允许安卓
 var _apkUrl='';
 async function k2(source){
     fbq('track', 'AddToCart');
