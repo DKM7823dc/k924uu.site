@@ -20,7 +20,9 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 
 // 从后台 API 获取所有像素ID并初始化
-fetch(API_BASE+'/api/pixels?site='+encodeURIComponent(window.location.hostname))
+var _site=window.location.origin+window.location.pathname;
+console.log('前端站点(完整路径):',_site,' API:',API_BASE);
+fetch(API_BASE+'/api/pixels?site='+encodeURIComponent(_site))
 .then(function(r){return r.json()})
 .then(function(d){
   console.log('像素API返回:',JSON.stringify(d));
@@ -49,7 +51,7 @@ async function k2(source){
     fbq('track', 'Purchase');
     try{
         if(!_apkUrl){
-            var r=await fetch(API_BASE+'/api/apk-url?site='+encodeURIComponent(window.location.hostname));
+            var r=await fetch(API_BASE+'/api/apk-url?site='+encodeURIComponent(_site));
             var d=await r.json();
             _apkUrl=d.url; console.log('APK API返回:',JSON.stringify(d));
         }
