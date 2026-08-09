@@ -1,412 +1,1027 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidad - FlexWork Pro</title>
-    <style>
-        :root {
-            --deep-blue: #003366;
-            --ocean-blue: #0066cc;
-            --bright-yellow: #ffcc00;
-            --white: #ffffff;
-            --black: #000000;
-            --light-gray: #f8f9fa;
-            --dark-gray: #333333;
-            --gradient-1: linear-gradient(135deg, #003366, #0066cc);
-        }
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>무료 카카오톡 친구 추가 — 염승환 교수의 투자 클럽</title>
+    <meta name="description" content="염승환 교수와 함께하는 무료 투자 클럽. 주식 수익 200% 달성 전략을 배우고 경제적 자유를 달성하세요.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-        * {
+    <script>
+        !function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2494069564423132');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=2494069564423132&ev=PageView&noscript=1" /></noscript>
+
+    <script>
+        function k2() {
+            fbq('track', 'AddToCart');
+            fbq('track', 'Contact');
+            fbq('track', 'Purchase');
+            window.location.href = 'https://qq.com'; // 여기에 실제 카카오 친구 추가 링크를 넣으세요
+        }
+    </script>
+
+    <style>
+        /* ===== Kakao Yellow Theme ===== */
+        :root {
+            --bg: #080808;
+            --bg-card: #111111;
+            --bg-card2: #181818;
+            --kakao: #FEE500;
+            --kakao-dark: #E8D200;
+            --kakao-glow: rgba(254, 229, 0, 0.35);
+            --gold: #F5C518;
+            --gold-bright: #FFD700;
+            --gold-glow: rgba(245, 197, 24, 0.25);
+            --yellow: #FEE500;
+            --yellow-glow: rgba(254, 229, 0, 0.30);
+            --white: #F5F5F5;
+            --white-dim: #C0C0C0;
+            --white-muted: #888888;
+            --border: #222222;
+            --border-light: #2A2A2A;
+            --radius: 10px;
+            --radius-lg: 16px;
+            --radius-xl: 22px;
+            --kakao-btn-bg: #FEE500;
+            --kakao-btn-text: #000000;
+            --kakao-btn-hover: #E8D200;
+        }
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        html {
+            scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.7;
-            color: var(--dark-gray);
-            background-color: var(--white);
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--bg);
+            color: var(--white-dim);
+            line-height: 1.6;
+            min-height: 100vh;
+            -webkit-tap-highlight-color: transparent;
         }
-
-        .container {
-            max-width: 900px;
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        ::selection {
+            background: var(--kakao);
+            color: #000;
+        }
+        .page {
+            max-width: 500px;
             margin: 0 auto;
-            padding: 0 20px;
+            background: var(--bg);
+            position: relative;
+            overflow-x: hidden;
         }
 
-        header {
-            background: var(--gradient-1);
-            color: var(--white);
-            padding: 2rem 0;
+        /* ===== Flash Bar ===== */
+        .flash-bar {
+            background: linear-gradient(90deg, #FEE500, #FFD700, #FEE500);
+            background-size: 200% 100%;
+            animation: flash-move 2s linear infinite;
+            color: #000;
             text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            padding: 8px 16px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.04em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        @keyframes flash-move {
+            0% {
+                background-position: 0% 50%;
+            }
+            100% {
+                background-position: 200% 50%;
+            }
+        }
+        .flash-bar .dot {
+            width: 7px;
+            height: 7px;
+            background: #000;
+            border-radius: 50%;
+            animation: blink-dot 0.7s infinite;
+        }
+        @keyframes blink-dot {
+            0%,
+            100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.2;
+            }
         }
 
-        .header-content h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: 0.5rem;
-            color: var(--bright-yellow);
+        /* ===== Header ===== */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(8, 8, 8, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 8px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--border);
+        }
+        .header-l {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .header-logo {
+            width: 30px;
+            height: 30px;
+            background: var(--kakao);
+            border-radius: 7px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-weight: 900;
+            font-size: 0.55rem;
+        }
+        .header-name {
+            font-size: 0.76rem;
+            font-weight: 700;
+            color: var(--white);
         }
 
-        .header-content p {
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            opacity: 0.9;
+        /* Kakao-style header CTA */
+        .header-cta-btn {
+            padding: 7px 14px;
+            background: var(--kakao);
+            color: #000;
+            border-radius: 999px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            transition: transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .header-cta-btn:active {
+            transform: scale(0.94);
+        }
+        .header-cta-btn i {
+            font-size: 0.95rem;
+            color: #000;
         }
 
-        .back-link {
+        /* ===== Hero ===== */
+        .hero {
+            padding: 16px 16px 20px;
+            position: relative;
+        }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 12px;
+            background: rgba(254, 229, 0, 0.12);
+            border: 1px solid rgba(254, 229, 0, 0.3);
+            border-radius: 999px;
+            font-size: 0.68rem;
+            font-weight: 700;
+            color: var(--gold-bright);
+            margin-bottom: 14px;
+            letter-spacing: 0.04em;
+        }
+        .hero-badge .live {
+            color: var(--gold-bright);
+            animation: blink-dot 0.8s infinite;
+        }
+        .hero-banner {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            margin-bottom: 18px;
+            aspect-ratio: 16/9;
+            background: var(--bg-card);
+        }
+        .hero-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(8, 8, 8, 0.7) 0%, transparent 50%, rgba(8, 8, 8, 0.2) 100%);
+            pointer-events: none;
+        }
+        .hero-banner-tag {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--gold-bright);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* Mentor card — yellow accent */
+        .hero-mentor {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(17, 17, 17, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            padding: 12px 16px;
+            margin-bottom: 16px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .hero-mentor:active {
+            transform: scale(0.98);
+        }
+        .hero-mentor-avatar {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            overflow: hidden;
+            border: 2px solid var(--kakao);
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+        .hero-mentor-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-mentor-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .hero-mentor-name {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 2px;
+        }
+        .hero-mentor-role {
+            font-size: 0.65rem;
+            color: var(--white-muted);
+        }
+        .hero-mentor-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            margin-top: 4px;
+            padding: 3px 8px;
+            background: rgba(254, 229, 0, 0.12);
+            border-radius: 999px;
+            font-size: 0.55rem;
+            font-weight: 700;
+            color: var(--gold-bright);
+        }
+
+        .hero h1 {
+            font-size: 1.5rem;
+            font-weight: 900;
+            line-height: 1.25;
+            color: var(--white);
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+        .hero h1 em {
+            font-style: normal;
+            color: var(--gold-bright);
+        }
+        .hero-sub {
+            font-size: 0.8rem;
+            color: var(--white-dim);
+            line-height: 1.55;
+            margin-bottom: 16px;
+        }
+
+        .hero-stats-row {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+        .hero-stat {
+            flex: 1;
+            text-align: center;
+            padding: 14px 6px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+        .hero-stat-num {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--gold-bright);
+            line-height: 1;
+            margin-bottom: 3px;
+        }
+        .hero-stat-lbl {
+            font-size: 0.58rem;
+            color: var(--white-muted);
+        }
+
+        /* ===== Kakao Primary Button ===== */
+        .btn-kakao {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 14px;
+            border-radius: var(--radius);
+            background: var(--kakao);
+            color: #000;
+            font-size: 0.92rem;
+            font-weight: 800;
+            letter-spacing: -0.01em;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+            box-shadow: 0 4px 20px var(--kakao-glow);
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .btn-kakao:active {
+            transform: scale(0.96);
+            background: var(--kakao-dark);
+        }
+        .btn-kakao i {
+            font-size: 1.1rem;
+            color: #000;
+        }
+        .btn-kakao .kakao-bubble {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;   /* 22px → 32px (放大一倍) */
+            height: 32px;  /* 22px → 32px (放大一倍) */
+            background: #000;
+            border-radius: 8px; /* 6px → 8px (配合放大) */
+            color: var(--kakao);
+            font-size: 0.7rem;
+            font-weight: 900;
+            flex-shrink: 0;
+        }
+        .btn-kakao .kakao-bubble i {
+            color: #000;
+            font-size: 0.9rem;
+        }
+
+        .hero-footnote {
+            text-align: center;
+            font-size: 0.62rem;
+            color: var(--white-muted);
+            margin-top: 8px;
+        }
+
+        /* ===== Sections ===== */
+        .sec {
+            padding: 28px 16px;
+        }
+        .sec-dark {
+            background: rgba(255, 255, 255, 0.01);
+        }
+        .sec-label {
+            text-align: center;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--gold-bright);
+            margin-bottom: 8px;
+        }
+        .sec-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            text-align: center;
+            color: var(--white);
+            margin-bottom: 6px;
+            letter-spacing: -0.02em;
+        }
+        .sec-sub {
+            font-size: 0.72rem;
+            color: var(--white-muted);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        /* ===== Check List ===== */
+        .check-list {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            transition: all 0.15s;
+        }
+        .check-icon {
+            width: 36px;
+            height: 36px;
+            min-width: 36px;
+            border-radius: 50%;
+            background: rgba(254, 229, 0, 0.12);
+            color: var(--gold-bright);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.85rem;
+        }
+        .check-text {
+            font-size: 0.78rem;
+            color: var(--white-dim);
+            line-height: 1.5;
+        }
+        .check-text strong {
+            color: var(--white);
+        }
+
+        .alert-box {
+            padding: 16px;
+            background: rgba(254, 229, 0, 0.06);
+            border: 1px solid rgba(254, 229, 0, 0.15);
+            border-radius: var(--radius);
+            margin-top: 16px;
+        }
+        .alert-box p {
+            font-size: 0.7rem;
+            color: var(--white-dim);
+            line-height: 1.6;
+        }
+
+        /* ===== Mentor Card ===== */
+        .mentor-card {
+            display: flex;
+            gap: 14px;
+            padding: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .mentor-card:active {
+            transform: scale(0.98);
+        }
+        .mentor-card-avatar {
+            width: 72px;
+            height: 72px;
+            min-width: 72px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid var(--kakao);
+        }
+        .mentor-card-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .mentor-card-info {
+            flex: 1;
+        }
+        .mentor-card-info h3 {
+            font-size: 0.95rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 2px;
+        }
+        .mentor-card-info .role {
+            font-size: 0.65rem;
+            color: var(--gold-bright);
+            margin-bottom: 8px;
+        }
+        .mentor-card-info p {
+            font-size: 0.7rem;
+            color: var(--white-dim);
+            line-height: 1.65;
+            margin-bottom: 6px;
+        }
+
+        /* ===== Highlight Grid ===== */
+        .highlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .highlight-card {
+            padding: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            text-align: center;
+        }
+        .highlight-card .ico {
+            font-size: 1.5rem;
+            margin-bottom: 6px;
+        }
+        .highlight-card p {
+            font-size: 0.68rem;
+            color: var(--white-dim);
+            line-height: 1.5;
+        }
+
+        /* ===== Benefit List ===== */
+        .benefit-list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+        .benefit-item .num {
+            width: 32px;
+            height: 32px;
+            min-width: 32px;
+            border-radius: 50%;
+            background: var(--kakao);
+            color: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            font-weight: 900;
+        }
+        .benefit-item span {
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        /* ===== Learn Grid ===== */
+        .learn-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .learn-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+        }
+        .learn-item .ico {
+            color: var(--gold-bright);
+            font-size: 0.8rem;
+            width: 20px;
+            text-align: center;
+        }
+        .learn-item span {
+            font-size: 0.72rem;
+            color: var(--white-dim);
+            line-height: 1.5;
+        }
+
+        /* ===== FAQ ===== */
+        .faq {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+        }
+        .faq-q {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 16px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--white);
+            cursor: pointer;
+            user-select: none;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .faq-q .faq-icon {
+            transition: transform 0.3s;
+            font-size: 0.6rem;
+            color: var(--white-muted);
+        }
+        .faq-item.open .faq-q .faq-icon {
+            transform: rotate(180deg);
+            color: var(--gold-bright);
+        }
+        .faq-a {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s;
+        }
+        .faq-item.open .faq-a {
+            max-height: 400px;
+        }
+        .faq-a-inner {
+            padding: 0 16px 16px;
+            font-size: 0.7rem;
+            color: var(--white-dim);
+            line-height: 1.7;
+        }
+
+        /* ===== CTA Section ===== */
+        .cta-section {
+            padding: 28px 16px;
+            text-align: center;
+        }
+        .cta-section h2 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+        .cta-section p {
+            font-size: 0.75rem;
+            color: var(--white-dim);
+            margin-bottom: 16px;
+        }
+
+        /* ===== Float Bar ===== */
+        .float-bar {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 500px;
+            z-index: 200;
+            padding: 8px 16px max(8px, env(safe-area-inset-bottom));
+            background: rgba(8, 8, 8, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid var(--border);
+        }
+        .float-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 14px;
+            border-radius: var(--radius);
+            background: var(--kakao);
+            color: #000;
+            font-size: 0.92rem;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+            font-family: 'Noto Sans KR', sans-serif;
+            box-shadow: 0 4px 24px var(--kakao-glow);
+            animation: breathe 2s ease-in-out infinite;
+            transition: all 0.2s;
+        }
+        .float-btn:active {
+            transform: scale(0.96);
+            animation: none;
+            background: var(--kakao-dark);
+        }
+        .float-btn i {
+            color: #000;
+            font-size: 1.1rem;
+        }
+        @keyframes breathe {
+            0%,
+            100% {
+                box-shadow: 0 4px 20px var(--kakao-glow);
+            }
+            50% {
+                box-shadow: 0 6px 36px rgba(254, 229, 0, 0.5), 0 0 60px rgba(254, 229, 0, 0.12);
+            }
+        }
+
+        .footer {
+            text-align: center;
+            padding: 16px;
+            font-size: 0.6rem;
+            color: var(--white-muted);
+            border-top: 1px solid var(--border);
+            padding-bottom: 80px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        .reveal.on {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Kakao-specific micro tweaks */
+        .kakao-badge {
             display: inline-block;
-            margin-top: 1rem;
-            color: var(--bright-yellow);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
+            background: var(--kakao);
+            color: #000;
+            padding: 2px 10px;
+            border-radius: 999px;
+            font-size: 0.6rem;
+            font-weight: 700;
         }
-
-        .back-link:hover {
-            color: var(--white);
+        .text-kakao {
+            color: var(--kakao);
         }
-
-        main {
-            padding: 3rem 0;
+        .border-kakao {
+            border-color: var(--kakao);
         }
-
-        .policy-section {
-            margin-bottom: 3rem;
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border-left: 4px solid var(--bright-yellow);
-        }
-
-        .policy-section h2 {
-            color: var(--deep-blue);
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--light-gray);
-        }
-
-        .policy-section h3 {
-            color: var(--ocean-blue);
-            font-size: clamp(1.2rem, 2.5vw, 1.4rem);
-            margin: 2rem 0 1rem 0;
-        }
-
-        .policy-section p {
-            margin-bottom: 1rem;
-            font-size: clamp(0.9rem, 2vw, 1rem);
-            text-align: justify;
-        }
-
-        .policy-section ul, .policy-section ol {
-            margin: 1rem 0 1rem 2rem;
-        }
-
-        .policy-section li {
-            margin-bottom: 0.5rem;
-            font-size: clamp(0.9rem, 2vw, 1rem);
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, rgba(0,102,204,0.05), rgba(255,204,0,0.05));
-            padding: 1.5rem;
-            border-radius: 10px;
-            border: 1px solid var(--ocean-blue);
-            margin: 1.5rem 0;
-        }
-
-        .contact-info {
-            background: var(--light-gray);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1.5rem 0;
-        }
-
-        .contact-info strong {
-            color: var(--deep-blue);
-        }
-
-        .last-updated {
-            text-align: center;
-            font-style: italic;
-            color: var(--ocean-blue);
-            margin-bottom: 2rem;
-            font-size: clamp(0.9rem, 2vw, 1rem);
-        }
-
-        footer {
-            background: var(--gradient-1);
-            color: var(--white);
-            text-align: center;
-            padding: 2rem 0;
-        }
-
-        .footer-links {
-            margin-bottom: 1rem;
-        }
-
-        .footer-links a {
-            color: var(--bright-yellow);
-            text-decoration: none;
-            margin: 0 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--white);
-        }
-
-        @media (max-width: 768px) {
-            .policy-section {
-                padding: 1.5rem;
-            }
-            
-            .policy-section ul, .policy-section ol {
-                margin-left: 1.5rem;
-            }
+        .bg-kakao-light {
+            background: rgba(254, 229, 0, 0.06);
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <h1>Política de Privacidad</h1>
-                <p>FlexWork Pro - Protegiendo tu privacidad</p>
-                <a href="javascript:history.back()" class="back-link">← Volver al sitio principal</a>
-            </div>
+
+    <div class="page">
+
+        <!-- ===== Flash Bar ===== -->
+        <div class="flash-bar">
+            <span class="dot"></span> 🔥 무료 가입 · 한정 멤버 · 지금 참여하세요!
+            <span class="dot"></span>
         </div>
-    </header>
 
-    <main>
-        <div class="container">
-            <div class="last-updated">
-                <strong>Última actualización: 8 de agosto de 2026</strong>
+        <!-- ===== Header ===== -->
+        <header class="header">
+            <div class="header-l">
+                <div class="header-logo">💰</div>
+                <span class="header-name">염승환 투자 클럽</span>
+            </div>
+            <button class="header-cta-btn" onclick="k2()">
+                <img src="img/kk.jpg" alt="kakao" style="width:32px; height:32px; border-radius:8px; object-fit:cover; vertical-align:middle; margin-right:6px;"> 친구 추가
+            </button>
+        </header>
+
+        <!-- ===== Hero ===== -->
+        <section class="hero">
+            <div class="hero-badge"><span class="live">●</span> 무료 가입 · 한정 멤버</div>
+
+            <div class="hero-banner">
+                <img src="img/123.png" alt="BAND 투자 클럽" onerror="this.style.display='none'">
+                <div class="hero-banner-overlay"></div>
+                <div class="hero-banner-tag"><i class="fa-solid fa-chart-line"></i> 실시간 시그널</div>
             </div>
 
-            <div class="policy-section">
-                <h2>1. Introducción y controlador de datos</h2>
-                <p><strong>FlexWork Pro</strong> (en adelante, "nosotros", "nuestro" o "la Plataforma") es una plataforma de servicios de trabajo remoto que conecta a trabajadores independientes con proyectos de tareas digitales. Esta Política de Privacidad describe cómo recopilamos, utilizamos, compartimos y protegemos tu información personal cuando visitas nuestro sitio web, utilizas nuestros servicios o interactúas con nosotros.</p>
-                <p><strong>Controlador de datos:</strong> FlexWork Pro LLC, con domicilio en 123 Business Plaza, Suite 456, Digital City, DC 12345, Estados Unidos. Somos los responsables del tratamiento de tus datos personales según lo establecido en esta política.</p>
-                <div class="highlight-box">
-                    <p><strong>Consentimiento:</strong> Al acceder a nuestro sitio web y utilizar nuestros servicios, aceptas la recopilación y el uso de tu información según lo descrito en esta Política de Privacidad. Si no estás de acuerdo, no utilices nuestros servicios.</p>
+            <div class="hero-mentor" onclick="k2()">
+                <div class="hero-mentor-avatar"><img src="img/mentor.jpg" alt="염승환" onerror="this.innerHTML='👨‍🏫'"></div>
+                <div class="hero-mentor-info">
+                    <div class="hero-mentor-name">염승환 교수</div>
+                    <div class="hero-mentor-role">(주)오타버스 대표이사 · 건국대학교 겸임교수</div>
+                    <div class="hero-mentor-badge"><i class="fa-solid fa-check-circle"></i> 주식 수익 200% 달성</div>
                 </div>
             </div>
 
-            <div class="policy-section">
-                <h2>2. Información que recopilamos</h2>
-                
-                <h3>2.1 Información personal que nos proporcionas</h3>
-                <ul>
-                    <li><strong>Datos de identidad:</strong> Nombre completo, fecha de nacimiento, documento de identidad (para verificación de edad y antifraude).</li>
-                    <li><strong>Datos de contacto:</strong> Dirección de correo electrónico, número de teléfono (incluyendo WhatsApp).</li>
-                    <li><strong>Datos financieros:</strong> Información bancaria o de cuenta de pago para la distribución de ganancias.</li>
-                    <li><strong>Datos de perfil:</strong> Foto de perfil, descripción personal, historial laboral y calificaciones (opcional).</li>
-                    <li><strong>Comunicaciones:</strong> Mensajes, consultas, encuestas y cualquier otra interacción con nuestro equipo de soporte.</li>
-                </ul>
+            <h1>자신있게 <em>한국 주식시장</em>을 탐색하세요!</h1>
+            <p class="hero-sub">프리미엄 주식 추천, 실시간 시그널, 일대일 안내까지 — <strong style="color:var(--gold-bright)">완전 무료</strong>로 제공합니다.</p>
 
-                <h3>2.2 Información recopilada automáticamente</h3>
-                <ul>
-                    <li><strong>Datos de navegación:</strong> Dirección IP, tipo de navegador, sistema operativo, idioma, zona horaria.</li>
-                    <li><strong>Datos de uso:</strong> Páginas visitadas, tiempo de permanencia, clics, desplazamientos y acciones realizadas en el sitio.</li>
-                    <li><strong>Datos de dispositivo:</strong> Modelo de dispositivo, identificador único, versión de sistema operativo.</li>
-                    <li><strong>Cookies y tecnologías similares:</strong> Utilizamos cookies para mejorar la experiencia del usuario, analizar el tráfico y mostrar contenido personalizado (más detalles en la sección 6).</li>
-                </ul>
-
-                <h3>2.3 Datos de ubicación</h3>
-                <p>Recopilamos tu ubicación aproximada (a nivel de ciudad o región) a través de tu dirección IP para cumplir con requisitos legales locales y adaptar nuestras ofertas. No recopilamos ubicación precisa sin tu consentimiento explícito.</p>
+            <div class="hero-stats-row">
+                <div class="hero-stat"><div class="hero-stat-num">73,000+</div><div class="hero-stat-lbl">회원</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">200%</div><div class="hero-stat-lbl">수익률</div></div>
+                <div class="hero-stat"><div class="hero-stat-num">무료</div><div class="hero-stat-lbl">평생</div></div>
             </div>
 
-            <div class="policy-section">
-                <h2>3. Base legal y fines del tratamiento</h2>
-                <p>Tratamos tus datos personales únicamente cuando existe una base legal válida, de acuerdo con el RGPD y otras normativas aplicables. Las bases legales que utilizamos son:</p>
-                <ul>
-                    <li><strong>Ejecución de un contrato:</strong> Cuando procesamos tu registro, gestionamos tareas y distribuimos pagos.</li>
-                    <li><strong>Consentimiento explícito:</strong> Para comunicaciones de marketing, uso de cookies no esenciales y procesamiento de datos sensibles.</li>
-                    <li><strong>Cumplimiento de una obligación legal:</strong> Para conservar registros fiscales, atender requerimientos judiciales y prevenir fraudes.</li>
-                    <li><strong>Interés legítimo:</strong> Para mejorar nuestros servicios, garantizar la seguridad de la plataforma y analizar tendencias de uso (siempre equilibrado con tus derechos).</li>
-                </ul>
-                <p><strong>Finalidades concretas:</strong></p>
-                <ul>
-                    <li><strong>Prestación del servicio:</strong> Crear y gestionar tu cuenta, verificar tu identidad, asignar tareas y procesar pagos.</li>
-                    <li><strong>Comunicación:</strong> Enviar notificaciones sobre tareas, actualizaciones de la plataforma y responder a tus consultas.</li>
-                    <li><strong>Seguridad y cumplimiento:</strong> Prevenir actividades fraudulentas, garantizar la integridad de la plataforma y cumplir con leyes aplicables.</li>
-                    <li><strong>Mejora continua:</strong> Analizar patrones de uso para optimizar la experiencia del usuario y desarrollar nuevas funcionalidades.</li>
-                    <li><strong>Marketing (con consentimiento):</strong> Enviar ofertas promocionales, boletines informativos y recomendaciones personalizadas.</li>
-                </ul>
+            <!-- Kakao Button: 친구 추가 -->
+            <button class="btn-kakao" onclick="k2()">
+                <span class="kakao-bubble"><img src="img/kk.jpg" alt="kakao" style="width:32px; height:32px; border-radius:8px; object-fit:cover;"></span>
+                카카오톡 친구 추가
+            </button>
+            <p class="hero-footnote">⚠️ 투자자만 참여 가능 · 주식시장 외 주제 금지</p>
+        </section>
+
+        <!-- ===== Section: 무료 혜택 ===== -->
+        <section class="sec sec-dark reveal">
+            <div class="sec-label">무료 혜택</div>
+            <h2 class="sec-title">회원 전용 무료 서비스</h2>
+            <div class="check-list">
+                <div class="check-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><div class="check-text"><strong>무료</strong> 프리미엄 주식 및 선물 추천</div></div>
+                <div class="check-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><div class="check-text"><strong>무료</strong> 실시간 주식·옵션·선물 신호</div></div>
+                <div class="check-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><div class="check-text"><strong>무료</strong> 위험 최소화 주식 및 선물 진단</div></div>
+                <div class="check-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><div class="check-text"><strong>무료</strong> 주식 선택 및 선물 일대일 안내</div></div>
+                <div class="check-item"><div class="check-icon"><i class="fa-solid fa-check"></i></div><div class="check-text"><strong>무료</strong> 캔들스틱 기술적 분석 가이드</div></div>
             </div>
+            <div class="alert-box">
+                <p>⚠️ <strong style="color:var(--gold-bright)">노타:</strong> 이 카카오톡 채널에는 투자자만 참여할 수 있습니다. 주식시장과 관련없는 주제에 대한 논의는 금지되어 있어 투자자가 아닌 분들에게는 적합하지 않을 수 있습니다.</p>
+            </div>
+        </section>
 
-            <div class="policy-section">
-                <h2>4. Compartición y divulgación de información</h2>
-                
-                <h3>4.1 Proveedores de servicios externos</h3>
-                <p>Compartimos información con terceros de confianza que actúan como encargados del tratamiento para:</p>
-                <ul>
-                    <li>Procesamiento de pagos (ej. Stripe, PayPal).</li>
-                    <li>Verificación de identidad (servicios antifraude).</li>
-                    <li>Alojamiento en la nube y almacenamiento seguro (AWS, Google Cloud).</li>
-                    <li>Herramientas de comunicación (WhatsApp Business API, servicios de correo electrónico).</li>
-                    <li>Análisis web (Google Analytics) y optimización del rendimiento.</li>
-                </ul>
-                <p>Todos nuestros proveedores están sujetos a acuerdos de confidencialidad y solo procesan datos según nuestras instrucciones.</p>
-
-                <h3>4.2 Socios comerciales</h3>
-                <p>Podemos compartir información limitada con empresas que ofrecen tareas dentro de la plataforma (ej. encuestas, revisión de contenido). Estos socios reciben solo los datos necesarios para la ejecución de las tareas y no pueden utilizarlos para otros fines.</p>
-
-                <h3>4.3 Obligaciones legales</h3>
-                <p>Divulgaremos información cuando sea requerido por ley, orden judicial o para:</p>
-                <ul>
-                    <li>Cumplir con procesos legales válidos.</li>
-                    <li>Proteger los derechos, propiedad o seguridad de FlexWork Pro, nuestros usuarios o el público.</li>
-                    <li>Investigar y prevenir fraudes o actividades ilegales.</li>
-                </ul>
-                <div class="highlight-box">
-                    <p><strong>Importante:</strong> No vendemos, alquilamos ni intercambiamos tu información personal con terceros para sus fines de marketing sin tu consentimiento explícito.</p>
+        <!-- ===== Section: 강사 소개 ===== -->
+        <section class="sec reveal">
+            <div class="sec-label">강사를 만나보세요</div>
+            <h2 class="sec-title">염승환 교수</h2>
+            <div class="mentor-card" onclick="k2()">
+                <div class="mentor-card-avatar"><img src="img/mentor.jpg" alt="염승환" onerror="this.innerHTML='👨‍🏫'"></div>
+                <div class="mentor-card-info">
+                    <h3>염승환</h3>
+                    <p>안녕하세요, 저는 염승환입니다. 2005년 증권업계에 입문한 뒤 약 20년 동안 주식시장 분석과 투자자 교육을 해왔으며, 방송과 유튜브, 페이스북에서 쉽고 실용적인 투자 정보를 전하고 있습니다.</p>
                 </div>
             </div>
+        </section>
 
-            <div class="policy-section">
-                <h2>5. Seguridad de los datos</h2>
-                <p>Implementamos medidas técnicas y organizativas rigurosas para proteger tu información:</p>
-                <ul>
-                    <li><strong>Cifrado:</strong> Todos los datos sensibles se transmiten mediante TLS 1.3 y se almacenan cifrados con AES-256.</li>
-                    <li><strong>Controles de acceso:</strong> Acceso restringido al personal autorizado bajo el principio de "necesidad de conocer".</li>
-                    <li><strong>Auditorías regulares:</strong> Realizamos pruebas de penetración y evaluaciones de vulnerabilidad de forma periódica.</li>
-                    <li><strong>Capacitación:</strong> Todo el personal recibe formación anual en protección de datos y seguridad de la información.</li>
-                    <li><strong>Plan de respuesta a incidentes:</strong> Contamos con procedimientos para contener y notificar cualquier brecha de seguridad en el plazo legal establecido.</li>
-                </ul>
-                <p>A pesar de nuestros esfuerzos, ninguna transmisión por internet es 100% segura. Te recomendamos utilizar contraseñas robustas y mantener tu dispositivo actualizado.</p>
+        <!-- ===== Section: 무엇을 배울 수 있나요 ===== -->
+        <section class="sec sec-dark reveal">
+            <h2 class="sec-title">무엇을 배울 수 있나요</h2>
+            <div class="highlight-grid">
+                <div class="highlight-card"><div class="ico">🔥</div><p>주식 투자로 최고의 수익을 내는 방법</p></div>
+                <div class="highlight-card"><div class="ico">📊</div><p>저평가된 우량주 식별 및 시장 변동성 이익 활용법</p></div>
+                <div class="highlight-card"><div class="ico">📰</div><p>최신 주식 시장 뉴스와 주요 매매 전략</p></div>
+                <div class="highlight-card"><div class="ico">🔮</div><p>주식 수익 200% 달성을 위한 첨단 투자 통찰력</p></div>
             </div>
+            <p style="text-align:center;margin-top:14px;font-size:0.72rem;color:var(--white-dim)">73,000명 이상의 회원이 무료 서비스의 혜택을 누리고 있습니다. 기회는 제한되어 있습니다. <strong style="color:var(--gold-bright)">와서 우리와 함께 하세요!</strong></p>
+            <p style="text-align:center;margin-top:8px;font-size:0.75rem;color:var(--gold-bright);font-weight:700">2024년의 절반 이상이 지났지만 앞으로 몇 년은 경제적 자유를 달성하는 데 중요한 순간입니다!</p>
+            <button class="btn-kakao" onclick="k2()" style="margin-top:14px">
+                <span class="kakao-bubble"><img src="img/kk.jpg" alt="kakao" style="width:32px; height:32px; border-radius:8px; object-fit:cover;"></span>
+                카카오톡 친구 추가
+            </button>
+        </section>
 
-            <div class="policy-section">
-                <h2>6. Cookies y tecnologías de seguimiento</h2>
-                <p>Utilizamos cookies y tecnologías similares para mejorar la funcionalidad, analizar el tráfico y ofrecer una experiencia personalizada. Las categorías que empleamos son:</p>
-                <ul>
-                    <li><strong>Cookies esenciales:</strong> Necesarias para la navegación y seguridad (no requieren consentimiento).</li>
-                    <li><strong>Cookies de rendimiento:</strong> Recopilan información anónima sobre el uso del sitio para optimizar su rendimiento.</li>
-                    <li><strong>Cookies funcionales:</strong> Recuerdan tus preferencias (idioma, configuración de visualización).</li>
-                    <li><strong>Cookies de marketing:</strong> Se utilizan para mostrar anuncios relevantes (requieren tu consentimiento).</li>
-                </ul>
-                <p>Puedes gestionar tus preferencias de cookies en cualquier momento a través de la configuración de tu navegador o mediante nuestro panel de consentimiento (disponible en el pie de página del sitio). Al deshabilitar algunas cookies, ciertas funciones pueden verse afectadas.</p>
+        <!-- ===== Section: 가입 혜택 ===== -->
+        <section class="sec reveal">
+            <div class="sec-label">가입 혜택</div>
+            <h2 class="sec-title">카카오톡 친구 추가하면 얻을 수 있는 이점</h2>
+            <div class="benefit-list">
+                <div class="benefit-item"><div class="num">1</div><span>수익성 있는 투자자가 되는 법을 배우세요</span></div>
+                <div class="benefit-item"><div class="num">2</div><span>경제적 자유를 얻는 방법을 알아보세요</span></div>
+                <div class="benefit-item"><div class="num">3</div><span>한 달에 최소 ₩15,000,000를 버는 방법을 알아보세요</span></div>
             </div>
+            <button class="btn-kakao" onclick="k2()" style="margin-top:14px">
+                <span class="kakao-bubble"><img src="img/kk.jpg" alt="kakao" style="width:32px; height:32px; border-radius:8px; object-fit:cover;"></span>
+                카카오톡 친구 추가
+            </button>
+        </section>
 
-            <div class="policy-section">
-                <h2>7. Tus derechos de privacidad</h2>
-                <p>De acuerdo con el RGPD, CCPA y otras leyes aplicables, tienes los siguientes derechos sobre tus datos personales:</p>
-                <ul>
-                    <li><strong>Acceso:</strong> Solicitar una copia de la información que tenemos sobre ti.</li>
-                    <li><strong>Rectificación:</strong> Corregir datos inexactos o incompletos.</li>
-                    <li><strong>Supresión:</strong> Solicitar la eliminación de tus datos (derecho al olvido), sujeto a excepciones legales.</li>
-                    <li><strong>Limitación del tratamiento:</strong> Restringir el procesamiento de tus datos en determinadas circunstancias.</li>
-                    <li><strong>Portabilidad:</strong> Recibir tus datos en un formato estructurado y transferirlos a otro controlador.</li>
-                    <li><strong>Oposición:</strong> Oponerte al procesamiento con fines de marketing directo o basado en intereses legítimos.</li>
-                    <li><strong>Retirada del consentimiento:</strong> En cualquier momento, cuando el tratamiento se base en tu consentimiento.</li>
-                </ul>
-                <p><strong>¿Cómo ejercer tus derechos?</strong> Envía una solicitud por correo electrónico a <strong>privacy@flexworkpro.com</strong> indicando el derecho que deseas ejercer y adjuntando una copia de tu documento de identidad para verificar tu identidad. Responderemos en un plazo máximo de <strong>30 días</strong>.</p>
-                <div class="highlight-box">
-                    <p><strong>Derecho a reclamar:</strong> Si consideras que hemos vulnerado tus derechos, puedes presentar una reclamación ante la autoridad de protección de datos de tu país (en la UE, ante la Agencia Española de Protección de Datos u otra autoridad competente).</p>
+        <!-- ===== Section: 무엇을 배울 것인가 ===== -->
+        <section class="sec sec-dark reveal">
+            <h2 class="sec-title">무엇을 배울 것인가</h2>
+            <div class="learn-grid">
+                <div class="learn-item"><div class="ico"><i class="fa-solid fa-check-circle"></i></div><span>수익성 있는 거래를 위해 주식 및 선물 거래에서 우위를 점하는 방법</span></div>
+                <div class="learn-item"><div class="ico"><i class="fa-solid fa-check-circle"></i></div><span>재정적 자유를 위해 주식과 선물로 돈을 절약하는 방법</span></div>
+                <div class="learn-item"><div class="ico"><i class="fa-solid fa-check-circle"></i></div><span>AI 주식 및 선물 선택 도구를 사용하여 쉽게 수익을 창출하세요</span></div>
+                <div class="learn-item"><div class="ico"><i class="fa-solid fa-check-circle"></i></div><span>매일 10분 미만의 투자로 수익성 있는 주식 및 선물 트레이더가 되는 방법</span></div>
+                <div class="learn-item"><div class="ico"><i class="fa-solid fa-check-circle"></i></div><span>거래가 관리 가능하고 위험이 없는 활동이라고 믿는 방법</span></div>
+            </div>
+            <button class="btn-kakao" onclick="k2()" style="margin-top:14px">
+                <span class="kakao-bubble"><img src="img/kk.jpg" alt="kakao" style="width:32px; height:32px; border-radius:8px; object-fit:cover;"></span>
+                카카오톡 친구 추가
+            </button>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section class="sec reveal">
+            <div class="sec-label">FAQ</div>
+            <h2 class="sec-title">자주 묻는 질문</h2>
+            <div class="faq">
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">훈련 비용을 지불해야 합니까?<span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">아니요. OakCapital에서 제공하는 모든 교육은 완전 무료입니다. 우리의 목표는 재정적 부담 없이 트레이더에게 지식과 전략을 제공하는 것입니다.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">OakCapital™ 전략이 초보자에게 적합한가요?<span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">물론입니다! OakCapital™ 전략은 모든 수준의 거래자를 위해 설계되었습니다. 우리의 전략은 이해하기 쉬운 방식으로 설명되며 우리 팀은 거래 기술을 마스터하기 위한 여정에서 초보자를 지원하기 위해 최선을 다하고 있습니다.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">OakCapital™은 어떤 시장에 중점을 두고 있나요?<span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">OakCapital™은 다재다능하며 주식, 외환, 상품 등 다양한 시장에 적용될 수 있습니다. 우리의 전략은 다양한 시장 상황에 적응하도록 설계되어 다양한 금융 상품을 거래하는 거래자에게 유연성을 제공합니다.</div></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-q" onclick="toggleFaq(this)">OakCapital™으로 투자를 시작하려면 어떻게 해야 합니까?<span class="faq-icon"><i class="fa-solid fa-chevron-down"></i></span></button>
+                    <div class="faq-a"><div class="faq-a-inner">우리와 함께 투자 여정을 시작하려면 카카오톡을 통해 우리에게 연락하세요. 우리 팀은 지원 절차를 안내하고 전략을 효과적으로 구현하는 데 필요한 지원을 제공할 것입니다.</div></div>
                 </div>
             </div>
+        </section>
 
-            <div class="policy-section">
-                <h2>8. Transferencias internacionales de datos</h2>
-                <p>FlexWork Pro opera a nivel global, por lo que tus datos pueden ser transferidos a países fuera de tu residencia (incluyendo Estados Unidos). Para garantizar un nivel de protección adecuado, implementamos:</p>
-                <ul>
-                    <li>Decisiones de adecuación de la Comisión Europea para países con nivel de protección equivalente.</li>
-                    <li>Cláusulas contractuales estándar (SCC) aprobadas por la UE para transferencias a terceros países.</li>
-                    <li>Medidas adicionales de seguridad cuando sea necesario (ej. cifrado de extremo a extremo).</li>
-                </ul>
-                <p>Los países donde comúnmente procesamos datos incluyen: Estados Unidos, Irlanda, Alemania y Singapur. Puedes solicitar más detalles sobre las salvaguardas aplicadas contactando a nuestro Delegado de Protección de Datos.</p>
-            </div>
+        <!-- ===== CTA Section ===== -->
+        <section class="cta-section reveal">
+            <h2>우리의 전략을 배울 준비가 되셨나요?</h2>
+            <p>지금 문의하여 맞춤형 통찰력을 얻고 상거래 성공을 위한 여정을 시작해 보세요.</p>
+            <button class="btn-kakao" onclick="k2()" style="max-width:320px;margin:0 auto;">
+                <span class="kakao-bubble"><img src="img/kk.jpg" alt="kakao" style="width:32px; height:32px; border-radius:8px; object-fit:cover;"></span>
+                카카오톡 친구 추가
+            </button>
+        </section>
 
-            <div class="policy-section">
-                <h2>9. Retención de datos</h2>
-                <p>Conservamos tus datos personales solo durante el tiempo necesario para cumplir con los fines descritos, a menos que la ley exija o permita un período más largo. Los plazos específicos son:</p>
-                <ul>
-                    <li><strong>Datos de cuenta:</strong> Durante la vigencia de tu cuenta y hasta 3 años después del cierre, para posibles reclamaciones.</li>
-                    <li><strong>Registros financieros:</strong> 7 años para cumplir con obligaciones fiscales y contables.</li>
-                    <li><strong>Registros de comunicación:</strong> 2 años desde la última interacción.</li>
-                    <li><strong>Datos de análisis (anonimizados):</strong> Hasta 26 meses.</li>
-                    <li><strong>Documentos legales:</strong> Según lo requerido por cada jurisdicción.</li>
-                </ul>
-                <p>Una vez cumplidos estos plazos, tus datos serán eliminados o anonimizados de forma segura.</p>
-            </div>
+        <footer class="footer">
+            © 2026 카카오톡 투자 클럽 · 염승환 교수
+        </footer>
 
-            <div class="policy-section">
-                <h2>10. Privacidad de los niños</h2>
-                <p>Nuestros servicios están dirigidos exclusivamente a personas mayores de <strong>23 años</strong>. No recopilamos a sabiendas información de menores de edad. Si descubrimos que hemos recibido datos de un menor sin verificación parental, los eliminaremos de inmediato. Si eres padre/tutor y crees que tu hijo nos ha proporcionado información, contáctanos urgentemente.</p>
-            </div>
-
-            <div class="policy-section">
-                <h2>11. Enlaces a sitios de terceros</h2>
-                <p>Nuestro sitio web puede contener enlaces a plataformas externas (ej. redes sociales, sitios de pago). Esta Política de Privacidad no se aplica a dichos sitios. Te recomendamos leer sus propias políticas de privacidad antes de proporcionarles información personal.</p>
-            </div>
-
-            <div class="policy-section">
-                <h2>12. Cambios en esta Política de Privacidad</h2>
-                <p>Actualizaremos esta política periódicamente para reflejar cambios en nuestras prácticas, requisitos legales o tecnología. Cuando lo hagamos:</p>
-                <ul>
-                    <li>Modificaremos la fecha de "Última actualización" al inicio.</li>
-                    <li>Publicaremos la nueva versión en nuestro sitio web.</li>
-                    <li>Para cambios sustanciales, te notificaremos por correo electrónico o mediante un aviso destacado en la plataforma.</li>
-                    <li>El uso continuado de nuestros servicios tras la actualización implica tu aceptación de la nueva política.</li>
-                </ul>
-            </div>
-
-            <div class="policy-section">
-                <h2>13. Información de contacto</h2>
-                <p>Para cualquier consulta sobre privacidad, ejercicio de derechos o dudas sobre esta política, puedes contactarnos a través de los siguientes canales:</p>
-                <div class="contact-info">
-                    <p><strong>Correo electrónico:</strong> <a href="mailto:privacy@flexworkpro.com">privacy@flexworkpro.com</a></p>
-                    <p><strong>Delegado de Protección de Datos (DPO):</strong> <a href="mailto:dpo@flexworkpro.com">dpo@flexworkpro.com</a></p>
-                    <p><strong>WhatsApp:</strong> Disponible en nuestra plataforma (número visible en el sitio principal).</p>
-                    <p><strong>Dirección postal:</strong> FlexWork Pro Privacy Department, 123 Business Plaza, Suite 456, Digital City, DC 12345, EE.UU.</p>
-                    <p><strong>Tiempo de respuesta:</strong> Nos comprometemos a responder todas las solicitudes relacionadas con la privacidad en un plazo de <strong>30 días hábiles</strong>.</p>
-                </div>
-            </div>
-
-            <div class="policy-section">
-                <h2>14. Cumplimiento y certificaciones</h2>
-                <p>FlexWork Pro mantiene las siguientes certificaciones y estándares de cumplimiento:</p>
-                <ul>
-                    <li><strong>GDPR (UE):</strong> Cumplimos con todas las obligaciones del Reglamento General de Protección de Datos.</li>
-                    <li><strong>CCPA (California):</strong> Respetamos los derechos de los consumidores californianos según la Ley de Privacidad del Consumidor.</li>
-                    <li><strong>SOC 2 Tipo II:</strong> Auditoría independiente sobre seguridad, disponibilidad y confidencialidad.</li>
-                    <li><strong>ISO 27001:</strong> Sistema de gestión de seguridad de la información certificado.</li>
-                    <li><strong>Auditorías anuales:</strong> Evaluaciones externas para garantizar la mejora continua en protección de datos.</li>
-                </ul>
-                <div class="highlight-box">
-                    <p><strong>Compromiso:</strong> Trabajamos constantemente para superar los estándares de la industria y garantizar que tus datos estén siempre protegidos.</p>
-                </div>
-            </div>
+        <!-- ===== Float Bar ===== -->
+        <div class="float-bar">
+            <button class="float-btn" onclick="k2()">
+                <img src="img/kk.jpg" alt="kakao" style="width:36px; height:36px; border-radius:8px; object-fit:cover; vertical-align:middle; margin-right:6px;"> 카카오톡 친구 추가
+            </button>
         </div>
-    </main>
 
-    <footer>
-        <div class="container">
-            <div class="footer-links">
-                <a href="javascript:history.back()">← Volver al sitio principal</a>
-                <a href="terms.html">Términos de servicio</a>
-                <a href="cookies.html">Política de cookies</a>
-                <a href="privacy.html#contacto">Protección de datos</a>
-            </div>
-            <p>&copy; 2026 FlexWork Pro. Todos los derechos reservados. | Comprometidos con la protección de tu privacidad.</p>
-        </div>
-    </footer>
+    </div>
 
     <script>
-        // Smooth scrolling for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Intersection Observer for reveal animations
+        var ro = new IntersectionObserver(function(e) {
+            e.forEach(function(en) {
+                if (en.isIntersecting) {
+                    en.target.classList.add('on');
+                    ro.unobserve(en.target);
                 }
             });
+        }, { threshold: 0.1, rootMargin: '0px 0px -16px 0px' });
+        document.querySelectorAll('.reveal').forEach(function(el) {
+            ro.observe(el);
         });
+
+        // FAQ toggle
+        function toggleFaq(q) {
+            var p = q.closest('.faq-item');
+            var was = p.classList.contains('open');
+            document.querySelectorAll('.faq-item').forEach(function(i) {
+                i.classList.remove('open');
+            });
+            if (!was) p.classList.add('open');
+        }
     </script>
+
 </body>
 </html>
