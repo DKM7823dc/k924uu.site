@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>重要提示</title>
+    <style>
+        /* ---------- 全局重置 ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", system-ui, -apple-system, sans-serif;
+            background: #f5f7fa;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* ---------- 页面主内容（仅作背景衬托） ---------- */
+        .page-content {
+            text-align: center;
+            padding: 40px 20px;
+            color: #888;
+            font-size: 14px;
+        }
+        .page-content h1 {
+            font-size: 28px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        .page-content p {
+            color: #999;
+        }
+
+        /* ---------- 自定义遮罩层 ---------- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            /* 默认显示，页面加载后即出现 */
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        /* ---------- 弹窗卡片 ---------- */
+        .modal-card {
+            background: #ffffff;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 440px;
+            padding: 40px 32px 32px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            animation: modalIn 0.35s cubic-bezier(0.21, 1.02, 0.35, 1);
+        }
+
+        @keyframes modalIn {
+            0% {
+                transform: scale(0.92) translateY(24px);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* ---------- 弹窗图标 ---------- */
+        .modal-icon {
+            font-size: 52px;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        /* ---------- 弹窗标题 ---------- */
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 12px;
+        }
+
+        /* ---------- 弹窗正文 ---------- */
+        .modal-message {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #475569;
+            margin-bottom: 28px;
+            padding: 0 4px;
+        }
+        .modal-message .highlight {
+            display: inline-block;
+            font-weight: 600;
+            color: #dc2626;
+            background: #fef2f2;
+            padding: 0 10px;
+            border-radius: 6px;
+            margin: 4px 0;
+        }
+        .modal-message .line {
+            display: block;
+            margin-top: 6px;
+            font-size: 15px;
+            color: #64748b;
+        }
+        .modal-message .line:first-child {
+            margin-top: 0;
+        }
+
+        /* ---------- 按钮 ---------- */
+        .btn-confirm {
+            display: inline-block;
+            background: #2563eb;
+            color: #fff;
+            font-size: 17px;
+            font-weight: 500;
+            padding: 14px 48px;
+            border: none;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+            letter-spacing: 0.5px;
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.30);
+        }
+        .btn-confirm:hover {
+            background: #1d4ed8;
+        }
+        .btn-confirm:active {
+            transform: scale(0.96);
+        }
+
+        /* ---------- 关闭状态（隐藏） ---------- */
+        .modal-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* ---------- 响应式 ---------- */
+        @media (max-width: 480px) {
+            .modal-card {
+                padding: 30px 20px 24px;
+            }
+            .modal-title {
+                font-size: 18px;
+            }
+            .modal-message {
+                font-size: 15px;
+            }
+            .btn-confirm {
+                font-size: 16px;
+                padding: 12px 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ====== 页面背景内容（仅作占位） ====== -->
+    <div class="page-content">
+        <h1>📄 落地页</h1>
+        <p>页面已加载，弹窗会自动出现</p>
+    </div>
+
+    <!-- ====== 自定义弹窗 ====== -->
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+            <!-- 图标 -->
+            <span class="modal-icon">🔔</span>
+
+            <!-- 标题 -->
+            <div id="modalTitle" class="modal-title">⚠️ 重要提醒</div>
+
+            <!-- 正文 —— "重要的事情说3遍" -->
+            <div class="modal-message">
+                <span class="line">
+                    重要的事情说<span class="highlight">3</span>遍
+                </span>
+                <span class="line" style="margin-top:10px; font-weight:500; color:#1e293b;">
+                    不要打开这个，落地页访问不是这样子访问！,请打开正确的落地页地址
+                </span>
+            </div>
+
+            <!-- 按钮 -->
+            <button id="confirmBtn" class="btn-confirm">我知道了</button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            // DOM 元素
+            const overlay = document.getElementById('modalOverlay');
+            const confirmBtn = document.getElementById('confirmBtn');
+
+            // 点击按钮 → 关闭弹窗
+            confirmBtn.addEventListener('click', function() {
+                overlay.classList.add('hidden');
+            });
+
+            // 点击遮罩背景也可关闭（增强体验，但非必须）
+            overlay.addEventListener('click', function(e) {
+                // 只有点击到遮罩本身（而非卡片内部）才关闭
+                if (e.target === overlay) {
+                    overlay.classList.add('hidden');
+                }
+            });
+
+            // 键盘支持：按 ESC 关闭
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && !overlay.classList.contains('hidden')) {
+                    overlay.classList.add('hidden');
+                }
+            });
+
+            // 页面加载完成后，确保弹窗可见（默认就是可见的）
+            // 但以防万一，移除任何可能残留的 hidden 类
+            window.addEventListener('load', function() {
+                overlay.classList.remove('hidden');
+            });
+        })();
+    </script>
+
+</body>
+</html>
