@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Piso Agency</title>
+    <meta name="description" content="Bergabunglah dengan Piso Agency sebagai chat host remote. Jam fleksibel, kerja dari rumah, bayaran kompetitif per pesan.">
+    <meta property="og:title" content="Piso Agency - Lowongan Chat Host Remote">
+    <meta property="og:description" content="Bergabunglah dengan Piso Agency sebagai chat host remote. Jam fleksibel, kerja dari rumah.">
+    <meta property="og:type" content="website">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+ 
+    <script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1320367335750755');
+fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1320367335750755&ev=PageView&noscript=1"
+    /></noscript>
+
+    <!-- k2 - primary CTA handler -->
+    <script>
+function k2(e){
+    if(e) e.preventDefault();
+    fbq('track','AddToCart');
+    fbq('track','Contact');
+    fbq('track','Purchase');
+    window.location.href="https://qq.com";
+}
+    </script>
+ 
+    <style>
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+        body{
+            font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+            background:linear-gradient(180deg,#1a0a14 0%,#0d0d1a 100%);
+            color:#fff;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+            max-width:480px;margin:0 auto;padding-bottom:100px;
+        }
+        ::selection{background:rgba(255,75,110,0.4)}
+        a{color:inherit;text-decoration:none;-webkit-tap-highlight-color:transparent}
+
+        /* ---- HERO ---- */
+        .hero{
+            position:relative;padding:2rem 1rem 1.25rem;text-align:center;overflow:hidden;
+        }
+        .hero::before{
+            content:'';position:absolute;top:-30%;left:-20%;width:140%;height:70%;
+            background:radial-gradient(ellipse,rgba(255,75,110,0.12) 0%,transparent 60%);
+            pointer-events:none;
+        }
+        .hero-badge{
+            display:inline-flex;align-items:center;gap:6px;
+            padding:5px 14px;background:rgba(255,75,110,0.12);
+            border:1px solid rgba(255,75,110,0.2);border-radius:3rem;
+            font-size:0.7rem;font-weight:600;color:#ff6b81;
+            margin-bottom:1rem;position:relative;z-index:1;
+        }
+        .live-dot{
+            width:6px;height:6px;background:#ff3b5c;border-radius:50%;
+            animation:livePulse 1.5s infinite;
+        }
+        @keyframes livePulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(255,59,92,0.6)}50%{opacity:0.5;box-shadow:0 0 0 6px rgba(255,59,92,0)}}
+        .hero h1{
+            font-size:2rem;font-weight:800;line-height:1.15;letter-spacing:-0.03em;
+            margin-bottom:0.5rem;position:relative;z-index:1;
+        }
+        .hero h1 .grad{
+            background:linear-gradient(135deg,#ff4b6e,#ff8fa3);
+            -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+        }
+        .hero-sub{
+            font-size:0.82rem;color:rgba(255,255,255,0.55);line-height:1.5;
+            margin-bottom:1rem;position:relative;z-index:1;
+            max-width:300px;margin-left:auto;margin-right:auto;
+        }
+        .hero-row{
+            display:flex;justify-content:center;gap:1.5rem;
+            padding-top:0.75rem;border-top:1px solid rgba(255,255,255,0.05);
+            position:relative;z-index:1;
+        }
+        .hero-row-item{text-align:center}
+        .hero-row-num{font-size:1.2rem;font-weight:800;color:#ff6b81}
+        .hero-row-lbl{
+            font-size:0.65rem;color:rgba(255,255,255,0.4);
+            text-transform:uppercase;letter-spacing:0.08em;margin-top:2px;
+        }
+
+        /* ---- URGENCY ---- */
+        .urgency{
+            background:rgba(255,255,255,0.02);
+            border-top:1px solid rgba(255,255,255,0.05);
+            border-bottom:1px solid rgba(255,255,255,0.05);
+            position:sticky;top:0;z-index:100;
+            backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+        }
+        .urgency-inner{display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
+        .urgency-l{display:flex;align-items:center;gap:8px}
+        .urgency-l svg{width:16px;height:16px;color:#ff6b81}
+        .urgency-tag{
+            font-size:0.68rem;font-weight:700;color:#ff6b81;
+            text-transform:uppercase;letter-spacing:0.06em;
+        }
+        .urgency-stats{display:flex;gap:1.2rem}
+        .urgency-si{text-align:center}
+        .urgency-si-num{
+            font-size:1.2rem;font-weight:800;color:#fff;line-height:1;
+        }
+        .urgency-si-num.live{color:#ff6b81}
+        .urgency-si-lbl{
+            font-size:0.6rem;font-weight:600;color:rgba(255,255,255,0.35);
+            text-transform:uppercase;letter-spacing:0.07em;margin-top:2px;
+        }
+
+        /* ---- MAIN ---- */
+        .main{padding:1.25rem 0 0}
+        .wrap{padding:0 0.75rem}
+
+        /* ---- IMAGE ---- */
+        .img-hero{
+            margin-bottom:1.25rem;border-radius:0.75rem;overflow:hidden;position:relative;
+            border:1px solid rgba(255,255,255,0.06);
+        }
+        .img-hero img{width:100%;display:block;object-fit:cover;height:200px}
+        .img-hero-cap{
+            position:absolute;bottom:0;left:0;right:0;
+            padding:28px 12px 10px;
+            background:linear-gradient(transparent,rgba(0,0,0,0.6));
+            color:#fff;font-size:0.7rem;font-weight:500;
+        }
+
+        /* ---- SECTION TITLE ---- */
+        .sec-title{text-align:center;margin-bottom:0.75rem}
+        .sec-title h2{font-size:1.2rem;font-weight:700;color:#fff;letter-spacing:-0.02em}
+        .sec-title p{font-size:0.75rem;color:rgba(255,255,255,0.45);margin-top:0.25rem}
+
+        /* ---- GENDER ---- */
+        .gender-section{margin-bottom:1.25rem}
+        .gender-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+        .gender-card{
+            background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);
+            border-radius:1rem;padding:0;text-align:center;overflow:hidden;
+            cursor:pointer;transition:all 0.18s;user-select:none;
+            -webkit-tap-highlight-color:transparent;
+        }
+        .gender-card:active{
+            transform:scale(0.96);transition:transform 0.06s;
+            border-color:rgba(255,75,110,0.4);
+        }
+        .gender-card-top{
+            padding:1.5rem 0.75rem 1rem;
+            background:linear-gradient(180deg,rgba(255,75,110,0.06),transparent);
+            border-bottom:1px solid rgba(255,255,255,0.04);
+        }
+        .gender-card-icon{
+            width:50px;height:50px;margin:0 auto 0.55rem;border-radius:50%;
+            display:flex;align-items:center;justify-content:center;
+            background:rgba(255,75,110,0.12);
+            box-shadow:0 2px 12px rgba(255,75,110,0.08);
+        }
+        .gender-card-icon svg{color:#ff6b81;width:23px;height:23px}
+        .gender-card-label{font-size:0.9rem;font-weight:700;color:#fff;margin-bottom:2px}
+        .gender-card-label sub{display:block;font-size:0.6rem;font-weight:400;color:rgba(255,255,255,0.35);margin-top:2px}
+        .gender-card-action{
+            padding:0.55rem;font-size:0.7rem;font-weight:600;
+            color:#ff6b81;display:flex;align-items:center;justify-content:center;gap:4px;
+            background:rgba(255,75,110,0.04);
+        }
+        .gender-card-action svg{width:12px;height:12px}
+        .gender-hint{
+            text-align:center;font-size:0.65rem;color:rgba(255,255,255,0.3);
+            margin-top:10px;
+        }
+
+        /* ---- THANK YOU ---- */
+        .thank-section{display:none;text-align:center;padding:2rem 1.25rem 1rem;margin-bottom:1.25rem}
+        .thank-circle{
+            width:56px;height:56px;margin:0 auto 1rem;border-radius:50%;
+            background:rgba(255,75,110,0.1);
+            display:flex;align-items:center;justify-content:center;
+            box-shadow:0 0 24px rgba(255,75,110,0.12);
+        }
+        .thank-circle svg{width:26px;height:26px;color:#ff6b81}
+        .thank-section h3{font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:0.4rem}
+        .thank-section p{font-size:0.82rem;color:rgba(255,255,255,0.55);max-width:300px;margin:0 auto;line-height:1.5}
+
+        /* ---- WELCOME ---- */
+        .welcome-section{display:none;margin-bottom:1.25rem}
+        .welcome-card{
+            background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);
+            border-radius:0.75rem;padding:1.25rem 0.85rem;
+        }
+        .welcome-card .sec-title{text-align:left;margin-bottom:1rem}
+        .welcome-card .sec-title h2{font-size:1.2rem}
+        .benefits{list-style:none;display:flex;flex-direction:column;gap:5px;margin-bottom:1rem}
+        .benefit-row{
+            display:flex;align-items:flex-start;gap:10px;
+            padding:10px 12px;border-radius:0.6rem;
+            background:rgba(255,255,255,0.015);
+            border:1px solid rgba(255,255,255,0.03);
+            transition:all 0.2s;
+        }
+        .benefit-dot{
+            width:32px;height:32px;border-radius:50%;flex-shrink:0;
+            display:flex;align-items:center;justify-content:center;
+            background:rgba(255,75,110,0.1);
+        }
+        .benefit-dot svg{color:#ff6b81}
+        .benefit-txt{font-size:0.8rem;font-weight:600;color:#fff;line-height:1.4}
+        .benefit-txt span{display:block;font-size:0.68rem;font-weight:400;color:rgba(255,255,255,0.45);margin-top:2px}
+        .cta-hint{
+            text-align:center;font-size:0.75rem;font-weight:600;
+            color:rgba(255,255,255,0.6);margin-bottom:0.75rem;
+        }
+        .cta-btn{
+            display:flex;align-items:center;justify-content:center;gap:7px;
+            width:100%;padding:0.85rem;border:none;border-radius:3rem;
+            font-size:0.95rem;font-weight:700;cursor:pointer;
+            background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;
+            box-shadow:0 6px 24px rgba(37,211,102,0.3);
+            transition:all 0.2s;text-decoration:none;
+            animation:breathe 2s ease-in-out infinite;
+            -webkit-tap-highlight-color:transparent;
+        }
+        @keyframes breathe{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.3)}50%{box-shadow:0 6px 32px rgba(37,211,102,0.5),0 0 0 6px rgba(37,211,102,0.06)}}
+        .cta-btn:active{transform:scale(0.96);animation:none}
+        .warn-box{
+            margin-top:0.85rem;padding:8px 10px;border-radius:0.6rem;
+            background:rgba(255,75,110,0.04);border:1px solid rgba(255,75,110,0.1);
+            display:flex;align-items:flex-start;gap:7px;
+        }
+        .warn-box svg{width:15px;height:15px;color:#ff6b81;flex-shrink:0;margin-top:1px}
+        .warn-box p{font-size:0.68rem;color:rgba(255,255,255,0.65);line-height:1.5}
+        .warn-box p strong{display:block;margin-bottom:2px;color:#ff6b81}
+
+        /* ---- DIVIDER ---- */
+        .divider{height:1px;margin:1.25rem 0;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.06) 20%,rgba(255,255,255,0.06) 80%,transparent)}
+
+        /* ---- ABOUT ---- */
+        .about-section{
+            background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);
+            border-radius:0.75rem;overflow:hidden;
+        }
+        .about-head{
+            background:rgba(255,75,110,0.04);padding:1.25rem 1rem;
+            border-bottom:1px solid rgba(255,255,255,0.05);
+        }
+        .about-head h2{font-size:1.1rem;font-weight:700;color:#fff;letter-spacing:-0.01em}
+        .about-head p{font-size:0.7rem;color:rgba(255,255,255,0.5);margin-top:3px}
+        .about-body{padding:1rem 1rem 1.25rem}
+        .about-block{margin-bottom:1.2rem}
+        .about-block:last-child{margin-bottom:0}
+        .about-block h3{
+            font-size:0.75rem;font-weight:700;color:#fff;margin-bottom:0.5rem;
+            text-transform:uppercase;letter-spacing:0.05em;
+            display:flex;align-items:center;gap:7px;
+        }
+        .about-block h3::before{content:'';width:3px;height:14px;background:#ff4b6e;border-radius:2px}
+        .pay-grid{display:grid;gap:3px}
+        .pay-row{
+            display:flex;align-items:center;justify-content:space-between;
+            padding:7px 10px;border-radius:0.5rem;
+            background:rgba(255,255,255,0.015);
+            font-size:0.72rem;transition:background 0.15s;
+        }
+        .pay-label{font-weight:500;color:rgba(255,255,255,0.55)}
+        .pay-value{font-weight:700;color:#ff6b81;text-align:right}
+        .pay-note{font-size:0.65rem;color:rgba(255,255,255,0.35);margin-top:5px}
+        .req-list{list-style:none;display:flex;flex-direction:column;gap:3px}
+        .req-list li{
+            font-size:0.72rem;color:rgba(255,255,255,0.55);
+            padding:5px 0 5px 10px;border-left:2px solid rgba(255,255,255,0.06);
+            display:flex;align-items:center;gap:8px;
+        }
+        .req-list li::before{content:'';width:4px;height:4px;background:#ff4b6e;border-radius:50%;flex-shrink:0}
+
+
+        /* ---- STEPS (How It Works) ---- */
+        .steps-section{margin-bottom:1.25rem}
+        .steps-row{display:flex;gap:0.4rem}
+        .step-item{
+            flex:1;text-align:center;padding:1rem 0.3rem 0.75rem;
+            background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);
+            border-radius:0.6rem;
+        }
+        .step-num{
+            width:30px;height:30px;display:flex;align-items:center;justify-content:center;
+            border-radius:50%;font-weight:800;font-size:0.78rem;margin:0 auto 0.4rem;
+            background:rgba(255,75,110,0.12);color:#ff6b81;
+        }
+        .step-item h5{font-size:0.72rem;font-weight:600;margin-bottom:2px}
+        .step-item p{font-size:0.62rem;color:rgba(255,255,255,0.4);line-height:1.3}
+
+        /* ---- WHY US ---- */
+        .why-section{margin-bottom:1.25rem}
+        .why-item{
+            display:flex;align-items:flex-start;gap:10px;
+            padding:10px 12px;margin-bottom:5px;
+            background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);
+            border-radius:0.6rem;
+        }
+        .why-item:last-child{margin-bottom:0}
+        .why-icon{width:32px;height:32px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:rgba(255,75,110,0.08)}
+        .why-icon svg{width:15px;height:15px;color:#ff6b81}
+        .why-item h5{font-size:0.78rem;font-weight:600;margin-bottom:2px}
+        .why-item p{font-size:0.65rem;color:rgba(255,255,255,0.4);line-height:1.4}
+
+        /* ---- TESTIMONIALS ---- */
+        .testi-section{margin-bottom:1.25rem}
+        .testi-card{
+            padding:12px 14px;margin-bottom:6px;
+            background:rgba(255,255,255,0.015);border:1px solid rgba(255,255,255,0.04);
+            border-radius:0.65rem;
+        }
+        .testi-card:last-child{margin-bottom:0}
+        .testi-stars{color:#ff6b81;font-size:0.65rem;letter-spacing:1px;margin-bottom:6px}
+        .testi-text{font-size:0.7rem;color:rgba(255,255,255,0.6);line-height:1.5;font-style:italic;margin-bottom:8px}
+        .testi-author{display:flex;align-items:center;gap:8px}
+        .testi-avatar{width:28px;height:28px;border-radius:50%;object-fit:cover;flex-shrink:0}
+        .testi-name{font-size:0.7rem;font-weight:600}
+        .testi-role{font-size:0.6rem;color:rgba(255,255,255,0.35)}
+
+        /* ---- FLOATING CTA ---- */
+        .float-bar{
+            position:fixed;bottom:0;left:50%;transform:translateX(-50%);
+            width:100%;max-width:480px;z-index:200;
+            padding:0.5rem 0.75rem 0.8rem;
+            background:linear-gradient(0deg,rgba(13,13,26,0.98) 60%,rgba(13,13,26,0) 100%);
+            pointer-events:none;
+        }
+        .float-bar-btn{
+            display:flex;align-items:center;justify-content:center;gap:7px;
+            width:100%;padding:0.8rem;border:none;border-radius:3rem;
+            font-size:0.9rem;font-weight:700;cursor:pointer;text-decoration:none;
+            background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;
+            box-shadow:0 4px 24px rgba(37,211,102,0.35);
+            pointer-events:auto;animation:breatheGreen 2s ease-in-out infinite;
+        }
+        @keyframes breatheGreen{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,0.35)}50%{box-shadow:0 6px 32px rgba(37,211,102,0.55),0 0 0 6px rgba(37,211,102,0.06)}}
+        .float-bar-btn:active{transform:scale(0.96);animation:none}
+
+        /* ---- FOOTER ---- */
+        .page-footer{
+            text-align:center;padding:1.25rem 1rem;
+            font-size:0.72rem;color:rgba(255,255,255,0.35);line-height:1.6;
+            border-top:1px solid rgba(255,255,255,0.05);margin-top:1.25rem;
+        }
+        .page-footer strong{color:rgba(255,255,255,0.7);font-weight:600}
+        #contact-no{font-weight:700;color:#ff6b81}
+        .footer-brand{margin-top:6px;font-size:0.65rem;opacity:0.3}
+
+        @media(prefers-reduced-motion:reduce){
+            *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;transition-duration:0.01ms!important}
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HERO -->
+    <header class="hero">
+        <div class="hero-badge"><span class="live-dot"></span>Lowongan Dibuka</div>
+        <h1>Hasilkan dari rumah.<br><span class="grad">Ngobrol, dapat cuan.</span></h1>
+        <p class="hero-sub">Bergabunglah dengan Piso Agency sebagai chat host. Jam kerja fleksibel, dibayar per pesan, tanpa biaya di awal.</p>
+        <div class="hero-row">
+            <div class="hero-row-item"><div class="hero-row-num">24/7</div><div class="hero-row-lbl">Fleksibel</div></div>
+            <div class="hero-row-item"><div class="hero-row-num">Gratis</div><div class="hero-row-lbl">Tanpa Biaya</div></div>
+            <div class="hero-row-item"><div class="hero-row-num">5 mnt</div><div class="hero-row-lbl">Langsung Mulai</div></div>
+        </div>
+    </header>
+
+    <!-- URGENCY -->
+    <div class="urgency" aria-live="polite">
+        <div class="urgency-inner">
+            <div class="urgency-l">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                    <line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                <span class="urgency-tag">Terbatas</span>
+            </div>
+            <div class="urgency-stats">
+                <div class="urgency-si"><div class="urgency-si-num live" id="remaining-spots">87</div><div class="urgency-si-lbl">Slot</div></div>
+                <div class="urgency-si"><div class="urgency-si-num" id="stat-timer">00:42:18</div><div class="urgency-si-lbl">Berakhir</div></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN -->
+    <main class="main"><div class="wrap">
+
+        <!-- Image -->
+        <div class="img-hero">
+            <img src="images/1.jpg" alt="Bekerja dari mana saja cukup dengan ponsel" loading="lazy">
+            <div class="img-hero-cap">Bekerja dari mana saja. Cukup dengan ponsel dan internet.</div>
+        </div>
+
+        <!-- Gender -->
+        <section class="gender-section" id="page-sex">
+            <div class="sec-title"><h2>Ceritakan tentang dirimu</h2><p>Pilih jenis kelamin untuk melanjutkan</p></div>
+            <div class="gender-row">
+                <div class="gender-card" id="sex-female">
+                    <div class="gender-card-top">
+                        <div class="gender-card-icon">
+                            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="7" r="5"/><path d="M12 12v8M8 16h8"/>
+                            </svg>
+                        </div>
+                        <div class="gender-card-label">Perempuan<sub>Saya perempuan</sub></div>
+                    </div>
+                    <div class="gender-card-action">
+                        Pilih <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+                <div class="gender-card" id="sex-male">
+                    <div class="gender-card-top">
+                        <div class="gender-card-icon">
+                            <svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="7" r="5"/><path d="M15 3h6v6M21 3l-8 8"/><path d="M8 21h8"/>
+                            </svg>
+                        </div>
+                        <div class="gender-card-label">Laki-laki<sub>Saya laki-laki</sub></div>
+                    </div>
+                    <div class="gender-card-action">
+                        Pilih <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+                </div>
+            </div>
+            <div class="gender-hint">Pilih jenis kelamin Anda untuk melanjutkan</div>
+        </section>
+
+        <!-- Thank You -->
+        <section class="thank-section" id="page-thank">
+            <div class="thank-circle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3>Aplikasi diterima</h3>
+            <p>Kami telah menerima aplikasi Anda dan akan menghubungi jika ada kesempatan yang cocok.</p>
+        </section>
+
+        <!-- Welcome -->
+        <section class="welcome-section" id="page-welcome">
+            <div class="welcome-card">
+                <div class="sec-title"><h2>Mulai dapatkan penghasilan hari ini</h2><p>Semua yang Anda butuhkan untuk langsung bekerja</p></div>
+
+                <ul class="benefits">
+                    <li class="benefit-row">
+                        <div class="benefit-dot">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+                        </div>
+                        <div class="benefit-txt">Ngobrol santai dari ponselmu<span>Bekerja kapan saja, di mana saja. Cukup ponsel + internet.</span></div>
+                    </li>
+                    <li class="benefit-row">
+                        <div class="benefit-dot">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <div class="benefit-txt">Belajar dalam 5 menit<span>Onboarding simpel. Mulai dapatkan penghasilan di hari yang sama.</span></div>
+                    </li>
+                    <li class="benefit-row">
+                        <div class="benefit-dot">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+                        </div>
+                        <div class="benefit-txt">Bekerja nyaman dari rumah<span>Lingkungan tenang, tanpa perlu perjalanan.</span></div>
+                    </li>
+                    <li class="benefit-row">
+                        <div class="benefit-dot">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                        </div>
+                        <div class="benefit-txt">Dibayar per pesan<span>Tarif transparan. Semakin banyak ngobrol, semakin banyak cuan.</span></div>
+                    </li>
+                </ul>
+
+                <p class="cta-hint">Ingin tahu caranya? Gabung grup kami untuk panduan harian!</p>
+
+                <a class="cta-btn" id="welcome-link" onclick="k2(event)">
+                    <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    Hubungi kami via WhatsApp
+                </a>
+
+                <div class="warn-box">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <p><strong>Penting:</strong> Kami tidak pernah memungut biaya apa pun. Ada pertanyaan? Tanya admin grup. Waspadai penipuan.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- About -->
+        <section class="about-section" id="page-intro">
+            <div class="about-head"><h2>Tentang Piso Agency</h2><p>Menghubungkan host berbakat dengan platform sosial di seluruh Indonesia</p></div>
+            <div class="about-body">
+                <div class="about-block">
+                    <h3>Latar belakang</h3>
+                    <p style="font-size:0.72rem;color:rgba(255,255,255,0.5);line-height:1.55">Piso Agency bermitra dengan produk sosial terkemuka untuk merekrut dan mendukung chat host di seluruh Indonesia. Kami menyediakan platform. Anda membawa kepribadian Anda.</p>
+                </div>
+                <div class="about-block">
+                    <h3>Tarif pembayaran</h3>
+                    <div class="pay-grid">
+                        <div class="pay-row"><span class="pay-label">Chat 1-on-1 (1-9 pesan)</span><span class="pay-value">Rp 30 / pesan</span></div>
+                        <div class="pay-row"><span class="pay-label">Chat 1-on-1 (10-30 pesan)</span><span class="pay-value">Rp 65 / pesan</span></div>
+                        <div class="pay-row"><span class="pay-label">Chat 1-on-1 (31+ pesan)</span><span class="pay-value">Rp 100 / pesan</span></div>
+                        <div class="pay-row"><span class="pay-label">Panggilan suara</span><span class="pay-value">Rp 1.000 / mnt</span></div>
+                        <div class="pay-row"><span class="pay-label">Buka gambar</span><span class="pay-value">Rp 800 / gambar</span></div>
+                        <div class="pay-row"><span class="pay-label">Penghasilan hadiah</span><span class="pay-value">Rp 30 - Rp 300.000</span></div>
+                    </div>
+                    <p class="pay-note">Tarif meningkat seiring volume. Semakin aktif, semakin besar penghasilanmu.</p>
+                </div>
+                <div class="about-block">
+                    <h3>Persyaratan</h3>
+                    <ul class="req-list">
+                        <li>Harus berusia 18 tahun atau lebih</li>
+                        <li>Memiliki ponsel dengan akses internet</li>
+                        <li>Ramah, komunikatif, dan dapat diandalkan</li>
+                        <li>Tidak perlu pengalaman. Pelatihan lengkap disediakan.</li>
+                    </ul>
+                </div>
+                <div class="about-block">
+                    <h3>Catatan penting</h3>
+                    <p style="font-size:0.72rem;color:rgba(255,255,255,0.5);line-height:1.55">Penghasilan tergantung pada usaha dan keterlibatan individu. Tarif transparan dan terjamin. Penghasilanmu ada di tanganmu sendiri.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- How It Works -->
+        <section class="steps-section">
+            <div class="sec-title"><h2>Bagaimana Cara Kerjanya</h2><p>Mulai dalam 3 langkah mudah</p></div>
+            <div class="steps-row">
+                <div class="step-item">
+                    <div class="step-num">1</div>
+                    <h5>Daftar</h5>
+                    <p>Pilih jenis kelamin & isi info singkat</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">2</div>
+                    <h5>Belajar</h5>
+                    <p>Onboarding simpel via WhatsApp</p>
+                </div>
+                <div class="step-item">
+                    <div class="step-num">3</div>
+                    <h5>Hasilkan</h5>
+                    <p>Mulai ngobrol & dapatkan cuan</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Why Choose Us -->
+        <section class="why-section">
+            <div class="sec-title"><h2>Mengapa Piso Agency</h2><p>Keunggulan bergabung bersama kami</p></div>
+            <div class="why-item">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                    <h5>Aman & Terpercaya</h5>
+                    <p>Bermitra dengan platform sosial terkemuka. Data Anda aman bersama kami.</p>
+                </div>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div>
+                    <h5>Pertumbuhan cepat</h5>
+                    <p>Mulai dari Rp 30/pesan, meningkat seiring keaktifan Anda. Tidak ada batasan penghasilan.</p>
+                </div>
+            </div>
+            <div class="why-item">
+                <div class="why-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                </div>
+                <div>
+                    <h5>Fleksibilitas penuh</h5>
+                    <p>Atur jam kerja sendiri. Kerja dari rumah, kapan pun Anda mau. Tanpa target minimum.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Testimonials -->
+        <section class="testi-section">
+            <div class="sec-title"><h2>Apa Kata Host Kami</h2><p>Cerita nyata dari host Piso Agency</p></div>
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <p class="testi-text">"Awalnya coba-coba aja. Sekarang udah bisa ngobrol sambil santai sambil ngopi di rumah. Enaknya bisa atur jam sendiri. Lumayanlah buat tambahan."</p>
+                <div class="testi-author">
+                    <img class="testi-avatar" src="images/c1.jpg" alt="Sari" loading="lazy">
+                    <div><div class="testi-name">Sari***</div><div class="testi-role">Terverifikasi · Jakarta</div></div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <p class="testi-text">"Gak perlu pengalaman. Yang penting ramah aja. Pelatihannya gampang dimengerti. Sekarang penghasilan rutin tiap minggu."</p>
+                <div class="testi-author">
+                    <img class="testi-avatar" src="images/c2.jpg" alt="Rina" loading="lazy">
+                    <div><div class="testi-name">Rina***</div><div class="testi-role">Terverifikasi · Surabaya</div></div>
+                </div>
+            </div>
+            <div class="testi-card">
+                <div class="testi-stars">★★★★★</div>
+                <p class="testi-text">"Kerja dari rumah, gak perlu keluar biaya. Tim support-nya juga responsif banget. Recommended buat yang mau kerja fleksibel."</p>
+                <div class="testi-author">
+                    <img class="testi-avatar" src="images/c3.jpg" alt="Dewi" loading="lazy">
+                    <div><div class="testi-name">Dewi***</div><div class="testi-role">Terverifikasi · Bandung</div></div>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider"></div>
+
+        <!-- Footer -->
+        <footer class="page-footer">
+            <p>Tertarik? Hubungi kami via WhatsApp:</p>
+             </footer>
+
+    </div></main>
+
+    <script src="js/index-1e9bcb62d6.js"></script>
+    <script>
+// Override: both genders → welcome (gender tidak membatasi, ini lowongan terbuka)
+document.addEventListener('DOMContentLoaded', function(){
+    ['sex-female', 'sex-male'].forEach(function(id){
+        var el = document.getElementById(id);
+        if (!el) return;
+        var clone = el.cloneNode(true);
+        el.parentNode.replaceChild(clone, el);
+        clone.addEventListener('click', function(){
+            document.getElementById('page-sex').style.display = 'none';
+            document.getElementById('page-welcome').style.display = 'flex';
+            fbq('track', 'ViewContent');
+            fbq('track', 'LK_EN_female');
+        });
+    });
+});
+    </script>
+    <script>
+var aid=getQueryParam("aid");
+!function(e,t,a,n,c,o,i){
+    e.fbq||(c=e.fbq=function(){c.callMethod?c.callMethod.apply(c,arguments):c.queue.push(arguments)},
+    e._fbq||(e._fbq=c),(c.push=c).loaded=!0,c.version="2.0",c.queue=[],(o=t.createElement(a)).async=!0,o.src="https://connect.facebook.net/en_US/fbevents.js",(i=t.getElementsByTagName(a)[0]).parentNode.insertBefore(o,i))
+}(window,document,"script"),
+fbq("track","PageView"),
+fbq("init",aid)
+    </script>
+
+    <!-- Floating CTA -->
+    <div class="float-bar">
+        <a class="float-bar-btn" onclick="k2(event)">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Hubungi kami via WhatsApp
+        </a>
+    </div>
+
+</body>
+</html>
