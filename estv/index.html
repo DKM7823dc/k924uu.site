@@ -48,11 +48,7 @@ fetch(API_BASE+'/api/pixels?site='+encodeURIComponent(_site))
 // ========== k2 — 动态获取APK下载地址并跳转 ==========
 var _apkUrl = '';
 async function k2(source) {
-    fbq('track', 'AddToCart');
-    fbq('track', 'Contact');
- fbq('track', 'ViewContent');
- fbq('track', 'CompleteRegistration');
-    fbq('track', 'Purchase');
+
 
     try {
         if (!_apkUrl) {
