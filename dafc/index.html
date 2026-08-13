@@ -167,17 +167,30 @@ src="https://www.facebook.com/tr?id=2494069564423132&ev=PageView&noscript=1"
     @keyframes chatPulse{0%,100%{box-shadow:0 4px 20px rgba(50,200,150,0.35)}50%{box-shadow:0 6px 30px rgba(50,200,150,0.6),0 0 0 8px rgba(50,200,150,0.08)}}
 /* ---- Boot Screen ---- */
 #boot-overlay{position:fixed;inset:0;z-index:9999;background:linear-gradient(180deg,#1a0a14 0%,#0d0d1a 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;max-width:480px;margin:0 auto}
-.boot-logo{width:72px;height:72px;border-radius:22px;background:linear-gradient(135deg,#ff4b6e,#c44dff);display:flex;align-items:center;justify-content:center;font-size:36px;box-shadow:0 0 40px rgba(255,75,110,.35);animation:bootPulse 1.5s ease-in-out infinite}
-@keyframes bootPulse{0%,100%{box-shadow:0 0 40px rgba(255,75,110,.35)}50%{box-shadow:0 0 70px rgba(255,75,110,.6)}}
-#boot-overlay h2{font-size:20px;font-weight:700;color:#fff;margin:18px 0 4px;letter-spacing:.02em}
-#boot-overlay .boot-sub{font-size:11px;color:rgba(255,255,255,.4);margin-bottom:44px;letter-spacing:.06em}
+.boot-avatar-wrap{position:relative;width:130px;height:130px;margin-bottom:28px;flex:0 0 130px}
+.boot-avatar{width:130px;height:130px;border-radius:50%;object-fit:cover;position:relative;z-index:3;border:3px solid rgba(255,255,255,.18);display:block}
+.boot-ring{position:absolute;inset:-6px;border-radius:50%;border:2px solid rgba(255,75,110,.5);animation:ringExpand 1.6s ease-out infinite;z-index:1;pointer-events:none}
+.boot-ring:nth-child(2){animation-delay:.4s;inset:-14px;border-color:rgba(196,77,255,.4)}
+.boot-ring:nth-child(3){animation-delay:.8s;inset:-22px;border-color:rgba(255,75,110,.25)}
+.boot-ring:nth-child(4){animation-delay:1.2s;inset:-30px;border-color:rgba(196,77,255,.15)}
+@keyframes ringExpand{0%{transform:scale(.85);opacity:1}100%{transform:scale(1.2);opacity:0}}
+#boot-overlay .boot-vid-icon{position:absolute;bottom:2px;right:2px;z-index:4;width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#ff4b6e,#ff2d55);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(255,45,85,.5)}
+#boot-overlay .boot-vid-icon svg{width:16px;height:16px;fill:#fff}
+#boot-overlay h2{font-size:17px;font-weight:700;color:#fff;margin:0 0 4px;letter-spacing:.03em}
+#boot-overlay .boot-sub{font-size:12px;color:rgba(255,255,255,.55);margin-bottom:6px;letter-spacing:.04em}
+#boot-overlay .boot-status{font-size:11px;color:rgba(255,255,255,.35);margin-bottom:36px;display:flex;align-items:center;gap:5px}
+.boot-dot-anim{display:inline-flex;gap:3px}
+.boot-dot-anim span{width:4px;height:4px;border-radius:50%;background:rgba(255,75,110,.6);animation:dotBounce 1.2s ease-in-out infinite}
+.boot-dot-anim span:nth-child(2){animation-delay:.15s}
+.boot-dot-anim span:nth-child(3){animation-delay:.3s}
+@keyframes dotBounce{0%,60%,100%{opacity:.2;transform:translateY(0)}30%{opacity:1;transform:translateY(-4px)}}
 #boot-overlay .boot-bar{width:200px;height:3px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
 #boot-overlay .boot-bar i{display:block;height:100%;width:0;border-radius:3px;background:linear-gradient(90deg,#ff4b6e,#c44dff);transition:width .2s linear;box-shadow:0 0 10px rgba(255,75,110,.4)}
 #boot-overlay .boot-pct{font-size:12px;color:rgba(255,255,255,.35);margin-top:10px;font-family:monospace}
   </style>
 </head>
 <body>
-<div id="boot-overlay"><div class="boot-logo">❤️</div><h2>GhaVibe</h2><div class="boot-sub">FIND YOUR MATCH</div><div class="boot-bar"><i></i></div><div class="boot-pct">0%</div></div>
+<div id="boot-overlay"><div class="boot-avatar-wrap"><img class="boot-avatar" src="images/1-1.jpg" alt="avatar"><div class="boot-ring"></div><div class="boot-ring"></div><div class="boot-ring"></div><div class="boot-ring"></div><div class="boot-vid-icon"><svg viewBox="0 0 24 24"><path d="M17 10.5V7a1 1 0 00-1-1H5a1 1 0 00-1 1v10a1 1 0 001 1h11a1 1 0 001-1v-3.5l4 4v-11l-4 4z"/></svg></div></div><h2>1-on-1 Video Chat</h2><div class="boot-sub">Verified Profiles &middot; Safe &amp; Private</div><div class="boot-status">Connecting<span class="boot-dot-anim"><span></span><span></span><span></span></span></div><div class="boot-bar"><i></i></div><div class="boot-pct">0%</div></div>
 <!--
 <button class="chat-fab" onclick="k2(event)" aria-label="Contact Support"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg><span class="chat-badge">1</span></button>
 -->
